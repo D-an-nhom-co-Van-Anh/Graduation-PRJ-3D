@@ -25,7 +25,8 @@ public class Quest
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
         if (questStepPrefab != null)
         {
-            Object.Instantiate<GameObject>(questStepPrefab,partenTrans);
+            QuestStep step = Object.Instantiate<GameObject>(questStepPrefab,partenTrans).GetComponent<QuestStep>();
+            step.InitializedQuestStep(info.id);
         }
     }
     private GameObject GetCurrentQuestStepPrefab()
@@ -40,5 +41,9 @@ public class Quest
             Debug.Log("Error");
         }
         return questStepPrefab;
+    }
+    public QuestStateSave GetQuestData()
+    {
+        return new QuestStateSave(this.info.id, this.state);
     }
 }

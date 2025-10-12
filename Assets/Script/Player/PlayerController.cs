@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         input.Player.Interact.performed -= Interact_performed;
+        input.Disable();
     }
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -85,5 +86,9 @@ public class PlayerController : MonoBehaviour
 
             // -> hien UI 
         }
+    }
+    public void TestQuest()
+    {
+        GameManager_.Instance.GeTQuestManager().FinishQuest("Test2");
     }
 }

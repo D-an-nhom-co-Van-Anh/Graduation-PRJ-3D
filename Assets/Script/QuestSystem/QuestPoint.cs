@@ -5,7 +5,7 @@ public class QuestPoint : InteractableObj
     [SerializeField] private QuestInfoSO questInfoForPoint;
     private bool playerIsNear = false;
     private string questId;
-    private QuestState currentQuestState;
+    public QuestState currentQuestState;
 
     [Header("Config")]
     [SerializeField] private bool isStartPoint;
@@ -16,11 +16,11 @@ public class QuestPoint : InteractableObj
     }
     private void OnEnable()
     {
-        GameManager_.Instance.questEvent.onQuestStateChange += QuestStateChange;
+        GameEventsManager.instance.questEvent.onQuestStateChange += QuestStateChange;
     }
     private void OnDisable()
     {
-        GameManager_.Instance.questEvent.onQuestStateChange -= QuestStateChange;
+        GameEventsManager.instance.questEvent.onQuestStateChange -= QuestStateChange;
     }
     public override void Interact()
     {
@@ -30,11 +30,11 @@ public class QuestPoint : InteractableObj
         }
         if (currentQuestState.Equals(QuestState.CAN_START) && isStartPoint)
         {
-            GameManager_.Instance.questEvent.StartQuest(questId);
+            GameEventsManager.instance.questEvent.StartQuest(questId);
         }
         else if(currentQuestState.Equals(QuestState.CAN_FINISH) && isFinishPoint)
         {
-            GameManager_.Instance.questEvent.FinishQuest(questId);
+            GameEventsManager.instance.questEvent.FinishQuest(questId);
         }
     }
     public void QuestStateChange(Quest quest)
