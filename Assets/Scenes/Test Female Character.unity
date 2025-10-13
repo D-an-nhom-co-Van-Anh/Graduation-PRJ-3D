@@ -120,7 +120,10 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &25361294
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +156,9 @@ Transform:
   - {fileID: 1673522031}
   m_Father: {fileID: 259650768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &28252183
 GameObject:
@@ -264,7 +270,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &44449562
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +497,9 @@ Transform:
   - {fileID: 1539630542}
   m_Father: {fileID: 1744734753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &196684546
 GameObject:
@@ -598,7 +610,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &217873555
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +741,9 @@ Transform:
   - {fileID: 25361295}
   m_Father: {fileID: 875257707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &317466355
 GameObject:
@@ -853,7 +871,10 @@ MonoBehaviour:
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &334762507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1065,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1186719691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &513690382
 GameObject:
@@ -1167,6 +1191,7 @@ MonoBehaviour:
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &911477673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c620e51ca2c6a234cacaa0a2e264935e, type: 3}
@@ -1178,6 +1203,8 @@ Transform:
   m_PrefabInstance: {fileID: 1522675182}
   m_PrefabAsset: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &513723334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1789,9 @@ Transform:
   - {fileID: 875257707}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!114 &911477675
 MonoBehaviour:
@@ -1812,12 +1842,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 911477678}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!95 &911477678 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c620e51ca2c6a234cacaa0a2e264935e, type: 3}
   m_PrefabInstance: {fileID: 1522675182}
   m_PrefabAsset: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!95 &911477678
 Animator:
   serializedVersion: 7
@@ -1840,6 +1873,9 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!54 &911477679
 Rigidbody:
@@ -1890,7 +1926,10 @@ BoxCollider:
   m_Size: {x: 0.47544608, y: 1.791531, z: 0.40034086}
   m_Center: {x: -0.015425399, y: 0.8863397, z: 0.013750404}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &947415381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,6 +2526,9 @@ Transform:
   - {fileID: 1534442313}
   m_Father: {fileID: 630663231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1001 &1522675182
 PrefabInstance:
@@ -2565,7 +2607,10 @@ PrefabInstance:
       addedObject: {fileID: 911477675}
   m_SourcePrefab: {fileID: 100100000, guid: c620e51ca2c6a234cacaa0a2e264935e, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1534442312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3031,9 @@ Transform:
   - {fileID: 65118860}
   m_Father: {fileID: 1673522031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &2025505408
 GameObject:
@@ -3234,7 +3282,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &2057647988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,6 +3381,9 @@ Transform:
   - {fileID: 1070642790}
   m_Father: {fileID: 1256335969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
