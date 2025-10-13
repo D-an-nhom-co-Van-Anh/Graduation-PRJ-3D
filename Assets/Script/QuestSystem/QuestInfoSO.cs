@@ -11,7 +11,8 @@ public class QuestInfoSO : ScriptableObject
     [Header("Step")]
     public GameObject[] questStepPrefabs;
     [Header("Reward")]
-    public GameObject reward;
+    public float rewardMoney;
+    public GameObject rewardObject;
     // dam bao id la ten cua SO 
     private void OnValidate()
     {
