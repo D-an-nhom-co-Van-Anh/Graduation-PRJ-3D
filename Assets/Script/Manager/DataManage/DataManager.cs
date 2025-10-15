@@ -1,8 +1,8 @@
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Xml;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
-using Formatting = Unity.Plastic.Newtonsoft.Json.Formatting;
+using Formatting = Newtonsoft.Json.Formatting;
 
 namespace D.Editor
 {
