@@ -9,6 +9,7 @@ public class QuestEvent
         if (onStartQuest != null)
         {
             onStartQuest(id);
+            Debug.Log("QuestStart");
         }
     }
 
