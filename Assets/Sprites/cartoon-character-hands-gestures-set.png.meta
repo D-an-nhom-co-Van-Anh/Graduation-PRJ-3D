@@ -1,0 +1,427 @@
+fileFormatVersion: 2
+guid: cce64662752f7a94b9f36c8b77efb951
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_0
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1678
+        width: 388
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1e35479a34a7041b962efa56e96323
+      internalID: 126705541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_3
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 1604
+        width: 210
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8937b2fd97d2b6141b8d6ebdf3ad4f04
+      internalID: 1688927987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_5
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 1663
+        width: 316
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e036fccb1c39bb842a9bafac60128861
+      internalID: 2049357971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_6
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1260
+        width: 387
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a38351932615940bc2836e63ca90f6
+      internalID: 1934272049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_7
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1169
+        width: 224
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6bfd0c6235d764bbf5ea0d667af24a
+      internalID: 2096708456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_9
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 1242
+        width: 301
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61f95deb2683f1499f4eb635f969f85
+      internalID: 550606453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_13
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 746
+        width: 276
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45442efd6e8c78b4c83e7912f1850d0a
+      internalID: -76043231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_15
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 772
+        width: 267
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d466e964c2921444280c3dc46da9d06e
+      internalID: -1408336655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_16
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 1095
+        width: 64
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd0a4269284ebc4592ac76622d13a2e
+      internalID: -822865449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_17
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 799
+        width: 253
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b528fbc1bf0aa24887cc46107bcb905
+      internalID: -1952161935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_19
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 322
+        width: 240
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aadebbc0669cf5c488c77aeb36c9beb2
+      internalID: 167244847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_20
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 319
+        width: 293
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4c15fcbc2039a49bb962e707721fb2
+      internalID: -1231758501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartoon-character-hands-gestures-set_23
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 371
+        width: 295
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604793e2c2b95c64d9a8e1287ec8b7d5
+      internalID: 1572683356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 97be9aed81fd2e143bf48d651eafc34b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cartoon-character-hands-gestures-set_0: 126705541
+      cartoon-character-hands-gestures-set_1: 1226807540
+      cartoon-character-hands-gestures-set_10: 938545545
+      cartoon-character-hands-gestures-set_11: 1588463472
+      cartoon-character-hands-gestures-set_12: 1581694786
+      cartoon-character-hands-gestures-set_13: -76043231
+      cartoon-character-hands-gestures-set_14: 1781854853
+      cartoon-character-hands-gestures-set_15: -1408336655
+      cartoon-character-hands-gestures-set_16: -822865449
+      cartoon-character-hands-gestures-set_17: -1952161935
+      cartoon-character-hands-gestures-set_18: -1201668836
+      cartoon-character-hands-gestures-set_19: 167244847
+      cartoon-character-hands-gestures-set_2: 1885830982
+      cartoon-character-hands-gestures-set_20: -1231758501
+      cartoon-character-hands-gestures-set_21: -1461500093
+      cartoon-character-hands-gestures-set_22: -582699602
+      cartoon-character-hands-gestures-set_23: 1572683356
+      cartoon-character-hands-gestures-set_3: 1688927987
+      cartoon-character-hands-gestures-set_4: 1666673310
+      cartoon-character-hands-gestures-set_5: 2049357971
+      cartoon-character-hands-gestures-set_6: 1934272049
+      cartoon-character-hands-gestures-set_7: 2096708456
+      cartoon-character-hands-gestures-set_8: -1939111904
+      cartoon-character-hands-gestures-set_9: 550606453
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
