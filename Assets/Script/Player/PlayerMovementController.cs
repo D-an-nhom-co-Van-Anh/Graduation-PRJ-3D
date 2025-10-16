@@ -10,6 +10,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float runSpeed = 6f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float deceleration = 10f;
+    [SerializeField] private float maxStamina = 10f;
+    [SerializeField] private float staminaSubAmount = 0.1f;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 6f;
@@ -36,6 +38,9 @@ public class PlayerMovementController : MonoBehaviour
     private bool isRunning;
     private float currentSpeed;
     private bool wasGroundedLastFrame = true;
+    private float currentStamina;
+    private float staminaThreshold=0.5f;
+    
     // --- Input wrapper (giữ nguyên cách bạn dùng input/action) ---
     private Action input;
 
@@ -47,7 +52,7 @@ public class PlayerMovementController : MonoBehaviour
 
         // Khóa rotation vật lý để tránh Rigidbody tự xoay
         rb.freezeRotation = true;
-
+        currentStamina = maxStamina;
         input = new Action();
     }
 
@@ -59,6 +64,11 @@ public class PlayerMovementController : MonoBehaviour
         // --- Input ---
         Vector2 rawInput = input.Player.Move.ReadValue<Vector2>();
         isRunning = input.Player.Run.IsPressed();
+        // tru stamina khi chay
+        if (isRunning)
+        {
+            currentStamina = Mathf.Clamp(currentStamina - staminaSubAmount, 0, maxStamina);
+        }
 
         smoothedInput = Vector2.Lerp(smoothedInput, rawInput, Time.deltaTime * 10f);
         moveInput = smoothedInput;
@@ -75,6 +85,12 @@ public class PlayerMovementController : MonoBehaviour
         moveDirection = (camForward * moveInput.y + camRight * moveInput.x).normalized;
 
         currentSpeed = isRunning ? runSpeed : walkSpeed;
+        // stamina thap thi khong chay nhanh duoc
+        if (currentStamina <= staminaThreshold)
+        {
+            currentSpeed = walkSpeed;
+            isRunning = false;
+        }
 
         animController.UpdateMovement(moveInput, isRunning);
 
@@ -186,5 +202,9 @@ public class PlayerMovementController : MonoBehaviour
             // Dùng MovePosition để tương tác đúng với Rigidbody
             rb.MovePosition(rb.position + animator.deltaPosition);
         }
+    }
+    public void AddStamina(float value)
+    {
+        currentStamina = Mathf.Clamp(currentStamina + value, 0, maxStamina);
     }
 }
