@@ -20,12 +20,13 @@ public class ThrowBasketball : MonoBehaviour
 
     private bool isHoldingBall = false;
     private bool isPreparingThrow = false;
+    private bool isMovingToHand = false;
 
     private float prepareProgress = 0f;
     private float prepareSpeed = 1f;
     private float throwForce;
     private Coroutine resetCorountine;
-
+    
     private LineRenderer lineRenderer;
     public void Start()
     {
@@ -41,11 +42,14 @@ public class ThrowBasketball : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.F))
             {
+               
                 isPreparingThrow = true;
                 prepareProgress += Time.deltaTime * prepareSpeed;
                 prepareProgress = Mathf.Clamp01(prepareProgress);
 
                 throwForce = Mathf.Lerp(minForce, maxForce, prepareProgress);
+                Vector3 currentHoldPos = Vector3.Lerp(holdPoint, maxHoldPoint, prepareProgress);
+                ball.transform.localPosition = currentHoldPos;
             }
             else if (isPreparingThrow && Input.GetKeyUp(KeyCode.F))
             {
@@ -112,11 +116,12 @@ public class ThrowBasketball : MonoBehaviour
     }
     public void GetTheBallFromGround()
     {
-        if (isHoldingBall) return;
+        if (isHoldingBall || isMovingToHand) return;
         StartCoroutine(MoveBallToHand());
     }
     private IEnumerator MoveBallToHand()
     {
+        isMovingToHand = true;
         Transform playerGroup = Camera.main?.transform;
         Vector3 targetPos;
         Quaternion targetRot;
@@ -147,6 +152,7 @@ public class ThrowBasketball : MonoBehaviour
         ball.transform.localRotation = Quaternion.identity;
 
         isHoldingBall = true;
+        isMovingToHand = false;
     }
     public void Throw()
     {

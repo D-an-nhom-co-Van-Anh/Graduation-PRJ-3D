@@ -84,6 +84,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6226253186042548632}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1039936730803261473}
   m_SourcePrefab: {fileID: 100100000, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
 --- !u!1 &6222858608226572861 stripped
 GameObject:
@@ -143,7 +146,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6222858608226572861}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3ca0bb5388915ce4c8a16b15c3c4f761, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -264,3 +267,17 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1039936730803261473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6222858608226572861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a274d22a07e62c24983b23aecbd471f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomTriggerName: TriggerBall
+  resetTime: 0.6
