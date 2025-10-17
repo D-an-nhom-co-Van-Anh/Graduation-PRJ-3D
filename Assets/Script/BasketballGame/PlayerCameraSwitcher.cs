@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerCameraSwitcher : MonoBehaviour
 {
@@ -10,14 +11,20 @@ public class PlayerCameraSwitcher : MonoBehaviour
 
     [Header("Player Model (the visible mesh)")]
     public GameObject playerModel;
-
+    private ThrowBasketball throwBasketballScript;
     private bool isFirstPerson = false;
-
+    private void Start()
+    {
+        GameObject basketball = GameObject.Find("basketball");
+        throwBasketballScript = basketball.GetComponent<ThrowBasketball>();
+        
+    }
     void Update()
     {
         if (Keyboard.current.vKey.wasPressedThisFrame)
         {
             isFirstPerson = !isFirstPerson;
+            throwBasketballScript.ResetBallPosition();
             SwitchCamera();
         }
     }
@@ -40,5 +47,10 @@ public class PlayerCameraSwitcher : MonoBehaviour
             if (playerModel != null)
                 playerModel.SetActive(true);
         }
+    }
+
+    public bool IsFirstPersonView()
+    {
+        return isFirstPerson;
     }
 }
