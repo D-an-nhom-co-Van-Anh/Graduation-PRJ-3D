@@ -67,7 +67,7 @@ public class PlayerMovementController : MonoBehaviour
         // tru stamina khi chay
         if (isRunning)
         {
-            currentStamina = Mathf.Clamp(currentStamina - staminaSubAmount, 0, maxStamina);
+            currentStamina = Mathf.Clamp(currentStamina - staminaSubAmount*Time.deltaTime, 0, maxStamina);
         }
 
         smoothedInput = Vector2.Lerp(smoothedInput, rawInput, Time.deltaTime * 10f);
