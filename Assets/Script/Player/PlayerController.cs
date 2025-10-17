@@ -89,6 +89,6 @@ public class PlayerController : MonoBehaviour
     }
     public void TestQuest()
     {
-        GameManager_.Instance.GeTQuestManager().FinishQuest("Test2");
+        GameManager_.Instance.GetQuestManager().FinishQuest("Test2");
     }
 }
