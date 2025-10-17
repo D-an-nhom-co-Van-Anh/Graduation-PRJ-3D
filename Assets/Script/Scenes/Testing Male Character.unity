@@ -386,13 +386,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   runSpeed: 12
-  acceleration: 10
-  deceleration: 10
+  acceleration: 1
+  deceleration: 1
   maxStamina: 10
   staminaSubAmount: 0.1
-  jumpForce: 10
-  jumpForwardMultiplier: 2
-  useAnimationEvent: 1
+  jumpForce: 4
+  jumpForwardMultiplier: 0.5
+  useAnimationEvent: 0
   jumpDelay: 0
   cameraTransform: {fileID: 1533088197}
   moveDirection: {x: 0, y: 0, z: 0}
@@ -1038,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: model nam
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 57246ef9f2a48d446a28627e2ae7b2ac, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 57246ef9f2a48d446a28627e2ae7b2ac, type: 3}
     - target: {fileID: 5866666021909216657, guid: 57246ef9f2a48d446a28627e2ae7b2ac, type: 3}
       propertyPath: m_Controller
       value: 

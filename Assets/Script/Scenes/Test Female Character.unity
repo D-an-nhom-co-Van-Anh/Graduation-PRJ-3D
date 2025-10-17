@@ -389,9 +389,13 @@ PrefabInstance:
       value: model nu
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: c620e51ca2c6a234cacaa0a2e264935e, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: c620e51ca2c6a234cacaa0a2e264935e, type: 3}
+    - target: {fileID: 5866666021909216657, guid: c620e51ca2c6a234cacaa0a2e264935e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5a1120f7945ac284fa2c304494eae207, type: 2}
+      objectReference: {fileID: 9100000, guid: 884fe38f63cba0040936b0116b1702de, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -986,13 +990,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   runSpeed: 12
-  acceleration: 2
-  deceleration: 2
-  maxStamina: 1000
+  acceleration: 1
+  deceleration: 1
+  maxStamina: 10
   staminaSubAmount: 0.1
-  jumpForce: 6
-  jumpForwardMultiplier: 0.6
-  useAnimationEvent: 1
+  jumpForce: 4
+  jumpForwardMultiplier: 0.5
+  useAnimationEvent: 0
   jumpDelay: 0
   cameraTransform: {fileID: 1812773689}
   moveDirection: {x: 0, y: 0, z: 0}
@@ -1060,8 +1064,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.518343, y: 1.8065166, z: 0.31287497}
-  m_Center: {x: 0.003594458, y: 0.8849151, z: 0.058921427}
+  m_Size: {x: 0.44809192, y: 1.823755, z: 0.4500571}
+  m_Center: {x: -0.008168817, y: 0.9543706, z: 0.032996148}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
