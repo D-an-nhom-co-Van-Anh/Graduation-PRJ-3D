@@ -4,6 +4,7 @@ using UnityEngine;
 public class ThrowBasketball : MonoBehaviour
 {
     public GameObject ball;
+    private PlayerCameraSwitcher cameraSwitcher;
 
     [SerializeField] private float gravityForce = 40f;
     [SerializeField] private float throwAngle = 35f;
@@ -30,6 +31,8 @@ public class ThrowBasketball : MonoBehaviour
     private LineRenderer lineRenderer;
     public void Start()
     {
+        GameObject targetObj = GameObject.Find("BasketballTarget");
+        cameraSwitcher = targetObj.GetComponent<PlayerCameraSwitcher>();
         rb = ball.GetComponent<Rigidbody>();
         lineRenderer = GetComponentInChildren<LineRenderer>();
         rb.useGravity = false;
@@ -37,33 +40,35 @@ public class ThrowBasketball : MonoBehaviour
     }
     public void Update()
     {
-       
-        if (isHoldingBall)
+        if (cameraSwitcher.IsFirstPersonView() == true)
         {
-            if (Input.GetKey(KeyCode.F))
-            {
-               
-                isPreparingThrow = true;
-                prepareProgress += Time.deltaTime * prepareSpeed;
-                prepareProgress = Mathf.Clamp01(prepareProgress);
+            if (isHoldingBall)
+            {     
+                if (Input.GetKey(KeyCode.F))
+                {
 
-                throwForce = Mathf.Lerp(minForce, maxForce, prepareProgress);
-                Vector3 currentHoldPos = Vector3.Lerp(holdPoint, maxHoldPoint, prepareProgress);
-                ball.transform.localPosition = currentHoldPos;
+                    isPreparingThrow = true;
+                    prepareProgress += Time.deltaTime * prepareSpeed;
+                    prepareProgress = Mathf.Clamp01(prepareProgress);
+
+                    throwForce = Mathf.Lerp(minForce, maxForce, prepareProgress);
+                    Vector3 currentHoldPos = Vector3.Lerp(holdPoint, maxHoldPoint, prepareProgress);
+                    ball.transform.localPosition = currentHoldPos;
+                }
+                else if (isPreparingThrow && Input.GetKeyUp(KeyCode.F))
+                {
+                    isPreparingThrow = false;
+                    Throw();
+                    prepareProgress = 0f;
+                    throwForce = 25f;
+                }
             }
-            else if (isPreparingThrow && Input.GetKeyUp(KeyCode.F))
+            else
             {
-                isPreparingThrow = false;
-                Throw();
-                prepareProgress = 0f;
-                throwForce = 25f;
-            }
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.F))
-            {
-                GetTheBallFromGround();
+                if (Input.GetKey(KeyCode.F))
+                {
+                    GetTheBallFromGround();
+                }
             }
         }
     }
@@ -187,6 +192,10 @@ public class ThrowBasketball : MonoBehaviour
         {
             ball.transform.localPosition = originPosition;
         }
+    }
+    public void ResetBallPosition()
+    {
+        ball.transform.localPosition = originPosition;
     }
     public bool IsOnGround()
     {

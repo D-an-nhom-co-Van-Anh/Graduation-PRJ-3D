@@ -14,24 +14,19 @@ public class PlayerFPSController : MonoBehaviour
 
     void Start()
     {
-        // Khóa chu?t vào gi?a màn hình
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
     {
-        // L?y input chu?t t? Input System
         Vector2 mouseDelta = Mouse.current.delta.ReadValue() * sensitivity * Time.deltaTime;
 
-        // Xoay lên/xu?ng (tr?c X)
         xRotation -= mouseDelta.y;
         xRotation = Mathf.Clamp(xRotation, -verticalClamp, verticalClamp);
 
-        // Xoay trái/ph?i (tr?c Y)
         yRotation += mouseDelta.x;
 
-        // Gán rotation cho camera (chính object này)
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 }
