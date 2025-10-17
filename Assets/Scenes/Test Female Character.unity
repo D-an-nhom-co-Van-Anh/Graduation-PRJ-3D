@@ -985,9 +985,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  runSpeed: 7
-  acceleration: 10
-  deceleration: 10
+  runSpeed: 12
+  acceleration: 2
+  deceleration: 2
+  maxStamina: 1000
+  staminaSubAmount: 0.1
   jumpForce: 6
   jumpForwardMultiplier: 0.6
   useAnimationEvent: 1
