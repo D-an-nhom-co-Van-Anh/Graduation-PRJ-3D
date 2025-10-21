@@ -30,8 +30,8 @@ public class TypingEffects : MonoBehaviour
 
         // ✅ Thêm offset nhẹ để nhìn tự nhiên hơn (nếu muốn)
         Vector3 startOffset = new Vector3(
-            Random.Range(-5f, 15f),
-            Random.Range(-2f, 20f),
+            Random.Range(-50f, 50f),
+            Random.Range(-50f, 50f),
             0
         );
 
