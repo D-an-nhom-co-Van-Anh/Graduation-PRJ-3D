@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class TypingTimerAndReward : MonoBehaviour
@@ -20,8 +20,12 @@ public class TypingTimerAndReward : MonoBehaviour
     {
         timer = maxTimePerWord;
         UpdateUI();
+
         typingGameManager.OnWordCompleted += HandleWordCompleted;
         typingGameManager.OnNewWord += HandleNewWord;
+
+        // ✅ Nếu game đã khởi tạo từ rồi, tự bật timer cho từ đầu tiên
+        HandleNewWord();
     }
 
     void Update()
