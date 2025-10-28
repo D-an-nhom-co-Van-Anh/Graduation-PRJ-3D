@@ -8,14 +8,14 @@ public class MatchDisplay
     [Header("ID của cặp thẻ trùng")]
     public int cardID;
 
-    [Header("Ảnh effect trên màn chơi (UI Image hoặc SpriteRenderer)")]
+    [Header("GameObject chứa hình effect (UI Image hoặc SpriteRenderer)")]
     public GameObject effectObject;
+
+    [Header("Âm thanh khi xuất hiện (AudioClip riêng cho effect)")]
+    public AudioClip matchSound;
 
     [Header("Thời gian hiển thị (giây)")]
     public float displayDuration = 2f;
-
-    [Header("Âm thanh khi xuất hiện (tùy chọn)")]
-    public AudioClip matchSound;
 }
 
 public class CardMatchEffectDisplayManager : MonoBehaviour
@@ -25,11 +25,11 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
     [Header("Danh sách effect ứng với từng Card ID")]
     [SerializeField] private List<MatchDisplay> matchDisplays = new List<MatchDisplay>();
 
-    [Header("Audio Source phát âm thanh (có thể bỏ trống nếu không dùng)")]
-    [SerializeField] private AudioSource audioSource;
+    [Header("Nguồn phát âm thanh chung (sẽ dùng để PlayOneShot clip)")]
+    [SerializeField] private AudioSource globalAudioSource;
 
-    [Header("Hiệu ứng xuất hiện")]
-    [SerializeField] private float appearDuration = 0.5f;
+    [Header("Hiệu ứng DOTween")]
+    [SerializeField] private float appearDuration = 0.4f;
     [SerializeField] private float fadeOutDuration = 0.6f;
     [SerializeField] private float zoomScale = 1.2f;
     [SerializeField] private bool shakeCamera = true;
@@ -38,7 +38,14 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
     {
         Instance = this;
 
-        // Ẩn toàn bộ effect khi bắt đầu
+        // Nếu chưa có AudioSource, tự thêm
+        if (globalAudioSource == null)
+        {
+            globalAudioSource = gameObject.AddComponent<AudioSource>();
+            globalAudioSource.playOnAwake = false;
+        }
+
+        // Ẩn tất cả effect khi bắt đầu
         foreach (var display in matchDisplays)
         {
             if (display.effectObject != null)
@@ -53,7 +60,7 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Hiển thị effect tương ứng khi match, có animation DOTween, rồi tự biến mất.
+    /// Gọi khi match đúng 2 thẻ, sẽ hiển thị effect + phát âm thanh tương ứng.
     /// </summary>
     public void ShowEffect(int cardID)
     {
@@ -71,31 +78,28 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
             return;
         }
 
-        obj.SetActive(true);
-        obj.transform.localScale = Vector3.one * 0.8f;
         var cg = obj.GetComponent<CanvasGroup>();
         if (cg == null) cg = obj.AddComponent<CanvasGroup>();
+
+        obj.SetActive(true);
+        obj.transform.localScale = Vector3.one * 0.8f;
         cg.alpha = 0f;
 
         // 🔊 Phát âm thanh nếu có
-        if (audioSource != null && display.matchSound != null)
-            audioSource.PlayOneShot(display.matchSound);
+        if (display.matchSound != null && globalAudioSource != null)
+            globalAudioSource.PlayOneShot(display.matchSound);
 
-        // 🎬 Tạo animation bằng DOTween
+        // 🎬 Animation DOTween: fade in → giữ → fade out
         Sequence seq = DOTween.Sequence();
 
-        // Fade in + zoom
         seq.Append(cg.DOFade(1f, appearDuration).SetEase(Ease.OutQuad));
         seq.Join(obj.transform.DOScale(zoomScale, appearDuration).SetEase(Ease.OutBack));
 
-        // Giữ trên màn hình
         seq.AppendInterval(display.displayDuration);
 
-        // Fade out + thu nhỏ lại
         seq.Append(cg.DOFade(0f, fadeOutDuration).SetEase(Ease.InQuad));
-        seq.Join(obj.transform.DOScale(0.6f, fadeOutDuration).SetEase(Ease.InBack));
+        seq.Join(obj.transform.DOScale(0.7f, fadeOutDuration).SetEase(Ease.InBack));
 
-        // Khi hoàn tất → tắt object
         seq.OnComplete(() =>
         {
             obj.SetActive(false);
@@ -118,7 +122,7 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Reset toàn bộ effect (ví dụ khi restart game).
+    /// Reset tất cả effect về trạng thái ẩn (khi restart game).
     /// </summary>
     public void ResetAllEffects()
     {
