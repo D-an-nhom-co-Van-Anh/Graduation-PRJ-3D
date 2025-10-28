@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float acceleration = 10f;   
-    [SerializeField] private float deceleration = 10f;   
+    [SerializeField] private float deceleration = 10f;
+    [SerializeField] private PlayerAnimationController animationController;
     private Vector3 currentVelocity; // dung cho SmoothDamp
     private Vector2 moveDir;
     private Vector3 dir;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 targetVelocity;
     private Vector3 smoothVelocity;
     private Vector3 flatVel;
+    private FB_Ball scriptBall;
     void Start()
     {
         input = new InputSystem_Actions();
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
         camRight = cameraTransform.right;
         camRight.y = 0;
         camRight.Normalize();
-      
+        animationController.UpdateMovement(moveDir, true);
         // Chuyen input WASD sang world space dua tren camera
         dir = camForward * moveDir.y + camRight * moveDir.x;
     }
