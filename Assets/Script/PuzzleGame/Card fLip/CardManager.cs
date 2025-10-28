@@ -9,9 +9,26 @@ public class CardManager : MonoBehaviour
     // Danh sách các lá đang được lật
     private List<CardFlipEffect> flippedCards = new List<CardFlipEffect>();
 
+    // Biến khóa input trong khi đang kiểm tra
+    private bool checkingMatch = false;
+
+    [Header("Thời gian chờ trước khi kiểm tra (giây)")]
+    [SerializeField] private float delayBeforeCheck = 1f;
+
+    [Header("Thời gian chờ sau khi lật sai (giây)")]
+    [SerializeField] private float delayAfterWrong = 0.3f;
+
     private void Awake()
     {
         Instance = this;
+    }
+
+    /// <summary>
+    /// Kiểm tra xem có thể lật thêm lá bài mới hay không.
+    /// </summary>
+    public bool CanFlipCard()
+    {
+        return !checkingMatch && flippedCards.Count < 2;
     }
 
     /// <summary>
@@ -19,8 +36,9 @@ public class CardManager : MonoBehaviour
     /// </summary>
     public void RegisterFlip(CardFlipEffect card)
     {
-        // Nếu đã có 2 lá đang mở, không nhận thêm click
-        if (flippedCards.Count >= 2) return;
+        // Nếu đang kiểm tra hoặc đã đủ 2 lá, bỏ qua
+        if (checkingMatch || flippedCards.Count >= 2)
+            return;
 
         flippedCards.Add(card);
 
@@ -36,8 +54,10 @@ public class CardManager : MonoBehaviour
     /// </summary>
     private IEnumerator CheckMatch()
     {
-        // Cho người chơi thấy trong 1 giây trước khi xử lý
-        yield return new WaitForSeconds(1f);
+        checkingMatch = true;
+
+        // Cho người chơi thấy trong một khoảng thời gian trước khi xử lý
+        yield return new WaitForSeconds(delayBeforeCheck);
 
         var first = flippedCards[0];
         var second = flippedCards[1];
@@ -47,15 +67,25 @@ public class CardManager : MonoBehaviour
             // ✅ Giống nhau
             first.HideCard();
             second.HideCard();
+
+            // Gọi hiệu ứng tương ứng với cardID nếu có
+            if (CardMatchEffectManager.Instance != null)
+                CardMatchEffectManager.Instance.PlayEffect(first.cardID);
+
+            flippedCards.Clear();
+            checkingMatch = false;
         }
         else
         {
             // ❌ Không trùng → lật ngược lại
             first.FlipBack();
             second.FlipBack();
-        }
 
-        // Làm sạch danh sách
-        flippedCards.Clear();
+            // Đợi thêm chút thời gian để tránh spam click
+            yield return new WaitForSeconds(delayAfterWrong);
+
+            flippedCards.Clear();
+            checkingMatch = false;
+        }
     }
 }

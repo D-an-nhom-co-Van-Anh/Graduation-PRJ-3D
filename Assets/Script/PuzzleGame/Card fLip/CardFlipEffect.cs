@@ -11,15 +11,20 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
     private bool flipped = false;
     private bool matched = false;
 
-
     [SerializeField] private Image frontImage;
     [SerializeField] private Image backImage;
+
     /// <summary>
     /// Xử lý khi người chơi click vào lá bài.
     /// </summary>
     public void OnPointerClick(PointerEventData eventData)
     {
+        // Nếu đã khớp hoặc đang lật thì bỏ qua
         if (matched || flipped) return;
+
+        // 🔒 Hỏi CardManager xem có cho phép lật không
+        if (!CardManager.Instance.CanFlipCard())
+            return;
 
         Debug.Log($"Clicked on card: {name}");
         Flip();
