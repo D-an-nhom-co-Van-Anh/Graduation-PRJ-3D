@@ -68,6 +68,11 @@ public class CardManager : MonoBehaviour
             first.HideCard();
             second.HideCard();
 
+
+            // ✅ Gọi hiển thị effect tương ứng trên màn chơi
+            if (CardMatchEffectDisplayManager.Instance != null)
+                CardMatchEffectDisplayManager.Instance.ShowEffect(first.cardID);
+
             // Gọi hiệu ứng tương ứng với cardID nếu có
             if (CardMatchEffectManager.Instance != null)
                 CardMatchEffectManager.Instance.PlayEffect(first.cardID);
