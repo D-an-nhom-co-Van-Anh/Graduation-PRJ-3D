@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57caed5dc05cbf498d419707c315078, type: 3}
-  m_Name: Test2
+  m_Script: {fileID: 11500000, guid: c2ec3a56154db9146bbd1aeea6c69b1b, type: 3}
+  m_Name: GameEvents
   m_EditorClassIdentifier: 
-  <id>k__BackingField: Test2
-  displayName: 
-  questPrerequisites:
-  - {fileID: 0}
-  - {fileID: 0}
-  questStepPrefabs:
-  - {fileID: 0}
-  rewardMoney: 0
-  rewardObject: {fileID: 0}
+  CurrentFinalScore: 0
+  StartupHighscore: 0
