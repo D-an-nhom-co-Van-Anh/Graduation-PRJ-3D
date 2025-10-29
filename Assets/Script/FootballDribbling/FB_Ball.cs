@@ -141,42 +141,39 @@ public class FB_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!manager.IsOver)
+        if (transform.position.y < 0)
         {
-            if (transform.position.y < 0)
-            {
-                int error = 1;
-            }
-
-            if (ballOutOfFieldTimeOut > 0)
-            {
-                //ballOutOfFieldTimeOut -= Time.deltaTime;
-                //if (ballOutOfFieldTimeOut <= 0 && !Game.Instance.WaitingForKickOff)
-                //{
-                //   // TakeThrowIn();
-                //}
-            }
-            else
-            {
-                //CheckBallOutOfField();
-            }
-
-            //if (Game.Instance.PassDestinationPlayer != null)
-            //{
-            //    PassBall();
-            //}
-            //else if (Game.Instance.PlayerWithBall != null)
-            //{
-            //    transform.position = Game.Instance.PlayerWithBall.PlayerBallPosition.position;
-            //}
-            if (isWithPlayer)
-            {
-                Debug.Log("withPlayer");
-                transform.position = player.PlayerBallPosition.position;
-            }
-
-            UpdateBallSpeedAndRotation();
+            int error = 1;
         }
+
+        if (ballOutOfFieldTimeOut > 0)
+        {
+            //ballOutOfFieldTimeOut -= Time.deltaTime;
+            //if (ballOutOfFieldTimeOut <= 0 && !Game.Instance.WaitingForKickOff)
+            //{
+            //   // TakeThrowIn();
+            //}
+        }
+        else
+        {
+            //CheckBallOutOfField();
+        }
+
+        //if (Game.Instance.PassDestinationPlayer != null)
+        //{
+        //    PassBall();
+        //}
+        //else if (Game.Instance.PlayerWithBall != null)
+        //{
+        //    transform.position = Game.Instance.PlayerWithBall.PlayerBallPosition.position;
+        //}
+        if (isWithPlayer)
+        {
+            Debug.Log("withPlayer");
+            transform.position = player.PlayerBallPosition.position;
+        }
+
+        UpdateBallSpeedAndRotation();
     }
     public void SetBallWithPlayer(bool isWithPlayer,FB_PlayerController player)
     {

@@ -95,7 +95,6 @@ public class FB_PlayerController : MonoBehaviour
             shootdirection.y += 0.2f;
             hasBall = false;
             scriptBall.Shoot(shootdirection);
-            LooseBall();
         }
         if (timeShot > 0)
         {

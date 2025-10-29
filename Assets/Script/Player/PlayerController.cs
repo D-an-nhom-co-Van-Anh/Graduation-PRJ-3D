@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 10f;   
     [SerializeField] private float deceleration = 10f;
     [SerializeField] private PlayerAnimationController animationController;
-    [SerializeField] private FB_GameManager manager;
     private Vector3 currentVelocity; // dung cho SmoothDamp
     private Vector2 moveDir;
     private Vector3 dir;
@@ -45,49 +44,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!manager.IsOver)
-        {
-            moveDir = input.Player.Move.ReadValue<Vector2>().normalized;
-            camForward = cameraTransform.forward;
-            camForward.y = 0;
-            camForward.Normalize();
-            camRight = cameraTransform.right;
-            camRight.y = 0;
-            camRight.Normalize();
-            animationController.UpdateMovement(moveDir, true);
-            // Chuyen input WASD sang world space dua tren camera
-            dir = camForward * moveDir.y + camRight * moveDir.x;
-        }
-        else
-        {
-            animationController.UpdateMovement(Vector2.zero, false);
-        }
+        moveDir = input.Player.Move.ReadValue<Vector2>().normalized;
+        camForward = cameraTransform.forward;
+        camForward.y = 0;
+        camForward.Normalize();
+        camRight = cameraTransform.right;
+        camRight.y = 0;
+        camRight.Normalize();
+        animationController.UpdateMovement(moveDir, true);
+        // Chuyen input WASD sang world space dua tren camera
+        dir = camForward * moveDir.y + camRight * moveDir.x;
     }
     private void FixedUpdate()
     {
-        if (!manager.IsOver)
+        // Tinh van toc muc tieu
+        targetVelocity = dir * speed;
+
+        // Giu lai gravity
+        targetVelocity.y = rb.linearVelocity.y;
+
+        // Dung SmoothDamp de tang/giam toc
+        smoothVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref currentVelocity,
+            dir.sqrMagnitude > 0.01f ? 1f / acceleration : 1f / deceleration);
+
+        rb.linearVelocity = smoothVelocity;
+
+        // Xoay nhan vat theo huong di chuyen (neu co input)
+        flatVel.x = rb.linearVelocity.x;
+        flatVel.z = rb.linearVelocity.z;
+        flatVel.y = 0; 
+        if (flatVel.sqrMagnitude > 0.01f)
         {
-            // Tinh van toc muc tieu
-            targetVelocity = dir * speed;
-
-            // Giu lai gravity
-            targetVelocity.y = rb.linearVelocity.y;
-
-            // Dung SmoothDamp de tang/giam toc
-            smoothVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref currentVelocity,
-                dir.sqrMagnitude > 0.01f ? 1f / acceleration : 1f / deceleration);
-
-            rb.linearVelocity = smoothVelocity;
-
-            // Xoay nhan vat theo huong di chuyen (neu co input)
-            flatVel.x = rb.linearVelocity.x;
-            flatVel.z = rb.linearVelocity.z;
-            flatVel.y = 0;
-            if (flatVel.sqrMagnitude > 0.01f)
-            {
-                Quaternion targetRot = Quaternion.LookRotation(flatVel, Vector3.up);
-                rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, rotation * Time.fixedDeltaTime));
-            }
+            Quaternion targetRot = Quaternion.LookRotation(flatVel, Vector3.up);
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, rotation * Time.fixedDeltaTime));
         }
     }
     private void OnTriggerEnter(Collider other)

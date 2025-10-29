@@ -67,14 +67,7 @@ public class CurrencyManager : MonoBehaviour
     }
     public void SetCurrencyText()
     {
-        if (currencyTxt != null)
-        {
-            currencyTxt.SetText(Format(totalCurrency));
-        }
-        else
-        {
-            Debug.Log("No textMeshPro");
-        }
+        currencyTxt.SetText(Format(totalCurrency));
     }
 
 }
