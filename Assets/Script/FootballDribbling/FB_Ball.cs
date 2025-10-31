@@ -1,4 +1,4 @@
-using Unity.Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -189,6 +189,15 @@ public class FB_Ball : MonoBehaviour
         isWithPlayer = false;
         rigidbody.AddForce(shootdirection * (10 + 1f * 1f), ForceMode.Impulse);
         
+    }
+    public void ShootBall(Vector3 direction, float power)
+    {
+        rigidbody.linearVelocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+
+        // Add lực theo hướng
+        rigidbody.AddForce(direction * power, ForceMode.VelocityChange);
+        Debug.Log($"Shot ball! Power: {power:F2}, Dir: {direction}");
     }
     private void UpdateBallSpeedAndRotation()
     {
