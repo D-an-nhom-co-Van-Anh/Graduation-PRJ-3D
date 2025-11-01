@@ -31,6 +31,15 @@ public class FB_PlayerController : MonoBehaviour
     private bool takeThrowIn;
     private float shootingPower;
 
+    //temp
+    public float maxPower = 30f;         // Lực sút tối đa
+    public float chargeSpeed = 20f;      // Tốc độ nạp lực
+    public float upForce = 0.3f;         // Tỷ lệ nâng bóng (độ cao cú sút)
+
+    private float currentPower = 0f;
+    private bool charging = false;
+    private Vector3 shootDirection;
+
     public bool HasBall { get => hasBall; set => hasBall = value; }
     public Transform PlayerBallPosition { get => playerBallPosition; set => playerBallPosition = value; }
     public Transform PlayerCameraRoot { get => playerCameraRoot; set => playerCameraRoot = value; }
@@ -89,13 +98,38 @@ public class FB_PlayerController : MonoBehaviour
         //{
         //    CheckTakeBall();
         //}
-        if (Input.GetKeyDown(KeyCode.Space)&&hasBall)
+        /*  if (Input.GetKeyDown(KeyCode.Space)&&hasBall)
+          {
+              Vector3 shootdirection = transform.forward;
+              shootdirection.y += 0.2f;
+              hasBall = false;
+              scriptBall.Shoot(shootdirection);
+              LooseBall();
+          }*/
+        if (hasBall)
         {
-            Vector3 shootdirection = transform.forward;
-            shootdirection.y += 0.2f;
-            hasBall = false;
-            scriptBall.Shoot(shootdirection);
-            LooseBall();
+            if (Input.GetMouseButtonDown(0))
+            {
+                charging = true;
+                currentPower = 0f;
+            }
+
+            // Trong lúc giữ chuột, tăng lực dần
+            if (charging)
+            {
+                currentPower += chargeSpeed * Time.deltaTime;
+                currentPower = Mathf.Clamp(currentPower, 0, maxPower);
+            }
+
+            // Khi thả chuột trái, thực hiện sút
+            if (Input.GetMouseButtonUp(0))
+            {
+                charging = false;
+
+                // Lấy hướng sút từ camera + chuột
+                shootDirection = GetShootDirection();
+                scriptBall.ShootBall(shootDirection, currentPower);
+            }
         }
         if (timeShot > 0)
         {
@@ -126,6 +160,25 @@ public class FB_PlayerController : MonoBehaviour
             //    Game.Instance.PlayerWithBall.LooseBall(true);
             //}
             //Game.Instance.SetPlayerWithBall(this);
+        }
+    }
+    Vector3 GetShootDirection()
+    {
+        // Lấy ray từ camera đến điểm trỏ chuột
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            // Hướng từ bóng đến điểm chuột chỉ định
+            Vector3 dir = (hit.point - transformBall.position).normalized;
+            dir.y += upForce; // thêm độ cong
+            return dir.normalized;
+        }
+        else
+        {
+            // Nếu không chạm gì thì sút theo hướng camera
+            Vector3 dir = Camera.main.transform.forward;
+            dir.y += upForce;
+            return dir.normalized;
         }
     }
 
