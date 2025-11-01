@@ -143,10 +143,10 @@ public class QuizGameManager : MonoBehaviour
             : (isCorrect) ? QuizUIManager.ResolutionScreenType.Correct
             : QuizUIManager.ResolutionScreenType.Incorrect;
 
-        /*if (events.DisplayResolutionScreen != null)
+        if (events.DisplayResolutionScreen != null)
         {
             events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
-        }*/
+        }
 
         //AudioManager.Instance.PlaySound((isCorrect) ? "CorrectSFX" : "IncorrectSFX");
 
@@ -251,7 +251,7 @@ public class QuizGameManager : MonoBehaviour
     /// </summary>
     void LoadQuestions()
     {
-        Object[] objs = Resources.LoadAll("Questions", typeof(Question));
+        Object[] objs = Resources.LoadAll("QuizGame/Question", typeof(Question));
         _questions = new Question[objs.Length];
         for (int i = 0; i < objs.Length; i++)
         {

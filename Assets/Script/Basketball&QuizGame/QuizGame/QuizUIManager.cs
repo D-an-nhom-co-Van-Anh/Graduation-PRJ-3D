@@ -90,7 +90,7 @@ public class QuizUIManager : MonoBehaviour
     void OnEnable()
     {
         events.UpdateQuestionUI += UpdateQuestionUI;
-       // events.DisplayResolutionScreen += DisplayResolution;
+       events.DisplayResolutionScreen += DisplayResolution;
         events.ScoreUpdated += UpdateScoreUI;
     }
     /// <summary>
@@ -99,7 +99,7 @@ public class QuizUIManager : MonoBehaviour
     void OnDisable()
     {
         events.UpdateQuestionUI -= UpdateQuestionUI;
-        //events.DisplayResolutionScreen -= DisplayResolution;
+       events.DisplayResolutionScreen -= DisplayResolution;
         events.ScoreUpdated -= UpdateScoreUI;
     }
 

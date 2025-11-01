@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b4ddb0e216d42b43b9a869301da0dca, type: 3}
-  m_Name: New Question
+  m_Name: New Question 1
   m_EditorClassIdentifier: 
-  _info: 1+1=?
+  _info: 2+2=?
   _answers:
-  - _info: 2
-    _isCorrect: 1
   - _info: 4
+    _isCorrect: 1
+  - _info: 6
     _isCorrect: 0
-  - _info: 5
-    _isCorrect: 0
-  - _info: 7
+  - _info: 8
     _isCorrect: 0
   _useTimer: 1
   _timer: 10
