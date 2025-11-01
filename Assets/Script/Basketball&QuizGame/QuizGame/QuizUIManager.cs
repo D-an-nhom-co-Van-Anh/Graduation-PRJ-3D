@@ -65,17 +65,17 @@ public class QuizUIManager : MonoBehaviour
     public enum ResolutionScreenType { Correct, Incorrect, Finish }
 
     [Header("References")]
-    [SerializeField] GameEvents events = null;
+    [SerializeField] QuizGameEvents events = null;
 
     [Header("UI Elements (Prefabs)")]
-    [SerializeField] AnswerData answerPrefab = null;
+    [SerializeField] QuizAnswerData answerPrefab = null;
 
     [SerializeField] UIElements uIElements = new UIElements();
 
     [Space]
     [SerializeField] UIManagerParameters parameters = new UIManagerParameters();
 
-    private List<AnswerData> currentAnswers = new List<AnswerData>();
+    private List<QuizAnswerData> currentAnswers = new List<QuizAnswerData>();
     private int resStateParaHash = 0;
 
     private IEnumerator IE_DisplayTimedResolution = null;
@@ -117,7 +117,7 @@ public class QuizUIManager : MonoBehaviour
     /// <summary>
     /// Function that is used to update new question UI information.
     /// </summary>
-    void UpdateQuestionUI(Question question)
+    void UpdateQuestionUI(QuizQuestion question)
     {
         uIElements.QuestionInfoTextObject.text = question.Info;
         CreateAnswers(question);
@@ -143,7 +143,7 @@ public class QuizUIManager : MonoBehaviour
     }
     IEnumerator DisplayTimedResolution()
     {
-        yield return new WaitForSeconds(GameUtility.ResolutionDelayTime);
+        yield return new WaitForSeconds(QuizGameUtility.ResolutionDelayTime);
         uIElements.ResolutionScreenAnimator.SetInteger(resStateParaHash, 1);
         uIElements.MainCanvasGroup.blocksRaycasts = true;
     }
@@ -153,7 +153,7 @@ public class QuizUIManager : MonoBehaviour
     /// </summary>
     void UpdateResUI(ResolutionScreenType type, int score)
     {
-        var highscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        var highscore = PlayerPrefs.GetInt(QuizGameUtility.SavePrefKey);
 
         switch (type)
         {
@@ -197,14 +197,14 @@ public class QuizUIManager : MonoBehaviour
     /// <summary>
     /// Function that is used to create new question answers.
     /// </summary>
-    void CreateAnswers(Question question)
+    void CreateAnswers(QuizQuestion question)
     {
         EraseAnswers();
 
         float offset = 0 - parameters.Margins;
         for (int i = 0; i < question.Answers.Length; i++)
         {
-            AnswerData newAnswer = (AnswerData)Instantiate(answerPrefab, uIElements.AnswersContentArea);
+            QuizAnswerData newAnswer = (QuizAnswerData)Instantiate(answerPrefab, uIElements.AnswersContentArea);
             newAnswer.UpdateData(question.Answers[i].Info, i);
 
             newAnswer.Rect.anchoredPosition = new Vector2(0, offset);

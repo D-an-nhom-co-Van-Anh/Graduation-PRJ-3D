@@ -12,7 +12,7 @@ public struct Answer
     public bool IsCorrect { get { return _isCorrect; } }
 }
 [CreateAssetMenu(fileName = "New Question", menuName = "Quiz/new Question")]
-public class Question : ScriptableObject
+public class QuizQuestion : ScriptableObject
 {
 
     public enum AnswerType { Multi, Single }

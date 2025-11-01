@@ -2,13 +2,13 @@ using Unity.Multiplayer.Center.Common;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameEvents", menuName = "Quiz/new GameEvents")]
-public class GameEvents : ScriptableObject
+public class QuizGameEvents : ScriptableObject
 {
 
-    public delegate void UpdateQuestionUICallback(Question question);
+    public delegate void UpdateQuestionUICallback(QuizQuestion question);
     public UpdateQuestionUICallback UpdateQuestionUI = null;
 
-    public delegate void UpdateQuestionAnswerCallback(AnswerData pickedAnswer);
+    public delegate void UpdateQuestionAnswerCallback(QuizAnswerData pickedAnswer);
     public UpdateQuestionAnswerCallback UpdateQuestionAnswer = null;
 
     public delegate void DisplayResolutionScreenCallback(QuizUIManager.ResolutionScreenType type, int score);
