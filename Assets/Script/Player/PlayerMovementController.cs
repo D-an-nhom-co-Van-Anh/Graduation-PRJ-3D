@@ -47,6 +47,8 @@ public class PlayerMovementController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
         animController = GetComponent<PlayerAnimationController>();
         animator = GetComponent<Animator>() ?? GetComponentInChildren<Animator>();
 
@@ -125,8 +127,25 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    private bool IsBlocked()
+    {
+        // Raycast từ giữa thân người ra phía trước
+        return Physics.Raycast(transform.position + Vector3.up * 0.5f,
+                               transform.forward,
+                               out RaycastHit hit,
+                               0.5f,
+                               LayerMask.GetMask("wall")); // Hoặc Layer của môi trường
+    }
     private void FixedUpdate()
     {
+        // Nếu bị chặn trước mặt => không update velocity ngang
+        if (IsBlocked())
+        {
+            // Giữ nguyên vận tốc hiện tại (trừ Y để vẫn rơi tự nhiên)
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+            return;
+        }
+
         Vector3 targetVelocity = moveDirection * currentSpeed;
         targetVelocity.y = rb.linearVelocity.y;
 
@@ -137,22 +156,22 @@ public class PlayerMovementController : MonoBehaviour
             moveDirection.sqrMagnitude > 0.01f ? 1f / acceleration : 1f / deceleration
         );
 
-        // Nếu tốc độ ngang quá nhỏ thì dừng hẳn
+        // Dừng hẳn khi tốc độ ngang nhỏ
         Vector3 horizontal = rb.linearVelocity;
         horizontal.y = 0f;
         if (horizontal.magnitude < 0.1f)
             rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
 
-        // 🔹 Kiểm tra chuyển trạng thái từ trên không -> chạm đất
         bool grounded = IsGrounded();
         if (grounded && !wasGroundedLastFrame)
         {
-            // Vừa tiếp đất xong
-            animController.EndJump();  // 🔸 Gọi hàm reset anim Jump
+            animController.EndJump();
         }
 
         wasGroundedLastFrame = grounded;
     }
+
+
 
 
 
@@ -199,10 +218,17 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (animator != null && animator.applyRootMotion)
         {
-            // Dùng MovePosition để tương tác đúng với Rigidbody
-            rb.MovePosition(rb.position + animator.deltaPosition);
+            // Giới hạn quãng đường di chuyển của root motion mỗi frame
+            Vector3 delta = animator.deltaPosition;
+            float maxDistance = 0.6f; // tùy tốc độ run trong anim của bạn
+
+            if (delta.magnitude > maxDistance)
+                delta = delta.normalized * maxDistance;
+
+            rb.MovePosition(rb.position + delta);
         }
     }
+
     public void AddStamina(float value)
     {
         currentStamina = Mathf.Clamp(currentStamina + value, 0, maxStamina);
