@@ -10,10 +10,10 @@ public class QuizGameManager : MonoBehaviour
 
     #region Variables
 
-    private Question[] _questions = null;
-    public Question[] Questions { get { return _questions; } }
+    private QuizQuestion[] _questions = null;
+    public QuizQuestion[] Questions { get { return _questions; } }
 
-    [SerializeField] GameEvents events = null;
+    [SerializeField] QuizGameEvents events = null;
 
     [SerializeField] Animator timerAnimtor = null;
     [SerializeField] TextMeshProUGUI timerText = null;
@@ -21,7 +21,7 @@ public class QuizGameManager : MonoBehaviour
     [SerializeField] Color timerAlmostOutColor = Color.red;
     private Color timerDefaultColor = Color.white;
 
-    private List<AnswerData> PickedAnswers = new List<AnswerData>();
+    private List<QuizAnswerData> PickedAnswers = new List<QuizAnswerData>();
     private List<int> FinishedQuestions = new List<int>();
     private int currentQuestion = 0;
 
@@ -58,7 +58,7 @@ public class QuizGameManager : MonoBehaviour
  
     void Start()
     {
-        events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        events.StartupHighscore = PlayerPrefs.GetInt(QuizGameUtility.SavePrefKey);
 
         timerDefaultColor = timerText.color;
         LoadQuestions();
@@ -73,9 +73,9 @@ public class QuizGameManager : MonoBehaviour
 
     #endregion
 
-    public void UpdateAnswers(AnswerData newAnswer)
+    public void UpdateAnswers(QuizAnswerData newAnswer)
     {
-        if (Questions[currentQuestion].GetAnswerType == Question.AnswerType.Single)
+        if (Questions[currentQuestion].GetAnswerType == QuizQuestion.AnswerType.Single)
         {
             foreach (var answer in PickedAnswers)
             {
@@ -104,7 +104,7 @@ public class QuizGameManager : MonoBehaviour
  
     public void EraseAnswers()
     {
-        PickedAnswers = new List<AnswerData>();
+        PickedAnswers = new List<QuizAnswerData>();
     }
     void Display()
     {
@@ -143,10 +143,10 @@ public class QuizGameManager : MonoBehaviour
             : (isCorrect) ? QuizUIManager.ResolutionScreenType.Correct
             : QuizUIManager.ResolutionScreenType.Incorrect;
 
-        /*if (events.DisplayResolutionScreen != null)
+        if (events.DisplayResolutionScreen != null)
         {
             events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
-        }*/
+        }
 
         //AudioManager.Instance.PlaySound((isCorrect) ? "CorrectSFX" : "IncorrectSFX");
 
@@ -211,7 +211,7 @@ public class QuizGameManager : MonoBehaviour
     }
     IEnumerator WaitTillNextRound()
     {
-        yield return new WaitForSeconds(GameUtility.ResolutionDelayTime);
+        yield return new WaitForSeconds(QuizGameUtility.ResolutionDelayTime);
         Display();
     }
 
@@ -251,11 +251,11 @@ public class QuizGameManager : MonoBehaviour
     /// </summary>
     void LoadQuestions()
     {
-        Object[] objs = Resources.LoadAll("Questions", typeof(Question));
-        _questions = new Question[objs.Length];
+        Object[] objs = Resources.LoadAll("QuizGame/Question", typeof(QuizQuestion));
+        _questions = new QuizQuestion[objs.Length];
         for (int i = 0; i < objs.Length; i++)
         {
-            _questions[i] = (Question)objs[i];
+            _questions[i] = (QuizQuestion)objs[i];
         }
     }
 
@@ -279,10 +279,10 @@ public class QuizGameManager : MonoBehaviour
     /// </summary>
     private void SetHighscore()
     {
-        var highscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
+        var highscore = PlayerPrefs.GetInt(QuizGameUtility.SavePrefKey);
         if (highscore < events.CurrentFinalScore)
         {
-            PlayerPrefs.SetInt(GameUtility.SavePrefKey, events.CurrentFinalScore);
+            PlayerPrefs.SetInt(QuizGameUtility.SavePrefKey, events.CurrentFinalScore);
         }
     }
     /// <summary>
@@ -300,7 +300,7 @@ public class QuizGameManager : MonoBehaviour
 
     #region Getters
 
-    Question GetRandomQuestion()
+    QuizQuestion GetRandomQuestion()
     {
         var randomIndex = GetRandomQuestionIndex();
         currentQuestion = randomIndex;

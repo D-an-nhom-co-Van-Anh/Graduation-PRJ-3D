@@ -1,4 +1,4 @@
-public class GameUtility
+public class QuizGameUtility
 {
 
     public const float ResolutionDelayTime = 1;

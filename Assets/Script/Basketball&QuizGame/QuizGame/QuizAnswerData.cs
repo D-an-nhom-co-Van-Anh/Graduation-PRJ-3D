@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnswerData : MonoBehaviour
+public class QuizAnswerData : MonoBehaviour
 {
 
     #region Variables
@@ -16,7 +16,7 @@ public class AnswerData : MonoBehaviour
     [SerializeField] Sprite checkedToggle = null;
 
     [Header("References")]
-    [SerializeField] GameEvents events = null;
+    [SerializeField] QuizGameEvents events = null;
 
     private RectTransform _rect = null;
     public RectTransform Rect
