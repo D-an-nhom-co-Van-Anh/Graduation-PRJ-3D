@@ -18,6 +18,9 @@ public class GameTimer : MonoBehaviour
     [Header("UI hiển thị khi thua (hết giờ)")]
     [SerializeField] private GameObject failureUI;
 
+    [Header("Button leave")]
+    [SerializeField] private GameObject leaveButton;
+
     private float remainingTime;
     private bool timerRunning = false;
     private bool gameEnded = false;
@@ -97,13 +100,22 @@ public class GameTimer : MonoBehaviour
 
         if (allMatched)
         {
-            if (successUI) successUI.SetActive(true);
-            Debug.Log("🎉 Thắng! Nhận 200 xu");
+            if (successUI)
+            {
+                successUI.SetActive(true);
+                leaveButton.SetActive(true);
+            }
+
+                Debug.Log("🎉 Thắng! Nhận 200 xu");
             // TODO: PlayerData.AddCoins(200);
         }
         else
         {
-            if (failureUI) failureUI.SetActive(true);
+            if (failureUI)
+            {
+                failureUI.SetActive(true);
+                leaveButton.SetActive(true);
+            }
             Debug.Log("⌛ Hết giờ! Nhận 50 xu");
             // TODO: PlayerData.AddCoins(50);
         }
