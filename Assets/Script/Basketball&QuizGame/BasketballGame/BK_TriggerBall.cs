@@ -5,7 +5,7 @@ using System;
 public class TriggerBall : MonoBehaviour
 {
     [SerializeField] private string bottomTriggerName = "TriggerBall";
-
+    private int level = 0;
     private string invalidPosition = "InvalidPosition";
     [SerializeField] private float resetTime = 0.5f;
 
@@ -37,7 +37,12 @@ public class TriggerBall : MonoBehaviour
         {
             if (rb.linearVelocity.y <= 0f)
             {
+                BK_HooperMoving.Instance.CanStartMoving();
+                BK_HooperMoving.Instance.StopMoving();
+                level = BK_HooperMoving.Instance.GetLevel();
+                BK_HooperMoving.Instance.SetLevel(level + 1);
                 Debug.Log("Success");
+                UIManager_.Instance.Open<PopupMessage>().Show("Level " + level.ToString(), 0.5f);
             }
 
         }

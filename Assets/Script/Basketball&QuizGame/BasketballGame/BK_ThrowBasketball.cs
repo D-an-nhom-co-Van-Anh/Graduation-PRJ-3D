@@ -22,7 +22,7 @@ public class ThrowBasketball : MonoBehaviour
     private bool isHoldingBall = false;
     private bool isPreparingThrow = false;
     private bool isMovingToHand = false;
-
+    private int level = 0;
     private float prepareProgress = 0f;
     private float prepareSpeed = 1f;
     private float throwForce;
@@ -31,6 +31,7 @@ public class ThrowBasketball : MonoBehaviour
     private LineRenderer lineRenderer;
     public void Start()
     {
+        
         GameObject targetObj = GameObject.Find("BasketballTarget");
         cameraSwitcher = targetObj.GetComponent<PlayerCameraSwitcher>();
         rb = ball.GetComponent<Rigidbody>();
@@ -123,6 +124,9 @@ public class ThrowBasketball : MonoBehaviour
     {
         if (isHoldingBall || isMovingToHand) return;
         StartCoroutine(MoveBallToHand());
+        BK_HooperMoving.Instance.StartMoving();
+        level = BK_HooperMoving.Instance.GetLevel();
+        
     }
     private IEnumerator MoveBallToHand()
     {
