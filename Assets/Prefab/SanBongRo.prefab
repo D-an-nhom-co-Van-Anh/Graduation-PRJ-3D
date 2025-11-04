@@ -481,11 +481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4226803fcff2bc4da154ff212ac9145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minZ: 0.5
-  maxZ: 4.8
+  minZ: 56.2
+  maxZ: 66.2
   baseSpeed: 1
-  speedIncreasePerLevel: 0.3
-  maxLevel: 10
+  speedIncreasePerLevel: 1.5
+  maxLevel: 3
   returnSpeed: 1
 --- !u!1 &6342361936022563751 stripped
 GameObject:
