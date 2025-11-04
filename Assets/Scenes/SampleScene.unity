@@ -3861,11 +3861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621507699518951116, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_Mass
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621507699518951116, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_AngularDrag
-      value: 1000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621507699518951116, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_Constraints
@@ -4085,7 +4085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: runSpeed
-      value: 7
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: jumpForce
@@ -4093,15 +4093,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: walkSpeed
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: acceleration
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: deceleration
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: cameraTransform

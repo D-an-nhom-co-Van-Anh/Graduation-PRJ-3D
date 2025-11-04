@@ -18,9 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private float jumpForwardMultiplier = 0.6f;
 
     [Header("Jump Timing")]
-    [Tooltip("Nếu true => dùng Animation Event (recommended). Nếu false => dùng delay cố định.")]
     [SerializeField] private bool useAnimationEvent = true;
-    [Tooltip("Chỉ dùng khi useAnimationEvent = false")]
     [SerializeField] private float jumpDelay = 0.12f;
 
     [Header("References")]
@@ -34,14 +32,12 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 smoothedInput;
     public Vector3 moveDirection;
-    private Vector3 currentVelocity;
+    private Vector3 velocitySmoothRef;
     private bool isRunning;
     private float currentSpeed;
     private bool wasGroundedLastFrame = true;
     private float currentStamina;
-    private float staminaThreshold=0.5f;
-    
-    // --- Input wrapper (giữ nguyên cách bạn dùng input/action) ---
+    private float staminaThreshold = 0.5f;
     private Action input;
 
     private void Awake()
@@ -49,11 +45,12 @@ public class PlayerMovementController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.freezeRotation = true;
+
         animController = GetComponent<PlayerAnimationController>();
         animator = GetComponent<Animator>() ?? GetComponentInChildren<Animator>();
+        animator.applyRootMotion = false; // ❌ KHÔNG dùng root motion
 
-        // Khóa rotation vật lý để tránh Rigidbody tự xoay
-        rb.freezeRotation = true;
         currentStamina = maxStamina;
         input = new Action();
     }
@@ -63,19 +60,16 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        // --- Input ---
         Vector2 rawInput = input.Player.Move.ReadValue<Vector2>();
         isRunning = input.Player.Run.IsPressed();
-        // tru stamina khi chay
+
         if (isRunning)
-        {
-            currentStamina = Mathf.Clamp(currentStamina - staminaSubAmount*Time.deltaTime, 0, maxStamina);
-        }
+            currentStamina = Mathf.Clamp(currentStamina - staminaSubAmount * Time.deltaTime, 0, maxStamina);
 
         smoothedInput = Vector2.Lerp(smoothedInput, rawInput, Time.deltaTime * 10f);
         moveInput = smoothedInput;
 
-        // --- Hướng di chuyển theo camera ---
+        // --- Hướng theo camera ---
         Vector3 camForward = cameraTransform.forward;
         camForward.y = 0f;
         camForward.Normalize();
@@ -86,30 +80,12 @@ public class PlayerMovementController : MonoBehaviour
 
         moveDirection = (camForward * moveInput.y + camRight * moveInput.x).normalized;
 
-        currentSpeed = isRunning ? runSpeed : walkSpeed;
-        // stamina thap thi khong chay nhanh duoc
-        if (currentStamina <= staminaThreshold)
-        {
-            currentSpeed = walkSpeed;
-            isRunning = false;
-        }
+        // --- Tốc độ ---
+        currentSpeed = (isRunning && currentStamina > staminaThreshold) ? runSpeed : walkSpeed;
 
         animController.UpdateMovement(moveInput, isRunning);
 
-        /*
-        if (moveDirection.sqrMagnitude > 0.01f)
-        {
-            // Xác định góc xoay mong muốn dựa theo hướng input và hướng camera
-            float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
-
-            // Giữ góc xoay mượt
-            float smoothAngle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle, Time.deltaTime * 10f);
-
-            // Cập nhật rotation theo trục Y (xoay quanh mặt đất)
-            transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
-        }
-        */
-        // --- Nhận lệnh nhảy: chỉ trigger animation, không apply lực ngay nếu dùng animation event ---
+        // --- Nhảy ---
         if (input.Player.Jump.triggered && IsGrounded())
         {
             if (animController.CanPlayJump())
@@ -118,62 +94,72 @@ public class PlayerMovementController : MonoBehaviour
 
                 if (!useAnimationEvent)
                 {
-                    // fallback: gọi Jump sau delay nhỏ để khớp với anim
                     if (jumpCoroutine != null) StopCoroutine(jumpCoroutine);
                     jumpCoroutine = StartCoroutine(DelayedJumpRoutine(jumpDelay));
                 }
-                // nếu useAnimationEvent==true thì animation clip sẽ gọi OnJumpAnimationEvent()
             }
         }
     }
 
-    private bool IsBlocked()
-    {
-        // Raycast từ giữa thân người ra phía trước
-        return Physics.Raycast(transform.position + Vector3.up * 0.5f,
-                               transform.forward,
-                               out RaycastHit hit,
-                               0.5f,
-                               LayerMask.GetMask("wall")); // Hoặc Layer của môi trường
-    }
     private void FixedUpdate()
     {
-        // Nếu bị chặn trước mặt => không update velocity ngang
-        if (IsBlocked())
-        {
-            // Giữ nguyên vận tốc hiện tại (trừ Y để vẫn rơi tự nhiên)
-            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-            return;
-        }
-
-        Vector3 targetVelocity = moveDirection * currentSpeed;
-        targetVelocity.y = rb.linearVelocity.y;
-
-        rb.linearVelocity = Vector3.SmoothDamp(
-            rb.linearVelocity,
-            targetVelocity,
-            ref currentVelocity,
-            moveDirection.sqrMagnitude > 0.01f ? 1f / acceleration : 1f / deceleration
-        );
-
-        // Dừng hẳn khi tốc độ ngang nhỏ
-        Vector3 horizontal = rb.linearVelocity;
-        horizontal.y = 0f;
-        if (horizontal.magnitude < 0.1f)
-            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-
         bool grounded = IsGrounded();
-        if (grounded && !wasGroundedLastFrame)
+
+        Vector3 currentVel = rb.linearVelocity;
+        Vector3 targetDir = moveDirection;
+
+        if (targetDir.sqrMagnitude > 0.01f)
         {
-            animController.EndJump();
+            // Nếu trước mặt không bị chặn
+            if (!IsFrontBlocked())
+            {
+                float targetSpeed = currentSpeed;
+
+                // Tính vận tốc hiện tại theo hướng di chuyển
+                Vector3 horizontalVel = new Vector3(currentVel.x, 0, currentVel.z);
+                float currentSpeedInDir = Vector3.Dot(horizontalVel, targetDir);
+
+                // Tính lực cần thêm để đạt targetSpeed
+                float speedDiff = targetSpeed - currentSpeedInDir;
+                Vector3 force = targetDir * (speedDiff * acceleration);
+
+                // Giới hạn lực để tránh tăng tốc quá mạnh
+                force = Vector3.ClampMagnitude(force, acceleration * 2f);
+
+                // Add lực theo hướng di chuyển
+                rb.AddForce(force, ForceMode.Acceleration);
+            }
+            else
+            {
+                // Nếu trước mặt bị chặn => dừng ngang
+                rb.linearVelocity = new Vector3(0, currentVel.y, 0);
+            }
         }
+        else
+        {
+            // Nếu không có input, giảm tốc dần (mượt)
+            Vector3 slowed = new Vector3(currentVel.x, 0, currentVel.z);
+            slowed = Vector3.Lerp(slowed, Vector3.zero, Time.fixedDeltaTime * deceleration);
+            rb.linearVelocity = new Vector3(slowed.x, currentVel.y, slowed.z);
+        }
+
+        // Cập nhật animation nhảy khi chạm đất
+        if (grounded && !wasGroundedLastFrame)
+            animController.EndJump();
 
         wasGroundedLastFrame = grounded;
     }
 
+    private bool IsFrontBlocked()
+    {
+        float checkDistance = (isRunning ? 0.8f : 0.5f);
+        return Physics.Raycast(transform.position + Vector3.up * 0.5f, moveDirection, checkDistance);
+    }
 
-
-
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, 0.3f);
+    }
 
     private IEnumerator DelayedJumpRoutine(float delay)
     {
@@ -182,7 +168,6 @@ public class PlayerMovementController : MonoBehaviour
         jumpCoroutine = null;
     }
 
-    // --- Gọi bởi Animation Event (tên phải trùng với event trong clip) ---
     public void OnJumpAnimationEvent()
     {
         if (IsGrounded()) Jump();
@@ -190,43 +175,17 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Jump()
     {
-        // Lấy hướng ngang hiện tại
-        Vector3 horizontalVelocity = rb.linearVelocity;
-        horizontalVelocity.y = 0f;
+        Vector3 horizontalVel = rb.linearVelocity;
+        horizontalVel.y = 0f;
 
-        Vector3 jumpDir = horizontalVelocity.sqrMagnitude > 0.1f ? horizontalVelocity.normalized : moveDirection;
-
-        // Reset Y trước khi apply lực
-        Vector3 velocity = rb.linearVelocity;
-        velocity.y = 0f;
-        rb.linearVelocity = velocity;
-
+        Vector3 jumpDir = horizontalVel.sqrMagnitude > 0.1f ? horizontalVel.normalized : moveDirection;
         Vector3 jumpForceVector = Vector3.up * jumpForce;
+
         if (jumpDir.sqrMagnitude > 0.01f)
             jumpForceVector += jumpDir * (jumpForce * jumpForwardMultiplier);
 
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z); // reset Y
         rb.AddForce(jumpForceVector, ForceMode.VelocityChange);
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, 0.3f);
-    }
-
-    // --- Nếu bật Apply Root Motion trên Animator thì dùng OnAnimatorMove() để dịch chuyển Rigidbody theo root motion ---
-    private void OnAnimatorMove()
-    {
-        if (animator != null && animator.applyRootMotion)
-        {
-            // Giới hạn quãng đường di chuyển của root motion mỗi frame
-            Vector3 delta = animator.deltaPosition;
-            float maxDistance = 0.6f; // tùy tốc độ run trong anim của bạn
-
-            if (delta.magnitude > maxDistance)
-                delta = delta.normalized * maxDistance;
-
-            rb.MovePosition(rb.position + delta);
-        }
     }
 
     public void AddStamina(float value)
