@@ -4085,7 +4085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: runSpeed
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: jumpForce
@@ -4097,11 +4097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: acceleration
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: deceleration
-      value: 100
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: cameraTransform
