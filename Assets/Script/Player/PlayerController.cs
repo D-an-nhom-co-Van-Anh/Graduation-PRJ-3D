@@ -22,12 +22,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 smoothVelocity;
     private Vector3 flatVel;
     private FB_Ball scriptBall;
+    private bool isLockMovement;
     void Start()
     {
         input = new InputSystem_Actions();
         input.Player.Enable();
         input.Player.Interact.performed += Interact_performed;
         dir = Vector3.zero;
+        isLockMovement = false;
     }
     private void OnDestroy()
     {
@@ -42,10 +44,14 @@ public class PlayerController : MonoBehaviour
             current_InteractableObj.Interact();
         }
     }
-
+    public void LockMovement()
+    {
+        rb.linearVelocity = Vector3.zero;
+        isLockMovement = true;
+    }
     void Update()
     {
-        if (!manager.IsOver)
+        if (!manager.IsOver&&!isLockMovement)
         {
             moveDir = input.Player.Move.ReadValue<Vector2>().normalized;
             camForward = cameraTransform.forward;
@@ -63,9 +69,13 @@ public class PlayerController : MonoBehaviour
             animationController.UpdateMovement(Vector2.zero, false);
         }
     }
+    public void PlayMoveAnimation(Vector2 move)
+    {
+        animationController.UpdateMovement(move, true);
+    }
     private void FixedUpdate()
     {
-        if (!manager.IsOver)
+        if (!manager.IsOver&&!isLockMovement)
         {
             // Tinh van toc muc tieu
             targetVelocity = dir * speed;
