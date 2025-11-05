@@ -9,7 +9,7 @@ public class UIManager_ : Singleton<UIManager_>
     private void Awake()
     {
         // Load UI prefabs tu trong folder Resources
-        UICanvas[] prefabs = Resources.LoadAll<UICanvas>("UI/");
+        UICanvas[] prefabs = Resources.LoadAll<UICanvas>("UI");
         for (int i = 0; i < prefabs.Length; i++)
         {
             canvasPrefabs.Add(prefabs[i].GetType(), prefabs[i]);
@@ -69,7 +69,7 @@ public class UIManager_ : Singleton<UIManager_>
     // get prefabs;
     private T GetUIPrefab<T>() where T : UICanvas
     {
-        return canvasPrefabs[typeof(T)] as T;
+        return canvasPrefabs[typeof(T)] as T; 
     }
     // dong tat ca canvas
     public void CloseAll<T>() where T : UICanvas
