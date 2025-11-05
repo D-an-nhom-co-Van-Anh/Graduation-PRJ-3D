@@ -66,7 +66,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            animationController.UpdateMovement(Vector2.zero, false);
+            if (!isLockMovement)
+            {
+                animationController.UpdateMovement(Vector2.zero, false);
+            }
         }
     }
     public void PlayMoveAnimation(Vector2 move)

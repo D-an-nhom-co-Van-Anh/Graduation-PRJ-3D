@@ -35,16 +35,17 @@ public class FB_GameManager : MonoBehaviour
         // Bật camera góc 1
         firstPersonCamera.gameObject.SetActive(true);
 
+        player.GetPlayerController().LockMovement();
         // Dịch nhân vật tới chỗ sút
-        player.transform.DOMove(penaltySpot.position, 2f).OnComplete(() =>{
+        player.GetPlayerController().PlayMoveAnimation(Vector2.one);
+        player.transform.DOMove(penaltySpot.position, 0.97f).OnComplete(() =>{
             targetPoint.SetActive(true);
-
+            Debug.Log("ket thuc");
+            player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
             // Chuẩn bị trạng thái penalty
             player.EnterPenaltyMode(targetPoint, ball);
-            player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
 
         });
-        player.GetPlayerController().PlayMoveAnimation(Vector2.one);
         player.transform.DOLookAt(penaltySpot.position, 0.1f, AxisConstraint.Y);
         player.transform.rotation = penaltySpot.rotation;
         Debug.Log(penaltySpot.position);
