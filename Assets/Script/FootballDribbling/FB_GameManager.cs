@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Unity.Cinemachine;
+
 public class FB_GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
@@ -20,6 +22,36 @@ public class FB_GameManager : MonoBehaviour
     [SerializeField] private GameObject failCanvas;
     [SerializeField] private TextMeshProUGUI myText;
     [SerializeField] private Quest quest;
+    [SerializeField] private FB_GoalKeeper keeper;
+    public Transform penaltySpot; // vị trí sút penalty
+    public CinemachineCamera firstPersonCamera;
+    public CinemachineCamera thirdPersonCamera;
+    public GameObject targetPoint; // điểm trong khung thành
+    public FB_Ball ball;
+    public void StartPenaltyMode(FB_PlayerController player)
+    {
+        // Tắt camera góc 3
+        thirdPersonCamera.gameObject.SetActive(false);
+        // Bật camera góc 1
+        firstPersonCamera.gameObject.SetActive(true);
+
+        // Dịch nhân vật tới chỗ sút
+        player.transform.DOMove(penaltySpot.position, 2f).OnComplete(() =>{
+            targetPoint.SetActive(true);
+
+            // Chuẩn bị trạng thái penalty
+            player.EnterPenaltyMode(targetPoint, ball);
+            player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
+
+        });
+        player.GetPlayerController().PlayMoveAnimation(Vector2.one);
+        player.transform.DOLookAt(penaltySpot.position, 0.1f, AxisConstraint.Y);
+        player.transform.rotation = penaltySpot.rotation;
+        Debug.Log(penaltySpot.position);
+        Debug.Log(player.transform.position);
+        // Hiện mục tiêu khung thành
+     
+    }
     private bool isOver;
     public bool IsOver => isOver;
     private void Start()
@@ -44,7 +76,10 @@ public class FB_GameManager : MonoBehaviour
         timerText.text = $"{Mathf.Ceil(currentTime)}";
         scoreText.text = $"{score}";
     }
-
+    public FB_GoalKeeper GetKeeper()
+    {
+        return keeper;
+    }
     public void OnHitObstacle()
     {
         GameOver(false);
@@ -54,7 +89,10 @@ public class FB_GameManager : MonoBehaviour
     {
         GameOver(true);
     }
+    public void ChangeCamera()
+    {
 
+    }
     private void GameOver(bool success)
     {
         isGameOver = true;

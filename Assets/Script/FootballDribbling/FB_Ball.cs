@@ -183,12 +183,28 @@ public class FB_Ball : MonoBehaviour
         this.isWithPlayer = isWithPlayer;
         this.player = player;
     }
-    public void Shoot(Vector3 shootdirection)
+    public void Shoot(Vector3 shootDirection, Transform kickPoint)
     {
+
         Debug.Log("Shoot");
+
         isWithPlayer = false;
-        rigidbody.AddForce(shootdirection * (10 + 1f * 1f), ForceMode.Impulse);
-        
+
+        // Đặt bóng tại vị trí chân trước khi sút
+        transform.position = kickPoint.position;
+        shootDirection = kickPoint.transform.forward;
+        shootDirection.y += 0.2f;
+        // Xoay góc sút hướng theo hướng nhìn của nhân vật
+        Vector3 direction = Quaternion.AngleAxis(15f, transform.right) * shootDirection.normalized;
+
+        float shootPower = 15f;
+        rigidbody.linearVelocity = Vector3.zero;
+        rigidbody.AddForce(direction * shootPower, ForceMode.Impulse);
+        if (manager.GetKeeper() != null)
+        {
+            manager.GetKeeper().ReactToShot(direction);
+        }
+
     }
     public void ShootBall(Vector3 direction, float power)
     {
@@ -215,7 +231,7 @@ public class FB_Ball : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Debug.Log("Va cham");
-            manager.OnHitObstacle();
+            //manager.OnHitObstacle();
         }
         else if (other.CompareTag("Goal"))
         {
