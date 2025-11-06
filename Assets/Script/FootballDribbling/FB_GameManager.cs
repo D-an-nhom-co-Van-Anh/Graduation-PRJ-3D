@@ -103,7 +103,7 @@ public class FB_GameManager : MonoBehaviour
     {
 
     }
-    private void GameOver(bool success)
+    public void GameOver(bool success)
     {
         isGameOver = true;
         if (success)

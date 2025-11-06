@@ -99,50 +99,7 @@ public class FB_PlayerController : MonoBehaviour
         {
             DribbleWithBall();
         }
-        //else if (Game.Instance.PassDestinationPlayer != fellowPlayer && timeShot == 0 && stealDelay <= 0)
-        //{
-        //    CheckTakeBall();
-        //}
-      /*   if (Input.GetKeyDown(KeyCode.Space)&&hasBall)
-          {
-              Vector3 shootdirection = playerBallPosition.transform.forward;
-              shootdirection.y += 0.2f;
-              hasBall = false;
-              scriptBall.Shoot(shootdirection,playerBallPosition);
-              LooseBall();
-          }*/
-        if (inPenaltyMode)
-        {
-         //   Vector3 shootdirection = playerBallPosition.transform.forward;
-           // shootdirection.y += 0.2f;
-            //AimAndShootPenalty(shootdirection);
-            return;
-        }
-        /* if (hasBall)
-         {
-             if (Input.GetMouseButtonDown(0))
-             {
-                 charging = true;
-                 currentPower = 0f;
-             }
-
-             // Trong lúc giữ chuột, tăng lực dần
-             if (charging)
-             {
-                 currentPower += chargeSpeed * Time.deltaTime;
-                 currentPower = Mathf.Clamp(currentPower, 0, maxPower);
-             }
-
-             // Khi thả chuột trái, thực hiện sút
-             if (Input.GetMouseButtonUp(0))
-             {
-                 charging = false;
-                 hasBall = false;
-                 // Lấy hướng sút từ camera + chuột
-                 shootDirection = GetShootDirection();
-                 scriptBall.ShootBall(shootDirection, currentPower);
-             }
-         }*/
+       
         if (timeShot > 0)
         {
             // shoot ball
@@ -213,7 +170,6 @@ public class FB_PlayerController : MonoBehaviour
         }
         HasBall = false;
         shootingPower = 0;
-       // Game.Instance.RemovePowerBar();
     }
 
     public void ScoreGoal()

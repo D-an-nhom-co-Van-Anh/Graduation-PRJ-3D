@@ -26,7 +26,7 @@ public class GameManager_ : Singleton<GameManager_>
     }
     public void LoadSceneByName()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1,LoadSceneMode.Additive);
     }
     public CurrencyManager GetCurrencyManager()
     {
