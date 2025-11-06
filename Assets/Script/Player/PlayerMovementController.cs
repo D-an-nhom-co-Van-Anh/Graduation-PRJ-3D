@@ -127,8 +127,7 @@ public class PlayerMovementController : MonoBehaviour
                 float speedDiff = targetSpeed - currentSpeedInDir;
                 Vector3 force = targetDir * (speedDiff * acceleration);
 
-                // Giới hạn lực để tránh tăng tốc quá mạnh
-                force = Vector3.ClampMagnitude(force, acceleration * 2f);
+          
 
                 // Add lực theo hướng di chuyển
                 rb.AddForce(force, ForceMode.Acceleration);
@@ -153,6 +152,7 @@ public class PlayerMovementController : MonoBehaviour
             animController.EndJump();
 
         wasGroundedLastFrame = grounded;
+
     }
 
     private bool IsFrontBlocked()

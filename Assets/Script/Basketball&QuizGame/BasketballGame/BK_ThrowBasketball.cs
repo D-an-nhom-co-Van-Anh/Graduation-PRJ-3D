@@ -27,11 +27,11 @@ public class ThrowBasketball : MonoBehaviour
     private float prepareSpeed = 1f;
     private float throwForce;
     private Coroutine resetCorountine;
-    
+    private TriggerBall triggerBall;
     private LineRenderer lineRenderer;
     public void Start()
     {
-        
+        triggerBall = gameObject.GetComponent<TriggerBall>();
         GameObject targetObj = GameObject.Find("BasketballTarget");
         cameraSwitcher = targetObj.GetComponent<PlayerCameraSwitcher>();
         rb = ball.GetComponent<Rigidbody>();
@@ -131,6 +131,7 @@ public class ThrowBasketball : MonoBehaviour
     private IEnumerator MoveBallToHand()
     {
         isMovingToHand = true;
+        triggerBall.DisableTrigger();
         Transform playerGroup = Camera.main?.transform;
         Vector3 targetPos;
         Quaternion targetRot;
@@ -160,6 +161,7 @@ public class ThrowBasketball : MonoBehaviour
         ball.transform.localPosition = holdPoint;
         ball.transform.localRotation = Quaternion.identity;
 
+        triggerBall.EnableTrigger();
         isHoldingBall = true;
         isMovingToHand = false;
     }
