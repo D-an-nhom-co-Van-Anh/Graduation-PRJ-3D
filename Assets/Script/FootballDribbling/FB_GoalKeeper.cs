@@ -10,6 +10,7 @@ public class FB_GoalKeeper : MonoBehaviour
     public Animator animator;
     public int centerNum = 3;
     bool isDiving = false;
+    [SerializeField] private FB_GameManager manager;
     Vector3 targetDivePos;
 
     public void ReactToShot(Vector3 ballDirection)
@@ -69,6 +70,7 @@ public class FB_GoalKeeper : MonoBehaviour
             // Cản bóng – phản lại hoặc chặn đứng
             Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
             ballRb.linearVelocity = -ballRb.linearVelocity * 0.5f;
+            manager.GameOver(false);
             Debug.Log("Goalkeeper saved the shot!");
         }
     }

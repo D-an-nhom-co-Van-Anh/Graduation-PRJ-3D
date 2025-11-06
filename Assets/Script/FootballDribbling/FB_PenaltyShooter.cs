@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class FB_PenaltyShooter : MonoBehaviour
 {
     public Rigidbody ball;
     public Transform ballSpawn;
     [Header("Shoot Settings")]
-    public float minPower = 14f;
-    public float maxPower = 24f;
-    public float minLift = 4f;
-    public float maxLift = 7f;
+    public float minPower = 5f;
+    public float maxPower = 10f;
+    public float minLift = 3f;
+    public float maxLift = 6f;
     public float aimNoise = 0.2f; // độ lệch khi sút (giống FIFA)
     public bool canStart = false;
+    private float curruntPower;
     public Transform goalPlane;  // Plane dùng để chọn điểm ngắm
     private Vector3 targetPoint;
+    public float distanceFromCamera = 14.27f;
     [SerializeField] private FB_PlayerController playerController;
+    [SerializeField] private Slider slider;
     private void Awake()
     {
         canStart = false;
+        curruntPower = minPower;
+        slider.value = 0;
     }
     public void StartPenalty()
     {
@@ -27,20 +33,26 @@ public class FB_PenaltyShooter : MonoBehaviour
     void Update()
     {
         if (!canStart) return;
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = distanceFromCamera;
 
-        // Dùng raycast chuột vào mặt phẳng khung thành
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(-goalPlane.forward, goalPlane.position);
+        // Chuyển sang world position
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        if (plane.Raycast(ray, out float enter))
-        {
-            targetPoint = ray.GetPoint(enter);
-            // Vẽ đường debug để thấy nơi đang ngắm
-            Debug.DrawLine(ray.origin, targetPoint, Color.red);
-        }
-
+        // Gán vị trí cho object
+        targetPoint = worldPos;
         // Khi click chuột trái -> Sút
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
+        {
+            curruntPower += Time.deltaTime;
+            if (curruntPower <= maxPower)
+            {
+                slider.value = (float)(curruntPower-minPower) / (maxPower-minPower);
+            }
+            Debug.Log(curruntPower);
+            curruntPower = Mathf.Clamp(curruntPower, minPower, maxPower);
+        }
+        if (Input.GetMouseButtonUp(0))
         {
             ShootBall();
         }
@@ -63,7 +75,8 @@ public class FB_PenaltyShooter : MonoBehaviour
 
         // Tính lực
         float distance = Vector3.Distance(ballSpawn.position, targetPoint);
-        float power = Mathf.Clamp(distance * 2.0f, minPower, maxPower);
+        float power = curruntPower;
+            //Mathf.Clamp(distance * 2.0f, minPower, maxPower);
         float lift = Mathf.Lerp(minLift, maxLift, distance / 20f);
 
         // Tạo lực tổng (thêm Vector3.up để có quỹ đạo cong)
