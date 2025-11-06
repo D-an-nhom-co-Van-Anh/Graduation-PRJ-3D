@@ -8,15 +8,17 @@ public class TriggerBall : MonoBehaviour
     private int level = 0;
     private string invalidPosition = "InvalidPosition";
     [SerializeField] private float resetTime = 0.5f;
-
     private Rigidbody rb;
+
+    private SphereCollider ballCollider;
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        ballCollider = GetComponent<SphereCollider>();
     }
-  
 
-   
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name != bottomTriggerName && other.gameObject.name != invalidPosition) return;
@@ -55,5 +57,15 @@ public class TriggerBall : MonoBehaviour
         triggerObject.SetActive(true);
 
     }
+    public void EnableTrigger()
+    {
+            ballCollider.enabled=true;
+    }
 
+    // ?? Hàm t?t trigger (chuy?n Collider v? va ch?m v?t lý bình th??ng)
+    public void DisableTrigger()
+    {
+      
+            ballCollider.enabled = false;
+    }
 }

@@ -113,7 +113,9 @@ public class FB_PlayerController : MonoBehaviour
           }*/
         if (inPenaltyMode)
         {
-            AimAndShootPenalty();
+         //   Vector3 shootdirection = playerBallPosition.transform.forward;
+           // shootdirection.y += 0.2f;
+            //AimAndShootPenalty(shootdirection);
             return;
         }
         /* if (hasBall)
@@ -311,19 +313,17 @@ public class FB_PlayerController : MonoBehaviour
         //rb.linearVelocity = Vector3.zero;
     }
 
-    void AimAndShootPenalty()
+    public void AimAndShootPenalty(Vector3 dir)
     {
         // Quay nhân vật theo hướng camera
-        transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+        //transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
 
         // Nếu người chơi nhấn sút
-        if (Input.GetKeyDown(KeyCode.Space) && hasBall)
+        if (hasBall)
         {
-            Vector3 shootdirection = playerBallPosition.transform.forward;
-            shootdirection.y += 0.2f;
             hasBall = false;
-            scriptBall.Shoot(shootdirection, playerBallPosition);
             LooseBall();
+            scriptBall.Shoot(dir, playerBallPosition);
             ExitPenaltyMode();
         }
     }
@@ -335,6 +335,8 @@ public class FB_PlayerController : MonoBehaviour
     {
         inPenaltyMode = false;
         penaltyTarget.SetActive(false);
+        manager.ExitPenaltyMode();
+        playerController.UnLockMovement();
         // Chuyển camera lại góc 3 người
         // (có thể gọi từ PenaltyTrigger)
     }

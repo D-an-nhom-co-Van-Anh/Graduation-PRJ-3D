@@ -8,23 +8,28 @@ public class FB_GoalKeeper : MonoBehaviour
     public float diveSpeed = 10f;
     public float reactDelay = 0.3f;     // độ trễ phản xạ
     public Animator animator;
-
+    public int centerNum = 3;
     bool isDiving = false;
     Vector3 targetDivePos;
 
     public void ReactToShot(Vector3 ballDirection)
     {
         if (isDiving) return;
-
+        int randomValue = Random.Range(1, 4);
         // Chọn hướng bay (ngẫu nhiên hoặc dựa trên hướng bóng)
         bool diveRight = Random.value > 0.5f;
 
         // Nếu muốn thông minh hơn: so sánh hướng bóng với khung thành
         if (ballDirection.x > 0.2f) diveRight = true;
         else if (ballDirection.x < -0.2f) diveRight = false;
-
-        targetDivePos = diveRight ? rightDivePoint.position : leftDivePoint.position;
-
+        if (randomValue == centerNum)
+        {
+            targetDivePos = centerPoint.position;
+        }
+        else
+        {
+            targetDivePos = diveRight ? rightDivePoint.position : leftDivePoint.position;
+        }
         // Gọi animation
         //animator.SetTrigger(diveRight ? "DiveRight" : "DiveLeft");
 
@@ -59,7 +64,7 @@ public class FB_GoalKeeper : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.GetComponent<FB_Ball>())
         {
             // Cản bóng – phản lại hoặc chặn đứng
             Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
