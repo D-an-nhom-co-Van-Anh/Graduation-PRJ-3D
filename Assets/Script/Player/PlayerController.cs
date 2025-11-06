@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = Vector3.zero;
         isLockMovement = true;
+    } public void UnLockMovement()
+    {
+        isLockMovement = false;
     }
     void Update()
     {
