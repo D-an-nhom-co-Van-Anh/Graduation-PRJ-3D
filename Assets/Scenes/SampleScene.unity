@@ -2435,7 +2435,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.32
   m_Height: 1.9489787
@@ -2981,6 +2981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215289710}
   - component: {fileID: 1215289709}
+  - component: {fileID: 1215289711}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3016,6 +3017,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215289711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215289708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05ead7961a82dc4999b572705047323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  loopSfxSource: {fileID: 0}
+  fadeDuration: 1
+  defaultMusicVolume: 0.8
+  defaultSfxVolume: 1
 --- !u!4 &1316087584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3392806675826722431, guid: 01f38b99bb9542048912a6fdab65298f, type: 3}
@@ -3797,7 +3816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 125749535126549162, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 125749535126549162, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_Center.y
@@ -4579,7 +4598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5392681538977920447, guid: 2c154f76ca751f74b931748706e7914d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 54
+      value: 53.6
       objectReference: {fileID: 0}
     - target: {fileID: 5392681538977920447, guid: 2c154f76ca751f74b931748706e7914d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9060,5 +9079,6 @@ SceneRoots:
   - {fileID: 528460871}
   - {fileID: 780286275}
   - {fileID: 2034760281}
-  - {fileID: 227703237}
   - {fileID: 122402484}
+  - {fileID: 395266354}
+  - {fileID: 1215289710}
