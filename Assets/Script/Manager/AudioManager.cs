@@ -30,10 +30,11 @@ public class AudioManager : Singleton<AudioManager>
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (musicSource == null) musicSource = gameObject.AddComponent<AudioSource>();
         if (sfxSource == null) sfxSource = gameObject.AddComponent<AudioSource>();
         if (loopSfxSource == null) loopSfxSource = gameObject.AddComponent<AudioSource>();
-
+        
         musicSource.loop = false;
 
         // Load tr?ng thái b?t/t?t t? PlayerPrefs

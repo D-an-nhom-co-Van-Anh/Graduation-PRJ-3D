@@ -130,7 +130,10 @@ public class QuizGameManager : MonoBehaviour
         bool isCorrect = CheckAnswers();
         FinishedQuestions.Add(currentQuestion);
 
-        UpdateScore((isCorrect) ? Questions[currentQuestion].AddScore : -Questions[currentQuestion].AddScore);
+        if (isCorrect)
+        {
+            UpdateScore(Questions[currentQuestion].AddScore);
+        }
 
         if (IsFinished)
         {
@@ -148,7 +151,7 @@ public class QuizGameManager : MonoBehaviour
             events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
         }
 
-        //AudioManager.Instance.PlaySound((isCorrect) ? "CorrectSFX" : "IncorrectSFX");
+        AudioManager.Instance.PlaySFX((isCorrect) ? "QuizCorrectAnswer" : "QuizWrongAnswer");
 
         if (type != QuizUIManager.ResolutionScreenType.Finish)
         {

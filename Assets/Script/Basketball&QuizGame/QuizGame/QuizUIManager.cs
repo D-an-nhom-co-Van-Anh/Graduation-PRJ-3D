@@ -165,7 +165,7 @@ public class QuizUIManager : MonoBehaviour
             case ResolutionScreenType.Incorrect:
                 uIElements.ResolutionBG.color = parameters.IncorrectBGColor;
                 uIElements.ResolutionStateInfoText.text = "WRONG!";
-                uIElements.ResolutionScoreText.text = "-" + score;
+                uIElements.ResolutionScoreText.text = "";
                 break;
             case ResolutionScreenType.Finish:
                 uIElements.ResolutionBG.color = parameters.FinalBGColor;

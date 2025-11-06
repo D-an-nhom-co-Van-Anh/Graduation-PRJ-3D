@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4ddb0e216d42b43b9a869301da0dca, type: 3}
   m_Name: New Question 1
   m_EditorClassIdentifier: 
-  _info: 2+2=?
+  _info: "H\u1ECDc vi\u1EC7n th\xE0nh l\u1EADp n\u0103m n\xE0o"
   _answers:
-  - _info: 4
+  - _info: 1999
     _isCorrect: 1
-  - _info: 6
+  - _info: 1998
     _isCorrect: 0
-  - _info: 8
+  - _info: 1970
     _isCorrect: 0
   _useTimer: 1
   _timer: 10
