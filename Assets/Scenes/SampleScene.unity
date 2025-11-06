@@ -3252,7 +3252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepRayUpper: {fileID: 697675536}
   stepRayLower: {fileID: 465222791}
-  stepHeight: 0.2
+  stepHeight: 0.7
   stepSmooth: 2
 --- !u!1001 &1007508810
 PrefabInstance:
@@ -6539,6 +6539,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 941624691899171993, guid: e21ded83d73b0aa4d9a6b9406da96346, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2213345054633386793, guid: e21ded83d73b0aa4d9a6b9406da96346, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -6594,6 +6598,10 @@ PrefabInstance:
     - target: {fileID: 8247189185358297437, guid: e21ded83d73b0aa4d9a6b9406da96346, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8753266400123459722, guid: e21ded83d73b0aa4d9a6b9406da96346, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
