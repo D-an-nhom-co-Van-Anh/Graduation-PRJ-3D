@@ -44,14 +44,23 @@ public class FB_GameManager : MonoBehaviour
             player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
             // Chuẩn bị trạng thái penalty
             player.EnterPenaltyMode(targetPoint, ball);
-
+            Cursor.visible = true;
+            player.transform.DOLookAt(targetPoint.transform.position, 0.1f, AxisConstraint.Y);
+            ball.StartPenalty();
         });
-        player.transform.DOLookAt(penaltySpot.position, 0.1f, AxisConstraint.Y);
+        player.transform.DOLookAt(penaltySpot.position, 0.1f, AxisConstraint.Y).OnComplete(()=>Debug.Log("Quay"));
+
         player.transform.rotation = penaltySpot.rotation;
         Debug.Log(penaltySpot.position);
         Debug.Log(player.transform.position);
         // Hiện mục tiêu khung thành
      
+    }
+    public void ExitPenaltyMode()
+    {
+        firstPersonCamera.gameObject.SetActive(false);
+        thirdPersonCamera.gameObject.SetActive(true);
+
     }
     private bool isOver;
     public bool IsOver => isOver;

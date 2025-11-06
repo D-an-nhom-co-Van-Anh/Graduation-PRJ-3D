@@ -22,12 +22,18 @@ public class FB_Ball : MonoBehaviour
     private float timePassedBall;
     private CinemachineCamera playerFollowCamera;
     private FB_PlayerController player;
+    private FB_PenaltyShooter penaltyShooter;
     private void Awake()
     {
        // playerFollowCamera = GameObject.Find("PlayerFollowCamera").GetComponent<CinemachineCamera>();
         //soundWhistle = GameObject.Find("Sound/whistle").GetComponent<AudioSource>();
         rigidbody = GetComponent<Rigidbody>();
         isWithPlayer = false;
+        penaltyShooter = GetComponent<FB_PenaltyShooter>();
+    }
+    public void StartPenalty()
+    {
+        penaltyShooter.StartPenalty();
     }
 
     public void Pass(PlayerMovementController player)
@@ -192,28 +198,20 @@ public class FB_Ball : MonoBehaviour
 
         // Đặt bóng tại vị trí chân trước khi sút
         transform.position = kickPoint.position;
+        /*
         shootDirection = kickPoint.transform.forward;
         shootDirection.y += 0.2f;
         // Xoay góc sút hướng theo hướng nhìn của nhân vật
         Vector3 direction = Quaternion.AngleAxis(15f, transform.right) * shootDirection.normalized;
 
         float shootPower = 15f;
-        rigidbody.linearVelocity = Vector3.zero;
-        rigidbody.AddForce(direction * shootPower, ForceMode.Impulse);
+        rigidbody.linearVelocity = Vector3.zero;*/
+        rigidbody.AddForce(shootDirection, ForceMode.Impulse);
         if (manager.GetKeeper() != null)
         {
-            manager.GetKeeper().ReactToShot(direction);
+            manager.GetKeeper().ReactToShot(shootDirection);
         }
 
-    }
-    public void ShootBall(Vector3 direction, float power)
-    {
-        rigidbody.linearVelocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
-
-        // Add lực theo hướng
-        rigidbody.AddForce(direction * power, ForceMode.VelocityChange);
-        Debug.Log($"Shot ball! Power: {power:F2}, Dir: {direction}");
     }
     private void UpdateBallSpeedAndRotation()
     {
