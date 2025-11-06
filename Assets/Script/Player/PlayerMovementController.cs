@@ -49,7 +49,7 @@ public class PlayerMovementController : MonoBehaviour
 
         animController = GetComponent<PlayerAnimationController>();
         animator = GetComponent<Animator>() ?? GetComponentInChildren<Animator>();
-        animator.applyRootMotion = false; // ❌ KHÔNG dùng root motion
+        animator.applyRootMotion = false; //  KHÔNG dùng root motion
 
         currentStamina = maxStamina;
         input = new Action();
@@ -107,16 +107,20 @@ public class PlayerMovementController : MonoBehaviour
 
         Vector3 currentVel = rb.linearVelocity;
         Vector3 targetDir = moveDirection;
-
-        if (targetDir.sqrMagnitude > 0.01f)
+        if (!grounded && rb.linearVelocity.y < 0)
+        {
+            Debug.Log("Falling");
+            // Khi đang rơi, tăng tốc rơi
+            rb.AddForce(Vector3.down * 100f, ForceMode.Acceleration);
+        }
+        if ( input.Player.Move.ReadValue<Vector2>().sqrMagnitude>0.01f)
         {
             // Nếu trước mặt không bị chặn
             if (!IsFrontBlocked())
             {
                 float targetSpeed = currentSpeed;
-
                 // Tính vận tốc hiện tại theo hướng di chuyển
-                Vector3 horizontalVel = new Vector3(currentVel.x, 0, currentVel.z);
+                Vector3 horizontalVel = new Vector3(currentVel.x, currentVel.y, currentVel.z);
                 float currentSpeedInDir = Vector3.Dot(horizontalVel, targetDir);
 
                 // Tính lực cần thêm để đạt targetSpeed
@@ -139,7 +143,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             // Nếu không có input, giảm tốc dần (mượt)
             Vector3 slowed = new Vector3(currentVel.x, 0, currentVel.z);
-            slowed = Vector3.Lerp(slowed, Vector3.zero, Time.fixedDeltaTime * deceleration);
+            //slowed = Vector3.Lerp(slowed, Vector3.zero, Time.fixedDeltaTime * deceleration);
+            slowed = Vector3.zero;
             rb.linearVelocity = new Vector3(slowed.x, currentVel.y, slowed.z);
         }
 

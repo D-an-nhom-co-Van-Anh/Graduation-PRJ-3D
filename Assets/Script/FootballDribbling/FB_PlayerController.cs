@@ -30,7 +30,7 @@ public class FB_PlayerController : MonoBehaviour
     private bool takeFreeKick;
     private bool takeThrowIn;
     private float shootingPower;
-
+    private PlayerController playerController;
     //temp
     public float maxPower = 30f;         // Lực sút tối đa
     public float chargeSpeed = 20f;      // Tốc độ nạp lực
@@ -39,6 +39,10 @@ public class FB_PlayerController : MonoBehaviour
     private float currentPower = 0f;
     private bool charging = false;
     private Vector3 shootDirection;
+
+    bool inPenaltyMode = false;
+    GameObject penaltyTarget;
+    FB_Ball ballRef;
 
     public bool HasBall { get => hasBall; set => hasBall = value; }
     public Transform PlayerBallPosition { get => playerBallPosition; set => playerBallPosition = value; }
@@ -65,6 +69,7 @@ public class FB_PlayerController : MonoBehaviour
         //playerInput = GetComponent<PlayerInput>();
        // PlayerCameraRoot = transform.Find("PlayerCameraRoot");
         initialPosition = transform.position;
+        playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -98,39 +103,44 @@ public class FB_PlayerController : MonoBehaviour
         //{
         //    CheckTakeBall();
         //}
-        /*  if (Input.GetKeyDown(KeyCode.Space)&&hasBall)
+      /*   if (Input.GetKeyDown(KeyCode.Space)&&hasBall)
           {
-              Vector3 shootdirection = transform.forward;
+              Vector3 shootdirection = playerBallPosition.transform.forward;
               shootdirection.y += 0.2f;
               hasBall = false;
-              scriptBall.Shoot(shootdirection);
+              scriptBall.Shoot(shootdirection,playerBallPosition);
               LooseBall();
           }*/
-        if (hasBall)
+        if (inPenaltyMode)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                charging = true;
-                currentPower = 0f;
-            }
-
-            // Trong lúc giữ chuột, tăng lực dần
-            if (charging)
-            {
-                currentPower += chargeSpeed * Time.deltaTime;
-                currentPower = Mathf.Clamp(currentPower, 0, maxPower);
-            }
-
-            // Khi thả chuột trái, thực hiện sút
-            if (Input.GetMouseButtonUp(0))
-            {
-                charging = false;
-
-                // Lấy hướng sút từ camera + chuột
-                shootDirection = GetShootDirection();
-                scriptBall.ShootBall(shootDirection, currentPower);
-            }
+            AimAndShootPenalty();
+            return;
         }
+        /* if (hasBall)
+         {
+             if (Input.GetMouseButtonDown(0))
+             {
+                 charging = true;
+                 currentPower = 0f;
+             }
+
+             // Trong lúc giữ chuột, tăng lực dần
+             if (charging)
+             {
+                 currentPower += chargeSpeed * Time.deltaTime;
+                 currentPower = Mathf.Clamp(currentPower, 0, maxPower);
+             }
+
+             // Khi thả chuột trái, thực hiện sút
+             if (Input.GetMouseButtonUp(0))
+             {
+                 charging = false;
+                 hasBall = false;
+                 // Lấy hướng sút từ camera + chuột
+                 shootDirection = GetShootDirection();
+                 scriptBall.ShootBall(shootDirection, currentPower);
+             }
+         }*/
         if (timeShot > 0)
         {
             // shoot ball
@@ -279,5 +289,53 @@ public class FB_PlayerController : MonoBehaviour
             TakeBall();
             //scriptBall.SetBallWithPlayer(true, this);
         }
+       
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            playerController.LockMovement();
+            manager.StartPenaltyMode(this);
+        }
+    }
+
+
+    public void EnterPenaltyMode(GameObject target, FB_Ball ball)
+    {
+        inPenaltyMode = true;
+        penaltyTarget = target;
+        ballRef = ball;
+
+        // Khóa di chuyển tự do nếu cần
+        //rb.linearVelocity = Vector3.zero;
+    }
+
+    void AimAndShootPenalty()
+    {
+        // Quay nhân vật theo hướng camera
+        transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+
+        // Nếu người chơi nhấn sút
+        if (Input.GetKeyDown(KeyCode.Space) && hasBall)
+        {
+            Vector3 shootdirection = playerBallPosition.transform.forward;
+            shootdirection.y += 0.2f;
+            hasBall = false;
+            scriptBall.Shoot(shootdirection, playerBallPosition);
+            LooseBall();
+            ExitPenaltyMode();
+        }
+    }
+    public PlayerController GetPlayerController()
+    {
+        return playerController;
+    }
+    void ExitPenaltyMode()
+    {
+        inPenaltyMode = false;
+        penaltyTarget.SetActive(false);
+        // Chuyển camera lại góc 3 người
+        // (có thể gọi từ PenaltyTrigger)
     }
 }
