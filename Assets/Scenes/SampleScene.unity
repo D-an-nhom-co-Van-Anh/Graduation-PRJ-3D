@@ -3127,9 +3127,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.32
-  m_Height: 1.9045
+  m_Height: 1.877024
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9387889, z: 0.05}
+  m_Center: {x: 0, y: 0.96, z: 0.05}
 --- !u!114 &988524795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5394,7 +5394,11 @@ PrefabInstance:
       objectReference: {fileID: 330585546}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: useAnimationEvent
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: jumpForwardMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7708110382346601755, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_Layer
