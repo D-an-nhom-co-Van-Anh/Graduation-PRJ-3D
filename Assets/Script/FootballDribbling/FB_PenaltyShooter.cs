@@ -69,8 +69,8 @@ public class FB_PenaltyShooter : MonoBehaviour
         Vector3 dir = (targetPoint - ballSpawn.position).normalized;
 
         // Tạo chút lệch ngẫu nhiên (giống FIFA)
-        dir.x += Random.Range(-aimNoise, aimNoise);
-        dir.y += Random.Range(-aimNoise * 0.5f, aimNoise * 0.5f);
+       // dir.x += Random.Range(-aimNoise, aimNoise);
+       // dir.y += Random.Range(-aimNoise * 0.5f, aimNoise * 0.5f);
         dir.Normalize();
 
         // Tính lực

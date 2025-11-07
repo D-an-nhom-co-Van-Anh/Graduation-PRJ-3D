@@ -16,13 +16,15 @@ public class FB_GameManager : MonoBehaviour
     private float currentTime;
     private int score;
     private bool isGameOver = false;
-
+    private bool isGameStart = false;
+    public bool IsGameStart => isGameStart;
     public float timeOut = 0;
     public float maxTimeOut = 15;
     [SerializeField] private GameObject failCanvas;
     [SerializeField] private TextMeshProUGUI myText;
     [SerializeField] private Quest quest;
     [SerializeField] private FB_GoalKeeper keeper;
+    [SerializeField] private GameObject instructionPanel;
     public Transform penaltySpot; // vị trí sút penalty
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
@@ -56,6 +58,12 @@ public class FB_GameManager : MonoBehaviour
         // Hiện mục tiêu khung thành
      
     }
+    public void StartGame()
+    {
+        isGameStart = true;
+        Cursor.visible = false;
+        instructionPanel.SetActive(false);
+    }
     public void ExitPenaltyMode()
     {
         firstPersonCamera.gameObject.SetActive(false);
@@ -66,7 +74,7 @@ public class FB_GameManager : MonoBehaviour
     public bool IsOver => isOver;
     private void Start()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
         currentTime = totalTime;
         messageText.text = "";
         Time.timeScale = 1f;
@@ -76,7 +84,7 @@ public class FB_GameManager : MonoBehaviour
     private void Update()
     {
         if (isGameOver) return;
-
+        if (!isGameStart) return;
         currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {

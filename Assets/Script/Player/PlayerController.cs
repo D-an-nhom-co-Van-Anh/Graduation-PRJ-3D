@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (!manager.IsOver&&!isLockMovement)
+        if (!manager.IsOver&&!isLockMovement&&manager.IsGameStart)
         {
             moveDir = input.Player.Move.ReadValue<Vector2>().normalized;
             camForward = cameraTransform.forward;
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!manager.IsOver&&!isLockMovement)
+        if (!manager.IsOver&&!isLockMovement&&manager.IsGameStart)
         {
             // Tinh van toc muc tieu
             targetVelocity = dir * speed;
