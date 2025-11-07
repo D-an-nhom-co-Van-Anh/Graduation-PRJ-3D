@@ -69,7 +69,7 @@ public class FB_GoalKeeper : MonoBehaviour
         {
             // Cản bóng – phản lại hoặc chặn đứng
             Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
-            ballRb.linearVelocity = -ballRb.linearVelocity * 0.5f;
+            ballRb.linearVelocity = -ballRb.linearVelocity * 2.5f;
             manager.GameOver(false);
             Debug.Log("Goalkeeper saved the shot!");
         }
