@@ -158,7 +158,14 @@ public class PlayerMovementController : MonoBehaviour
     private bool IsFrontBlocked()
     {
         float checkDistance = (isRunning ? 0.8f : 0.5f);
-        return Physics.Raycast(transform.position + Vector3.up * 0.5f, moveDirection, checkDistance);
+        // Bỏ qua collider trigger
+        return Physics.Raycast(
+            transform.position + Vector3.up * 0.5f,
+            moveDirection,
+            checkDistance,
+            ~0,
+            QueryTriggerInteraction.Ignore
+        );
     }
 
     private bool IsGrounded()
