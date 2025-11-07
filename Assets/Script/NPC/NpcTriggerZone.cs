@@ -13,9 +13,11 @@ public class NpcTriggerZone : MonoBehaviour
 
     [Header("Settings")]
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
+    public float rotationDelay = 5f;          // Thời gian chờ giữa các lần xoay (giây)
 
     private bool playerInZone = false;
     private bool isTalking = false;
+    private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
 
     private void Reset()
     {
@@ -69,7 +71,15 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Update()
     {
-        // Khi nhấn E trong vùng
+        // 🔁 Nếu Player spawn muộn => tự tìm lại
+        if (playerTransform == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+                playerTransform = playerObj.transform;
+        }
+
+        // Khi nhấn E trong vùng => bắt đầu nói chuyện
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
             isTalking = true;
@@ -77,23 +87,41 @@ public class NpcTriggerZone : MonoBehaviour
 
             if (uiTalkingPrompt != null)
                 uiTalkingPrompt.SetActive(false);
+        }
 
-            // 👉 Xoay NPC về phía player một lần duy nhất
-            if (npcTransform != null && playerTransform != null)
+        // 🧭 NPC xoay về phía Player mỗi 5 giây một lần
+        if (isTalking && playerInZone && playerTransform != null && npcTransform != null)
+        {
+            if (Time.time >= nextRotationTime)
             {
-                Vector3 direction = (playerTransform.position - npcTransform.position);
-                direction.y = 0f;
-
-                if (direction.sqrMagnitude > 0.01f)
-                {
-                    Quaternion targetRotation = Quaternion.LookRotation(direction);
-                    npcTransform.rotation = Quaternion.Slerp(
-                        npcTransform.rotation,
-                        targetRotation,
-                        rotationSpeed * Time.deltaTime * 10f
-                    );
-                }
+                RotateTowardPlayer();
+                nextRotationTime = Time.time + rotationDelay; // đếm thời gian cho lần kế tiếp
             }
+        }
+    }
+
+    private void RotateTowardPlayer()
+    {
+        Vector3 direction = (playerTransform.position - npcTransform.position);
+        direction.y = 0f;
+
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            StartCoroutine(SmoothRotate(targetRotation));
+        }
+    }
+
+    private System.Collections.IEnumerator SmoothRotate(Quaternion targetRotation)
+    {
+        float t = 0f;
+        Quaternion startRotation = npcTransform.rotation;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * rotationSpeed;
+            npcTransform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
+            yield return null;
         }
     }
 }
