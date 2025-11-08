@@ -5,6 +5,16 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bark.007
+    second: {fileID: 2100000, guid: fd2c825bbd2af18419c2f9e5e49131d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.007
+    second: {fileID: 2100000, guid: 2b9f4ffb874840f4f9551ecf2682e7d2, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Twig_Leaf_Long_Diffuse_C1-Twig_Leaf_Long_Opacity
