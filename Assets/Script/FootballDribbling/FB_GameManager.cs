@@ -40,22 +40,21 @@ public class FB_GameManager : MonoBehaviour
         player.GetPlayerController().LockMovement();
         // Dịch nhân vật tới chỗ sút
         player.GetPlayerController().PlayMoveAnimation(Vector2.one);
-        player.transform.DOMove(penaltySpot.position, 0.97f).OnComplete(() =>{
-            targetPoint.SetActive(true);
+        player.transform.DOLookAt(penaltySpot.position, 0.2f, AxisConstraint.Y).OnComplete(() => Debug.Log("Quay"));
+        player.transform.DOMove(penaltySpot.position, 1.97f).OnComplete(() =>{
+            //targetPoint.SetActive(true);
             Debug.Log("ket thuc");
             player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
             // Chuẩn bị trạng thái penalty
             player.EnterPenaltyMode(targetPoint, ball);
             Cursor.visible = true;
-            player.transform.DOLookAt(targetPoint.transform.position, 0.1f, AxisConstraint.Y);
+            player.transform.DOLookAt(targetPoint.transform.position, 0.2f, AxisConstraint.Y);
             ball.StartPenalty();
         });
-        player.transform.DOLookAt(penaltySpot.position, 0.1f, AxisConstraint.Y).OnComplete(()=>Debug.Log("Quay"));
+      
 
         player.transform.rotation = penaltySpot.rotation;
-        Debug.Log(penaltySpot.position);
-        Debug.Log(player.transform.position);
-        // Hiện mục tiêu khung thành
+
      
     }
     public void StartGame()
@@ -113,19 +112,22 @@ public class FB_GameManager : MonoBehaviour
     }
     public void GameOver(bool success)
     {
-        isGameOver = true;
-        if (success)
+        if (isGameOver != true)
         {
-            messageText.text = "Hoàn thành! Bạn nhận được CUP!";
-            //GameManager_.Instance.GetQuestManager().FinishQuest(quest.info.id);
-            // LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
-        }
-        else
-        {
-            isOver = true;
-            Cursor.visible = true;
-            failCanvas.SetActive(true);
-            ShowFailCanvasText();
+            isGameOver = true;
+            if (success)
+            {
+                messageText.text = "Hoàn thành! Bạn nhận được CUP!";
+                //GameManager_.Instance.GetQuestManager().FinishQuest(quest.info.id);
+                // LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
+            }
+            else
+            {
+                isOver = true;
+                Cursor.visible = true;
+                failCanvas.SetActive(true);
+                ShowFailCanvasText();
+            }
         }
     }
     public void Restart()

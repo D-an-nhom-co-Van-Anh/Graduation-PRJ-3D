@@ -118,38 +118,7 @@ public class FB_PlayerController : MonoBehaviour
             //animator.SetLayerWeight(LAYER_SHOOT, Mathf.Lerp(animator.GetLayerWeight(LAYER_SHOOT), 0f, Time.deltaTime * 10f));
         }
     }
-    private void CheckTakeBall()
-    {
-        float distanceToBall = Vector3.Distance(transformBall.position, PlayerBallPosition.position);
-        if (distanceToBall < 0.6)
-        {
-            //if (Game.Instance.PlayerWithBall != null)
-            //{
-            //    soundSteal.Play();
-            //    Game.Instance.PlayerWithBall.LooseBall(true);
-            //}
-            //Game.Instance.SetPlayerWithBall(this);
-        }
-    }
-    Vector3 GetShootDirection()
-    {
-        // Lấy ray từ camera đến điểm trỏ chuột
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            // Hướng từ bóng đến điểm chuột chỉ định
-            Vector3 dir = (hit.point - transformBall.position).normalized;
-            dir.y += upForce; // thêm độ cong
-            return dir.normalized;
-        }
-        else
-        {
-            // Nếu không chạm gì thì sút theo hướng camera
-            Vector3 dir = Camera.main.transform.forward;
-            dir.y += upForce;
-            return dir.normalized;
-        }
-    }
+
 
     private void DribbleWithBall()
     {
@@ -200,19 +169,6 @@ public class FB_PlayerController : MonoBehaviour
         LooseBall();
     }
 
-    public void Pass()
-    {
-        //if (HasBall && Game.Instance.PassDestinationPlayer == null)
-        //{
-        //    transform.LookAt(fellowPlayer.transform.position);
-        //    timeShot = Time.time;
-        //    soundShoot.Play();
-        //    LooseBall();
-        //    animator.Play("Shoot", LAYER_SHOOT, 0f);
-        //    animator.SetLayerWeight(LAYER_SHOOT, 1f);
-        //    scriptBall.Pass(this);
-        //}
-    }
 
     public void Activate()
     {

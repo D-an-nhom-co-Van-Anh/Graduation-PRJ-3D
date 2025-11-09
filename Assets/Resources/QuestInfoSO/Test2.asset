@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: Test2
   displayName: 
-  questPrerequisites:
-  - {fileID: 0}
-  - {fileID: 0}
+  questPrerequisites: []
   questStepPrefabs:
   - {fileID: 0}
   rewardMoney: 0
