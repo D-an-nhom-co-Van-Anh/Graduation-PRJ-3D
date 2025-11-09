@@ -3,32 +3,7 @@ guid: 3a585d315ab30aa4c99c6e43f9d98468
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MultiMat_0s
-    second: {fileID: 2100000, guid: 8701be3ffb324714cb8477e3349832eb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: bark.001
-    second: {fileID: 2100000, guid: c8343bb7782bc2c41b1c43dfca58767f, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Melia_azedarach_Alpha
-    second: {fileID: 2800000, guid: 0100f3e0ba8f4e7408bafe7c351f570d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Melia_azedarach_HD_VRayCompleteMap
-    second: {fileID: 2800000, guid: 598020149be3c734db2f7a4a7f6708dc, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Object057_VRayCompleteMap
-    second: {fileID: 2800000, guid: 9a078c631c2c4114abbb5568d3159cb7, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
