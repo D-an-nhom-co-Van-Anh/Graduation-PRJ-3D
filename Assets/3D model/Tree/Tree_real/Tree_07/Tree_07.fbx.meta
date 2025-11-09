@@ -3,7 +3,37 @@ guid: ec3f92a4adab7a241b47a72ecd8bbebb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Bark.002
+    second: {fileID: 2100000, guid: ba3bc61d81bfcd84da9995b3ac39924d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Branch.002
+    second: {fileID: 2100000, guid: ad540467e32546049b2fe6694d78743d, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bark_Linden_Col
+    second: {fileID: 2800000, guid: 9a64759d14438764b925f83411e6490a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bark_Linden_N
+    second: {fileID: 2800000, guid: f7da41808b6997c4c932b79b89c0ebfa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Branch_Linden_Col
+    second: {fileID: 2800000, guid: c3d6c9af460ad5b46ae7f947377ed987, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Branch_Linden_N
+    second: {fileID: 2800000, guid: f1cbcf876e614034b8e96ecdc3d57c88, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
