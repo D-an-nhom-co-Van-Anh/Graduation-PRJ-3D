@@ -3,7 +3,37 @@ guid: 48e13aed5def64841a466390dd3104ff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Bark.012
+    second: {fileID: 2100000, guid: b3a6de46267e4884ab718edfb3a6fc7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Branch.012
+    second: {fileID: 2100000, guid: 14c20fbf67abd244485222ca06e553f8, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bark_GreenAsh01_Col
+    second: {fileID: 2800000, guid: 9f9e4cc272ec54841a3fceb92585e4c3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bark_GreenAsh01_N
+    second: {fileID: 2800000, guid: 2c2cd638cb1a3d24cb133df79ab24843, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Branch_Ash_Col
+    second: {fileID: 2800000, guid: 14c4d79d329b0f642a65cc5bb1baeb8f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Branch_Ash_N
+    second: {fileID: 2800000, guid: d5775b67bf5d9184d85415a015b9db32, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
