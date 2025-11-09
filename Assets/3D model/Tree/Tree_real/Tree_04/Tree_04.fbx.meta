@@ -3,7 +3,37 @@ guid: e16d2f3c58f26444bb4334c5975d61eb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Bark.004
+    second: {fileID: 2100000, guid: 36a6f158db080074caf21587d7ba3e1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Branch.004
+    second: {fileID: 2100000, guid: c53525eb278c8cd48af6bcf7e1c21689, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bark_OakPetiolate01_Col
+    second: {fileID: 2800000, guid: be327015fc379364da43a66722baa46d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bark_OakPetiolate01_N
+    second: {fileID: 2800000, guid: d0d85aec8cf03c845838d67699004bfc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Branch_Oak_Col
+    second: {fileID: 2800000, guid: 1798111971cb36f4dbdcf8f037f30a6f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Branch_Oak_N
+    second: {fileID: 2800000, guid: 9f59de5c07b4aee43b4f0db0ae0e0ada, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
