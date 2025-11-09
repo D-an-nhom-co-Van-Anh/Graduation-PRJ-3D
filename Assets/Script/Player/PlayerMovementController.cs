@@ -82,7 +82,10 @@ public class PlayerMovementController : MonoBehaviour
 
         // --- Tốc độ ---
         currentSpeed = (isRunning && currentStamina > staminaThreshold) ? runSpeed : walkSpeed;
-        isRunning = currentStamina > staminaThreshold;
+        if (currentStamina < staminaThreshold&&isRunning==true)
+        {
+            isRunning = false;
+        }
         animController.UpdateMovement(moveInput, isRunning);
 
         // --- Nhảy ---
