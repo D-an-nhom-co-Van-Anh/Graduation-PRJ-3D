@@ -1,0 +1,272 @@
+fileFormatVersion: 2
+guid: 8b5194113ef03194aa69cbc340fb5afc
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupin arb lf stk 1
+    second: {fileID: 2100000, guid: cb24061f92bbd784d91c1a33ada54939, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupin arb lf stk 2
+    second: {fileID: 2100000, guid: 18e8d36d4aed10d4c9195de99e2a2e90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupin arb lf stk 3
+    second: {fileID: 2100000, guid: d8761ed664c4b1145bde2233b476d7b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupin arb lf stk 4
+    second: {fileID: 2100000, guid: 74df406cd82d7ca45bfa672da080da05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupin arb lf stk 5
+    second: {fileID: 2100000, guid: 66ba1c2ff1d30b041afbcaa95ae0f91a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus arb leaflet 1
+    second: {fileID: 2100000, guid: bd5ff0b97ceb02846bb26290952f14f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus arb leaflet 2
+    second: {fileID: 2100000, guid: a688556c3bba19247ac2912e0f78c996, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus arb leaflet 3
+    second: {fileID: 2100000, guid: 5b0ec69f7c7558a4d884df561907155f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus arb leaflet 4
+    second: {fileID: 2100000, guid: 907e3a6a01537484793df9e17572efc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus arb leaflet 5
+    second: {fileID: 2100000, guid: 51ce603f81bf2274eb5f787890c37d36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus arbo branch
+    second: {fileID: 2100000, guid: 5ac90eff2d54e3b4195ccaa32bd9c1ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus leaflet 01 y1
+    second: {fileID: 2100000, guid: 9b0b96022de354049a10e9e09ad90b06, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus leaflet 01 y2
+    second: {fileID: 2100000, guid: b61e6f10a6fb0a54bb1f2b2458e09514, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lupinus leaflet 01 y3
+    second: {fileID: 2100000, guid: 5da2238809d5f1749928e0eb025dc1e3, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupin_arb_lf_stk_1_Lupinus_arbo_stalk_01_LOD0_Color
+    second: {fileID: 2800000, guid: cf2068a5442d69f4e9740b721c030a90, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupin_arb_lf_stk_2_Lupinus_arbo_stalk_02_LOD0_Color
+    second: {fileID: 2800000, guid: b85e423e384d6ca40a2960f81b54c650, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupin_arb_lf_stk_3_Lupinus_arbo_stalk_03_LOD0_Color
+    second: {fileID: 2800000, guid: 1e57aeaee52253746a7f99da8a6b456d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupin_arb_lf_stk_4_Lupinus_arbo_stalk_04_LOD0_Color
+    second: {fileID: 2800000, guid: d6febbc2253d0324f831b24b22a8baa8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupin_arb_lf_stk_5_Lupinus_arbo_stalk_05_LOD0_Color
+    second: {fileID: 2800000, guid: 40f34a8971761e44d9d0d87e4236d423, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_1_Lupinus_arbo_leaflet_01_LOD0_Color
+    second: {fileID: 2800000, guid: f94eaf9765d484742aef77943ec3d559, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_1_Lupinus_arbo_leaflet_01_a_LOD0_Transparency
+    second: {fileID: 2800000, guid: aa9c32ce94e2e914a9a9e84c602ee10d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_1_Lupinus_arbo_leaflet_01_bl_LOD0_BackLight
+    second: {fileID: 2800000, guid: f15cfd4f64422aa419e3290fdf5d2992, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_1_Lupinus_arbo_leaflet_01_hl_LOD0_Specular
+    second: {fileID: 2800000, guid: f0a3daaf43c8a5741ba2433abab40f33, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_1_Lupinus_arbo_leaflet_01_n_LOD0_Normal
+    second: {fileID: 2800000, guid: 2edd204d6accf914aa4cbcc18883c096, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_1_back_Lupinus_arbo_leaflet_03_LOD0_Color
+    second: {fileID: 2800000, guid: cb74dd9f674dd2a458d7a4a31df5dd7f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_2_Lupinus_arbo_leaflet_02_LOD0_Color
+    second: {fileID: 2800000, guid: d30d5b457d981a84bbe653f75f6a9fa0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_2_back_Lupinus_arbo_leaflet_04_LOD0_Color
+    second: {fileID: 2800000, guid: 0b303f05dbee8b14ba6edd558a78cbe6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arb_leaflet_3_back_Lupinus_arbo_leaflet_05_LOD0_Color
+    second: {fileID: 2800000, guid: 68d60970defcc564b908aeaf9d5dd2fe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arbo_branch_LOD0_Color
+    second: {fileID: 2800000, guid: c439b8594980f6045950bacf4f981a9a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_arbo_branch_n_LOD0_Normal
+    second: {fileID: 2800000, guid: 55732a9c5c01c0a41ad01067b9b17a7f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_leaflet_01_y1_Lupinus_arbo_leaflet_01_y1_LOD0_Color
+    second: {fileID: 2800000, guid: a5163976b9643b440a612737a009ebd2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_leaflet_01_y2_Lupinus_arbo_leaflet_01_y2_LOD0_Color
+    second: {fileID: 2800000, guid: 280e8623f01067644a23b870b0921ceb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lupinus_arboreus_HD_Lupinus_leaflet_01_y3_Lupinus_arbo_leaflet_01_y3_LOD0_Color
+    second: {fileID: 2800000, guid: c7af38ef64b4101478118bb32392fc41, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
