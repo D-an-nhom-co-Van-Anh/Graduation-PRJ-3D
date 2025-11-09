@@ -5595,8 +5595,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9000000, guid: 57246ef9f2a48d446a28627e2ae7b2ac, type: 3}
     - target: {fileID: 2126311806638717269, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126311806638717269, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126311806638717269, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126311806638717269, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414440039470726847, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_Height
+      value: 1.9268429
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414440039470726847, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_Center.y
+      value: 0.93509054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414440039470726847, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_Center.z
+      value: 0.050000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414440039470726847, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621507699518951116, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621507699518951116, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 4623456473268550037, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: m_Name
@@ -5685,6 +5721,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3328147770541025975, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
     - {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+    - {fileID: 6678387259603715965, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+    - {fileID: 125749535126549162, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5431905775751963439, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
@@ -7797,7 +7835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 10
-  speed: 7
+  speed: 15
   cameraTransform: {fileID: 330937961}
   rb: {fileID: 1623352924}
   acceleration: 10
