@@ -112,24 +112,5 @@ public class FB_Ball : MonoBehaviour
             manager.OnReachGoal();
         }
     }
-    //private void PassBall()
-    //{
-    //    if (Time.time - timePassedBall > 0.2 && playerFollowCamera.Follow != Game.Instance.PassDestinationPlayer.PlayerCameraRoot)
-    //    {
-    //        // switch player
-    //        Game.Instance.PassDestinationPlayer.FellowPlayer.PlayerInput.enabled = false;
-    //        Game.Instance.PassDestinationPlayer.Activate();
-    //        playerFollowCamera.Follow = Game.Instance.PassDestinationPlayer.PlayerCameraRoot;
-    //    }
-
-    //    Vector3 movedirection = Game.Instance.PassDestinationPlayer.PlayerBallPosition.position - transform.position;
-    //    if (movedirection.magnitude < 1f)
-    //    {
-    //        // pass arrived
-    //        transform.position = Game.Instance.PassDestinationPlayer.PlayerBallPosition.position;
-    //        Game.Instance.SetPlayerWithBall(Game.Instance.PassDestinationPlayer);
-    //    }
-    //    movedirection.Normalize();
-    //    transform.position += movedirection * PASSING_SPEED * Time.deltaTime;
-    //}
+   
 }
