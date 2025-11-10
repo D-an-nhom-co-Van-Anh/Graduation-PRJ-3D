@@ -104,7 +104,7 @@ public class FB_Ball : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Debug.Log("Va cham");
-            //manager.OnHitObstacle();
+            manager.OnHitObstacle();
         }
         else if (other.CompareTag("Goal"))
         {

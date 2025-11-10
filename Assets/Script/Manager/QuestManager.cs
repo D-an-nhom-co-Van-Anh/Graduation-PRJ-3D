@@ -48,6 +48,10 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+    public Dictionary<string,Quest> GetQuestMap()
+    {
+        return this.questMap;
+    }
     private void ChangeQuestState(string id, QuestState state)
     {
         Quest quest = GetQuestById(id);
