@@ -7,9 +7,10 @@ public class GameManager_ : Singleton<GameManager_>
     [SerializeField] private QuestManager questManager;
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private PlayerMovementController player;
+    private bool isGameStart;
     public QuestEvent questEvent;
     public int level;
-    
+    public bool IsGameStart=>isGameStart;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -18,6 +19,7 @@ public class GameManager_ : Singleton<GameManager_>
             player = FindObjectOfType<PlayerMovementController>();
             Debug.Log(player);
         }
+        isGameStart = false;
         level = 0;
     }
     public void Addlevel()
@@ -38,6 +40,14 @@ public class GameManager_ : Singleton<GameManager_>
     }
     public PlayerMovementController GetPlayer()
     {
+        if (this.player == null)
+        {
+            this.player = FindObjectOfType<PlayerMovementController>();
+        }
         return this.player;
+    }
+    public void StartGame()
+    {
+        isGameStart = true;
     }
 }
