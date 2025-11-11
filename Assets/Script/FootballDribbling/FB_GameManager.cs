@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Unity.Cinemachine;
-
+using UnityEngine.UI;
 public class FB_GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
@@ -25,37 +25,41 @@ public class FB_GameManager : MonoBehaviour
     [SerializeField] private Quest quest;
     [SerializeField] private FB_GoalKeeper keeper;
     [SerializeField] private GameObject instructionPanel;
+    [SerializeField] private Image fadeImage;
     public Transform penaltySpot; // vị trí sút penalty
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
     public GameObject targetPoint; // điểm trong khung thành
     public FB_Ball ball;
+    private PlayerController playerController;
     public void StartPenaltyMode(FB_PlayerController player)
     {
-        // Tắt camera góc 3
+        this.playerController = player.GetPlayerController();
+        StartCoroutine(StartPenaltySequence(player));
+    }
+    private IEnumerator StartPenaltySequence(FB_PlayerController player)
+    {
+        fadeImage.gameObject.SetActive(true);
+        player.GetPlayerController().LockMovement();
+
+        yield return fadeImage.DOFade(1f, 0.6f).WaitForCompletion();
+
         thirdPersonCamera.gameObject.SetActive(false);
-        // Bật camera góc 1
         firstPersonCamera.gameObject.SetActive(true);
 
-        player.GetPlayerController().LockMovement();
-        // Dịch nhân vật tới chỗ sút
-        player.GetPlayerController().PlayMoveAnimation(Vector2.one);
-        player.transform.DOLookAt(penaltySpot.position, 0.1f, AxisConstraint.Y).OnComplete(() => Debug.Log("Quay"));
-        player.transform.DOMove(penaltySpot.position, 0.97f).OnComplete(() =>{
-            //targetPoint.SetActive(true);
-            Debug.Log("ket thuc");
-            player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
-            // Chuẩn bị trạng thái penalty
-            player.EnterPenaltyMode(targetPoint, ball);
-            Cursor.visible = true;
-            player.transform.DOLookAt(targetPoint.transform.position, 0.1f, AxisConstraint.Y);
-            ball.StartPenalty();
-        });
-      
+        player.transform.position = penaltySpot.position;
+        player.GetPlayerController().PlayMoveAnimation(Vector2.zero);
+        player.transform.rotation = Quaternion.LookRotation(
+            targetPoint.transform.position - penaltySpot.position, Vector3.up);
 
-        player.transform.rotation = penaltySpot.rotation;
+        ball.StartPenalty();
 
-     
+        yield return fadeImage.DOFade(0f, 0.6f).WaitForCompletion();
+
+        player.EnterPenaltyMode(targetPoint, ball);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        fadeImage.gameObject.SetActive(false);
     }
     public void StartGame()
     {
@@ -118,6 +122,7 @@ public class FB_GameManager : MonoBehaviour
             if (success)
             {
                 messageText.text = "Hoàn thành! Bạn nhận được CUP!";
+                playerController.PlayVictory();
                 //GameManager_.Instance.GetQuestManager().FinishQuest(quest.info.id);
                 // LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
             }

@@ -51,7 +51,7 @@ public class FB_Ball : MonoBehaviour
            
             if (isWithPlayer)
             {
-                Debug.Log("withPlayer");
+                //Debug.Log("withPlayer");
                 transform.position = player.PlayerBallPosition.position;
             }
 

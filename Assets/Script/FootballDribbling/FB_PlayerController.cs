@@ -79,11 +79,6 @@ public class FB_PlayerController : MonoBehaviour
         {
             cheering -= Time.deltaTime;
         }
-        else
-        {
-           // animator.SetLayerWeight(LAYER_CHEER, Mathf.Lerp(animator.GetLayerWeight(LAYER_CHEER), 0f, Time.deltaTime * 10f));
-        }
-
         if (stealDelay > 0)
         {
             stealDelay -= Time.deltaTime;
@@ -124,7 +119,7 @@ public class FB_PlayerController : MonoBehaviour
     {
         transformBall.position = PlayerBallPosition.position;
         distanceSinceLastDribble += scriptBall.Speed.magnitude * Time.deltaTime;
-        if (distanceSinceLastDribble > 3)
+        if (distanceSinceLastDribble >2)
         {
            // soundDribble.Play();
             distanceSinceLastDribble = 0;
@@ -201,7 +196,7 @@ public class FB_PlayerController : MonoBehaviour
         if (other.collider.GetComponent<FB_Ball>())
         {
             TakeBall();
-            //scriptBall.SetBallWithPlayer(true, this);
+            scriptBall.SetBallWithPlayer(true, this);
         }
        
     }
@@ -248,7 +243,7 @@ public class FB_PlayerController : MonoBehaviour
         inPenaltyMode = false;
         penaltyTarget.SetActive(false);
         manager.ExitPenaltyMode();
-        playerController.UnLockMovement();
+       // playerController.UnLockMovement();
         // Chuyển camera lại góc 3 người
         // (có thể gọi từ PenaltyTrigger)
     }
