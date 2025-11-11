@@ -18,6 +18,9 @@ public class NpcTriggerZone : MonoBehaviour
     private bool playerInZone = false;
     private bool isTalking = false;
     private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
+    [SerializeField]
+    private DialogueController dialogueController;
+
 
     private void Reset()
     {
@@ -78,24 +81,32 @@ public class NpcTriggerZone : MonoBehaviour
             if (playerObj != null)
                 playerTransform = playerObj.transform;
         }
-
-        // Khi nhấn E trong vùng => bắt đầu nói chuyện
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
-            isTalking = true;
-            npcController?.SetTalking(true);
+            if (!dialogueController.IsDialogueActive)
+            {
+                dialogueController.StartDialogue();
+                npcController?.SetTalking(true);
+            }
+            else
+            {
+                dialogueController.NextDialogue();
+                if (!dialogueController.IsDialogueActive)
+                {
+                    npcController?.SetTalking(false);
+                }
+            }
 
             if (uiTalkingPrompt != null)
                 uiTalkingPrompt.SetActive(false);
         }
 
-        // 🧭 NPC xoay về phía Player mỗi 5 giây một lần
         if (isTalking && playerInZone && playerTransform != null && npcTransform != null)
         {
             if (Time.time >= nextRotationTime)
             {
                 RotateTowardPlayer();
-                nextRotationTime = Time.time + rotationDelay; // đếm thời gian cho lần kế tiếp
+                nextRotationTime = Time.time + rotationDelay; 
             }
         }
     }
