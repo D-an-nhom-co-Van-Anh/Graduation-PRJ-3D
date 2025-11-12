@@ -18,10 +18,11 @@ public class NpcTriggerZone : MonoBehaviour
     private bool playerInZone = false;
     private bool isTalking = false;
     private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
-    [SerializeField]
+  
     private DialogueController dialogueController;
 
-
+    private PlayerMovementController playerController;
+    
     private void Reset()
     {
         triggerZone = GetComponent<Collider>();
@@ -31,6 +32,9 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Start()
     {
+        dialogueController = GetComponent<DialogueController>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerMovementController>();
         // Tắt UI khi bắt đầu
         if (uiTalkingPrompt != null)
             uiTalkingPrompt.SetActive(false);
@@ -83,6 +87,8 @@ public class NpcTriggerZone : MonoBehaviour
         }
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
+            isTalking=true;
+            playerController.LockMovement();
             if (!dialogueController.IsDialogueActive)
             {
                 dialogueController.StartDialogue();
@@ -94,6 +100,7 @@ public class NpcTriggerZone : MonoBehaviour
                 if (!dialogueController.IsDialogueActive)
                 {
                     npcController?.SetTalking(false);
+                    isTalking=false;
                 }
             }
 
@@ -103,11 +110,17 @@ public class NpcTriggerZone : MonoBehaviour
 
         if (isTalking && playerInZone && playerTransform != null && npcTransform != null)
         {
+
+            playerController.LockMovement();
             if (Time.time >= nextRotationTime)
             {
                 RotateTowardPlayer();
                 nextRotationTime = Time.time + rotationDelay; 
             }
+        }
+        else
+        {
+            playerController.UnlockMovement();
         }
     }
 

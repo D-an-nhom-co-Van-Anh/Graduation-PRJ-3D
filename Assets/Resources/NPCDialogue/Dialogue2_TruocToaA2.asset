@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe53d8cdadf5584d958d338add1e7ac, type: 3}
+  m_Name: Dialogue2_TruocToaA2
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "Ch\xE0o b\u1EA1n! Tr\u01B0\u1EDBc khi b\u01B0\u1EDBc v\xE0o t\xF2a A2, \u0111\u1EC3
+    m\xECnh gi\u1EDBi thi\u1EC7u qua m\u1ED9t ch\xFAt v\u1EC1 PTIT nh\xE9."
+  - "H\u1ECDc vi\u1EC7n C\xF4ng ngh\u1EC7 B\u01B0u ch\xEDnh Vi\u1EC5n th\xF4ng (PTIT)
+    hi\u1EC7n c\xF3 hai c\u01A1 s\u1EDF \u0111\xE0o t\u1EA1o:\nm\u1ED9t \u1EDF H\xE0
+    N\u1ED9i (ph\xEDa B\u1EAFc) v\xE0 m\u1ED9t \u1EDF TP. H\u1ED3 Ch\xED Minh (ph\xEDa
+    Nam).\nTr\u01B0\u1EDBc m\u1EB7t b\u1EA1n ch\xEDnh l\xE0 c\u01A1 s\u1EDF ph\xEDa
+    B\u1EAFc c\u1EE7a H\u1ECDc vi\u1EC7n."
+  - "Tr\u01B0\u1EDDng \u0111\u01B0\u1EE3c th\xE0nh l\u1EADp t\u1EEB n\u0103m 1953
+    v\u1EDBi t\xEAn g\u1ECDi Tr\u01B0\u1EDDng \u0110\u1EA1i h\u1ECDc B\u01B0u \u0111i\u1EC7n
+    \u2013 V\xF4 tuy\u1EBFn \u0111i\u1EC7n. "
+  - "\u0110\u1EBFn ng\xE0y 11 th\xE1ng 7 n\u0103m 1997, sau khi h\u1EE3p nh\u1EA5t
+    b\u1ED1n \u0111\u01A1n v\u1ECB l\u1EDBn trong ng\xE0nh, tr\u01B0\u1EDDng ch\xEDnh
+    th\u1EE9c mang t\xEAn H\u1ECDc vi\u1EC7n C\xF4ng ngh\u1EC7 B\u01B0u ch\xEDnh
+    Vi\u1EC5n th\xF4ng nh\u01B0 ng\xE0y nay."
+  - "Theo b\u1EA3ng x\u1EBFp h\u1EA1ng Webometrics n\u0103m 2022, PTIT n\u1EB1m trong
+    Top 21 tr\u01B0\u1EDDng \u0111\u1EA1i h\u1ECDc n\u1ED5i b\u1EADt c\u1EE7a Vi\u1EC7t
+    Nam."
+  - "\u0110\u1EBFn n\u0103m 2025, H\u1ECDc vi\u1EC7n \u0111\xE3 m\u1EDF r\u1ED9ng
+    l\xEAn 29 ng\xE0nh \u0111\xE0o t\u1EA1o \u2013\ng\u1ED3m 24 ng\xE0nh \u0111\u1EA1i
+    tr\xE0 v\xE0 5 ng\xE0nh ch\u1EA5t l\u01B0\u1EE3ng cao, trong \u0111\xF3 c\xF3
+    nhi\u1EC1u l\u0129nh v\u1EF1c hot nh\u01B0 C\xF4ng ngh\u1EC7 th\xF4ng tin, An
+    to\xE0n th\xF4ng tin, Marketing, C\xF4ng ngh\u1EC7 \u0111a ph\u01B0\u01A1ng ti\u1EC7n..."
+  - "\n\u0110\u1EB7c bi\u1EC7t, t\u1EEB th\xE1ng 9/2024, PTIT \u0111\xE3 m\u1EDF
+    th\xEAm ng\xE0nh Thi\u1EBFt k\u1EBF v\xE0 Ph\xE1t tri\u1EC3n Game n\u1EEFa \u0111\u1EA5y!"
+  - "C\xF2n \u0111\xE2y \u2013 t\xF2a nh\xE0 A2, l\xE0 t\xF2a nh\xE0 ch\xEDnh c\u1EE7a
+    H\u1ECDc vi\u1EC7n, g\u1ED3m 10 t\u1EA7ng v\u1EDBi c\xE1c ph\xF2ng h\u1ECDc,
+    ph\xF2ng gi\u1EA3ng vi\xEAn, v\u0103n ph\xF2ng khoa v\xE0 nhi\u1EC1u ph\xF2ng
+    b\u1ED9 m\xF4n quan tr\u1ECDng."
+  - "B\u1EA1n c\xF3 th\u1EC3 v\xE0o trong t\xF2a A2 \u0111\u1EC3 tham quan v\xE0
+    tr\u1EA3i nghi\u1EC7m nh\u1EEFng mini game \u0111ang ch\u1EDD \u0111\xF3n ph\xEDa
+    tr\u01B0\u1EDBc."
