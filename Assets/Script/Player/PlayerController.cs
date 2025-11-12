@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!manager.IsOver&&!isLockMovement&&manager.IsGameStart)
         {
+            
             moveDir = input.Player.Move.ReadValue<Vector2>().normalized;
             camForward = cameraTransform.forward;
             camForward.y = 0;
@@ -74,6 +75,10 @@ public class PlayerController : MonoBehaviour
                 animationController.UpdateMovement(Vector2.zero, false);
             }
         }
+    }
+    public void PlayVictory()
+    {
+        animationController.PlayVictory();
     }
     public void PlayMoveAnimation(Vector2 move)
     {
