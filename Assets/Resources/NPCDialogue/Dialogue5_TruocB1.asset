@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe53d8cdadf5584d958d338add1e7ac, type: 3}
+  m_Name: Dialogue5_TruocB1
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "\u0110\xE2y l\xE0 khu k\xFD t\xFAc x\xE1 B1 v\xE0 B5 \u2013 n\u01A1i \u1EDF
+    quen thu\u1ED9c c\u1EE7a r\u1EA5t nhi\u1EC1u sinh vi\xEAn PTIT \u0111\xF3!"
+  - "Tr\u01B0\u1EDBc k\xFD t\xFAc x\xE1 B1, b\u1EA1n c\xF3 th\u1EC3 th\u1EA5y ngay
+    s\xE2n b\xF3ng r\u1ED5 v\xE0 s\xE2n b\xF3ng \u0111\xE1 r\u1ED9ng r\xE3i ph\xEDa
+    tr\u01B0\u1EDBc\n"
+  - "\u0110\xE2y l\xE0 n\u01A1i th\u01B0\u1EDDng xuy\xEAn di\u1EC5n ra gi\u1EDD h\u1ECDc
+    m\xF4n Gi\xE1o d\u1EE5c Th\u1EC3 ch\u1EA5t, c\u0169ng nh\u01B0 c\xE1c ho\u1EA1t
+    \u0111\u1ED9ng ngo\u1EA1i kh\xF3a sau gi\u1EDD h\u1ECDc.\n"
+  - "V\xE0o m\u1ED7i bu\u1ED5i chi\u1EC1u, n\u01A1i \u0111\xE2y l\u1EA1i nh\u1ED9n
+    nh\u1ECBp v\u1EDBi c\xE1c c\xE2u l\u1EA1c b\u1ED9 th\u1EC3 thao nh\u01B0 CLB
+    B\xF3ng r\u1ED5, CLB Street Workout, CLB Taekwondo, v\xE0 nhi\u1EC1u CLB kh\xE1c
+    n\u1EEFa\n"
+  - "C\xF2n k\xFD t\xFAc x\xE1 B5 n\u1EB1m ngay c\u1EA1nh \u0111\xF3, l\xE0 n\u01A1i
+    \u1EDF gi\xE1 r\u1EBB, ti\u1EC7n l\u1EE3i d\xE0nh cho sinh vi\xEAn trong v\xE0
+    ngo\xE0i t\u1EC9nh. Cu\u1ED9c s\u1ED1ng trong k\xFD t\xFAc x\xE1 r\u1EA5t vui
+    v\xE0 n\u0103ng \u0111\u1ED9ng, b\u1EA1n s\u1EBD d\u1EC5 d\xE0ng k\u1EBFt b\u1EA1n,
+    c\xF9ng h\u1ECDc, c\xF9ng ch\u01A1i v\u1EDBi m\u1ECDi ng\u01B0\u1EDDi."
+  - "N\u1EBFu b\u1EA1n mu\u1ED1n th\u01B0 gi\xE3n m\u1ED9t ch\xFAt, h\xE3y th\u1EED
+    tham gia minigame N\xE9m B\xF3ng R\u1ED5 nh\xE9! Tr\xF2 ch\u01A1i r\u1EA5t \u0111\u01A1n
+    gi\u1EA3n: b\u1EA1n ch\u1EC9 c\u1EA7n n\xE9m b\xF3ng tr\xFAng r\u1ED5 c\xE0ng
+    nhi\u1EC1u c\xE0ng t\u1ED1t, sau m\u1ED7i l\u1EA7n n\xE9m tr\xFAng, chi\u1EBFc
+    r\u1ED5 s\u1EBD di chuy\u1EC3n nhanh h\u01A1n v\xE0 kh\xF3 tr\xFAng h\u01A1n"

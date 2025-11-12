@@ -7,11 +7,14 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private DialogueData dialogueData;
+    private PlayerController playerController;
     private int currentIndex;
     public bool IsDialogueActive { get; private set; }
 
     void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         dialoguePanel.SetActive(false);
         IsDialogueActive = false;
     }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe53d8cdadf5584d958d338add1e7ac, type: 3}
+  m_Name: Dialogue1_TruocCongTruong
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "Xin ch\xE0o b\u1EA1n!"
+  - "Ch\xE0o m\u1EEBng b\u1EA1n \u0111\u1EBFn v\u1EDBi H\u1ECDc vi\u1EC7n C\xF4ng
+    ngh\u1EC7 B\u01B0u ch\xEDnh Vi\u1EC5n th\xF4ng (PTIT)!"
+  - "\u0110\xE2y l\xE0 c\u1ED5ng ch\xEDnh c\u1EE7a H\u1ECDc vi\u1EC7n, n\u01A1i bao
+    th\u1EBF h\u1EC7 sinh vi\xEAn b\u1EAFt \u0111\u1EA7u h\xE0nh tr\xECnh h\u1ECDc
+    t\u1EADp v\xE0 tr\u01B0\u1EDFng th\xE0nh c\u1EE7a m\xECnh."
+  - "Ph\xEDa tr\u01B0\u1EDBc b\u1EA1n l\xE0 khu\xF4n vi\xEAn ch\xEDnh \u2013 n\u01A1i
+    c\xF3 gi\u1EA3ng \u0111\u01B0\u1EDDng A1, A2, A3, th\u01B0 vi\u1EC7n v\xE0 c\u1EA3
+    nh\u1EEFng g\xF3c nh\u1ECF y\xEAn b\xECnh \u0111\u1EA7y k\u1EF7 ni\u1EC7m."
+  - "Trong chuy\u1EBFn tham quan h\xF4m nay, b\u1EA1n c\xF3 th\u1EC3 t\u1EF1 do di
+    chuy\u1EC3n, t\xECm hi\u1EC3u c\xE1c khu v\u1EF1c, v\xE0 tham gia nh\u1EEFng
+    mini game vui nh\u1ED9n \u0111\u1EC3 kh\xE1m ph\xE1 cu\u1ED9c s\u1ED1ng sinh
+    vi\xEAn PTIT."
+  - "N\u1EBFu b\u1EA1n s\u1EB5n s\xE0ng, h\xE3y ti\u1EBFn v\xE0o khu\xF4n vi\xEAn
+    \u2013 h\xE0nh tr\xECnh kh\xE1m ph\xE1 PTIT c\u1EE7a b\u1EA1n ch\xEDnh th\u1EE9c
+    b\u1EAFt \u0111\u1EA7u!"

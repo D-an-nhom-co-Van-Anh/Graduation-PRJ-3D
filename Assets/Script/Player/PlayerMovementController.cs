@@ -40,6 +40,7 @@ public class PlayerMovementController : MonoBehaviour
     private float staminaThreshold = 0.5f;
     private Action input;
 
+    private bool isMovementLocked = false;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -206,5 +207,18 @@ public class PlayerMovementController : MonoBehaviour
     public void AddStamina(float value)
     {
         currentStamina = Mathf.Clamp(currentStamina + value, 0, maxStamina);
+    }
+    public void LockMovement()
+    {
+        input.Player.Disable();
+        isMovementLocked = true; 
+        rb.linearVelocity = Vector3.zero;
+        animController.UpdateMovement(Vector2.zero, false);
+    }
+
+    public void UnlockMovement()
+    {
+        input.Player.Enable();
+        isMovementLocked = false;
     }
 }
