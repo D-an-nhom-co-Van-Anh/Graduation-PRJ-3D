@@ -7,28 +7,20 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private DialogueData dialogueData;
-
-    private int currentIndex = 0;
-    private bool isDialogueActive = false;
+    private int currentIndex;
+    public bool IsDialogueActive { get; private set; }
 
     void Start()
     {
         dialoguePanel.SetActive(false);
-    }
-
-    void Update()
-    {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.E))
-        {
-            NextDialogue();
-        }
+        IsDialogueActive = false;
     }
 
     public void StartDialogue()
     {
         currentIndex = 0;
-        isDialogueActive = true;
         dialoguePanel.SetActive(true);
+        IsDialogueActive = true;
         ShowDialogue();
     }
 
@@ -44,7 +36,7 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    private void NextDialogue()
+    public void NextDialogue()
     {
         currentIndex++;
         ShowDialogue();
@@ -52,7 +44,8 @@ public class DialogueController : MonoBehaviour
 
     private void EndDialogue()
     {
-        isDialogueActive = false;
         dialoguePanel.SetActive(false);
+        IsDialogueActive = false;
+        currentIndex = 0;
     }
 }
