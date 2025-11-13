@@ -139,6 +139,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1014902325}
   dialoguePanel: {fileID: 1014902323}
   dialogueData: {fileID: 11400000, guid: f31d06039ea5639498183c4bdcf1641a, type: 2}
+  typingSpeed: 0.03
 --- !u!1001 &75775238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -388,6 +389,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1014902325}
   dialoguePanel: {fileID: 1014902323}
   dialogueData: {fileID: 11400000, guid: c8864fb616d5d3c4bbe36a17ef3ab051, type: 2}
+  typingSpeed: 0.03
 --- !u!1 &577403612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7040601655212392142, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
@@ -408,6 +410,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1014902325}
   dialoguePanel: {fileID: 1014902323}
   dialogueData: {fileID: 11400000, guid: 42bab2ce5d2cb08498bbad65a186d408, type: 2}
+  typingSpeed: 0.03
 --- !u!1 &658872046
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +763,7 @@ GameObject:
   - component: {fileID: 1014902324}
   - component: {fileID: 1014902326}
   - component: {fileID: 1014902325}
+  - component: {fileID: 1014902327}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -885,6 +889,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014902323}
   m_CullTransparentMesh: 1
+--- !u!114 &1014902327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014902323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ceda164fe35344b87ab1230e9f0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  typingSpeed: 0.03
+  typingSound: {fileID: 0}
 --- !u!1 &1042989503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6210643922335721941, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
@@ -905,6 +925,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1014902325}
   dialoguePanel: {fileID: 1014902323}
   dialogueData: {fileID: 11400000, guid: 0ab6c79686f10e04a85a15c927ba9a42, type: 2}
+  typingSpeed: 0.03
 --- !u!4 &1151252546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5431905775751963439, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
@@ -1198,6 +1219,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1014902325}
   dialoguePanel: {fileID: 1014902323}
   dialogueData: {fileID: 11400000, guid: 70b304fe5a063af4c828a0e9743c5efd, type: 2}
+  typingSpeed: 0.03
 --- !u!1 &1864959350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1723,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1014902325}
   dialoguePanel: {fileID: 1014902323}
   dialogueData: {fileID: 11400000, guid: 3ea179c5bd8cb9a458cc0a3dd186e153, type: 2}
+  typingSpeed: 0.03
 --- !u!1001 &2127498372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1739,7 +1762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6736104186325381999, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.53
+      value: 46.74
       objectReference: {fileID: 0}
     - target: {fileID: 6736104186325381999, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
       propertyPath: m_LocalRotation.w
