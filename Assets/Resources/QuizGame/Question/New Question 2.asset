@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b4ddb0e216d42b43b9a869301da0dca, type: 3}
-  m_Name: New Question
+  m_Name: New Question 2
   m_EditorClassIdentifier: 
-  _info: "H\u1ECDc Vi\u1EC7n C\xF4ng Ngh\u1EC7 B\u01B0u Ch\xEDnh Vi\u1EC5n Th\xF4ng
-    c\xF3 m\u1EA5y c\u01A1 s\u1EDF \u0111\xE0o t\u1EA1o ?"
+  _info: "N\u0103m 2025, tr\u01B0\u1EDDng tuy\u1EC3n sinh \u1EDF bao nhi\xEAu ng\xE0nh
+    \u0111\xE0o t\u1EA1o ?"
   _answers:
-  - _info: 2
+  - _info: "29 ng\xE0nh"
     _isCorrect: 1
-  - _info: 4
+  - _info: "28 ng\xE0nh"
     _isCorrect: 0
-  - _info: 3
+  - _info: "26 ng\xE0nh"
     _isCorrect: 0
-  - _info: 1
+  - _info: "30 ng\xE0nh"
     _isCorrect: 0
   _useTimer: 1
   _timer: 20

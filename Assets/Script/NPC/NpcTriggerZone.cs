@@ -87,8 +87,9 @@ public class NpcTriggerZone : MonoBehaviour
         }
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
-            isTalking=true;
+            isTalking = true;
             playerController.LockMovement();
+
             if (!dialogueController.IsDialogueActive)
             {
                 dialogueController.StartDialogue();
@@ -100,7 +101,7 @@ public class NpcTriggerZone : MonoBehaviour
                 if (!dialogueController.IsDialogueActive)
                 {
                     npcController?.SetTalking(false);
-                    isTalking=false;
+                    isTalking = false;
                 }
             }
 

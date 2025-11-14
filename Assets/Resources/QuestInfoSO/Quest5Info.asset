@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57caed5dc05cbf498d419707c315078, type: 3}
+  m_Name: Quest5Info
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: Quest5Info
+  displayName: 
+  questPrerequisites:
+  - {fileID: 11400000, guid: ffeb0db61b4c26e4ca5efbae584705e6, type: 2}
+  - {fileID: 11400000, guid: 9db833efb9881334b94b9dea95012705, type: 2}
+  - {fileID: 11400000, guid: 61878953129c3f344954651fd2efdfb6, type: 2}
+  - {fileID: 11400000, guid: f4348c94f9652804393fbef18953e82a, type: 2}
+  questStepPrefabs: []
+  rewardMoney: 0
+  rewardObject: {fileID: 0}

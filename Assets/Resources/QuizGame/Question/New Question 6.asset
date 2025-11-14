@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b4ddb0e216d42b43b9a869301da0dca, type: 3}
-  m_Name: New Question
+  m_Name: New Question 6
   m_EditorClassIdentifier: 
-  _info: "H\u1ECDc Vi\u1EC7n C\xF4ng Ngh\u1EC7 B\u01B0u Ch\xEDnh Vi\u1EC5n Th\xF4ng
-    c\xF3 m\u1EA5y c\u01A1 s\u1EDF \u0111\xE0o t\u1EA1o ?"
+  _info: "Khi v\xE0o th\u01B0 vi\u1EC7n th\xEC b\u1EA1n c\u1EA7n tu\xE2n th\u1EE7
+    m\u1EA5y b\u01B0\u1EDBc ?"
   _answers:
+  - _info: 5
+    _isCorrect: 0
   - _info: 2
-    _isCorrect: 1
-  - _info: 4
     _isCorrect: 0
   - _info: 3
-    _isCorrect: 0
-  - _info: 1
+    _isCorrect: 1
+  - _info: 4
     _isCorrect: 0
   _useTimer: 1
   _timer: 20

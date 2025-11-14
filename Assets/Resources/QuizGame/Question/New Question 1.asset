@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4ddb0e216d42b43b9a869301da0dca, type: 3}
   m_Name: New Question 1
   m_EditorClassIdentifier: 
-  _info: "H\u1ECDc vi\u1EC7n th\xE0nh l\u1EADp n\u0103m n\xE0o"
+  _info: "H\u1ECDc vi\u1EC7n th\xE0nh l\u1EADp n\u0103m n\xE0o v\xE0 v\u1EDBi t\xEAn
+    g\u1ECDi g\xEC"
   _answers:
-  - _info: 1999
+  - _info: "1953 v\u1EDBi t\xEAn g\u1ECDi Tr\u01B0\u1EDDng \u0110\u1EA1i h\u1ECDc
+      B\u01B0u \u0111i\u1EC7n \u2013 V\xF4 tuy\u1EBFn \u0111i\u1EC7n. "
     _isCorrect: 1
-  - _info: 1998
+  - _info: "1954 v\u1EDBi t\xEAn g\u1ECDi Tr\u01B0\u1EDDng \u0110\u1EA1i h\u1ECDc
+      K\u1EF9 Thu\u1EADt B\u01B0u \u0110i\u1EC7n "
     _isCorrect: 0
-  - _info: 1970
+  - _info: "1955 v\u1EDBi t\xEAn g\u1ECDi H\u1ECDc vi\u1EC7n B\u01B0u \u0110i\u1EC7n
+      - V\xF4 tuy\u1EBFn \u0111i\u1EC7n"
     _isCorrect: 0
   _useTimer: 1
-  _timer: 10
+  _timer: 20
   _answerType: 1
   _addScore: 10
