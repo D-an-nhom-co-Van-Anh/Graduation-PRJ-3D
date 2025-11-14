@@ -15,8 +15,8 @@ MonoBehaviour:
   dialogueLines:
   - "Ch\xE0o b\u1EA1n, \u0111\xE2y l\xE0 t\xF2a A3 \u2013 m\u1ED9t trong nh\u1EEFng
     khu nh\xE0 h\u1ECDc quan tr\u1ECDng nh\u1EA5t c\u1EE7a H\u1ECDc vi\u1EC7n."
-  - "T\xF2a A3 c\xF3 6 t\u1EA7ng, l\xE0 n\u01A1i di\u1EC5n ra c\xE1c bu\u1ED5i th\u1EF1c
-    h\xE0nh v\xE0 th\xED nghi\u1EC7m cho sinh vi\xEAn nhi\u1EC1u khoa kh\xE1c nhau."
+  - "T\xF2a A3 l\xE0 n\u01A1i di\u1EC5n ra c\xE1c bu\u1ED5i th\u1EF1c h\xE0nh v\xE0
+    th\xED nghi\u1EC7m cho sinh vi\xEAn nhi\u1EC1u khoa kh\xE1c nhau."
   - "B\xEAn trong c\xF3 r\u1EA5t nhi\u1EC1u ph\xF2ng lab hi\u1EC7n \u0111\u1EA1i,
     ph\u1EE5c v\u1EE5 cho c\xE1c m\xF4n h\u1ECDc v\u1EC1 c\xF4ng ngh\u1EC7, k\u1EF9
     thu\u1EADt v\xE0 truy\u1EC1n th\xF4ng."
@@ -27,11 +27,20 @@ MonoBehaviour:
     c\u1EE7a m\xECnh."
   - "\u1EDE t\u1EA7ng 1 l\xE0 Th\u01B0 vi\u1EC7n c\u1EE7a H\u1ECDc vi\u1EC7n, n\u01A1i
     sinh vi\xEAn c\xF3 th\u1EC3 m\u01B0\u1EE3n s\xE1ch, h\u1ECDc nh\xF3m, ho\u1EB7c
-    nghi\xEAn c\u1EE9u t\xE0i li\u1EC7u chuy\xEAn ng\xE0nh."
+    nghi\xEAn c\u1EE9u t\xE0i li\u1EC7u chuy\xEAn ng\xE0nh. Khi b\u1EA1n v\xE0o th\u01B0
+    vi\u1EC7n th\xEC ph\u1EA3i tu\xE2n th\u1EE7 3 b\u01B0\u1EDBc sau:"
+  - "B\u01B0\u1EDBc 1: CHECK IN v\xE0o Th\u01B0 vi\u1EC7n b\u1EB1ng c\u1ED5ng nh\u1EADn
+    di\u1EC7n khu\xF4n m\u1EB7t."
+  - "B\u01B0\u1EDBc 2: G\u1EEDi balo v\xE0 c\xE1c v\u1EADt d\u1EE5ng kh\xF4ng c\u1EA7n
+    thi\u1EBFt v\xE0o T\u1EE6 KH\xD3A \u0110I\u1EC6N T\u1EEC."
+  - "B\u01B0\u1EDBc 3: Khi ra ngo\xE0i, qu\xE9t m\xE3 CHECK OUT b\u1EB1ng t\xEDnh
+    n\u0103ng qu\xE9t QR c\u1EE7a \u1EE9ng d\u1EE5ng PTIT S-Link t\u1EA1i khu v\u1EF1c
+    qu\u1EA7y tr\u1EF1c."
   - "Ph\xEDa tr\u01B0\u1EDBc t\xF2a A3 l\xE0 v\u01B0\u1EDDn treo xanh m\xE1t, c\xF3
     nhi\u1EC1u gh\u1EBF ng\u1ED3i gi\xFAp sinh vi\xEAn ngh\u1EC9 ng\u01A1i, th\u01B0
     gi\xE3n sau nh\u1EEFng gi\u1EDD h\u1ECDc c\u0103ng th\u1EB3ng."
   - "Gi\u1EDD th\xEC\u2026 \u0111\u1EC3 xem b\u1EA1n \u0111\xE3 nh\u1EDB h\u1EBFt
     nh\u1EEFng th\xF4ng tin v\u1EEBa r\u1ED3i ch\u01B0a nh\xE9! H\xE3y tham gia ngay
-    mini-game Quiz \u0111\u1EC3 \xF4n l\u1EA1i ki\u1EBFn th\u1EE9c v\u1EC1 t\xF2a
-    A3 v\xE0 PTIT n\xE0o!"
+    mini-game Quiz \u0111\u1EC3 \xF4n l\u1EA1i ki\u1EBFn th\u1EE9c v\u1EC1 PTIT n\xE0o!
+    B\u1EA1n c\u1EA7n 60 \u0111i\u1EC3m \u0111\u1EC3 v\u01B0\u1EE3t qua b\xE0i Quiz
+    n\xE0y nha !"
