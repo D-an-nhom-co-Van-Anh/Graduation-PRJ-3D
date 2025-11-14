@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4ddb0e216d42b43b9a869301da0dca, type: 3}
   m_Name: New Question 7
   m_EditorClassIdentifier: 
-  _info: 
+  _info: "T\xF2a nh\xE0 A2 v\xE0 A3 l\u1EA7n l\u01B0\u1EE3t g\u1ED3m bao nhi\xEAu
+    t\u1EA7ng ?"
   _answers:
-  - _info: 
+  - _info: 10, 6
+    _isCorrect: 1
+  - _info: 12, 10
     _isCorrect: 0
-  - _info: 
+  - _info: 8,4
     _isCorrect: 0
-  - _info: 
-    _isCorrect: 0
-  - _info: 
+  - _info: 7, 8
     _isCorrect: 0
   _useTimer: 1
   _timer: 20
-  _answerType: 0
+  _answerType: 1
   _addScore: 10
