@@ -863,6 +863,7 @@ GameObject:
   - component: {fileID: 40085331247476614}
   - component: {fileID: 4204070584372704926}
   - component: {fileID: 6017572972965915349}
+  - component: {fileID: 1730743809108979265}
   m_Layer: 0
   m_Name: Female teacher
   m_TagString: Untagged
@@ -1018,6 +1019,22 @@ MonoBehaviour:
   npcTransform: {fileID: 1589762777849670188}
   rotationSpeed: 3
   rotationDelay: 5
+--- !u!114 &1730743809108979265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028786667531094673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668f6b31c71af514b816f68b24af4b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 0}
+  dialoguePanel: {fileID: 0}
+  dialogueData: {fileID: 0}
+  typingSpeed: 0.03
 --- !u!1 &2047436688962673518
 GameObject:
   m_ObjectHideFlags: 0
