@@ -40,6 +40,10 @@ public class PlayerMovementController : MonoBehaviour
     private float staminaThreshold = 0.5f;
     private Action input;
 
+    private bool canStaminaRecover=false;
+    private float staminaRecoverEffectTime=10f;
+    private float currentStaminaTimeCounter=0f;
+    private float staminaRecover=0.1f;
     private bool isMovementLocked = false;
     private void Awake()
     {
@@ -100,6 +104,21 @@ public class PlayerMovementController : MonoBehaviour
                 {
                     if (jumpCoroutine != null) StopCoroutine(jumpCoroutine);
                     jumpCoroutine = StartCoroutine(DelayedJumpRoutine(jumpDelay));
+                }
+            }
+        }
+        if (canStaminaRecover)
+        {
+            if (currentStamina < maxStamina)
+            {
+                if (currentStaminaTimeCounter < staminaRecoverEffectTime)
+                {
+                    currentStamina = Mathf.Clamp(currentStamina +staminaRecover * Time.deltaTime, 0, maxStamina);
+                    currentStaminaTimeCounter += Time.deltaTime;
+                }
+                else
+                {
+                    canStaminaRecover = false;
                 }
             }
         }
@@ -207,6 +226,16 @@ public class PlayerMovementController : MonoBehaviour
     public void AddStamina(float value)
     {
         currentStamina = Mathf.Clamp(currentStamina + value, 0, maxStamina);
+    }
+    public void AddSpeed(float value)
+    {
+        runSpeed += value;
+        walkSpeed += value;
+    }
+    public void AddStaminaPerSecond(float value)
+    {
+        staminaRecover = value;
+        canStaminaRecover = true;
     }
     public void LockMovement()
     {

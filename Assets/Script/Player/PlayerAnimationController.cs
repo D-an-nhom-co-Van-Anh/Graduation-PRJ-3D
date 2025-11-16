@@ -75,4 +75,8 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetTrigger(VictoryTriggerHash);
     }
+    public void PlayShootAnim()
+    {
+        animator.SetTrigger("Shoot");
+    }
 }
