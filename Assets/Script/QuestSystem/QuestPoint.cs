@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class QuestPoint : InteractableObj
@@ -16,6 +17,11 @@ public class QuestPoint : InteractableObj
     }
     private void OnEnable()
     {
+        StartCoroutine(AddQuestEvent());
+    }
+    private IEnumerator AddQuestEvent()
+    {
+        yield return new WaitForSeconds(2f);
         GameEventsManager.instance.questEvent.onQuestStateChange += QuestStateChange;
     }
     private void OnDisable()

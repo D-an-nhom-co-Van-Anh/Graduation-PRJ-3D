@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,15 +14,23 @@ public class QuestManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventsManager.instance.questEvent.onStartQuest += StartQuest;
-        GameEventsManager.instance.questEvent.onAdvanceQuest += AdvanceQuest;
-        GameEventsManager.instance.questEvent.onFinishQuest += FinishQuest;
+        StartCoroutine(AddQuestEvent());
     }
     private void OnDisable()
     {
-        GameEventsManager.instance.questEvent.onStartQuest -= StartQuest;
-        GameEventsManager.instance.questEvent.onAdvanceQuest -= AdvanceQuest;
-        GameEventsManager.instance.questEvent.onFinishQuest -= FinishQuest;
+        if (GameEventsManager.instance != null)
+        {
+            GameEventsManager.instance.questEvent.onStartQuest -= StartQuest;
+            GameEventsManager.instance.questEvent.onAdvanceQuest -= AdvanceQuest;
+            GameEventsManager.instance.questEvent.onFinishQuest -= FinishQuest;
+        }
+    }
+    private IEnumerator AddQuestEvent()
+    {
+        yield return new WaitForSeconds(2f);
+        GameEventsManager.instance.questEvent.onStartQuest += StartQuest;
+        GameEventsManager.instance.questEvent.onAdvanceQuest += AdvanceQuest;
+        GameEventsManager.instance.questEvent.onFinishQuest += FinishQuest;
     }
     private void Start()
     {
@@ -108,7 +117,7 @@ public class QuestManager : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        //SaveQuest();
+        SaveQuest();
     }
     private Dictionary<string,Quest> CreateQuestMap()
     {
@@ -143,18 +152,21 @@ public class QuestManager : MonoBehaviour
     {
         try
         {
-            List<QuestStateSave> dataSaveList = new List<QuestStateSave>();
-            foreach(Quest quest in questMap.Values)
+            if (questMap.Count != 0)
             {
-                QuestStateSave questData = quest.GetQuestData();
-                dataSaveList.Add(questData);
+                List<QuestStateSave> dataSaveList = new List<QuestStateSave>();
+                foreach (Quest quest in questMap.Values)
+                {
+                    QuestStateSave questData = quest.GetQuestData();
+                    dataSaveList.Add(questData);
+                }
+                QuestData data = new QuestData(dataSaveList);
+                string json = JsonUtility.ToJson(data, true);
+                string path = Application.persistentDataPath + "/quests.json";
+                Debug.Log(json);
+                System.IO.File.WriteAllText(path, json);
+                Debug.Log("Da luu quest vao: " + path);
             }
-            QuestData data = new QuestData(dataSaveList);
-            string json = JsonUtility.ToJson(data, true);
-            string path = Application.persistentDataPath + "/quests.json";
-            System.IO.File.WriteAllText(path, json);
-            Debug.Log("Da luu quest vao: " + path);
-
         }
         catch (System.Exception e)
         {
@@ -164,20 +176,45 @@ public class QuestManager : MonoBehaviour
     private void LoadQuest(Dictionary<string,Quest>questMap)
     {
         string path = Application.persistentDataPath + "/quests.json";
+
         if (!System.IO.File.Exists(path))
         {
-            Debug.LogWarning("Khong co file luu quest.");
+            Debug.LogWarning("Không có file lưu quest.");
+            return;
         }
-        else
+
+        string json = System.IO.File.ReadAllText(path);
+
+        QuestData data = JsonUtility.FromJson<QuestData>(json);
+
+        if (data == null)
         {
-            string json = System.IO.File.ReadAllText(path);
-            QuestData data = JsonUtility.FromJson<QuestData>(json);
-            foreach(QuestStateSave q in data.GetList())
+            Debug.LogError("Không thể parse JSON → QuestData NULL");
+            return;
+        }
+
+        if (data.GetList() == null)
+        {
+            Debug.LogError("questList NULL trong QuestData. JSON sai cấu trúc.");
+            return;
+        }
+
+        foreach (QuestStateSave q in data.GetList())
+        {
+            if (q == null)
             {
-                if (questMap.TryGetValue(q.questId, out Quest quest))
-                {
-                    quest.state = q.state;
-                }
+                Debug.LogWarning("QuestStateSave null trong list, bỏ qua");
+                continue;
+            }
+
+            if (questMap.TryGetValue(q.questId, out Quest quest))
+            {
+                quest.state = q.state;
+                Debug.Log($"{quest.info.id} {quest.state}");
+            }
+            else
+            {
+                Debug.LogWarning($"Không tìm thấy quest với id: {q.questId}");
             }
         }
     }

@@ -1,11 +1,13 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class QuestData : MonoBehaviour
+[Serializable]
+public class QuestData 
 {
-    private List<QuestStateSave> data;
+    public List<QuestStateSave> data = new List<QuestStateSave>();
     public QuestData(List<QuestStateSave> data)
     {
         this.data = data;
