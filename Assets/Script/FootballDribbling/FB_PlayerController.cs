@@ -224,7 +224,7 @@ public class FB_PlayerController : MonoBehaviour
     {
         // Quay nhân vật theo hướng camera
         //transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
-
+        animController.PlayShootAnim();
         // Nếu người chơi nhấn sút
         if (hasBall)
         {

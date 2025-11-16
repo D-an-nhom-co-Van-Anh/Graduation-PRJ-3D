@@ -33,7 +33,18 @@ public class ShopManager : MonoBehaviour
         if (currentSelectedItem != null)
         {
             GameManager_.Instance.GetCurrencyManager().SubtractCash(currentSelectedItem.Cost);
-            GameManager_.Instance.GetPlayer().AddStamina(currentSelectedItem.Value);
+            switch(currentSelectedItem.Type) {
+                case ShopItemType.STAMINA:
+                    GameManager_.Instance.GetPlayer().AddStamina(currentSelectedItem.Value);
+                    break;
+                case ShopItemType.STAMINA_PERSECOND:
+                    GameManager_.Instance.GetPlayer().AddStaminaPerSecond(currentSelectedItem.Value);
+                    break;
+                case ShopItemType.SPEED:
+                    GameManager_.Instance.GetPlayer().AddSpeed(currentSelectedItem.Value);
+                    break;
+            }
+           
         }
         else
         {
