@@ -149,4 +149,12 @@ public class NpcTriggerZone : MonoBehaviour
             yield return null;
         }
     }
+    public bool isPlayerInZone()
+    {
+        if (playerInZone)
+        {
+            return true;
+        }
+        else return false;
+    }
 }

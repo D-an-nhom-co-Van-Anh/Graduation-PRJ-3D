@@ -22,13 +22,14 @@ public class ThrowBasketball : MonoBehaviour
     private bool isHoldingBall = false;
     private bool isPreparingThrow = false;
     private bool isMovingToHand = false;
-    private int level = 0;
+    private int level = 1;
     private float prepareProgress = 0f;
     private float prepareSpeed = 1f;
     private float throwForce;
     private Coroutine resetCorountine;
     private TriggerBall triggerBall;
     private LineRenderer lineRenderer;
+    private BasketballForceUI forceUI;
     public void Start()
     {
         triggerBall = gameObject.GetComponent<TriggerBall>();
@@ -44,13 +45,24 @@ public class ThrowBasketball : MonoBehaviour
         if (cameraSwitcher.IsFirstPersonView() == true)
         {
             if (isHoldingBall)
-            {     
+            {
+                forceUI = UIManager_.Instance.Open<BasketballForceUI>();
+                forceUI.ShowForceUI();
+
                 if (Input.GetKey(KeyCode.F))
                 {
+                    if (!isPreparingThrow)
+                    {
+                        isPreparingThrow = true;
+                        prepareProgress = 0f;
+                        
+                    }
 
-                    isPreparingThrow = true;
-                    prepareProgress += Time.deltaTime * prepareSpeed;
+                    
+                     prepareProgress += Time.deltaTime * prepareSpeed;
                     prepareProgress = Mathf.Clamp01(prepareProgress);
+
+                    forceUI.UpdateForce(prepareProgress);
 
                     throwForce = Mathf.Lerp(minForce, maxForce, prepareProgress);
                     Vector3 currentHoldPos = Vector3.Lerp(holdPoint, maxHoldPoint, prepareProgress);
@@ -60,6 +72,7 @@ public class ThrowBasketball : MonoBehaviour
                 {
                     isPreparingThrow = false;
                     Throw();
+                    UIManager_.Instance.CloseDirect<BasketballForceUI>();
                     prepareProgress = 0f;
                     throwForce = 25f;
                 }

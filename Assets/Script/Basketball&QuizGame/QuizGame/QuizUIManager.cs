@@ -83,7 +83,10 @@ public class QuizUIManager : MonoBehaviour
     #endregion
 
     #region Default Unity methods
-
+    private void Awake()
+    {
+        currentAnswers.Clear();
+    }
     /// <summary>
     /// Function that is called when the object becomes enabled and active
     /// </summary>

@@ -17,7 +17,7 @@ public class DialogueController : MonoBehaviour
     private bool isTyping = false;          // ?ang hi?n t?ng ch?
     private bool skipTyping = false;        // ng??i ch?i nh?n E ?? skip
     public bool IsDialogueActive { get; private set; }
-
+    private bool isFinishDialogue=false;
     private Coroutine typingCoroutine;
 
     private void Start()
@@ -94,5 +94,14 @@ public class DialogueController : MonoBehaviour
         currentIndex = 0;
         isTyping = false;
         skipTyping = false;
+        isFinishDialogue = true;
+    }
+    public bool isFinishedDialogue()
+    {
+        if (isFinishDialogue)
+        {
+            return true;
+        }
+        return false;
     }
 }

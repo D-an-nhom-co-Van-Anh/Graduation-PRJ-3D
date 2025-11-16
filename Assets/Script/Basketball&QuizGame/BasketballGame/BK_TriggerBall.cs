@@ -42,8 +42,8 @@ public class TriggerBall : MonoBehaviour
                 BK_HooperMoving.Instance.CanStartMoving();
                 BK_HooperMoving.Instance.StopMoving();
                 level = BK_HooperMoving.Instance.GetLevel();
-                BK_HooperMoving.Instance.SetLevel(level + 1);
-                Debug.Log("Success");
+                level += 1;
+                BK_HooperMoving.Instance.SetLevel(level);
                 UIManager_.Instance.Open<PopupMessage>().Show("Level " + level.ToString(), 0.5f);
             }
 

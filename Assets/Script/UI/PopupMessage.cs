@@ -22,8 +22,6 @@ public class PopupMessage : UICanvas
     {
         showDuration = duration;
         messageText.text = message;
-        gameObject.SetActive(true);
-
         DOTween.Kill(canvasGroup);
         DOTween.Kill(messageText.rectTransform);
 
