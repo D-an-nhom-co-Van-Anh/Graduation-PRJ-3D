@@ -71,7 +71,7 @@ public class BK_HooperMoving : MonoBehaviour
     }
     public int MaxLevel()
     {
-        return maxLevel;
+        return maxLevel+1;
     }
     public void SetLevel(int newLevel)
     {

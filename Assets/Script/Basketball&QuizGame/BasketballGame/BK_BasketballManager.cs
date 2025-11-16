@@ -14,10 +14,14 @@ public class BasketballManager : MonoBehaviour
     private PlayerCameraSwitcher cameraSwitcher;
     private DialogueController dialogueController;
     private ThrowBasketball throwBasketball;
-    
-    
+    private NpcTriggerZone npcTriggerZone;
+    private bool isFirstTimeTalk=true;
+    private float cameraSwitchCooldown = 0.3f;
+    private float lastSwitchTime = 0f;
+
     public void Start()
     {
+        npcTriggerZone = NPCB1_B5.GetComponent<NpcTriggerZone>();
         dialogueController=NPCB1_B5.GetComponent<DialogueController>();
         HooperMoving = hooper.GetComponent<BK_HooperMoving>();
         cameraSwitcher = gameObject.GetComponent<PlayerCameraSwitcher>();
@@ -25,19 +29,33 @@ public class BasketballManager : MonoBehaviour
     }
     private void Update()
     {
-        if (dialogueController.isFinishedDialogue() && !cameraSwitcher.IsFirstPersonView())
+        if (dialogueController.isFinishedDialogue() && !cameraSwitcher.IsFirstPersonView()&& isFirstTimeTalk)
         {
+            isFirstTimeTalk = false;
             cameraSwitcher.SetFirstPerson(true);
         }
-        if (Keyboard.current.vKey.wasPressedThisFrame && cameraSwitcher.IsFirstPersonView())
+        if (Keyboard.current.vKey.wasPressedThisFrame && !isFirstTimeTalk  )
         {
-            cameraSwitcher.SetFirstPerson(false);
-            if (throwBasketball != null)
+            if (Time.time - lastSwitchTime < cameraSwitchCooldown)
+                return; 
+
+            lastSwitchTime = Time.time;  
+
+            if (cameraSwitcher.IsFirstPersonView() )
+            {
+                cameraSwitcher.SetFirstPerson(false);
                 throwBasketball.ResetBallPosition();
+            }
+            else if(!cameraSwitcher.IsFirstPersonView()  && npcTriggerZone.isPlayerInZone())
+            {
+                cameraSwitcher.SetFirstPerson(true);
+                throwBasketball.ResetBallPosition();
+            }
         }
 
 
-       
+
+
         if (HooperMoving.GetLevel()==HooperMoving.MaxLevel())
         {
             EndGame();
@@ -52,7 +70,6 @@ public class BasketballManager : MonoBehaviour
     public void EndGame()
     {
       
-        if (cameraSwitcher != null)
             cameraSwitcher.SetFirstPerson(false);
         throwBasketball.ResetBallPosition();
         GetReward(); 

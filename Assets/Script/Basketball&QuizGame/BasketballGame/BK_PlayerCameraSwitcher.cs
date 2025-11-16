@@ -30,14 +30,12 @@ public class PlayerCameraSwitcher : MonoBehaviour
         {
             firstPersonCam.Priority = 10;
             thirdPersonCam.Priority = 0;
-            if (playerModel != null)
                 playerModel.SetActive(false);
         }
         else
         {
             firstPersonCam.Priority = 0;
             thirdPersonCam.Priority = 10;
-            if (playerModel != null)
                 playerModel.SetActive(true);
         }
     }
