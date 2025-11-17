@@ -22,7 +22,7 @@ public class FB_GameManager : MonoBehaviour
     public float maxTimeOut = 15;
     [SerializeField] private GameObject failCanvas;
     [SerializeField] private TextMeshProUGUI myText;
-    [SerializeField] private Quest quest;
+    [SerializeField] private QuestInfoSO quest;
     [SerializeField] private FB_GoalKeeper keeper;
     [SerializeField] private GameObject instructionPanel;
     [SerializeField] private Image fadeImage;
@@ -52,13 +52,13 @@ public class FB_GameManager : MonoBehaviour
         player.transform.rotation = Quaternion.LookRotation(
             targetPoint.transform.position - penaltySpot.position, Vector3.up);
 
-        ball.StartPenalty();
 
         yield return fadeImage.DOFade(0f, 0.6f).WaitForCompletion();
-
         player.EnterPenaltyMode(targetPoint, ball);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        yield return new WaitForSeconds(1f);
+        ball.StartPenalty();
         fadeImage.gameObject.SetActive(false);
     }
     public void StartGame()
@@ -66,6 +66,9 @@ public class FB_GameManager : MonoBehaviour
         isGameStart = true;
         Cursor.visible = false;
         instructionPanel.SetActive(false);
+
+        timerText.text = $"{Mathf.Ceil(currentTime)}";
+        scoreText.text = $"{score}";
     }
     public void ExitPenaltyMode()
     {
@@ -93,9 +96,6 @@ public class FB_GameManager : MonoBehaviour
         {
             GameOver(false);
         }
-
-        timerText.text = $"{Mathf.Ceil(currentTime)}";
-        scoreText.text = $"{score}";
     }
     public FB_GoalKeeper GetKeeper()
     {
@@ -123,8 +123,8 @@ public class FB_GameManager : MonoBehaviour
             {
                 messageText.text = "Hoàn thành! Bạn nhận được CUP!";
                 playerController.PlayVictory();
-                //GameManager_.Instance.GetQuestManager().FinishQuest(quest.info.id);
-                // LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
+                //GameManager_.Instance.GetQuestManager().FinishQuest(quest.id);
+                //LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
             }
             else
             {
