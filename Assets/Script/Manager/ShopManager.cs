@@ -32,19 +32,27 @@ public class ShopManager : MonoBehaviour
     {
         if (currentSelectedItem != null)
         {
-            GameManager_.Instance.GetCurrencyManager().SubtractCash(currentSelectedItem.Cost);
-            switch(currentSelectedItem.Type) {
-                case ShopItemType.STAMINA:
-                    GameManager_.Instance.GetPlayer().AddStamina(currentSelectedItem.Value);
-                    break;
-                case ShopItemType.STAMINA_PERSECOND:
-                    GameManager_.Instance.GetPlayer().AddStaminaPerSecond(currentSelectedItem.Value);
-                    break;
-                case ShopItemType.SPEED:
-                    GameManager_.Instance.GetPlayer().AddSpeed(currentSelectedItem.Value);
-                    break;
+            if (GameManager_.Instance.GetCurrencyManager().GetTotalCurrency() > currentSelectedItem.Cost)
+            {
+                GameManager_.Instance.GetCurrencyManager().SubtractCash(currentSelectedItem.Cost);
+                switch (currentSelectedItem.Type)
+                {
+                    case ShopItemType.STAMINA:
+                        GameManager_.Instance.GetPlayer().AddStamina(currentSelectedItem.Value);
+                        break;
+                    case ShopItemType.STAMINA_PERSECOND:
+                        GameManager_.Instance.GetPlayer().AddStaminaPerSecond(currentSelectedItem.Value);
+                        break;
+                    case ShopItemType.SPEED:
+                        GameManager_.Instance.GetPlayer().AddSpeed(currentSelectedItem.Value);
+                        break;
+                }
             }
-           
+            else
+            {
+                Debug.Log("No Money");
+                // them Ui hien thi khong du tien
+            }
         }
         else
         {
@@ -53,6 +61,7 @@ public class ShopManager : MonoBehaviour
     }
     public void ShowCantBuyText()
     {
-
+        // them Ui hoac am thanh de cho biet chua chon item de mua
+        Debug.Log("Please Select 1 Item to Buy");
     }
 }
