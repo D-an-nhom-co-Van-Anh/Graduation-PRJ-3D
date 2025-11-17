@@ -11,6 +11,7 @@ public class FB_GoalKeeper : MonoBehaviour
     public int centerNum = 3;
     bool isDiving = false;
     [SerializeField] private FB_GameManager manager;
+    [SerializeField] private FB_GoalKeeperMove goalKeeperMove;
     Vector3 targetDivePos;
 
     public void ReactToShot(Vector3 ballDirection)
@@ -26,43 +27,20 @@ public class FB_GoalKeeper : MonoBehaviour
         if (randomValue == centerNum)
         {
             targetDivePos = centerPoint.position;
+            // Gọi animation
+            animator.SetTrigger("center");
+            Debug.Log("CENTER");
+
         }
         else
         {
-            targetDivePos = diveRight ? rightDivePoint.position : leftDivePoint.position;
+            targetDivePos = diveRight ? leftDivePoint.position:rightDivePoint.position;
+            // Gọi animation
+            animator.SetTrigger(diveRight ? "right": "left");
+            Debug.Log("right "+diveRight);
         }
-        // Gọi animation
-        //animator.SetTrigger(diveRight ? "DiveRight" : "DiveLeft");
-
-        // Bắt đầu coroutine dive
-        StartCoroutine(DiveAfterDelay());
+       // goalKeeperMove.StartMove(targetDivePos);
     }
-
-    System.Collections.IEnumerator DiveAfterDelay()
-    {
-        isDiving = true;
-        yield return new WaitForSeconds(reactDelay);
-
-        float t = 0;
-        Vector3 start = transform.position;
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime * (diveSpeed / 5f);
-            transform.position = Vector3.Lerp(start, targetDivePos, t);
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(1f);
-        ReturnToCenter();
-    }
-
-    void ReturnToCenter()
-    {
-        isDiving = false;
-        transform.position = centerPoint.position;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<FB_Ball>())

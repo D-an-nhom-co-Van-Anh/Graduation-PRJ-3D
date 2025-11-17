@@ -60,6 +60,10 @@ public class CurrencyManager : MonoBehaviour
         totalCurrency += cash;
         SetCurrencyText();
     }
+    public float GetTotalCurrency()
+    {
+        return totalCurrency;
+    }
     public void SubtractCash(float cash)
     {
         totalCurrency += cash;
