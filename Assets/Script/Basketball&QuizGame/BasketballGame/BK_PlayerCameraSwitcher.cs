@@ -11,6 +11,7 @@ public class PlayerCameraSwitcher : MonoBehaviour
     public GameObject playerModel;
 
     private bool isFirstPerson = false;
+    
 
     public void SetFirstPerson(bool value)
     {
