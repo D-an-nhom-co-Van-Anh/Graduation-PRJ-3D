@@ -19,6 +19,7 @@ public class DialogueController : MonoBehaviour
     public bool IsDialogueActive { get; private set; }
     private bool isFinishDialogue=false;
     private Coroutine typingCoroutine;
+    public System.Action OnDialogueFinished;
 
     private void Start()
     {
@@ -95,6 +96,8 @@ public class DialogueController : MonoBehaviour
         isTyping = false;
         skipTyping = false;
         isFinishDialogue = true;
+        OnDialogueFinished?.Invoke();
+
     }
     public bool isFinishedDialogue()
     {

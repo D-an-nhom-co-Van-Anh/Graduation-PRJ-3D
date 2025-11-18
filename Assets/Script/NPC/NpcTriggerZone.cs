@@ -19,9 +19,9 @@ public class NpcTriggerZone : MonoBehaviour
     private bool isTalking = false;
     private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
   
-    private DialogueController dialogueController;
+    public DialogueController dialogueController;
 
-    private PlayerMovementController playerController;
+    public PlayerMovementController playerController;
     
     private void Reset()
     {
@@ -32,23 +32,21 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Start()
     {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = playerObj.transform;
         dialogueController = GetComponent<DialogueController>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<PlayerMovementController>();
-        // Tắt UI khi bắt đầu
+        playerController = playerTransform.GetComponent<PlayerMovementController>();
+        
         if (uiTalkingPrompt != null)
             uiTalkingPrompt.SetActive(false);
 
-        // Nếu chưa gán npcTransform, lấy từ npcController
         if (npcTransform == null && npcController != null)
             npcTransform = npcController.transform;
-
-        // 🔍 Tự tìm Player trong scene
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-            playerTransform = playerObj.transform;
-        else
-            Debug.LogWarning("[NpcTriggerZone] Không tìm thấy Player với tag 'Player'!");
+    
+        if (dialogueController != null)
+        {
+            dialogueController.OnDialogueFinished += OnDialogueFinishedHandler;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,51 +76,47 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Update()
     {
-        // 🔁 Nếu Player spawn muộn => tự tìm lại
-        if (playerTransform == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-                playerTransform = playerObj.transform;
-        }
+        if (!triggerZone.enabled) return;
+
+        // Ấn E để nói chuyện
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
-            isTalking = true;
-            playerController.LockMovement();
-
-            if (!dialogueController.IsDialogueActive)
-            {
-                dialogueController.StartDialogue();
-                npcController?.SetTalking(true);
-            }
-            else
-            {
-                dialogueController.NextDialogue();
-                if (!dialogueController.IsDialogueActive)
-                {
-                    npcController?.SetTalking(false);
-                    isTalking = false;
-                }
-            }
-
-            if (uiTalkingPrompt != null)
-                uiTalkingPrompt.SetActive(false);
+            HandleTalkInput();
         }
 
-        if (isTalking && playerInZone && playerTransform != null && npcTransform != null)
+        // Xoay NPC nhìn Player
+        if (isTalking && playerInZone)
         {
-
             playerController.LockMovement();
+
             if (Time.time >= nextRotationTime)
             {
                 RotateTowardPlayer();
-                nextRotationTime = Time.time + rotationDelay; 
+                nextRotationTime = Time.time + rotationDelay;
             }
         }
         else
         {
             playerController.UnlockMovement();
         }
+    }
+
+    private void HandleTalkInput()
+    {
+        isTalking = true;
+        playerController.LockMovement();
+
+        if (!dialogueController.IsDialogueActive)
+        {
+            dialogueController.StartDialogue();
+            npcController?.SetTalking(true);
+        }
+        else
+        {
+            dialogueController.NextDialogue();
+        }
+
+        uiTalkingPrompt?.SetActive(false);
     }
 
     private void RotateTowardPlayer()
@@ -157,4 +151,36 @@ public class NpcTriggerZone : MonoBehaviour
         }
         else return false;
     }
+    public void EnableZone()
+    {
+        triggerZone.enabled = true;
+        if (uiTalkingPrompt != null)
+            uiTalkingPrompt.SetActive(false);
+    }
+
+    public void DisableZone()
+    {
+        triggerZone.enabled = false;
+        if (uiTalkingPrompt != null)
+            uiTalkingPrompt.SetActive(false);
+
+        playerInZone = false;
+    }
+    private void OnDialogueFinishedHandler()
+    {
+        npcController?.SetTalking(false);
+        isTalking = false;
+
+        DisableZone();       
+        uiTalkingPrompt?.SetActive(false);
+
+        playerController?.UnlockMovement();
+        if (gameObject.name == "NPC1")
+        {
+            GameEventsManager.instance.questEvent.FinishQuest("Quest1Info");
+            GameEventsManager.instance.questEvent.StartQuest("Quest2Info");
+        }
+        
+    }
+
 }

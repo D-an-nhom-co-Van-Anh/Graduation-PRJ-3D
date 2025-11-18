@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour
+public class QuestManager : Singleton<QuestManager>
 {
     private Dictionary<string, Quest> questMap;
+    public QuestManager instance { get; private set; }
     private void Awake()
     {
         questMap=CreateQuestMap();
         Debug.Log(questMap.Count);
+        if (instance != null)
+        {
+            Debug.LogError("Found more than one Quest Manager in the scene.");
+        }
+        instance = this;
     }
 
     private void OnEnable()
@@ -173,6 +179,18 @@ public class QuestManager : MonoBehaviour
             Debug.Log(e);
         }
     }
+    public string GetCurrentQuestID()
+    {
+        foreach (var kvp in questMap)
+        {
+            if (kvp.Value.state == QuestState.IN_PROGRESS|| kvp.Value.state == QuestState.CAN_START)
+            {
+                return kvp.Value.info.id; 
+            }
+        }
+        return null; 
+    }
+
     private void LoadQuest(Dictionary<string,Quest>questMap)
     {
         string path = Application.persistentDataPath + "/quests.json";
