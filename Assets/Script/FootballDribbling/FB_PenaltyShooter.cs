@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class FB_PenaltyShooter : MonoBehaviour
@@ -18,6 +19,7 @@ public class FB_PenaltyShooter : MonoBehaviour
     public float distanceFromCamera = 14.27f;
     [SerializeField] private FB_PlayerController playerController;
     [SerializeField] private Slider slider;
+    [SerializeField] private FB_LineRenderer lineRenderer;
     private void Awake()
     {
         canStart = false;
@@ -49,16 +51,16 @@ public class FB_PenaltyShooter : MonoBehaviour
             {
                 slider.value = (float)(curruntPower-minPower) / (maxPower-minPower);
             }
-            Debug.Log(curruntPower);
             curruntPower = Mathf.Clamp(curruntPower, minPower, maxPower);
         }
         if (Input.GetMouseButtonUp(0))
         {
-            ShootBall();
+            StartCoroutine(ShootBall());
+            canStart = false;
         }
     }
 
-    void ShootBall()
+    IEnumerator ShootBall()
     {
         Debug.Log("Shoot Penalty");
         ball.transform.position = ballSpawn.position;
@@ -81,8 +83,12 @@ public class FB_PenaltyShooter : MonoBehaviour
 
         // Tạo lực tổng (thêm Vector3.up để có quỹ đạo cong)
         Vector3 shootForce = (dir * power) + (Vector3.up * lift);
+        lineRenderer.DrawTrajectory(ballSpawn.position, targetPoint);
+        yield return new WaitForSeconds(0.5f);
         playerController.AimAndShootPenalty(shootForce);
+        lineRenderer.Clear();
         // Gọi animation hoặc AI thủ môn
        // playerController?.OnShoot(targetPoint, shootForce);
     }
+
 }
