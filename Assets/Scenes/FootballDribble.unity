@@ -3436,9 +3436,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dribble the ball past the obstacles to reach the goal. When you get there,
-    you\u2019ll be awarded a penalty kick \u2014 click to choose the direction and
-    hold to set the power needed to score."
+  m_text: "R\xEA b\xF3ng qua ch\u01B0\u1EDBng ng\u1EA1i v\u1EADt \u0111\u1EC3 \u0111\u1EBFn
+    \u0111\xEDch. Khi \u0111\u1EBFn \u0111\xEDch, b\u1EA1n s\u1EBD \u0111\u01B0\u1EE3c
+    h\u01B0\u1EDFng qu\u1EA3 ph\u1EA1t \u0111\u1EC1n \u2014 nh\u1EA5p \u0111\u1EC3
+    ch\u1ECDn h\u01B0\u1EDBng v\xE0 gi\u1EEF \u0111\u1EC3 thi\u1EBFt l\u1EADp l\u1EF1c
+    c\u1EA7n thi\u1EBFt \u0111\u1EC3 ghi b\xE0n."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5708,8 +5710,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3478617, y: 1.4059227, z: 0.36172518}
-  m_Center: {x: 0.008362206, y: -0.03767588, z: 0.056333613}
+  m_Size: {x: 0.1686889, y: 0.96734893, z: 0.36172518}
+  m_Center: {x: -0.0017421334, y: 0.18161118, z: 0.056333613}
 --- !u!1 &1208857074
 GameObject:
   m_ObjectHideFlags: 0
