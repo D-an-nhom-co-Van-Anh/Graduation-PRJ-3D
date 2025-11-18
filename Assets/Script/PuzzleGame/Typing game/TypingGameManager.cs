@@ -48,7 +48,8 @@ public class TypingGameManager : MonoBehaviour
     private bool roundEnded = false;
     #endregion
 
-
+    //them cai scriptableObject chứa nhiem vu vao day để lấy id ->gọi khi hoàn thành quest
+    [SerializeField] private QuestInfoSO questInfo;
     #region === Unity Lifecycle ===
     void Start()
     {
@@ -175,6 +176,8 @@ public class TypingGameManager : MonoBehaviour
             progressText.text = $"Result: <color=#00FF7F>{wordsCompleted}</color> / {maxWordsPerRound} Correct" +
                                 $"<color=#FF5555>{failedWords}</color> incorrect";
 
+        // khi nao ghép vào game hoàn chỉnh thì bỏ commment-> dùng để end quest với cập nhật trạng thái quest
+        //GameManager_.Instance.GetQuestManager().FinishQuest(questInfo.id);
         Debug.Log($"🏁 Round completed! {wordsCompleted}/{maxWordsPerRound} correct, {failedWords} incorrect.");
     }
     #endregion
