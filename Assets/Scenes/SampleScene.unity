@@ -4322,8 +4322,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15229897, y: -0.000000015888816, z: 0.0000000024484121, w: 0.98833454}
-  m_LocalPosition: {x: 173.68, y: 4.48, z: 37.68}
+  m_LocalRotation: {x: 0.12146021, y: -0.005305932, z: 0.0006492759, w: 0.99258196}
+  m_LocalPosition: {x: 117.22, y: 8.013068, z: 25.328934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15921,9 +15921,7 @@ MonoBehaviour:
   isDestroyOnClose: 0
   missionButton: {fileID: 763074825}
   missionBoard: {fileID: 1171907458}
-  questState:
-  - {fileID: 544878852}
-  - {fileID: 0}
+  questUI: []
 --- !u!114 &1479270229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18110,8 +18108,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712862310}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09230973, y: -0.0000000067632735, z: 6.6988465e-10, w: 0.99573034}
-  m_LocalPosition: {x: 117.22, y: 5.5129795, z: 23.505836}
+  m_LocalRotation: {x: 0.1214602, y: -0.005305931, z: 0.0006492758, w: 0.99258196}
+  m_LocalPosition: {x: 117.22, y: 8.013068, z: 25.328934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18188,7 +18186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Composition:
-    ScreenPosition: {x: 0, y: 0.27}
+    ScreenPosition: {x: 0.005208254, y: 0.5329629}
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -18248,7 +18246,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 27.2
+    Value: 45
     Center: 17.5
     Range: {x: 0, y: 45}
     Wrap: 0
