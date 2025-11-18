@@ -228,6 +228,7 @@ public class QuestManager : Singleton<QuestManager>
             if (questMap.TryGetValue(q.questId, out Quest quest))
             {
                 quest.state = q.state;
+                ChangeQuestState(q.questId, q.state);
                 Debug.Log($"{quest.info.id} {quest.state}");
             }
             else
