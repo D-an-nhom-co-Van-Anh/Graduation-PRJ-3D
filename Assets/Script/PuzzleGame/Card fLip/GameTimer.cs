@@ -21,6 +21,11 @@ public class GameTimer : MonoBehaviour
     [Header("Button leave")]
     [SerializeField] private GameObject leaveButton;
 
+    // Thêm ScriptableObject quest của mini game vào đây
+    [SerializeField] private QuestInfoSO questInfo;
+    
+    
+
     private float remainingTime;
     private bool timerRunning = false;
     private bool gameEnded = false;
@@ -107,6 +112,10 @@ public class GameTimer : MonoBehaviour
             }
 
                 Debug.Log("🎉 Thắng! Nhận 200 xu");
+
+            GameManager_.Instance.GetCurrencyManager().AddCash(200);
+            //Khi nào ghép hoàn thị game thì bỏ commment -> cập nhật trạng thái quest
+            GameManager_.Instance.GetQuestManager().FinishQuest(questInfo.id);
             // TODO: PlayerData.AddCoins(200);
         }
         else
@@ -117,6 +126,7 @@ public class GameTimer : MonoBehaviour
                 leaveButton.SetActive(true);
             }
             Debug.Log("⌛ Hết giờ! Nhận 50 xu");
+            GameManager_.Instance.GetCurrencyManager().AddCash(50);
             // TODO: PlayerData.AddCoins(50);
         }
     }
