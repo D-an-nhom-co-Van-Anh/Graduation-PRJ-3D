@@ -10,6 +10,7 @@ public class QuestManager : Singleton<QuestManager>
     private void Awake()
     {
         questMap=CreateQuestMap();
+        questMap= LoadQuest(questMap);
         Debug.Log(questMap.Count);
         if (instance != null)
         {
@@ -40,6 +41,11 @@ public class QuestManager : Singleton<QuestManager>
     }
     private void Start()
     {
+        StartCoroutine(CheckQuestState());
+    }
+    public IEnumerator CheckQuestState()
+    {
+        yield return new WaitForSeconds(2.01f);
         foreach (Quest quest in questMap.Values)
         {
             // initialize any loaded quest steps
@@ -47,6 +53,7 @@ public class QuestManager : Singleton<QuestManager>
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
             }
+            Debug.Log(quest.info.id + " " + quest.state);
             // broadcast the initial state of all quests on startup
             GameEventsManager.instance.questEvent.QuestStateChange(quest);
         }
@@ -137,7 +144,7 @@ public class QuestManager : Singleton<QuestManager>
             }
             idToQuestMap.Add(questInfo.id, new Quest(questInfo));
         }
-        LoadQuest(idToQuestMap);
+        //LoadQuest(idToQuestMap);
         return idToQuestMap;
     }
     private Quest GetQuestById(string id)
@@ -191,14 +198,14 @@ public class QuestManager : Singleton<QuestManager>
         return null; 
     }
 
-    private void LoadQuest(Dictionary<string,Quest>questMap)
+    private Dictionary<string, Quest> LoadQuest(Dictionary<string,Quest>questMap)
     {
         string path = Application.persistentDataPath + "/quests.json";
 
         if (!System.IO.File.Exists(path))
         {
             Debug.LogWarning("Không có file lưu quest.");
-            return;
+            return null ;
         }
 
         string json = System.IO.File.ReadAllText(path);
@@ -208,13 +215,13 @@ public class QuestManager : Singleton<QuestManager>
         if (data == null)
         {
             Debug.LogError("Không thể parse JSON → QuestData NULL");
-            return;
+            return null;
         }
 
         if (data.GetList() == null)
         {
             Debug.LogError("questList NULL trong QuestData. JSON sai cấu trúc.");
-            return;
+            return null;
         }
 
         foreach (QuestStateSave q in data.GetList())
@@ -228,7 +235,7 @@ public class QuestManager : Singleton<QuestManager>
             if (questMap.TryGetValue(q.questId, out Quest quest))
             {
                 quest.state = q.state;
-                ChangeQuestState(q.questId, q.state);
+                //ChangeQuestState(quest.info.id, quest.state);
                 Debug.Log($"{quest.info.id} {quest.state}");
             }
             else
@@ -236,5 +243,6 @@ public class QuestManager : Singleton<QuestManager>
                 Debug.LogWarning($"Không tìm thấy quest với id: {q.questId}");
             }
         }
+        return questMap;
     }
 }
