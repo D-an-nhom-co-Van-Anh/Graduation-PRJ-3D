@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class QuizGameManager : MonoBehaviour
 {
@@ -151,7 +150,7 @@ public class QuizGameManager : MonoBehaviour
             events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
         }
 
-        AudioManager.Instance.PlaySFX((isCorrect) ? "QuizCorrectAnswer" : "QuizWrongAnswer");
+      //  AudioManager.Instance.PlaySFX((isCorrect) ? "QuizCorrectAnswer" : "QuizWrongAnswer");
 
         if (type != QuizUIManager.ResolutionScreenType.Finish)
         {
@@ -267,14 +266,15 @@ public class QuizGameManager : MonoBehaviour
     /// </summary>
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager_.Instance.ReloadAdditiveScene("Quiz");
     }
     /// <summary>
     /// Function that is called to quit the application.
     /// </summary>
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager_.Instance.ExitAdditiveScene("Quiz"); ;
+        GameEventsManager.instance.questEvent.FinishQuest("Quest3Info");
     }
 
     /// <summary>

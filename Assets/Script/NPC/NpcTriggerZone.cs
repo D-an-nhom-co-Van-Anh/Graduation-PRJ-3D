@@ -188,7 +188,9 @@ public class NpcTriggerZone : MonoBehaviour
 
                 break;
             case "NPC4":
-                
+                GameManager_.Instance.EnableUIShop();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
             case "NPC5":
                 break;

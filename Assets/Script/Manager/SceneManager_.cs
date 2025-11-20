@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SceneManager_ : Singleton<SceneManager_>
 {
@@ -15,7 +16,7 @@ public class SceneManager_ : Singleton<SceneManager_>
         if (Application.CanStreamedLevelBeLoaded(sceneName))
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-            Debug.Log("?ã load scene " + sceneName);
+            Debug.Log("Da load scene " + sceneName);
 
             if (lockCursor)
             {
@@ -30,7 +31,36 @@ public class SceneManager_ : Singleton<SceneManager_>
         }
         else
         {
-            Debug.LogError("Không th?y scene: " + sceneName + " ho?c ch?a add vào Build Settings");
+            Debug.LogError("khong thay scene " + sceneName + " hoac chua add vào Build Settings");
         }
+    }
+
+    public void ReloadAdditiveScene(string sceneName)
+    {
+        StartCoroutine(ReloadSceneCoroutine(sceneName));
+    }
+    public void ExitAdditiveScene(string sceneName)
+    {
+        SceneManager.UnloadSceneAsync(sceneName);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private IEnumerator ReloadSceneCoroutine(string sceneName)
+    {
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+        if (!scene.isLoaded)
+        {
+            Debug.LogWarning("Scene " + sceneName + " chuaa load additive.");
+            yield break;
+        }
+
+        AsyncOperation unloadOp = SceneManager.UnloadSceneAsync(sceneName);
+        yield return unloadOp;
+
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        yield return loadOp;
+
+        Debug.Log("Reload xong scene additive: " + sceneName);
     }
 }

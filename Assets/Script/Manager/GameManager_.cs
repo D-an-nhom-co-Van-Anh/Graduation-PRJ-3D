@@ -8,6 +8,7 @@ public class GameManager_ : Singleton<GameManager_>
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private SceneManager_ sceneManager;
     [SerializeField] private PlayerMovementController player;
+    [SerializeField] private RectTransform UIShop;
     private bool isGameStart;
     public QuestEvent questEvent;
     public int level;
@@ -51,5 +52,13 @@ public class GameManager_ : Singleton<GameManager_>
     public void StartGame()
     {
         isGameStart = true;
+    }
+    public void EnableUIShop()
+    {
+        UIShop.gameObject.SetActive(true);
+    }
+    public void DisableUIShop()
+    {
+        UIShop.gameObject.SetActive(false);
     }
 }
