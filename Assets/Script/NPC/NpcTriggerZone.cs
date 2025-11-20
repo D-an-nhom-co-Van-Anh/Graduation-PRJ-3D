@@ -175,12 +175,29 @@ public class NpcTriggerZone : MonoBehaviour
         uiTalkingPrompt?.SetActive(false);
 
         playerController?.UnlockMovement();
-        if (gameObject.name == "NPC1")
+        switch (gameObject.name)
         {
-            GameEventsManager.instance.questEvent.FinishQuest("Quest1Info");
-            GameEventsManager.instance.questEvent.StartQuest("Quest2Info");
+            case "NPC1":
+                GameEventsManager.instance.questEvent.FinishQuest("Quest1Info");
+                GameEventsManager.instance.questEvent.StartQuest("Quest2Info");
+                break;
+            case "NPC2":
+                break;  
+            case "NPC3":
+                SceneManager_.Instance.LoadSceneByName("Quiz", lockCursor: false, showCursor: true);
+
+                break;
+            case "NPC4":
+                
+                break;
+            case "NPC5":
+                break;
+            case "NPC6":
+                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: true, showCursor: false) ;
+                break;
+
         }
-        
+       
     }
 
 }

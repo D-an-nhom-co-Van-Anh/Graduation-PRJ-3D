@@ -6,6 +6,7 @@ public class GameManager_ : Singleton<GameManager_>
 {
     [SerializeField] private QuestManager questManager;
     [SerializeField] private CurrencyManager currencyManager;
+    [SerializeField] private SceneManager_ sceneManager;
     [SerializeField] private PlayerMovementController player;
     private bool isGameStart;
     public QuestEvent questEvent;
@@ -26,10 +27,7 @@ public class GameManager_ : Singleton<GameManager_>
     {
         level++;
     }
-    public void LoadSceneByName()
-    {
-        SceneManager.LoadScene(1,LoadSceneMode.Additive);
-    }
+   
     public CurrencyManager GetCurrencyManager()
     {
         return this.currencyManager;
@@ -37,6 +35,10 @@ public class GameManager_ : Singleton<GameManager_>
     public QuestManager GetQuestManager()
     {
         return this.questManager;
+    }
+    public SceneManager_ GetSceneManager()
+    {
+        return this.sceneManager;
     }
     public PlayerMovementController GetPlayer()
     {
