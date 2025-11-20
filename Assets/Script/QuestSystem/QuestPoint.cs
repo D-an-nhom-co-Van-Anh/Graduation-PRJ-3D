@@ -18,6 +18,7 @@ public class QuestPoint : InteractableObj
     private void OnEnable()
     {
         StartCoroutine(AddQuestEvent());
+        //GameEventsManager.instance.questEvent.onQuestStateChange += QuestStateChange;
     }
     private IEnumerator AddQuestEvent()
     {
@@ -47,6 +48,7 @@ public class QuestPoint : InteractableObj
     {
         if (quest.info.id.Equals(questId))
         {
+            Debug.Log("Quest Point" + quest.state);
             currentQuestState = quest.state;
         }
     }
