@@ -6,7 +6,9 @@ public class GameManager_ : Singleton<GameManager_>
 {
     [SerializeField] private QuestManager questManager;
     [SerializeField] private CurrencyManager currencyManager;
+    [SerializeField] private SceneManager_ sceneManager;
     [SerializeField] private PlayerMovementController player;
+    [SerializeField] private RectTransform UIShop;
     private bool isGameStart;
     public QuestEvent questEvent;
     public int level;
@@ -26,10 +28,7 @@ public class GameManager_ : Singleton<GameManager_>
     {
         level++;
     }
-    public void LoadSceneByName()
-    {
-        SceneManager.LoadScene(1,LoadSceneMode.Additive);
-    }
+   
     public CurrencyManager GetCurrencyManager()
     {
         return this.currencyManager;
@@ -37,6 +36,10 @@ public class GameManager_ : Singleton<GameManager_>
     public QuestManager GetQuestManager()
     {
         return this.questManager;
+    }
+    public SceneManager_ GetSceneManager()
+    {
+        return this.sceneManager;
     }
     public PlayerMovementController GetPlayer()
     {
@@ -49,5 +52,13 @@ public class GameManager_ : Singleton<GameManager_>
     public void StartGame()
     {
         isGameStart = true;
+    }
+    public void EnableUIShop()
+    {
+        UIShop.gameObject.SetActive(true);
+    }
+    public void DisableUIShop()
+    {
+        UIShop.gameObject.SetActive(false);
     }
 }

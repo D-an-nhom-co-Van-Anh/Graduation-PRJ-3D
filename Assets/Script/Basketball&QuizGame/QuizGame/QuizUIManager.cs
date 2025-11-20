@@ -55,7 +55,11 @@ public struct UIElements
     public CanvasGroup MainCanvasGroup { get { return mainCanvasGroup; } }
 
     [SerializeField] RectTransform finishUIElements;
+    [SerializeField] RectTransform restartUIElements;
+    [SerializeField] RectTransform exitUIElements;
     public RectTransform FinishUIElements { get { return finishUIElements; } }
+    public RectTransform RestartUIElements { get { return restartUIElements; } }
+    public RectTransform ExitUIElements { get { return exitUIElements; } }
 }
 public class QuizUIManager : MonoBehaviour
 {
@@ -162,22 +166,24 @@ public class QuizUIManager : MonoBehaviour
         {
             case ResolutionScreenType.Correct:
                 uIElements.ResolutionBG.color = parameters.CorrectBGColor;
-                uIElements.ResolutionStateInfoText.text = "CORRECT!";
+                uIElements.ResolutionStateInfoText.text = "CHINH XAC!";
                 uIElements.ResolutionScoreText.text = "+" + score;
                 break;
             case ResolutionScreenType.Incorrect:
                 uIElements.ResolutionBG.color = parameters.IncorrectBGColor;
-                uIElements.ResolutionStateInfoText.text = "WRONG!";
+                uIElements.ResolutionStateInfoText.text = "SAI RUI!";
                 uIElements.ResolutionScoreText.text = "";
                 break;
             case ResolutionScreenType.Finish:
                 uIElements.ResolutionBG.color = parameters.FinalBGColor;
-                uIElements.ResolutionStateInfoText.text = "FINAL SCORE";
+                uIElements.ResolutionStateInfoText.text = "DIEM";
 
                 StartCoroutine(CalculateScore());
                 uIElements.FinishUIElements.gameObject.SetActive(true);
                 uIElements.HighScoreText.gameObject.SetActive(true);
-                uIElements.HighScoreText.text = ((highscore > events.StartupHighscore) ? "<color=yellow>new </color>" : string.Empty) + "Highscore: " + highscore;
+                if (events.CurrentFinalScore >= 60) uIElements.ExitUIElements.gameObject.SetActive(true);
+                else uIElements.RestartUIElements.gameObject.SetActive(true);     
+                uIElements.HighScoreText.text = ((highscore > events.StartupHighscore) ? "<color=yellow>new </color>" : string.Empty) + "DIEM CAO NHAT: " + highscore;
                 break;
         }
     }
