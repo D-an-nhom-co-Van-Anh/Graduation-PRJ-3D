@@ -25382,6 +25382,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+      propertyPath: staminaBar
+      value: 
+      objectReference: {fileID: 585696491}
+    - target: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 330585546}
