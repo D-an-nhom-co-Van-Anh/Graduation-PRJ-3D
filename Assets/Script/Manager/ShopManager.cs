@@ -29,7 +29,7 @@ public class ShopManager : MonoBehaviour
     //    }
     //    GameManager_.Instance.DisableUIShop();
     //}
-public void SelectItem(ShopItem item)
+     public void SelectItem(ShopItem item)
     {
         if (currentSelectedItem != null)
         {
@@ -38,6 +38,10 @@ public void SelectItem(ShopItem item)
             currentSelectedItem = item;
             currentSelectedItem.ShowSelectedUI();
         }
+    }
+    public void CloseShop()
+    {
+        gameObject.SetActive(false);
     }
     public void BuyItem()
     {
