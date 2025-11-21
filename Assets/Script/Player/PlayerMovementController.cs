@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerAnimationController))]
 public class PlayerMovementController : MonoBehaviour
@@ -23,6 +24,8 @@ public class PlayerMovementController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform cameraTransform;
+
+    [SerializeField] private UnityEngine.UI.Image staminaBar;
 
     private Rigidbody rb;
     private PlayerAnimationController animController;
@@ -122,6 +125,8 @@ public class PlayerMovementController : MonoBehaviour
                 }
             }
         }
+        // setting stammina bar
+        staminaBar.fillAmount =Mathf.Clamp((float) currentStamina / maxStamina,0,1);
     }
 
     private void FixedUpdate()
