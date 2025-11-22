@@ -19,6 +19,7 @@ public class BasketballManager : MonoBehaviour
     private float cameraSwitchCooldown = 0.3f;
     private float lastSwitchTime = 0f;
 
+    private int levelGameBasketball;
     public void Start()
     {
         npcTriggerZone = NPCB1_B5.GetComponent<NpcTriggerZone>();
@@ -26,19 +27,13 @@ public class BasketballManager : MonoBehaviour
         HooperMoving = hooper.GetComponent<BK_HooperMoving>();
         cameraSwitcher = gameObject.GetComponent<PlayerCameraSwitcher>();
         throwBasketball = basketball.GetComponent<ThrowBasketball>();
+        HooperMoving.OnMaxLevelReached += EndGame;
     }
     private void Update()
     {
 
-
-
-
         SwitchCamera();
 
-        if (HooperMoving.GetLevel()==HooperMoving.MaxLevel())
-        {
-            EndGame();
-        }
     }
 
     public void StartGame()
@@ -47,11 +42,6 @@ public class BasketballManager : MonoBehaviour
     }
     public void SwitchCamera()
     {
-        //if (dialogueController.isFinishedDialogue() && !cameraSwitcher.IsFirstPersonView() && isFirstTimeTalk)
-        //{
-        //    isFirstTimeTalk = false;
-        //    cameraSwitcher.SetFirstPerson(true);
-        //}
         if (Keyboard.current.vKey.wasPressedThisFrame && !isFirstTimeTalk)
         {
             if (Time.time - lastSwitchTime < cameraSwitchCooldown)
@@ -78,8 +68,8 @@ public class BasketballManager : MonoBehaviour
             cameraSwitcher.SetFirstPerson(false);
         throwBasketball.ResetBallPosition();
         GetReward();
-        GameEventsManager.instance.questEvent.FinishQuest("QuestInfo5");
-        GameEventsManager.instance.questEvent.AdvanceQuest("QuestInfo6");
+        GameEventsManager.instance.questEvent.FinishQuest("Quest5Info");
+        GameEventsManager.instance.questEvent.AdvanceQuest("Quest6Info");
     }
 
     public void GetReward()

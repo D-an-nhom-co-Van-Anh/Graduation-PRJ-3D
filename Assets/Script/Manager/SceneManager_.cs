@@ -4,34 +4,46 @@ using System.Collections;
 
 public class SceneManager_ : Singleton<SceneManager_>
 {
-  
     public void LoadSceneByName(string sceneName, bool lockCursor = false, bool showCursor = true)
     {
         if (string.IsNullOrEmpty(sceneName))
         {
-            Debug.LogError("Tên scene r?ng ho?c null");
+            Debug.LogError("ten scene rong hoac null");
             return;
         }
 
         if (Application.CanStreamedLevelBeLoaded(sceneName))
         {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-            Debug.Log("Da load scene " + sceneName);
-
-            if (lockCursor)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = showCursor;   
-            }
+            StartCoroutine(LoadSceneAsyncHidden(sceneName, lockCursor, showCursor));
         }
         else
         {
-            Debug.LogError("khong thay scene " + sceneName + " hoac chua add vào Build Settings");
+            Debug.LogError("Ko thay scene " + sceneName + " hoac chua add Build Settings");
+        }
+    }
+
+    private IEnumerator LoadSceneAsyncHidden(string sceneName, bool lockCursor, bool showCursor)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        asyncLoad.allowSceneActivation = false;
+
+        Debug.Log("bat dau load " + sceneName);
+
+        while (asyncLoad.progress < 0.9f)
+        {
+            yield return null;
+        }
+        asyncLoad.allowSceneActivation = true;
+
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = showCursor;
         }
     }
 
@@ -39,6 +51,7 @@ public class SceneManager_ : Singleton<SceneManager_>
     {
         StartCoroutine(ReloadSceneCoroutine(sceneName));
     }
+
     public void ExitAdditiveScene(string sceneName)
     {
         SceneManager.UnloadSceneAsync(sceneName);
@@ -51,7 +64,7 @@ public class SceneManager_ : Singleton<SceneManager_>
         Scene scene = SceneManager.GetSceneByName(sceneName);
         if (!scene.isLoaded)
         {
-            Debug.LogWarning("Scene " + sceneName + " chuaa load additive.");
+            Debug.LogWarning("Scene " + sceneName + " chua load additive.");
             yield break;
         }
 
@@ -59,8 +72,12 @@ public class SceneManager_ : Singleton<SceneManager_>
         yield return unloadOp;
 
         AsyncOperation loadOp = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        yield return loadOp;
+        loadOp.allowSceneActivation = false;
 
+        while (loadOp.progress < 0.9f)
+            yield return null;
+
+        loadOp.allowSceneActivation = true;
         Debug.Log("Reload xong scene additive: " + sceneName);
     }
 }

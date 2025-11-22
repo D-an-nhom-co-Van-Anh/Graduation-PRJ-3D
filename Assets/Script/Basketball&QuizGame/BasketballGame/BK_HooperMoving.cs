@@ -26,6 +26,10 @@ public class BK_HooperMoving : MonoBehaviour
 
     private bool isMoving = false;
     private bool canStartMoving = false;
+
+    private const string LEVEL_KEY = "HooperLevel";
+    private const string SPEED_KEY = "HooperMoveSpeed";
+    public event System.Action OnMaxLevelReached;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,6 +42,14 @@ public class BK_HooperMoving : MonoBehaviour
 
     void Start()
     {
+        
+        level = PlayerPrefs.GetInt(LEVEL_KEY, 1);
+        level = Mathf.Clamp(level, 1, maxLevel);
+        UpdateSpeed();
+
+        if (PlayerPrefs.HasKey(SPEED_KEY))
+            moveSpeed = PlayerPrefs.GetFloat(SPEED_KEY);
+
         centerZ = (minZ + maxZ) / 2f;
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, centerZ);
         startPos = transform.localPosition;
@@ -67,6 +79,10 @@ public class BK_HooperMoving : MonoBehaviour
     public int GetLevel()
     {
         return level;
+        if (level >= maxLevel)
+        {
+            OnMaxLevelReached?.Invoke();
+        }
 
     }
     public int MaxLevel()
@@ -75,8 +91,16 @@ public class BK_HooperMoving : MonoBehaviour
     }
     public void SetLevel(int newLevel)
     {
-        level = newLevel;
+        level = Mathf.Clamp(newLevel, 1, maxLevel);
+
         UpdateSpeed();
+        PlayerPrefs.SetInt(LEVEL_KEY, level);
+        PlayerPrefs.SetFloat(SPEED_KEY, moveSpeed);
+        PlayerPrefs.Save();
+        if (level >= maxLevel)
+        {
+            OnMaxLevelReached?.Invoke();
+        }
     }
 
     private void UpdateSpeed()

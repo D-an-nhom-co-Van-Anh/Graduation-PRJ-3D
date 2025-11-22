@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Quest1Info
   m_EditorClassIdentifier: 
   <id>k__BackingField: Quest1Info
-  displayName: 
+  displayName: "Nhi\u1EC7m v\u1EE5 1: B\u1EA1n h\xE3y di chuy\u1EC3n \u0111\u1EBFn
+    c\u1ED5ng tr\u01B0\u1EDDng"
   questPrerequisites: []
   questStepPrefabs: []
   rewardMoney: 0
