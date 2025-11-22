@@ -429,7 +429,7 @@ MonoBehaviour:
   - {fileID: 610183788246877430}
   - {fileID: 8981667214335772573}
   - {fileID: 4266010113190605756}
-  - {fileID: 3308348044538803475}
+  cinemachineCamera: {fileID: 0}
 --- !u!1 &737146776047917785
 GameObject:
   m_ObjectHideFlags: 0
