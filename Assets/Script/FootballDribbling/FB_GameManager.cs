@@ -123,8 +123,8 @@ public class FB_GameManager : MonoBehaviour
             {
                 messageText.text = "Hoàn thành! Bạn nhận được CUP!";
                 playerController.PlayVictory();
-                //GameManager_.Instance.GetQuestManager().FinishQuest(quest.id);
-                //LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
+                GameManager_.Instance.GetQuestManager().FinishQuest(quest.id);
+                Invoke(nameof(ChangeScene),1f);
             }
             else
             {
@@ -134,6 +134,10 @@ public class FB_GameManager : MonoBehaviour
                 ShowFailCanvasText();
             }
         }
+    }
+    public void ChangeScene()
+    {
+        LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
     }
     public void Restart()
     {

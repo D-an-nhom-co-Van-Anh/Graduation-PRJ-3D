@@ -9,6 +9,6 @@ public class QuestUI : MonoBehaviour
     {
         questName.SetText(name);
         questState.SetText(state);
-        //questDescription.SetText(description);
+        questDescription.SetText(description);
     }
 }
