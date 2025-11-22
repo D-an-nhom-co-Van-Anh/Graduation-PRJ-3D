@@ -18,18 +18,8 @@ public class ShopManager : MonoBehaviour
             });
         }
     }
-    //void ExitShop()
-    //{
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //    Cursor.visible = false;
-    //    if (QuestManager.Instance.GetCurrentQuestID() == "Quest4Info")
-    //    {
-    //        GameEventsManager.instance.questEvent.FinishQuest("Quest4Info");
-    //        GameEventsManager.instance.questEvent.StartQuest("Quest5Info");
-    //    }
-    //    GameManager_.Instance.DisableUIShop();
-    //}
-     public void SelectItem(ShopItem item)
+   
+    public void SelectItem(ShopItem item)
     {
         if (currentSelectedItem != null)
         {
@@ -41,7 +31,7 @@ public class ShopManager : MonoBehaviour
     }
     public void CloseShop()
     {
-        gameObject.SetActive(false);
+        GameManager_.Instance.DisableUIShop();
     }
     public void BuyItem()
     {

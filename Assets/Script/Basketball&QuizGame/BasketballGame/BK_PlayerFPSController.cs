@@ -20,6 +20,10 @@ public class PlayerFPSController : MonoBehaviour
 
     void Update()
     {
+        SettingFirstPerson();
+    }
+    void SettingFirstPerson()
+    {
         Vector2 mouseDelta = Mouse.current.delta.ReadValue() * sensitivity * Time.deltaTime;
 
         xRotation -= mouseDelta.y;
