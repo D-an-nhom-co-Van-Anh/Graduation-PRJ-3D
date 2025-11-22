@@ -56,9 +56,18 @@ public class GameManager_ : Singleton<GameManager_>
     public void EnableUIShop()
     {
         UIShop.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void DisableUIShop()
     {
         UIShop.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        if (QuestManager.Instance.GetCurrentQuestID() == "Quest4Info")
+        {
+            GameEventsManager.instance.questEvent.FinishQuest("Quest4Info");
+            GameEventsManager.instance.questEvent.StartQuest("Quest5Info");
+        }
     }
 }

@@ -57,11 +57,13 @@ public class MainCanvas : UICanvas
             missionBoard.SetActive(true);
             UpdateMissionBoard();
             Cursor.visible = true;
+            Cursor.lockState=CursorLockMode.None;
         }
     }
     public void CloseQuestUI()
     {
         missionBoard.SetActive(false);
         Cursor.visible = false;
+        Cursor.lockState=CursorLockMode.Locked;
     }
 }

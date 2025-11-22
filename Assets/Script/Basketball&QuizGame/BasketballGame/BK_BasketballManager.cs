@@ -29,32 +29,11 @@ public class BasketballManager : MonoBehaviour
     }
     private void Update()
     {
-        if (dialogueController.isFinishedDialogue() && !cameraSwitcher.IsFirstPersonView()&& isFirstTimeTalk)
-        {
-            isFirstTimeTalk = false;
-            cameraSwitcher.SetFirstPerson(true);
-        }
-        if (Keyboard.current.vKey.wasPressedThisFrame && !isFirstTimeTalk  )
-        {
-            if (Time.time - lastSwitchTime < cameraSwitchCooldown)
-                return; 
-
-            lastSwitchTime = Time.time;  
-
-            if (cameraSwitcher.IsFirstPersonView() )
-            {
-                cameraSwitcher.SetFirstPerson(false);
-                throwBasketball.ResetBallPosition();
-            }
-            else if(!cameraSwitcher.IsFirstPersonView()  && npcTriggerZone.isPlayerInZone())
-            {
-                cameraSwitcher.SetFirstPerson(true);
-                throwBasketball.ResetBallPosition();
-            }
-        }
 
 
 
+
+        SwitchCamera();
 
         if (HooperMoving.GetLevel()==HooperMoving.MaxLevel())
         {
@@ -66,13 +45,41 @@ public class BasketballManager : MonoBehaviour
     {
    
     }
+    public void SwitchCamera()
+    {
+        //if (dialogueController.isFinishedDialogue() && !cameraSwitcher.IsFirstPersonView() && isFirstTimeTalk)
+        //{
+        //    isFirstTimeTalk = false;
+        //    cameraSwitcher.SetFirstPerson(true);
+        //}
+        if (Keyboard.current.vKey.wasPressedThisFrame && !isFirstTimeTalk)
+        {
+            if (Time.time - lastSwitchTime < cameraSwitchCooldown)
+                return;
+
+            lastSwitchTime = Time.time;
+
+            if (cameraSwitcher.IsFirstPersonView())
+            {
+                cameraSwitcher.SetFirstPerson(false);
+                throwBasketball.ResetBallPosition();
+            }
+            else if (!cameraSwitcher.IsFirstPersonView() && npcTriggerZone.isPlayerInZone())
+            {
+                cameraSwitcher.SetFirstPerson(true);
+                throwBasketball.ResetBallPosition();
+            }
+        }
+    }
 
     public void EndGame()
     {
       
             cameraSwitcher.SetFirstPerson(false);
         throwBasketball.ResetBallPosition();
-        GetReward(); 
+        GetReward();
+        GameEventsManager.instance.questEvent.FinishQuest("QuestInfo5");
+        GameEventsManager.instance.questEvent.AdvanceQuest("QuestInfo6");
     }
 
     public void GetReward()
