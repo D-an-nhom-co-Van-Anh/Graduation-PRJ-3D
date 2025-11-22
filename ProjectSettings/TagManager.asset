@@ -7,6 +7,8 @@ TagManager:
   - Goal
   - Obstacle
   - Teleporter
+  - MainCamera
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

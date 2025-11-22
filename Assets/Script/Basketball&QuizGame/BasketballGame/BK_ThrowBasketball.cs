@@ -137,8 +137,9 @@ public class ThrowBasketball : MonoBehaviour
     {
         if (isHoldingBall || isMovingToHand) return;
         StartCoroutine(MoveBallToHand());
-        BK_HooperMoving.Instance.StartMoving();
         level = BK_HooperMoving.Instance.GetLevel();
+        BK_HooperMoving.Instance.StartMoving();
+        
         
     }
     private IEnumerator MoveBallToHand()

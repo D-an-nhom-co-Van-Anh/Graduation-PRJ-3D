@@ -10,6 +10,7 @@ public class NpcTriggerZone : MonoBehaviour
     public NpcController npcController;       // Script điều khiển NPC
     public Transform npcTransform;            // Transform của NPC
     private Transform playerTransform;        // Player (tự tìm bằng tag)
+    
 
     [Header("Settings")]
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
@@ -22,6 +23,12 @@ public class NpcTriggerZone : MonoBehaviour
     public DialogueController dialogueController;
 
     public PlayerMovementController playerController;
+
+    private PlayerCameraSwitcher playerCameraSwitcher;
+
+    private GameObject BasketballTarget;
+
+    private GameObject mainCanvas;
     
     private void Reset()
     {
@@ -31,7 +38,11 @@ public class NpcTriggerZone : MonoBehaviour
     }
 
     private void Start()
+
     {
+        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        BasketballTarget=  GameObject.Find("BasketballTarget");
+        playerCameraSwitcher = BasketballTarget.GetComponent<PlayerCameraSwitcher>();
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         playerTransform = playerObj.transform;
         dialogueController = GetComponent<DialogueController>();
@@ -191,13 +202,13 @@ public class NpcTriggerZone : MonoBehaviour
                 GameManager_.Instance.EnableUIShop();
                 break;
             case "NPC5":
+                if (!playerCameraSwitcher.IsFirstPersonView()) playerCameraSwitcher.SetFirstPerson(true);
+                mainCanvas.SetActive(false);
                 break;
             case "NPC6":
-                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: true, showCursor: false) ;
+                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true) ;
                 break;
-
         }
-       
     }
 
 }

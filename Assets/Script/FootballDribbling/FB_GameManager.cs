@@ -123,7 +123,7 @@ public class FB_GameManager : MonoBehaviour
             {
                 messageText.text = "Hoàn thành! Bạn nhận được CUP!";
                 playerController.PlayVictory();
-                GameManager_.Instance.GetQuestManager().FinishQuest(quest.id);
+                GameManager_.Instance.GetQuestManager().FinishQuest("Quest6Info");
                 Invoke(nameof(ChangeScene),1f);
             }
             else
@@ -137,47 +137,15 @@ public class FB_GameManager : MonoBehaviour
     }
     public void ChangeScene()
     {
-        LoadSceneCoroutine(SceneManager.GetSceneAt(0).name);
+        GameObject mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        mainCanvas.SetActive(true);
+        SceneManager_.Instance.ExitAdditiveScene("Football");
     }
     public void Restart()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        StartCoroutine(LoadSceneCoroutine(sceneName));
+        SceneManager_.Instance.ReloadAdditiveScene("Football");
     }
-    private IEnumerator LoadSceneCoroutine(string sceneName, float progress = 0)
-    {
-        // Start loading the scene asynchronously
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-
-        // Check if the scene exists and the loading operation was started successfully
-        if (asyncOperation == null)
-        {
-            yield break;
-        }
-
-        // Disable automatic scene activation to manage progress and events
-        asyncOperation.allowSceneActivation = false;
-
-        // Track loading progress
-        while (!asyncOperation.isDone)
-        {
-            // Report progress (0.0 to 0.9 during the loading phase)
-            progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
-            Debug.Log($"Progress: {progress}");
-            if (asyncOperation.progress >= 0.9f)
-            {
-                asyncOperation.allowSceneActivation = true; // Activate the scene
-            }
-            if (timeOut >= maxTimeOut)
-            {
-                SceneManager.LoadScene(sceneName);
-                Debug.LogWarning("Time out");
-                yield break;
-            }
-
-            yield return null; // Wait for the next frame
-        }
-    }
+   
     private void ShowFailCanvasText()
     {
         

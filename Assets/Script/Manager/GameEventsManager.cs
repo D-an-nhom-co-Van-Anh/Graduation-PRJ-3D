@@ -6,7 +6,6 @@ public class GameEventsManager : MonoBehaviour
 
     public QuestEvent questEvent;
 
-
     private void Awake()
     {
         if (instance != null)
@@ -20,4 +19,5 @@ public class GameEventsManager : MonoBehaviour
         questEvent = new QuestEvent();
 ;
     }
+  
 }
