@@ -56,6 +56,7 @@ public class GameManager_ : Singleton<GameManager_>
     public void EnableUIShop()
     {
         UIShop.gameObject.SetActive(true);
+        UIShop.GetComponent<ShopManager>().OpenShop();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

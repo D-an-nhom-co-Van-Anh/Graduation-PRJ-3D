@@ -6,25 +6,48 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private List <Button> items;
+    private bool isShopOpened;
     private ShopItem currentSelectedItem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isShopOpened = false;
         for(int i = 0; i < items.Count; i++)
         {
-            items[i].onClick.AddListener(() =>
+            int index = i;
+            items[index].onClick.AddListener(() =>
             {
-                SelectItem(items[i].GetComponent<ShopItem>());
+                Debug.Log(index);
+                SelectItem(items[index].GetComponent<ShopItem>());
             });
         }
     }
-   
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (isShopOpened)
+            {
+                CloseShop();
+            } 
+            
+        }
+    }
+    public void OpenShop()
+    {
+        isShopOpened = true;
+    }
     public void SelectItem(ShopItem item)
     {
         if (currentSelectedItem != null)
         {
             currentSelectedItem.HideSelectedUI();
             currentSelectedItem = null;
+            currentSelectedItem = item;
+            currentSelectedItem.ShowSelectedUI();
+        }
+        else
+        {
             currentSelectedItem = item;
             currentSelectedItem.ShowSelectedUI();
         }

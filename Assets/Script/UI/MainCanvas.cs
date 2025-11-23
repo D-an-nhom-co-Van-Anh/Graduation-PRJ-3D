@@ -45,13 +45,6 @@ public class MainCanvas : UICanvas
             }
             i++;
         }
-        if (i < questUI.Count)
-        {
-            for (int j = i; j < questUI.Count; j++)
-            {
-                Destroy(questUI[i].gameObject);
-            }
-        }
                   
     }
     private void Update()
