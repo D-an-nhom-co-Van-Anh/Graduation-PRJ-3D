@@ -2195,7 +2195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &474078458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3335,7 +3335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 1
+    m_Value: 40
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -5749,7 +5749,7 @@ MonoBehaviour:
   maxTimeOut: 15
   failCanvas: {fileID: 777716715}
   myText: {fileID: 524996378}
-  quest: {fileID: 11400000, guid: 2c53f955b67a4bf4cb06cf4b4ed35993, type: 2}
+  quest: {fileID: 11400000, guid: eeb6c42b3ced1f54b81d501acb226aea, type: 2}
   keeper: {fileID: 1562290825}
   instructionPanel: {fileID: 1046965841}
   fadeImage: {fileID: 1878613994}
@@ -8809,6 +8809,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5360955393451934612, guid: 00078565f7274db449632cb2b1b8ba5c, type: 3}
+      propertyPath: Priority.m_Value
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360955393451934612, guid: 00078565f7274db449632cb2b1b8ba5c, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1623352926}
@@ -10648,7 +10652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &2038003774
 AudioListener:
   m_ObjectHideFlags: 0
