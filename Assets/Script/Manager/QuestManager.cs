@@ -11,7 +11,8 @@ public class QuestManager : Singleton<QuestManager>
     {
         questMap=CreateQuestMap();
         questMap= LoadQuest(questMap);
-        Debug.Log(questMap.Count);
+        //Debug.Log(questMap.Count);
+        Debug.Log("quests = " + (LoadQuest(questMap)==null));
         if (instance != null)
         {
             Debug.LogError("Found more than one Quest Manager in the scene.");
@@ -243,6 +244,12 @@ public class QuestManager : Singleton<QuestManager>
                 Debug.LogWarning($"Không tìm thấy quest với id: {q.questId}");
             }
         }
+        if (questMap == null)
+        {
+            Debug.Log("questMap" + questMap);
+            return this.questMap;
+        }
+        Debug.Log("questMap" + questMap);
         return questMap;
     }
 }
