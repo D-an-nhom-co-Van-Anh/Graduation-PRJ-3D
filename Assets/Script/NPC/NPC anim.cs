@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NpcController : MonoBehaviour
+public class NpcAnimator : MonoBehaviour
 {
     private Animator animator;
 

@@ -10,7 +10,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private ShopItemType type;
     [SerializeField] private Image selectedUI;
     public float Cost => cost;
-    public float Value => value;
+    public float Value => value ;
     public ShopItemType Type => type;
     private void Awake()
     {

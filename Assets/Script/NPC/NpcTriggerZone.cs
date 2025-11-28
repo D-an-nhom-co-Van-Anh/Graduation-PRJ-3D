@@ -7,7 +7,7 @@ public class NpcTriggerZone : MonoBehaviour
     [Header("References")]
     public Collider triggerZone;              // Box Collider vùng nói chuyện
     public GameObject uiTalkingPrompt;        // UI "Press E to Talk"
-    public NpcController npcController;       // Script điều khiển NPC
+    public NpcAnimator npcController;       // Script điều khiển NPC
     public Transform npcTransform;            // Transform của NPC
     private Transform playerTransform;        // Player (tự tìm bằng tag)
     
@@ -203,10 +203,11 @@ public class NpcTriggerZone : MonoBehaviour
                 break;
             case "NPC5":
                 if (!playerCameraSwitcher.IsFirstPersonView()) playerCameraSwitcher.SetFirstPerson(true);
-                mainCanvas.SetActive(false);
+                
                 break;
             case "NPC6":
                 SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true) ;
+                mainCanvas.SetActive(false);
                 break;
         }
     }

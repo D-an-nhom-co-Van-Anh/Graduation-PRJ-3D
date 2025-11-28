@@ -12,18 +12,15 @@ public class BasketballManager : MonoBehaviour
 
     private BK_HooperMoving HooperMoving;
     private PlayerCameraSwitcher cameraSwitcher;
-    private DialogueController dialogueController;
     private ThrowBasketball throwBasketball;
     private NpcTriggerZone npcTriggerZone;
     private bool isFirstTimeTalk=true;
     private float cameraSwitchCooldown = 0.3f;
     private float lastSwitchTime = 0f;
 
-    private int levelGameBasketball;
     public void Start()
     {
         npcTriggerZone = NPCB1_B5.GetComponent<NpcTriggerZone>();
-        dialogueController=NPCB1_B5.GetComponent<DialogueController>();
         HooperMoving = hooper.GetComponent<BK_HooperMoving>();
         cameraSwitcher = gameObject.GetComponent<PlayerCameraSwitcher>();
         throwBasketball = basketball.GetComponent<ThrowBasketball>();
