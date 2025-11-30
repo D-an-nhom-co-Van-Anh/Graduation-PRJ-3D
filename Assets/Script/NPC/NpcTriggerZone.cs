@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
+using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class NpcTriggerZone : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class NpcTriggerZone : MonoBehaviour
     public NpcController npcController;       // Script điều khiển NPC
     public Transform npcTransform;            // Transform của NPC
     private Transform playerTransform;        // Player (tự tìm bằng tag)
-    
+    [SerializeField] private Image fadeImage;
 
     [Header("Settings")]
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
@@ -206,9 +207,21 @@ public class NpcTriggerZone : MonoBehaviour
                 mainCanvas.SetActive(false);
                 break;
             case "NPC6":
-                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true) ;
+
+                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true);
+                mainCanvas.SetActive(false);
+                GameManager_.Instance.GetPlayer().LockMovement();
                 break;
         }
+    }
+    public IEnumerator FadeImage()
+    {
+        fadeImage.gameObject.SetActive(true);
+        yield return fadeImage.DOFade(1f, 0.6f).WaitForCompletion();
+        yield return new WaitForSeconds(1.57f);
+        yield return fadeImage.DOFade(0f, 0.6f).WaitForCompletion();
+        fadeImage.gameObject.SetActive(false);
+        mainCanvas.SetActive(false);
     }
 
 }

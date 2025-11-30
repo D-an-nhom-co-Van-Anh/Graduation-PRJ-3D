@@ -4088,7 +4088,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4114,8 +4114,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03741314, y: -0.7437914, z: 0.041779693, w: 0.6660549}
-  m_LocalPosition: {x: 9.700012, y: 17.099976, z: 344.69998}
+  m_LocalRotation: {x: 0.09235794, y: -8.326425e-12, z: 7.7231223e-13, w: 0.9957259}
+  m_LocalPosition: {x: -72.3, y: 6.0509796, z: 304.70584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4189,7 +4189,7 @@ MonoBehaviour:
     DefaultMode: 2
   DefaultBlend:
     Style: 1
-    Time: 2
+    Time: 1.5
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -5176,6 +5176,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
+    - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1544214765}
     - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
       propertyPath: uiTalkingPrompt
       value: 
@@ -9798,6 +9802,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
     - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1544214765}
+    - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
@@ -9959,6 +9967,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5395329261992004644, guid: 80c39f340ec74aa49a2b9a483fd9d2b0, type: 3}
   m_PrefabInstance: {fileID: 956882430}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &960422333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960422334}
+  - component: {fileID: 960422335}
+  - component: {fileID: 960422336}
+  m_Layer: 0
+  m_Name: CinemachineCamera 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &960422334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960422333}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.765222, y: -546.92896, z: 86.51583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2057253470}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960422335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960422333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 30
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 850081094}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &960422336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960422333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: -7.7841797, y: 4.346081, z: 1.1347656}
 --- !u!1001 &960448724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9967,6 +10070,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
+    - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1544214765}
     - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
       propertyPath: uiTalkingPrompt
       value: 
@@ -11569,6 +11676,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
     - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1544214765}
+    - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
@@ -12445,6 +12556,7 @@ MonoBehaviour:
   sceneManager: {fileID: 1215289719}
   player: {fileID: 0}
   UIShop: {fileID: 1108175357}
+  mainCanvas: {fileID: 2080562146}
   level: 0
 --- !u!114 &1215289715
 MonoBehaviour:
@@ -15908,6 +16020,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
     - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1544214765}
+    - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
@@ -16102,6 +16218,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a6a0566180c1b34b9dedd457a15e046, type: 3}
+--- !u!1 &1544214763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544214764}
+  - component: {fileID: 1544214766}
+  - component: {fileID: 1544214765}
+  m_Layer: 5
+  m_Name: FadeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1544214764
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544214763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1137732853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1544214765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544214763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1544214766
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544214763}
+  m_CullTransparentMesh: 1
 --- !u!1 &1561793779 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3410185793394415013, guid: b6c8389de64bf3e468eec1b3572f8479, type: 3}
@@ -18347,6 +18538,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3596811799585180553, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1805534462}
+    - targetCorrespondingSourceObject: {fileID: 3596811799585180553, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1544214764}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
 --- !u!1001 &1767552507
@@ -19291,6 +19485,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
     - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1544214765}
+    - target: {fileID: 5963356480128263727, guid: 7258c138959cda74a9eef91e88ae3f27, type: 3}
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
@@ -19705,6 +19903,10 @@ PrefabInstance:
       propertyPath: camera3
       value: 
       objectReference: {fileID: 1712862311}
+    - target: {fileID: 3688479146950676232, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
+      propertyPath: camera4
+      value: 
+      objectReference: {fileID: 960422335}
     - target: {fileID: 4881341765575644457, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -19713,9 +19915,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: IntroCutscene
       objectReference: {fileID: 0}
+    - target: {fileID: 6937398993408016766, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796164471719581233, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 334985054001026937, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 960422334}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
 --- !u!64 &1906090556
@@ -21151,6 +21364,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTarget: {fileID: 1434972668}
+--- !u!4 &2057253470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 334985054001026937, guid: c2a701171e3297a4fab9cd16d9566068, type: 3}
+  m_PrefabInstance: {fileID: 1898119384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2062007037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21299,6 +21517,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -864259460963330315, guid: 9942583cd1968114ca336edb5814526e, type: 3}
+--- !u!1 &2080562146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 634118449672305668, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+  m_PrefabInstance: {fileID: 1765566388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2080746648
 PrefabInstance:
   m_ObjectHideFlags: 0
