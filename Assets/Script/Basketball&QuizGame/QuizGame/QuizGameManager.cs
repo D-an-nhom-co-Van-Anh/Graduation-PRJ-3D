@@ -52,6 +52,7 @@ public class QuizGameManager : MonoBehaviour
 
     void Awake()
     {
+        AudioManager.Instance.PlayMusic("quizbackground1");
         events.CurrentFinalScore = 0;
     }
  
@@ -150,7 +151,7 @@ public class QuizGameManager : MonoBehaviour
             events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
         }
 
-      //  AudioManager.Instance.PlaySFX((isCorrect) ? "QuizCorrectAnswer" : "QuizWrongAnswer");
+       AudioManager.Instance.PlaySFX((isCorrect) ? "QuizCorrectAnswer" : "QuizWrongAnswer");
 
         if (type != QuizUIManager.ResolutionScreenType.Finish)
         {
@@ -275,6 +276,7 @@ public class QuizGameManager : MonoBehaviour
     {
         SceneManager_.Instance.ExitAdditiveScene("Quiz"); ;
         GameEventsManager.instance.questEvent.FinishQuest("Quest3Info");
+        AudioManager.Instance.PlayMusic("background1");
     }
 
     /// <summary>

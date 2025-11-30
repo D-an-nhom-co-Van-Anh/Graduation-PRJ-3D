@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class BasketballManager : MonoBehaviour
 {
     [SerializeField]
@@ -71,6 +70,6 @@ public class BasketballManager : MonoBehaviour
 
     public void GetReward()
     {
-        UIManager_.Instance.Open<PopupMessage>().Show("B?n ?ã hoàn thành Quest, chúc m?ng, b?n v?a nh?n ???c Pcoin ", 1f);
+        UIManager_.Instance.Open<PopupMessage>().Show("B?n ?ï¿½ hoï¿½n thï¿½nh Quest, chï¿½c m?ng, b?n v?a nh?n ???c Pcoin ", 1f);
     }
 }

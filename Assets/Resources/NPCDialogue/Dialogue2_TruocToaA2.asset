@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Dialogue2_TruocToaA2
   m_EditorClassIdentifier: 
   dialogueLines:
-  - "Ch\xE0o b\u1EA1n! Tr\u01B0\u1EDBc khi b\u01B0\u1EDBc v\xE0o t\xF2a A2, \u0111\u1EC3
-    m\xECnh gi\u1EDBi thi\u1EC7u qua m\u1ED9t ch\xFAt v\u1EC1 PTIT nh\xE9."
+  - "Ch\xE0o em! Tr\u01B0\u1EDBc khi b\u01B0\u1EDBc v\xE0o t\xF2a A2, \u0111\u1EC3
+    c\xF4 gi\u1EDBi thi\u1EC7u qua m\u1ED9t ch\xFAt v\u1EC1 PTIT nh\xE9."
   - "H\u1ECDc vi\u1EC7n C\xF4ng ngh\u1EC7 B\u01B0u ch\xEDnh Vi\u1EC5n th\xF4ng (PTIT)
-    hi\u1EC7n c\xF3 hai c\u01A1 s\u1EDF \u0111\xE0o t\u1EA1o:\nm\u1ED9t \u1EDF H\xE0
+    hi\u1EC7n c\xF3 hai c\u01A1 s\u1EDF \u0111\xE0o t\u1EA1o:m\u1ED9t \u1EDF H\xE0
     N\u1ED9i (ph\xEDa B\u1EAFc) v\xE0 m\u1ED9t \u1EDF TP. H\u1ED3 Ch\xED Minh (ph\xEDa
-    Nam).\nTr\u01B0\u1EDBc m\u1EB7t b\u1EA1n ch\xEDnh l\xE0 c\u01A1 s\u1EDF ph\xEDa
-    B\u1EAFc c\u1EE7a H\u1ECDc vi\u1EC7n."
+    Nam). Tr\u01B0\u1EDBc m\u1EB7t em ch\xEDnh l\xE0 c\u01A1 s\u1EDF ph\xEDa B\u1EAFc
+    c\u1EE7a H\u1ECDc vi\u1EC7n."
   - "Tr\u01B0\u1EDDng \u0111\u01B0\u1EE3c th\xE0nh l\u1EADp t\u1EEB n\u0103m 1953
     v\u1EDBi t\xEAn g\u1ECDi Tr\u01B0\u1EDDng \u0110\u1EA1i h\u1ECDc B\u01B0u \u0111i\u1EC7n
     \u2013 V\xF4 tuy\u1EBFn \u0111i\u1EC7n. "
@@ -35,14 +35,13 @@ MonoBehaviour:
     tr\xE0 v\xE0 5 ng\xE0nh ch\u1EA5t l\u01B0\u1EE3ng cao, trong \u0111\xF3 c\xF3
     nhi\u1EC1u l\u0129nh v\u1EF1c hot nh\u01B0 C\xF4ng ngh\u1EC7 th\xF4ng tin, An
     to\xE0n th\xF4ng tin, Marketing, C\xF4ng ngh\u1EC7 \u0111a ph\u01B0\u01A1ng ti\u1EC7n..."
-  - "\n\u0110\u1EB7c bi\u1EC7t, t\u1EEB th\xE1ng 9/2024, PTIT \u0111\xE3 m\u1EDF
-    th\xEAm ng\xE0nh Thi\u1EBFt k\u1EBF v\xE0 Ph\xE1t tri\u1EC3n Game n\u1EEFa \u0111\u1EA5y!"
+  - "\u0110\u1EB7c bi\u1EC7t, t\u1EEB th\xE1ng 9/2024, PTIT \u0111\xE3 m\u1EDF th\xEAm
+    ng\xE0nh Thi\u1EBFt k\u1EBF v\xE0 Ph\xE1t tri\u1EC3n Game n\u1EEFa \u0111\u1EA5y!"
   - "C\xF2n \u0111\xE2y \u2013 t\xF2a nh\xE0 A2, l\xE0 t\xF2a nh\xE0 ch\xEDnh c\u1EE7a
     H\u1ECDc vi\u1EC7n, g\u1ED3m 10 t\u1EA7ng v\u1EDBi c\xE1c ph\xF2ng h\u1ECDc,
     ph\xF2ng gi\u1EA3ng vi\xEAn, v\u0103n ph\xF2ng khoa v\xE0 nhi\u1EC1u ph\xF2ng
     b\u1ED9 m\xF4n quan tr\u1ECDng. Ngo\xE0i ra c\xF2n c\xF3 h\u1ED9i tr\u01B0\u1EDDng
     A2 \u1EDF t\u1EA7ng 1 l\xE0 n\u01A1i di\u1EC5n ra nh\u1EEFng s\u1EF1 ki\u1EC7n
     quan tr\u1ECDng c\u1EE7a tr\u01B0\u1EDDng."
-  - "B\u1EA1n c\xF3 th\u1EC3 v\xE0o trong t\xF2a A2 \u0111\u1EC3 tham quan v\xE0
-    tr\u1EA3i nghi\u1EC7m nh\u1EEFng mini game \u0111ang ch\u1EDD \u0111\xF3n ph\xEDa
-    tr\u01B0\u1EDBc."
+  - "Em c\xF3 th\u1EC3 v\xE0o trong t\xF2a A2 \u0111\u1EC3 tham quan v\xE0 tr\u1EA3i
+    nghi\u1EC7m nh\u1EEFng mini game \u0111ang ch\u1EDD \u0111\xF3n ph\xEDa tr\u01B0\u1EDBc."
