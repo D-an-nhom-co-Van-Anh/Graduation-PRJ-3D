@@ -23,7 +23,7 @@ public class TeleportA2 : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("? Ch?a gán teleportTarget cho " + gameObject.name);
+            Debug.LogWarning("? Ch?a gï¿½n teleportTarget cho " + gameObject.name);
         }
     }
     public bool CheckOutsidePoint()
@@ -31,6 +31,10 @@ public class TeleportA2 : MonoBehaviour
         if (teleportTarget.name == "TeleportA2Outside")
         {
             return true;
+        }
+        else
+        {
+            
         }
         return false;
     }

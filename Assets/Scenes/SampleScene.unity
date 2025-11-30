@@ -12661,6 +12661,7 @@ MonoBehaviour:
   sceneManager: {fileID: 1215289719}
   player: {fileID: 0}
   UIShop: {fileID: 1108175357}
+  mainCanvas: {fileID: 0}
   level: 0
 --- !u!114 &1215289715
 MonoBehaviour:
@@ -18598,6 +18599,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1460
       objectReference: {fileID: 0}
+    - target: {fileID: 5485291749802363624, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_text
+      value: 'Press E to interact '
+      objectReference: {fileID: 0}
     - target: {fileID: 5626153204188977229, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -18624,7 +18629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007819667402659542, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7389865033102579182, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_SizeDelta.y
@@ -18689,6 +18694,14 @@ PrefabInstance:
     - target: {fileID: 8475784997448022767, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -2100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102324378382040893, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102324378382040893, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

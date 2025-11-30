@@ -8,10 +8,10 @@ public class NpcTriggerZone : MonoBehaviour
     [Header("References")]
     public Collider triggerZone;              // Box Collider vùng nói chuyện
     public GameObject uiTalkingPrompt;        // UI "Press E to Talk"
-    public NpcController npcController;       // Script điều khiển NPC
+    public NpcAnimator npcController;       // Script điều khiển NPC
     public Transform npcTransform;            // Transform của NPC
     private Transform playerTransform;        // Player (tự tìm bằng tag)
-    [SerializeField] private Image fadeImage;
+    //[SerializeField] private Image fadeImage;
 
     [Header("Settings")]
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
@@ -214,14 +214,14 @@ public class NpcTriggerZone : MonoBehaviour
                 break;
         }
     }
-    public IEnumerator FadeImage()
-    {
-        fadeImage.gameObject.SetActive(true);
-        yield return fadeImage.DOFade(1f, 0.6f).WaitForCompletion();
-        yield return new WaitForSeconds(1.57f);
-        yield return fadeImage.DOFade(0f, 0.6f).WaitForCompletion();
-        fadeImage.gameObject.SetActive(false);
-        mainCanvas.SetActive(false);
-    }
+    // public IEnumerator FadeImage()
+    // {
+    //     fadeImage.gameObject.SetActive(true);
+    //     yield return fadeImage.DOFade(1f, 0.6f).WaitForCompletion();
+    //     yield return new WaitForSeconds(1.57f);
+    //     yield return fadeImage.DOFade(0f, 0.6f).WaitForCompletion();
+    //     fadeImage.gameObject.SetActive(false);
+    //     mainCanvas.SetActive(false);
+    // }
 
 }
