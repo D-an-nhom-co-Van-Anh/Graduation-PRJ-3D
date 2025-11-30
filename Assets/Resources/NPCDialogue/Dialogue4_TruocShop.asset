@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - " \u0110\xE2y l\xE0 canteen \u2013 n\u01A1i quen thu\u1ED9c c\u1EE7a sinh vi\xEAn
-    PTIT sau m\u1ED7i gi\u1EDD h\u1ECDc \u0111\xF3!"
+    PTIT sau m\u1ED7i gi\u1EDD h\u1ECDc c\u0103ng th\u1EB3ng "
   - "Canteen ph\u1EE5c v\u1EE5 \u0111a d\u1EA1ng m\xF3n \u0103n v\xE0 \u0111\u1ED3
     u\u1ED1ng cho sinh vi\xEAn, t\u1EEB c\u01A1m, m\xEC, b\xE1nh m\xEC, tr\xE0 s\u1EEFa
     cho \u0111\u1EBFn c\xE0 ph\xEA, sinh t\u1ED1, n\u01B0\u1EDBc ng\u1ECDt \u0111\u1EE7
@@ -22,9 +22,9 @@ MonoBehaviour:
     h\u1ECDc c\u0103ng th\u1EB3ng"
   - "\u0110\xE2y c\u0169ng l\xE0 n\u01A1i c\xE1c b\u1EA1n sinh vi\xEAn tr\xF2 chuy\u1EC7n,
     ngh\u1EC9 ng\u01A1i, v\xE0 g\u1EB7p g\u1EE1 b\u1EA1n b\xE8 "
-  - "Trong game, b\u1EA1n c\xF3 th\u1EC3 v\xE0o trong canteen \u0111\u1EC3 mua \u0111\u1ED3
-    \u0103n ho\u1EB7c th\u1EE9c u\u1ED1ng, gi\xFAp buff ch\u1EC9 s\u1ED1 cho nh\xE2n
-    v\u1EADt "
+  - "Trong game n\xE0y , em c\xF3 th\u1EC3 v\xE0o trong canteen \u0111\u1EC3 mua
+    \u0111\u1ED3 \u0103n ho\u1EB7c th\u1EE9c u\u1ED1ng, gi\xFAp buff ch\u1EC9 s\u1ED1
+    cho nh\xE2n v\u1EADt "
   - "M\u1ED7i m\xF3n \u0103n s\u1EBD c\xF3 hi\u1EC7u \u1EE9ng ri\xEAng, v\xEC th\u1EBF
     h\xE3y ch\u1ECDn th\u1EADt kh\xE9o \u0111\u1EC3 chu\u1EA9n b\u1ECB t\u1ED1t nh\u1EA5t
     cho h\xE0nh tr\xECnh ti\u1EBFp theo nh\xE9!"

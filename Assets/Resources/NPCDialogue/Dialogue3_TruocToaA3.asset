@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue3_TruocToaA3
   m_EditorClassIdentifier: 
   dialogueLines:
-  - "Ch\xE0o b\u1EA1n, \u0111\xE2y l\xE0 t\xF2a A3 \u2013 m\u1ED9t trong nh\u1EEFng
-    khu nh\xE0 h\u1ECDc quan tr\u1ECDng nh\u1EA5t c\u1EE7a H\u1ECDc vi\u1EC7n."
+  - "Ch\xE0o em, \u0111\xE2y l\xE0 t\xF2a A3 \u2013 m\u1ED9t trong nh\u1EEFng khu
+    nh\xE0 h\u1ECDc quan tr\u1ECDng nh\u1EA5t c\u1EE7a H\u1ECDc vi\u1EC7n."
   - "T\xF2a A3 g\u1ED3m 6 t\u1EA7ng l\xE0 n\u01A1i di\u1EC5n ra c\xE1c bu\u1ED5i
     th\u1EF1c h\xE0nh v\xE0 th\xED nghi\u1EC7m cho sinh vi\xEAn nhi\u1EC1u khoa kh\xE1c
     nhau."
@@ -40,8 +40,10 @@ MonoBehaviour:
   - "Ph\xEDa tr\u01B0\u1EDBc t\xF2a A3 l\xE0 v\u01B0\u1EDDn treo xanh m\xE1t, c\xF3
     nhi\u1EC1u gh\u1EBF ng\u1ED3i gi\xFAp sinh vi\xEAn ngh\u1EC9 ng\u01A1i, th\u01B0
     gi\xE3n sau nh\u1EEFng gi\u1EDD h\u1ECDc c\u0103ng th\u1EB3ng."
-  - "Gi\u1EDD th\xEC\u2026 \u0111\u1EC3 xem b\u1EA1n \u0111\xE3 nh\u1EDB h\u1EBFt
-    nh\u1EEFng th\xF4ng tin v\u1EEBa r\u1ED3i ch\u01B0a nh\xE9! H\xE3y tham gia ngay
-    mini-game Quiz \u0111\u1EC3 \xF4n l\u1EA1i ki\u1EBFn th\u1EE9c v\u1EC1 PTIT n\xE0o! "
-  - "B\u1EA1n c\u1EA7n 60 \u0111i\u1EC3m \u0111\u1EC3 v\u01B0\u1EE3t qua b\xE0i Quiz
-    n\xE0y nha !"
+  - "Gi\u1EDD th\xEC\u2026 \u0111\u1EC3 xem em \u0111\xE3 nh\u1EDB h\u1EBFt nh\u1EEFng
+    th\xF4ng tin v\u1EEBa r\u1ED3i ch\u01B0a nh\xE9, H\xE3y tham gia ngay mini-game
+    Quiz \u0111\u1EC3 \xF4n l\u1EA1i ki\u1EBFn th\u1EE9c v\u1EC1 PTIT n\xE0o! "
+  - "\u0110\u1EC3 v\u01B0\u1EE3t qua minigame n\xE0y, em c\u1EA7n t\u1ED1i thi\u1EC3u
+    ho\xE0n th\xE0nh 6 c\xE2u t\u01B0\u01A1ng \u0111\u01B0\u01A1ng v\u1EDBi 60 \u0111i\u1EC3m
+    nh\xE9, em c\xF3 th\u1EC3 ch\u01A1i l\u1EA1i nhi\u1EC1u l\u1EA7n n\u1EBFu ch\u01B0a
+    ho\xE0n th\xE0nh \u0111\u01B0\u1EE3c"

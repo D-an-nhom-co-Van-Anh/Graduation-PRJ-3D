@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - "\u0110\xE2y l\xE0 khu k\xFD t\xFAc x\xE1 B1 v\xE0 B5 \u2013 n\u01A1i \u1EDF
-    quen thu\u1ED9c c\u1EE7a r\u1EA5t nhi\u1EC1u sinh vi\xEAn PTIT \u0111\xF3!"
-  - "Tr\u01B0\u1EDBc k\xFD t\xFAc x\xE1 B1, b\u1EA1n c\xF3 th\u1EC3 th\u1EA5y ngay
-    s\xE2n b\xF3ng r\u1ED5 v\xE0 s\xE2n b\xF3ng \u0111\xE1 r\u1ED9ng r\xE3i ph\xEDa
-    tr\u01B0\u1EDBc\n"
+    quen thu\u1ED9c c\u1EE7a r\u1EA5t nhi\u1EC1u sinh vi\xEAn PTIT"
+  - "Tr\u01B0\u1EDBc k\xFD t\xFAc x\xE1 B1, em c\xF3 th\u1EC3 th\u1EA5y ngay s\xE2n
+    b\xF3ng r\u1ED5 v\xE0 s\xE2n b\xF3ng \u0111\xE1 r\u1ED9ng r\xE3i ph\xEDa tr\u01B0\u1EDBc\n"
   - "\u0110\xE2y l\xE0 n\u01A1i th\u01B0\u1EDDng xuy\xEAn di\u1EC5n ra gi\u1EDD h\u1ECDc
     m\xF4n Gi\xE1o d\u1EE5c Th\u1EC3 ch\u1EA5t, c\u0169ng nh\u01B0 c\xE1c ho\u1EA1t
     \u0111\u1ED9ng ngo\u1EA1i kh\xF3a sau gi\u1EDD h\u1ECDc.\n"
@@ -28,10 +27,11 @@ MonoBehaviour:
   - "C\xF2n k\xFD t\xFAc x\xE1 B5 n\u1EB1m ngay c\u1EA1nh \u0111\xF3, l\xE0 n\u01A1i
     \u1EDF gi\xE1 r\u1EBB, ti\u1EC7n l\u1EE3i d\xE0nh cho sinh vi\xEAn trong v\xE0
     ngo\xE0i t\u1EC9nh. Cu\u1ED9c s\u1ED1ng trong k\xFD t\xFAc x\xE1 r\u1EA5t vui
-    v\xE0 n\u0103ng \u0111\u1ED9ng, b\u1EA1n s\u1EBD d\u1EC5 d\xE0ng k\u1EBFt b\u1EA1n,
+    v\xE0 n\u0103ng \u0111\u1ED9ng, em s\u1EBD d\u1EC5 d\xE0ng k\u1EBFt b\u1EA1n,
     c\xF9ng h\u1ECDc, c\xF9ng ch\u01A1i v\u1EDBi m\u1ECDi ng\u01B0\u1EDDi."
-  - "N\u1EBFu b\u1EA1n mu\u1ED1n th\u01B0 gi\xE3n m\u1ED9t ch\xFAt, h\xE3y th\u1EED
-    tham gia minigame N\xE9m B\xF3ng R\u1ED5 nh\xE9! Tr\xF2 ch\u01A1i r\u1EA5t \u0111\u01A1n
-    gi\u1EA3n: b\u1EA1n ch\u1EC9 c\u1EA7n n\xE9m b\xF3ng tr\xFAng r\u1ED5 c\xE0ng
-    nhi\u1EC1u c\xE0ng t\u1ED1t, sau m\u1ED7i l\u1EA7n n\xE9m tr\xFAng, chi\u1EBFc
-    r\u1ED5 s\u1EBD di chuy\u1EC3n nhanh h\u01A1n v\xE0 kh\xF3 tr\xFAng h\u01A1n"
+  - "N\u1EBFu em mu\u1ED1n th\u01B0 gi\xE3n m\u1ED9t ch\xFAt, h\xE3y tham gia minigame
+    N\xE9m B\xF3ng R\u1ED5 nh\xE9! Tr\xF2 ch\u01A1i r\u1EA5t \u0111\u01A1n gi\u1EA3n:
+    Em ch\u1EC9 c\u1EA7n n\xE9m b\xF3ng tr\xFAng r\u1ED5 c\xE0ng nhi\u1EC1u c\xE0ng
+    t\u1ED1t, sau m\u1ED7i l\u1EA7n n\xE9m tr\xFAng, chi\u1EBFc r\u1ED5 s\u1EBD di
+    chuy\u1EC3n nhanh h\u01A1n v\xE0 kh\xF3 tr\xFAng h\u01A1n, em c\u1EA7n n\xE9m
+    v\xE0o r\u1ED5 3 l\u1EA7n \u0111\u1EC3 ho\xE0n th\xE0nh minigame nh\xE9"

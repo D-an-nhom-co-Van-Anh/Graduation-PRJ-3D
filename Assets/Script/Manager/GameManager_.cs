@@ -24,6 +24,7 @@ public class GameManager_ : Singleton<GameManager_>
         }
         isGameStart = false;
         level = 0;
+        AudioManager.Instance.PlayMusic("background1");
     }
     public void Addlevel()
     {
