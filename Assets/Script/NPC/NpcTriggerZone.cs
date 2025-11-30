@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
+using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class NpcTriggerZone : MonoBehaviour
 {
     [Header("References")]
     public Collider triggerZone;              // Box Collider vùng nói chuyện
     public GameObject uiTalkingPrompt;        // UI "Press E to Talk"
-    public NpcAnimator npcController;       // Script điều khiển NPC
+    public NpcController npcController;       // Script điều khiển NPC
     public Transform npcTransform;            // Transform của NPC
     private Transform playerTransform;        // Player (tự tìm bằng tag)
-    
+    [SerializeField] private Image fadeImage;
 
     [Header("Settings")]
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
@@ -203,13 +204,24 @@ public class NpcTriggerZone : MonoBehaviour
                 break;
             case "NPC5":
                 if (!playerCameraSwitcher.IsFirstPersonView()) playerCameraSwitcher.SetFirstPerson(true);
-                
-                break;
-            case "NPC6":
-                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true) ;
                 mainCanvas.SetActive(false);
                 break;
+            case "NPC6":
+
+                SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true);
+                mainCanvas.SetActive(false);
+                GameManager_.Instance.GetPlayer().LockMovement();
+                break;
         }
+    }
+    public IEnumerator FadeImage()
+    {
+        fadeImage.gameObject.SetActive(true);
+        yield return fadeImage.DOFade(1f, 0.6f).WaitForCompletion();
+        yield return new WaitForSeconds(1.57f);
+        yield return fadeImage.DOFade(0f, 0.6f).WaitForCompletion();
+        fadeImage.gameObject.SetActive(false);
+        mainCanvas.SetActive(false);
     }
 
 }

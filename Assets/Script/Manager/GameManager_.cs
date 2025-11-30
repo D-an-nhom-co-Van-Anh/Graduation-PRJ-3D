@@ -9,6 +9,7 @@ public class GameManager_ : Singleton<GameManager_>
     [SerializeField] private SceneManager_ sceneManager;
     [SerializeField] private PlayerMovementController player;
     [SerializeField] private RectTransform UIShop;
+    [SerializeField] private GameObject mainCanvas;
     private bool isGameStart;
     public QuestEvent questEvent;
     public int level;
@@ -71,5 +72,9 @@ public class GameManager_ : Singleton<GameManager_>
             GameEventsManager.instance.questEvent.FinishQuest("Quest4Info");
             GameEventsManager.instance.questEvent.StartQuest("Quest5Info");
         }
+    }
+    public GameObject GetMainCanvas()
+    {
+        return this.mainCanvas;
     }
 }
