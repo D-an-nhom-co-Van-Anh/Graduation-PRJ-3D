@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine.UI;
+using UnityEngine.PlayerLoop;
 public class FB_GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
@@ -26,6 +27,7 @@ public class FB_GameManager : MonoBehaviour
     [SerializeField] private FB_GoalKeeper keeper;
     [SerializeField] private GameObject instructionPanel;
     [SerializeField] private Image fadeImage;
+    [SerializeField] private GameObject fb_canvas;
     public Transform penaltySpot; // vị trí sút penalty
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
@@ -68,7 +70,7 @@ public class FB_GameManager : MonoBehaviour
         instructionPanel.SetActive(false);
 
         timerText.text = $"{Mathf.Ceil(currentTime)}";
-        scoreText.text = $"{score}";
+        //scoreText.text = $"{score}";
     }
     public void ExitPenaltyMode()
     {
@@ -82,16 +84,29 @@ public class FB_GameManager : MonoBehaviour
     {
         Cursor.visible = true;
         currentTime = totalTime;
-        messageText.text = "";
+        //messageText.text = "";
         Time.timeScale = 1f;
+        StartCoroutine(FadeImage());
         isOver = false;
     }
-
+    public IEnumerator DelayInstruction()
+    {
+        fb_canvas.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.57f);
+        fb_canvas.gameObject.SetActive(true);
+    }
+    public IEnumerator FadeImage()
+    {
+        fadeImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.57f);
+        fadeImage.gameObject.SetActive(false);
+    }
     private void Update()
     {
         if (isGameOver) return;
         if (!isGameStart) return;
         currentTime -= Time.deltaTime;
+        timerText.SetText($"{Mathf.Ceil(currentTime)}");
         if (currentTime <= 0)
         {
             GameOver(false);
@@ -121,7 +136,7 @@ public class FB_GameManager : MonoBehaviour
             isGameOver = true;
             if (success)
             {
-                messageText.text = "Hoàn thành! Bạn nhận được CUP!";
+               // messageText.text = "Hoàn thành! Bạn nhận được CUP!";
                 playerController.PlayVictory();
                 GameManager_.Instance.GetQuestManager().FinishQuest("Quest6Info");
                 Invoke(nameof(ChangeScene),1f);
@@ -137,8 +152,8 @@ public class FB_GameManager : MonoBehaviour
     }
     public void ChangeScene()
     {
-        GameObject mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
-        mainCanvas.SetActive(true);
+        GameManager_.Instance.GetMainCanvas().SetActive(true);
+        GameManager_.Instance.GetPlayer().UnlockMovement();
         SceneManager_.Instance.ExitAdditiveScene("Football");
     }
     public void Restart()
