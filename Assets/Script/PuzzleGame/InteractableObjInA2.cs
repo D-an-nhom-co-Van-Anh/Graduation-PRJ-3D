@@ -1,17 +1,18 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class InteractableObjInA2 : InteractableObj
 {
     private bool isTalking = false;
-    private bool playerInside = false;
+    private bool playerInZone = false;
 
     private DialogueController dialogueController; 
     private PlayerMovementController playerController;
 
     private enum ObjectType
     {
-        DoorQuiz,
+        DoorCard,
         DoorType,
         Teleport
     }
@@ -22,37 +23,45 @@ public class InteractableObjInA2 : InteractableObj
     private void Start()
     {
         dialogueController = GetComponent<DialogueController>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerMovementController>();
     }
 
     private void Update()
     {
-        if (!playerInside) return;
-
-        if (Input.GetKeyDown(KeyCode.E))
+        
+        if (playerInZone)
         {
-            switch (objectType)
+            if (Input.GetKeyDown(KeyCode.E))
+        
+                switch (objectType)
+                {
+
+                    case ObjectType.DoorCard:
+                        SceneManager_.Instance.LoadSceneByName("Card");
+                        break;
+
+                    case ObjectType.DoorType:
+                        SceneManager_.Instance.LoadSceneByName("Typing");
+                        break;
+                }
+
+            if (objectType == ObjectType.Teleport)
             {
-                case ObjectType.Teleport:
-                    HandleTalkInput();
-                    break;
-
-                case ObjectType.DoorQuiz:
-                    SceneManager_.Instance.LoadSceneByName("Quiz");
-                    break;
-
-                case ObjectType.DoorType:
-                    SceneManager_.Instance.LoadSceneByName("Typing");
-                    break;
+                HandleTalkInput();
             }
         }
+        
+        
+        
     }
+    
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-
-        playerInside = true;
+        playerInZone = true;
         
         if (objectType != ObjectType.Teleport && uiTalkingPrompt != null)
             uiTalkingPrompt.SetActive(true);
@@ -66,7 +75,7 @@ public class InteractableObjInA2 : InteractableObj
     {
         if (!other.CompareTag("Player")) return;
 
-        playerInside = false;
+        playerInZone = false;
         isTalking = false;
 
         if (uiTalkingPrompt != null)
@@ -83,7 +92,7 @@ public class InteractableObjInA2 : InteractableObj
         {
             dialogueController.StartDialogue();
         }
-        else
+        else if(dialogueController.IsDialogueActive && Input.GetKeyDown(KeyCode.E))
         {
             dialogueController.NextDialogue();
         }
