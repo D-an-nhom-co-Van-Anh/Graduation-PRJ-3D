@@ -960,6 +960,7 @@ MonoBehaviour:
   progressText: {fileID: 1678903338}
   typingEffect: {fileID: 312726729}
   maxWordsPerRound: 10
+  questInfo: {fileID: 0}
 --- !u!114 &312726731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2084,7 +2085,7 @@ Canvas:
   m_GameObject: {fileID: 1704236552}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1124943694}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

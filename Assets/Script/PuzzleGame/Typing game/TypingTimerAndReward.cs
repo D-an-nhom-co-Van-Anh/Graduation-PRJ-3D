@@ -46,7 +46,7 @@ public class TypingTimerAndReward : MonoBehaviour
     void HandleWordCompleted()
     {
         totalMoney += rewardPerWord;
-        GameManager_.Instance.GetCurrencyManager().AddCash(rewardPerWord);
+        //GameManager_.Instance.GetCurrencyManager().AddCash(rewardPerWord);
         isTiming = false;
         UpdateUI();
     }

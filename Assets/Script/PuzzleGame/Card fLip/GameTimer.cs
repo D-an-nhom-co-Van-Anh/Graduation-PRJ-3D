@@ -60,7 +60,7 @@ public class GameTimer : MonoBehaviour
             remainingTime -= Time.deltaTime;
             UpdateTimerUI();
             yield return null;
-
+            
             // Nếu tất cả các thẻ đã lật hết -> thắng
             if (CardManager.Instance != null && AllCardsMatched())
             {
@@ -107,15 +107,15 @@ public class GameTimer : MonoBehaviour
         {
             if (successUI)
             {
-                successUI.SetActive(true);
-                leaveButton.SetActive(true);
+                //successUI.SetActive(true);
+                //leaveButton.SetActive(true);
             }
 
                 Debug.Log("🎉 Thắng! Nhận 200 xu");
-
-            GameManager_.Instance.GetCurrencyManager().AddCash(200);
-            //Khi nào ghép hoàn thị game thì bỏ commment -> cập nhật trạng thái quest
-            GameManager_.Instance.GetQuestManager().FinishQuest(questInfo.id);
+                GameManager_.Instance.GetCurrencyManager().AddCash(200);
+            SceneManager_.Instance.ExitAdditiveScene("CardFlip");
+           
+           
             // TODO: PlayerData.AddCoins(200);
         }
         else
