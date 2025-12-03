@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainCanvas : UICanvas
@@ -16,6 +17,7 @@ public class MainCanvas : UICanvas
     private string questState;
     private Dictionary<string, Quest> questMap;
     private bool isQuestOpen;
+    
     private void Awake()
     {
         isQuestOpen = false;
@@ -50,7 +52,10 @@ public class MainCanvas : UICanvas
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M)&&!isQuestOpen){
-
+            if (SceneManager.sceneCount > 1)
+            {
+                return;
+            }
             OpenQuestUI();
         }
     }
