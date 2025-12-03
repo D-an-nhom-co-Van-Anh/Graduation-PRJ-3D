@@ -1654,6 +1654,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1731613457}
   m_SourcePrefab: {fileID: 100100000, guid: b6c8389de64bf3e468eec1b3572f8479, type: 3}
+--- !u!1 &124728301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 634118449672305668, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+  m_PrefabInstance: {fileID: 1765566388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &128503320
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12686,7 +12691,7 @@ MonoBehaviour:
   sceneManager: {fileID: 1215289719}
   player: {fileID: 0}
   UIShop: {fileID: 1108175357}
-  mainCanvas: {fileID: 0}
+  mainCanvas: {fileID: 124728301}
   level: 0
 --- !u!114 &1215289715
 MonoBehaviour:
