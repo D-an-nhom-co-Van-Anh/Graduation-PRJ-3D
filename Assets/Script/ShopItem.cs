@@ -7,6 +7,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField]private float cost;
     [SerializeField]private float value;
     [SerializeField] private TextMeshProUGUI price;
+    [SerializeField] private TextMeshProUGUI foodName;
     [SerializeField] private ShopItemType type;
     [SerializeField] private Image selectedUI;
     public float Cost => cost;
@@ -15,14 +16,18 @@ public class ShopItem : MonoBehaviour
     private void Awake()
     {
         price.SetText(cost.ToString());
+        foodName.SetText(this.GetComponent<Image>().sprite.name);
     }
+
     public void ShowSelectedUI()
     {
-       // selectedUI.gameObject.SetActive(true);
+       
+       selectedUI.gameObject.SetActive(true);
     }
     public void HideSelectedUI()
     {
-        //selectedUI.gameObject.SetActive(false);
+        if (selectedUI != null)
+            selectedUI.gameObject.SetActive(false);
     }
 }
 public enum ShopItemType
