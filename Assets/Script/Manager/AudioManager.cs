@@ -27,19 +27,26 @@ public class AudioManager : Singleton<AudioManager>
     // PlayerPrefs keys
     private const string MUSIC_KEY = "MusicEnabled";
     private const string SFX_KEY = "SFXEnabled";
+    private const string MUSIC_VOLUME_KEY = "MusicVolumeValue";
+    private const string SFX_VOLUME_KEY = "SfxVolumeValue";
+
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+
         if (musicSource == null) musicSource = gameObject.AddComponent<AudioSource>();
         if (sfxSource == null) sfxSource = gameObject.AddComponent<AudioSource>();
         if (loopSfxSource == null) loopSfxSource = gameObject.AddComponent<AudioSource>();
-        
+
         musicSource.loop = false;
 
-        // Load tr?ng thái b?t/t?t t? PlayerPrefs
         bool musicEnabled = PlayerPrefs.GetInt(MUSIC_KEY, 1) == 1;
         bool sfxEnabled = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
+
+        // Load volume 0 â†’ 1
+        defaultMusicVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, defaultMusicVolume);
+        defaultSfxVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, defaultSfxVolume);
 
         musicSource.volume = musicEnabled ? defaultMusicVolume : 0f;
         sfxSource.volume = sfxEnabled ? defaultSfxVolume : 0f;
@@ -152,7 +159,7 @@ public class AudioManager : Singleton<AudioManager>
 
         if (loop)
         {
-            // Dành cho âm l?p ??c bi?t
+            // Dï¿½nh cho ï¿½m l?p ??c bi?t
             loopSfxSource.clip = clip;
             loopSfxSource.loop = true;
             loopSfxSource.volume = defaultSfxVolume * volumeScale;
@@ -176,6 +183,7 @@ public class AudioManager : Singleton<AudioManager>
     #endregion
 
     #region === TOGGLE & SETTINGS ===
+    
     public void ToggleMusic()
     {
         bool newState = !IsMusicEnabled();
@@ -211,9 +219,22 @@ public class AudioManager : Singleton<AudioManager>
     #endregion
 
     #region === VOLUME & FADE ===
+
+    public float GetMusicVolume()
+    {
+        return PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, defaultMusicVolume);
+    }
+
+    public float GetSFXVolume()
+    {
+        return PlayerPrefs.GetFloat(SFX_VOLUME_KEY, defaultSfxVolume);
+    }
     public void SetMusicVolume(float volume)
     {
         defaultMusicVolume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, defaultMusicVolume);
+        PlayerPrefs.Save();
+
         if (IsMusicEnabled())
             musicSource.volume = defaultMusicVolume;
     }
@@ -221,12 +242,16 @@ public class AudioManager : Singleton<AudioManager>
     public void SetSFXVolume(float volume)
     {
         defaultSfxVolume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(SFX_VOLUME_KEY, defaultSfxVolume);
+        PlayerPrefs.Save();
+
         if (IsSFXEnabled())
         {
             sfxSource.volume = defaultSfxVolume;
             loopSfxSource.volume = defaultSfxVolume;
         }
     }
+
 
     private Coroutine StartFade(float targetVolume, System.Action onComplete = null)
     {

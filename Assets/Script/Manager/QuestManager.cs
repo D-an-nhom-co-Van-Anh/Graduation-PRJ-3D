@@ -198,6 +198,22 @@ public class QuestManager : Singleton<QuestManager>
         }
         return null; 
     }
+    public bool CheckQuest(string questId, QuestState state)
+    {
+        if (string.IsNullOrEmpty(questId))
+        {
+            Debug.LogWarning("CheckQuest: questID null");
+            return false;
+        }
+
+        if (!questMap.TryGetValue(questId, out Quest quest))
+        {
+            Debug.LogWarning($"CheckQuest: Quest id not found  {questId}");
+            return false;
+        }
+
+        return quest.state == state;
+    }
 
     private Dictionary<string, Quest> LoadQuest(Dictionary<string,Quest>questMap)
     {

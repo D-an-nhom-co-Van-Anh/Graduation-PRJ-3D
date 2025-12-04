@@ -51,7 +51,7 @@ public class InteractableObjReal : InteractableObj
                         SceneManager_.Instance.LoadSceneByName("Typing");
                         break;
                     case ObjectType.Shop:
-                        GameManager_.Instance.EnableUIShop();
+                         GameManager_.Instance.EnableUIShop();
                         break;
                 }
 
@@ -70,16 +70,24 @@ public class InteractableObjReal : InteractableObj
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        playerInZone = true;
-        
-        if (objectType != ObjectType.Teleport&& objectType!=ObjectType.Shop && uiTalkingPrompt != null)
+
+
+        if (objectType != ObjectType.Teleport && objectType != ObjectType.Shop && uiTalkingPrompt != null)
+        {
             uiTalkingPrompt.SetActive(true);
-        
-        else if(objectType == ObjectType.Shop )
+            playerInZone = true;
+        }
+        else if (objectType == ObjectType.Shop && QuestManager.Instance.CheckQuest("Quest4Info", QuestState.FINISHED))
+        {
             uiTalkingPrompt.SetActive(true);
-        
+            playerInZone = true;
+        }
         else if (objectType == ObjectType.Teleport)
+        {
             HandleTalkInput();
+            playerInZone = true; 
+        }
+            
     }
 
 
