@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -57,6 +58,30 @@ public class MainCanvas : UICanvas
                 return;
             }
             OpenQuestUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+           OpenAndCloseSettingUI();
+        }
+
+    }
+
+    public void OpenAndCloseSettingUI()
+    {
+        if (UIManager_.Instance.IsOpened<SettingUI>())
+        {
+            orbitalFollow.enabled =true;
+            UIManager_.Instance.CloseDirect<SettingUI>();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            orbitalFollow.enabled = false;
+            UIManager_.Instance.Open<SettingUI>();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     public void OpenQuestUI()
