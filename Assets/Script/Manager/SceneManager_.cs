@@ -11,7 +11,11 @@ public class SceneManager_ : Singleton<SceneManager_>
             Debug.LogError("ten scene rong hoac null");
             return;
         }
-
+        if (SceneManager.sceneCount > 1)
+        {
+            Debug.LogWarning("Dang co scene additive → khong the load scene moi: " + sceneName);
+            return;
+        }
         if (Application.CanStreamedLevelBeLoaded(sceneName))
         {
             StartCoroutine(LoadSceneAsyncHidden(sceneName, lockCursor, showCursor));

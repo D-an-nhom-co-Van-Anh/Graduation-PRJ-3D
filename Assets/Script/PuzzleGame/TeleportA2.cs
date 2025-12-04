@@ -15,6 +15,7 @@ public class TeleportA2 : MonoBehaviour
             other.transform.position = teleportTarget.position;
             other.transform.rotation = teleportTarget.rotation;
 
+
             if (QuestManager.Instance.GetCurrentQuestID()=="Quest2Info"&& CheckOutsidePoint())
             {
                 GameEventsManager.instance.questEvent.FinishQuest("Quest2Info");

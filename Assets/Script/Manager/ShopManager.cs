@@ -41,10 +41,18 @@ public class ShopManager : MonoBehaviour
     {
         if (currentSelectedItem != null)
         {
-            currentSelectedItem.HideSelectedUI();
-            currentSelectedItem = null;
-            currentSelectedItem = item;
-            currentSelectedItem.ShowSelectedUI();
+            if (currentSelectedItem == item)
+            {
+                currentSelectedItem.HideSelectedUI();
+                currentSelectedItem = null;
+            }
+            else
+            {
+                currentSelectedItem.HideSelectedUI();
+                currentSelectedItem = null;
+                currentSelectedItem = item;
+                currentSelectedItem.ShowSelectedUI();
+            }
         }
         else
         {

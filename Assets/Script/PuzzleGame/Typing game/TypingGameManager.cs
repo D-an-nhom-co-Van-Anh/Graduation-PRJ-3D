@@ -177,7 +177,7 @@ public class TypingGameManager : MonoBehaviour
                                 $"<color=#FF5555>{failedWords}</color> incorrect";
 
         // khi nao ghép vào game hoàn chỉnh thì bỏ commment-> dùng để end quest với cập nhật trạng thái quest
-        //GameManager_.Instance.GetQuestManager().FinishQuest(questInfo.id);
+       SceneManager_.Instance.ExitAdditiveScene("Typing");
         Debug.Log($"🏁 Round completed! {wordsCompleted}/{maxWordsPerRound} correct, {failedWords} incorrect.");
     }
     #endregion
