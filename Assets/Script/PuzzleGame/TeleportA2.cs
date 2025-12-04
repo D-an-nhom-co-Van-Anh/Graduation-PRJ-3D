@@ -1,42 +1,54 @@
+using System;
 using UnityEngine;
 
 public class TeleportA2 : MonoBehaviour
 {
-    public Transform teleportTarget;  
+    [Header("Target teleport point")]
+    public Transform teleportTarget;
 
-    
-    private void OnTriggerEnter(Collider other)
+    private Rigidbody playerRb;
+
+    private void Start()
     {
-        if (!other.CompareTag("Player")) return;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
 
-        if (teleportTarget != null)
+        if (playerObj != null)
         {
-          
-            other.transform.position = teleportTarget.position;
-            other.transform.rotation = teleportTarget.rotation;
-
-
-            if (QuestManager.Instance.GetCurrentQuestID()=="Quest2Info"&& CheckOutsidePoint())
-            {
-                GameEventsManager.instance.questEvent.FinishQuest("Quest2Info");
-                GameEventsManager.instance.questEvent.StartQuest("Quest3Info");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("? Ch?a g�n teleportTarget cho " + gameObject.name);
+            playerRb = playerObj.GetComponent<Rigidbody>();
         }
     }
-    public bool CheckOutsidePoint()
+
+    public void Teleport()
     {
-        if (teleportTarget.name == "TeleportA2Outside")
+        if (playerRb == null)
         {
-            return true;
+            Debug.LogWarning("Không tìm thấy Player hoặc không có Rigidbody!");
+            return;
         }
-        else
+
+        if (teleportTarget == null)
         {
-            
+            Debug.LogWarning("Chưa gán teleportTarget!");
+            return;
         }
-        return false;
+
+        // *** Teleport bằng physics để không bị giật ***
+        playerRb.linearVelocity = Vector3.zero;       // reset vận tốc
+        playerRb.angularVelocity = Vector3.zero;
+
+        playerRb.MovePosition(teleportTarget.position);
+        playerRb.MoveRotation(teleportTarget.rotation);
+
+        // --- Quest logic ---
+        if (QuestManager.Instance.GetCurrentQuestID() == "Quest2Info" && IsOutsidePoint())
+        {
+            GameEventsManager.instance.questEvent.FinishQuest("Quest2Info");
+            GameEventsManager.instance.questEvent.StartQuest("Quest3Info");
+        }
+    }
+
+    private bool IsOutsidePoint()
+    {
+        return teleportTarget != null && teleportTarget.name == "TeleportA2Outside";
     }
 }

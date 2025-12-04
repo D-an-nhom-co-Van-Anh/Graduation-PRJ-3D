@@ -9,11 +9,13 @@ public class InteractableObjReal : InteractableObj
     private BoxCollider  triggerZone;
     private DialogueController dialogueController; 
     private PlayerMovementController playerController;
+    private TeleportA2 _teleportA2;
     private enum ObjectType
     {
         DoorCard,
         DoorType,
         Teleport,
+        DoorA2,
         Shop,
     }
 
@@ -22,7 +24,7 @@ public class InteractableObjReal : InteractableObj
 
     private void Start()
     {
-        
+        _teleportA2 = GetComponent<TeleportA2>();
         triggerZone=GetComponent<BoxCollider>();
         dialogueController = GetComponent<DialogueController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -53,6 +55,10 @@ public class InteractableObjReal : InteractableObj
                     case ObjectType.Shop:
                          GameManager_.Instance.EnableUIShop();
                         break;
+                    case ObjectType.DoorA2:
+                        _teleportA2.Teleport();
+                        break;
+                  
                 }
 
             if (objectType == ObjectType.Teleport)
