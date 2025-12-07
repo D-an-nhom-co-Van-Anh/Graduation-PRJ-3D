@@ -18573,6 +18573,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -820
       objectReference: {fileID: 0}
+    - target: {fileID: 589151548174751275, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 589151548174751275, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 589151548174751275, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 589151548174751275, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589151548174751275, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 735137681
+      objectReference: {fileID: 0}
     - target: {fileID: 634118449672305668, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_Name
       value: Canvas-Main
