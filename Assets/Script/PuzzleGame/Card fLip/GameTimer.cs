@@ -114,7 +114,7 @@ public class GameTimer : MonoBehaviour
                 Debug.Log("🎉 Thắng! Nhận 200 xu");
                 GameManager_.Instance.GetCurrencyManager().AddCash(200);
             SceneManager_.Instance.ExitAdditiveScene("CardFlip");
-           
+            AudioManager.Instance.PlayMusic("background1");
            
             // TODO: PlayerData.AddCoins(200);
         }

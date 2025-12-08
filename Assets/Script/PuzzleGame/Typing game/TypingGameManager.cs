@@ -53,6 +53,7 @@ public class TypingGameManager : MonoBehaviour
     #region === Unity Lifecycle ===
     void Start()
     {
+        AudioManager.Instance.StopMusic();
         PickNewWord();
         UpdateProgressUI();
     }
@@ -178,6 +179,7 @@ public class TypingGameManager : MonoBehaviour
 
         // khi nao ghép vào game hoàn chỉnh thì bỏ commment-> dùng để end quest với cập nhật trạng thái quest
        SceneManager_.Instance.ExitAdditiveScene("Typing");
+       AudioManager.Instance.PlayMusic("background1");
         Debug.Log($"🏁 Round completed! {wordsCompleted}/{maxWordsPerRound} correct, {failedWords} incorrect.");
     }
     #endregion
