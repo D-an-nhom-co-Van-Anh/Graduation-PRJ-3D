@@ -159,7 +159,7 @@ public class QuestManager : Singleton<QuestManager>
     }
     private void ClaimRewards(Quest quest)
     {
-        GameManager_.Instance.GetCurrencyManager().AddCash(quest.info.rewardMoney);
+        // GameManager_.Instance.GetCurrencyManager().AddCash(quest.info.rewardMoney);
         Debug.Log("Win");
     }
     private void SaveQuest()

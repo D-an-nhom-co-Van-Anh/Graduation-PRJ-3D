@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Quest3Info
   m_EditorClassIdentifier: 
   <id>k__BackingField: Quest3Info
-  displayName: "\u0110i \u0111\u1EBFn t\xF2a A3 \u0111\u1EC3 xem gi\u1EDBi thi\u1EC7u
-    v\u1EC1 t\xF2a A3"
+  displayName: "Nhi\u1EC7m v\u1EE5 3: \u0110i \u0111\u1EBFn t\xF2a A3 \u0111\u1EC3
+    xem gi\u1EDBi thi\u1EC7u v\u1EC1 t\xF2a A3"
   questPrerequisites:
   - {fileID: 11400000, guid: ffeb0db61b4c26e4ca5efbae584705e6, type: 2}
   - {fileID: 11400000, guid: 9db833efb9881334b94b9dea95012705, type: 2}

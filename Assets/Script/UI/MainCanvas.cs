@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Cinemachine;
@@ -11,16 +11,14 @@ using UnityEngine.UI;
 public class MainCanvas : UICanvas
 {
     [SerializeField] private Button missionButton;
-    [SerializeField] private TextMeshProUGUI currentMission;
     [SerializeField] private GameObject missionBoard;
     [SerializeField] private List<QuestUI> questUI;
     [SerializeField] private CinemachineCamera cinemachineCamera;
-    
     private CinemachineOrbitalFollow orbitalFollow;
     private string questState;
     private Dictionary<string, Quest> questMap;
     private bool isQuestOpen;
-    private int index;
+    
     private void Awake()
     {
         isQuestOpen = false;
@@ -42,15 +40,11 @@ public class MainCanvas : UICanvas
                 {
                     questState = "        X ";
                 }
-                else if (q.state == QuestState.IN_PROGRESS)
-                {
-                    questState = "ON GOING";
-                }
                 else
                 {
                     questState = q.state.ToString();
                 }
-                questUI[i].SetInfo(i,q.info.id.ToString(),questState,q.info.displayName);
+                questUI[i].SetInfo(q.info.id.ToString(),questState,q.info.displayName);
             }
             i++;
         }
@@ -58,17 +52,6 @@ public class MainCanvas : UICanvas
     }
     private void Update()
     {
-        index = 0;
-        questMap = GameManager_.Instance.GetQuestManager().GetQuestMap();
-        foreach (Quest quest in questMap.Values)
-        {
-            if (quest.state == QuestState.IN_PROGRESS)
-            {
-                currentMission.SetText("Nhiệm vụ "+(index+1).ToString());
-                break;
-            }
-            index++;
-        }
         if (Input.GetKeyDown(KeyCode.M)&&!isQuestOpen){
             if (SceneManager.sceneCount > 1)
             {
