@@ -45,7 +45,7 @@ public class CardMatchEffectManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        AudioManager.Instance.StopMusic();
         if (effectImage != null)
         {
             effectImage.gameObject.SetActive(false);

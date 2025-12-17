@@ -45,6 +45,7 @@ public class TriggerBall : MonoBehaviour
                 level += 1;
                 BK_HooperMoving.Instance.SetLevel(level);
                 UIManager_.Instance.Open<PopupMessage>().Show("Level " + level.ToString(), 0.5f);
+                AudioManager.Instance.PlaySFX("successBasketball");
             }
 
         }
@@ -62,7 +63,7 @@ public class TriggerBall : MonoBehaviour
             ballCollider.enabled=true;
     }
 
-    // ?? Hàm t?t trigger (chuy?n Collider v? va ch?m v?t lý bình th??ng)
+    // ?? Hï¿½m t?t trigger (chuy?n Collider v? va ch?m v?t lï¿½ bï¿½nh th??ng)
     public void DisableTrigger()
     {
       
