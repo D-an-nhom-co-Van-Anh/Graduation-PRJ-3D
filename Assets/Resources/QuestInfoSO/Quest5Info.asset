@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Quest5Info
   m_EditorClassIdentifier: 
   <id>k__BackingField: Quest5Info
-  displayName: "Nhi\u1EC7m v\u1EE5 5: H\xE3y \u0111i th\u0103m k\xFD t\xFAc x\xE1
-    B1_B5 nh\xE9"
+  displayName: "H\xE3y \u0111i th\u0103m k\xFD t\xFAc x\xE1 B1_B5 nh\xE9"
   questPrerequisites:
   - {fileID: 11400000, guid: ffeb0db61b4c26e4ca5efbae584705e6, type: 2}
   - {fileID: 11400000, guid: 9db833efb9881334b94b9dea95012705, type: 2}
   - {fileID: 11400000, guid: 61878953129c3f344954651fd2efdfb6, type: 2}
   - {fileID: 11400000, guid: f4348c94f9652804393fbef18953e82a, type: 2}
   questStepPrefabs: []
-  rewardMoney: 0
+  rewardMoney: 100
   rewardObject: {fileID: 0}
