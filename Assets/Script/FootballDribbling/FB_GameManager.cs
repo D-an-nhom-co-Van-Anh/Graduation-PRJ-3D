@@ -137,6 +137,7 @@ public class FB_GameManager : MonoBehaviour
             if (success)
             {
                // messageText.text = "Hoàn thành! Bạn nhận được CUP!";
+               AudioManager.Instance.PlaySFX("winningSFX2");
                 playerController.PlayVictory();
                 GameManager_.Instance.GetQuestManager().FinishQuest("Quest6Info");
                 Invoke(nameof(ChangeScene),1f);

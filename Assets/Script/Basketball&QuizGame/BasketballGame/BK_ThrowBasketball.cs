@@ -139,7 +139,7 @@ public class ThrowBasketball : MonoBehaviour
         StartCoroutine(MoveBallToHand());
         level = BK_HooperMoving.Instance.GetLevel();
         BK_HooperMoving.Instance.StartMoving();
-        
+        AudioManager.Instance.PlaySFX("getBall");
         
     }
     private IEnumerator MoveBallToHand()
@@ -191,7 +191,7 @@ public class ThrowBasketball : MonoBehaviour
 
         rb.AddForce(CalculateThrowDirection() * throwForce, ForceMode.Impulse);
         isHoldingBall = false;
-
+        AudioManager.Instance.PlaySFX("throwBall");
 
         gameObject.layer = LayerMask.NameToLayer("Default");
         if (resetCorountine != null) StopCoroutine(resetCorountine);

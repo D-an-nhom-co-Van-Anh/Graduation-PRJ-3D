@@ -87,6 +87,7 @@ public class FB_PenaltyShooter : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         playerController.AimAndShootPenalty(shootForce);
         lineRenderer.Clear();
+        AudioManager.Instance.PlayMusic("soccerBallKick");
         // Gọi animation hoặc AI thủ môn
        // playerController?.OnShoot(targetPoint, shootForce);
     }
