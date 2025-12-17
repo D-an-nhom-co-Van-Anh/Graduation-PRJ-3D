@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Quest6Info
   m_EditorClassIdentifier: 
   <id>k__BackingField: Quest6Info
-  displayName: "Nhi\u1EC7m v\u1EE5 6: H\xE3y ra s\xE2n b\xF3ng \u0111\u1EC3 r\xE8n
-    luy\u1EC7n c\u01A1 th\u1EC3 n\xE0o !"
+  displayName: "H\xE3y ra s\xE2n b\xF3ng \u0111\u1EC3 r\xE8n luy\u1EC7n c\u01A1 th\u1EC3
+    n\xE0o !"
   questPrerequisites:
   - {fileID: 11400000, guid: ffeb0db61b4c26e4ca5efbae584705e6, type: 2}
   - {fileID: 11400000, guid: 9db833efb9881334b94b9dea95012705, type: 2}
@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4348c94f9652804393fbef18953e82a, type: 2}
   - {fileID: 11400000, guid: 9e0b505448a890146870c189c3c141b2, type: 2}
   questStepPrefabs: []
-  rewardMoney: 0
+  rewardMoney: 100
   rewardObject: {fileID: 0}
