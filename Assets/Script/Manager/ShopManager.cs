@@ -1,10 +1,13 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
+    [SerializeField] private GameObject descriptionObject;
+    [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private List <Button> items;
     private bool isShopOpened;
     private ShopItem currentSelectedItem;
@@ -37,6 +40,11 @@ public class ShopManager : MonoBehaviour
     {
         isShopOpened = true;
     }
+    private void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void SelectItem(ShopItem item)
     {
         if (currentSelectedItem != null)
@@ -44,10 +52,12 @@ public class ShopManager : MonoBehaviour
             if (currentSelectedItem == item)
             {
                 currentSelectedItem.HideSelectedUI();
+                descriptionObject.SetActive(false);
                 currentSelectedItem = null;
             }
             else
             {
+                descriptionText.SetText(item.Description);
                 currentSelectedItem.HideSelectedUI();
                 currentSelectedItem = null;
                 currentSelectedItem = item;
@@ -57,6 +67,8 @@ public class ShopManager : MonoBehaviour
         else
         {
             currentSelectedItem = item;
+            descriptionText.SetText(item.Description);
+            descriptionObject.SetActive(true);
             currentSelectedItem.ShowSelectedUI();
         }
     }
