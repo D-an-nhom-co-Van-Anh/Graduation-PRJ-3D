@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-
+using System.Collections;
 public class TypingGameManager : MonoBehaviour
 {
     #region === UI References ===
@@ -178,8 +178,7 @@ public class TypingGameManager : MonoBehaviour
                                 $"<color=#FF5555>{failedWords}</color> incorrect";
 
         // khi nao ghép vào game hoàn chỉnh thì bỏ commment-> dùng để end quest với cập nhật trạng thái quest
-       SceneManager_.Instance.ExitAdditiveScene("Typing");
-       AudioManager.Instance.PlayMusic("background1");
+        StartCoroutine(ExitTypingAfterDelay(3f));
         Debug.Log($"🏁 Round completed! {wordsCompleted}/{maxWordsPerRound} correct, {failedWords} incorrect.");
     }
     #endregion
@@ -207,7 +206,15 @@ public class TypingGameManager : MonoBehaviour
             progressText.text = $"Correct: {wordsCompleted}/{maxWordsPerRound} | Incorrect: {failedWords}";
     }
     #endregion
+    IEnumerator ExitTypingAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
+        SceneManager_.Instance.ExitAdditiveScene("Typing");
+        AudioManager.Instance.PlayMusic("background1");
+
+        Debug.Log("🚪 Exited Typing scene after delay");
+    }
 
     #region === Utility Functions ===
     /// <summary>

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 [RequireComponent(typeof(Collider))]
 public class NpcTriggerZone : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class NpcTriggerZone : MonoBehaviour
     public NpcAnimator npcController;       // Script điều khiển NPC
     public Transform npcTransform;            // Transform của NPC
     private Transform playerTransform;        // Player (tự tìm bằng tag)
+    public TMP_Text NPCNameText;
     [SerializeField] private Image fadeImage;
 
     [Header("Settings")]
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
     public float rotationDelay = 5f;          // Thời gian chờ giữa các lần xoay (giây)
-
+    public string NPCName;
+    
     private bool playerInZone = false;
     private bool isTalking = false;
     private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
@@ -41,6 +44,7 @@ public class NpcTriggerZone : MonoBehaviour
     private void Start()
 
     {
+        
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         BasketballTarget=  GameObject.Find("BasketballTarget");
         playerCameraSwitcher = BasketballTarget.GetComponent<PlayerCameraSwitcher>();
@@ -120,6 +124,7 @@ public class NpcTriggerZone : MonoBehaviour
 
         if (!dialogueController.IsDialogueActive)
         {
+            NPCNameText.text = NPCName;
             dialogueController.StartDialogue();
             npcController?.SetTalking(true);
         }

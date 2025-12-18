@@ -20,6 +20,7 @@ public class CardManager : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager.Instance.StopMusic();
         Instance = this;
     }
 
