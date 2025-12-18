@@ -10,9 +10,11 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI foodName;
     [SerializeField] private ShopItemType type;
     [SerializeField] private Image selectedUI;
+    [SerializeField] private string description;
     public float Cost => cost;
     public float Value => value ;
     public ShopItemType Type => type;
+    public string Description => description;
     private void Awake()
     {
         price.SetText(cost.ToString());

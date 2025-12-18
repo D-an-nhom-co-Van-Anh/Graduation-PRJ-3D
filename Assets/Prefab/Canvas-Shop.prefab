@@ -729,6 +729,7 @@ MonoBehaviour:
   foodName: {fileID: 56131423283039228}
   type: 5
   selectedUI: {fileID: 6072277379791698316}
+  description: 
 --- !u!1 &708935465680272286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,6 +2241,7 @@ MonoBehaviour:
   foodName: {fileID: 2205142461589165421}
   type: 5
   selectedUI: {fileID: 3785504888621418837}
+  description: 
 --- !u!1 &1839062236610227671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,6 +3038,7 @@ MonoBehaviour:
   foodName: {fileID: 3537426855431468089}
   type: 0
   selectedUI: {fileID: 1500930130314482615}
+  description: 
 --- !u!1 &3359740159343319685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4829,6 +4832,7 @@ MonoBehaviour:
   foodName: {fileID: 3995607791904186027}
   type: 10
   selectedUI: {fileID: 578928634474475834}
+  description: 
 --- !u!1 &4863990459822602403
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,6 +5436,7 @@ MonoBehaviour:
   foodName: {fileID: 4357118146604142912}
   type: 10
   selectedUI: {fileID: 2862767463392332100}
+  description: 
 --- !u!1 &5380601404066529531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6069,6 +6074,7 @@ MonoBehaviour:
   foodName: {fileID: 3036036491197669729}
   type: 5
   selectedUI: {fileID: 4634880143240127314}
+  description: 
 --- !u!1 &5602885772642066754
 GameObject:
   m_ObjectHideFlags: 0
@@ -6191,6 +6197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9455b673c9129d440b9e59a3d12197bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descriptionObject: {fileID: 6790451076717723531}
+  descriptionText: {fileID: 590486904764415742}
   items:
   - {fileID: 5286915649834381746}
   - {fileID: 7707339115381254643}
@@ -6590,6 +6598,7 @@ MonoBehaviour:
   foodName: {fileID: 1927462516488940464}
   type: 0
   selectedUI: {fileID: 6389831895783843474}
+  description: 
 --- !u!1 &5882828681714705307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6996,6 +7005,7 @@ MonoBehaviour:
   foodName: {fileID: 8359678009322817884}
   type: 0
   selectedUI: {fileID: 3828076853592071891}
+  description: 
 --- !u!1 &6359533614919966117
 GameObject:
   m_ObjectHideFlags: 0
@@ -7712,6 +7722,7 @@ MonoBehaviour:
   foodName: {fileID: 2350138514921874557}
   type: 5
   selectedUI: {fileID: 5482363345792960037}
+  description: 
 --- !u!1 &6787427366854289445
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,8 +7833,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 771, y: -28.271}
-  m_SizeDelta: {x: 327.6152, y: 487.4583}
+  m_AnchoredPosition: {x: 787.1, y: -28.271}
+  m_SizeDelta: {x: 345.81, y: 487.4583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &724080645836938977
 CanvasRenderer:
@@ -8194,6 +8205,7 @@ MonoBehaviour:
   foodName: {fileID: 9178427715980996573}
   type: 0
   selectedUI: {fileID: 8214361870505356845}
+  description: 
 --- !u!1 &7128585074384413519
 GameObject:
   m_ObjectHideFlags: 0
