@@ -28,7 +28,7 @@ public class ShopItem : MonoBehaviour
                 descriptionText = "Hồi " + value.ToString() + " stamina";
                 break;
             case ShopItemType.STAMINA_PERSECOND:
-                descriptionText = "Hồi " + value.ToString() + " stamina trong 1 giây";
+                descriptionText = "Hồi " + value.ToString() + " stamina mỗi giây";
                 break;
             case ShopItemType.SPEED:
                 descriptionText = "Tăng thêm " + value.ToString()+ " tốc độ di chuyển";
