@@ -34,6 +34,7 @@ public class FB_GameManager : MonoBehaviour
     public GameObject targetPoint; // điểm trong khung thành
     public FB_Ball ball;
     private PlayerController playerController;
+    private GameObject mainCanvas;
     public void StartPenaltyMode(FB_PlayerController player)
     {
         this.playerController = player.GetPlayerController();
@@ -68,7 +69,7 @@ public class FB_GameManager : MonoBehaviour
         isGameStart = true;
         Cursor.visible = false;
         instructionPanel.SetActive(false);
-
+        
         timerText.text = $"{Mathf.Ceil(currentTime)}";
         //scoreText.text = $"{score}";
     }
@@ -82,6 +83,7 @@ public class FB_GameManager : MonoBehaviour
     public bool IsOver => isOver;
     private void Start()
     {
+        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         Cursor.visible = true;
         currentTime = totalTime;
         //messageText.text = "";
@@ -141,6 +143,7 @@ public class FB_GameManager : MonoBehaviour
                 playerController.PlayVictory();
                 GameManager_.Instance.GetQuestManager().FinishQuest("Quest6Info");
                 Invoke(nameof(ChangeScene),1f);
+               
             }
             else
             {
@@ -156,6 +159,7 @@ public class FB_GameManager : MonoBehaviour
         GameManager_.Instance.GetMainCanvas().SetActive(true);
         GameManager_.Instance.GetPlayer().UnlockMovement();
         SceneManager_.Instance.ExitAdditiveScene("Football");
+        mainCanvas.SetActive(true);
     }
     public void Restart()
     {
