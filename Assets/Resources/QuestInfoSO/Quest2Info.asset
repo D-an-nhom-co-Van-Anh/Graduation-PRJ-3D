@@ -18,5 +18,5 @@ MonoBehaviour:
   questPrerequisites:
   - {fileID: 11400000, guid: ffeb0db61b4c26e4ca5efbae584705e6, type: 2}
   questStepPrefabs: []
-  rewardMoney: 100
+  rewardMoney: 200
   rewardObject: {fileID: 0}

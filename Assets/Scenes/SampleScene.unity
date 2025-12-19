@@ -18573,6 +18573,10 @@ PrefabInstance:
       value: NPC1
       objectReference: {fileID: 0}
     - target: {fileID: 5401730364373256139, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
+      propertyPath: NPCName
+      value: Trang
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401730364373256139, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 1770739610}
@@ -18624,7 +18628,12 @@ PrefabInstance:
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
-    m_RemovedComponents: []
+    - target: {fileID: 8422685393662488305, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
+      propertyPath: isFinishPoint
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5401730364373256139, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
