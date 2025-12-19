@@ -76,7 +76,7 @@ public class MainCanvas : UICanvas
             OpenQuestUI();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)&&!isQuestOpen)
         {
            OpenAndCloseSettingUI();
         }

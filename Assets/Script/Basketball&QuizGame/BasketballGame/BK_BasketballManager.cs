@@ -16,9 +16,10 @@ public class BasketballManager : MonoBehaviour
     private bool isFirstTimeTalk=true;
     private float cameraSwitchCooldown = 0.3f;
     private float lastSwitchTime = 0f;
-
+    private GameObject mainCanvas;
     public void Start()
     {
+        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         npcTriggerZone = NPCB1_B5.GetComponent<NpcTriggerZone>();
         HooperMoving = hooper.GetComponent<BK_HooperMoving>();
         cameraSwitcher = gameObject.GetComponent<PlayerCameraSwitcher>();
@@ -63,13 +64,10 @@ public class BasketballManager : MonoBehaviour
       
             cameraSwitcher.SetFirstPerson(false);
         throwBasketball.ResetBallPosition();
-        GetReward();
         GameEventsManager.instance.questEvent.FinishQuest("Quest5Info");
         GameEventsManager.instance.questEvent.AdvanceQuest("Quest6Info");
+        mainCanvas.SetActive(true);
     }
 
-    public void GetReward()
-    {
-        UIManager_.Instance.Open<PopupMessage>().Show("B?n ?� ho�n th�nh Quest, ch�c m?ng, b?n v?a nh?n ???c Pcoin ", 1f);
-    }
+ 
 }

@@ -154,12 +154,14 @@ public class QuestManager : Singleton<QuestManager>
         if (quest == null)
         {
             Debug.Log("Err");
-        }
+        }       
         return quest;
     }
     private void ClaimRewards(Quest quest)
     {
         GameManager_.Instance.GetCurrencyManager().AddCash(quest.info.rewardMoney);
+        UIManager_.Instance.Open<PopupMessage>().Show("Bạn vừa hoàn thành nhiệm vụ và nhận được 200 Pcoin ", 1f);
+        AudioManager.Instance.PlaySFX("successBasketball");
         Debug.Log("Win");
     }
     private void SaveQuest()

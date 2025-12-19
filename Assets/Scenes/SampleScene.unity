@@ -5196,6 +5196,81 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.1471696, y: 2.9168823, z: 0.69583255}
   m_Center: {x: 1.9022421, y: -2.218367, z: 0.33783436}
+--- !u!1 &379286030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379286031}
+  - component: {fileID: 379286033}
+  - component: {fileID: 379286032}
+  m_Layer: 5
+  m_Name: outline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &379286031
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379286030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 902643329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -8.37262, y: -0.22324371}
+  m_SizeDelta: {x: -32.5341, y: 0.44652}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &379286032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379286030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 91c38695367f37c4094a9c4966e72687, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &379286033
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379286030}
+  m_CullTransparentMesh: 1
 --- !u!1 &386927282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7395704305543789238, guid: 8520c746fc3da254f963677337d9351e, type: 3}
@@ -5475,7 +5550,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 1.6
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -11054,6 +11129,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 379286031}
   - {fileID: 1805534462}
   - {fileID: 709028068}
   m_Father: {fileID: 1137732853}
@@ -11083,7 +11159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 91c38695367f37c4094a9c4966e72687, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb0fe0cfdc78d9f4a91cdcc760b85481, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18497,6 +18573,10 @@ PrefabInstance:
       value: NPC1
       objectReference: {fileID: 0}
     - target: {fileID: 5401730364373256139, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
+      propertyPath: NPCName
+      value: Trang
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401730364373256139, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 1770739610}
@@ -18548,7 +18628,12 @@ PrefabInstance:
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
-    m_RemovedComponents: []
+    - target: {fileID: 8422685393662488305, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
+      propertyPath: isFinishPoint
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5401730364373256139, guid: 6c1ca7997e8a9674f9e20b860aad9cde, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
