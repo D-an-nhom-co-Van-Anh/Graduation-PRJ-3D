@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -12,7 +13,7 @@ public class SettingUI : UICanvas, IPointerDownHandler, IDragHandler
     [Header("UI SFX")]
     public RectTransform sfxBarArea;
     public Image sfxFillImage;
-
+    
     private enum DragTarget
     {
         None,
@@ -42,6 +43,11 @@ public class SettingUI : UICanvas, IPointerDownHandler, IDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         DragUpdate(eventData);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     //---------------------------------------------------------------------
