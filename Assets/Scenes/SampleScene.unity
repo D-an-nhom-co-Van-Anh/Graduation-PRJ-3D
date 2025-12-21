@@ -12263,6 +12263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 590486904764415742, guid: 86c9425926051364ea84f2dd5378853d, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 671975343367335610, guid: 86c9425926051364ea84f2dd5378853d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -36641,8 +36645,8 @@ SceneRoots:
   - {fileID: 248542998}
   - {fileID: 1875619246}
   - {fileID: 1835782059}
-  - {fileID: 1013975378}
   - {fileID: 1765566388}
+  - {fileID: 1013975378}
   - {fileID: 1502820898}
   - {fileID: 1898119384}
   - {fileID: 584456086}
