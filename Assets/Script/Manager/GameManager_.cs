@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements.Experimental;
@@ -76,5 +77,10 @@ public class GameManager_ : Singleton<GameManager_>
     public GameObject GetMainCanvas()
     {
         return this.mainCanvas;
+    }
+
+    public void OnApplicationQuit()
+    {
+        GetPlayer().SavePlayerData();
     }
 }

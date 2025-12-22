@@ -1,9 +1,20 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SceneManager_ : Singleton<SceneManager_>
 {
+
+  
+    private GameObject mainCanvas;
+
+    private void Start()
+    {
+        mainCanvas=GameObject.FindGameObjectWithTag("MainCanvas");
+    }
+
+   
     public void LoadSceneByName(string sceneName, bool lockCursor = false, bool showCursor = true)
     {
         if (string.IsNullOrEmpty(sceneName))
@@ -24,6 +35,8 @@ public class SceneManager_ : Singleton<SceneManager_>
         {
             Debug.LogError("Ko thay scene " + sceneName + " hoac chua add Build Settings");
         }
+
+     
     }
 
     private IEnumerator LoadSceneAsyncHidden(string sceneName, bool lockCursor, bool showCursor)
@@ -50,7 +63,7 @@ public class SceneManager_ : Singleton<SceneManager_>
             Cursor.visible = showCursor;
         }
     }
-
+    
     public void ReloadAdditiveScene(string sceneName)
     {
         StartCoroutine(ReloadSceneCoroutine(sceneName));
@@ -61,6 +74,10 @@ public class SceneManager_ : Singleton<SceneManager_>
         SceneManager.UnloadSceneAsync(sceneName);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (!mainCanvas.activeSelf)
+        {
+            mainCanvas.SetActive(true);
+        }
     }
 
     private IEnumerator ReloadSceneCoroutine(string sceneName)

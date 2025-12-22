@@ -34,7 +34,6 @@ public class FB_GameManager : MonoBehaviour
     public GameObject targetPoint; // điểm trong khung thành
     public FB_Ball ball;
     private PlayerController playerController;
-    private GameObject mainCanvas;
     public void StartPenaltyMode(FB_PlayerController player)
     {
         this.playerController = player.GetPlayerController();
@@ -83,7 +82,6 @@ public class FB_GameManager : MonoBehaviour
     public bool IsOver => isOver;
     private void Start()
     {
-        mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         Cursor.visible = true;
         currentTime = totalTime;
         //messageText.text = "";
@@ -141,7 +139,7 @@ public class FB_GameManager : MonoBehaviour
                // messageText.text = "Hoàn thành! Bạn nhận được CUP!";
                AudioManager.Instance.PlaySFX("winningSFX2");
                 playerController.PlayVictory();
-                GameManager_.Instance.GetQuestManager().FinishQuest("Quest6Info");
+               
                 Invoke(nameof(ChangeScene),1f);
                
             }
@@ -156,10 +154,11 @@ public class FB_GameManager : MonoBehaviour
     }
     public void ChangeScene()
     {
-        GameManager_.Instance.GetMainCanvas().SetActive(true);
+       
         GameManager_.Instance.GetPlayer().UnlockMovement();
         SceneManager_.Instance.ExitAdditiveScene("Football");
-        mainCanvas.SetActive(true);
+        GameManager_.Instance.GetQuestManager().FinishQuest("Quest6Info");
+      
     }
     public void Restart()
     {
