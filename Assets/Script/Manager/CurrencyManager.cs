@@ -22,17 +22,15 @@ public class CurrencyManager : MonoBehaviour
 
         return num.ToString("0"); // Default for small numbers
     }
-    protected  void Start()
+    protected void Start()
     {
+        Debug.Log(PlayerPrefs.GetFloat(CURRENCY_PLAYERPREFS_KEY));
         LoadCurrency();
-        if (PlayerPrefs.HasKey($"{SceneManager.GetActiveScene().name}_TotalCurrency"))
-        {
-            Debug.Log(PlayerPrefs.GetFloat($"{SceneManager.GetActiveScene().name}_TotalCurrency"));
-        }
-        else
-        {
-            Debug.Log("khong co key");
-        }
+       
+    }
+    void Awake()
+    {
+        totalCurrency = PlayerPrefs.GetFloat(CURRENCY_PLAYERPREFS_KEY);
     }
     public void LoadCurrency()
     {
@@ -58,6 +56,9 @@ public class CurrencyManager : MonoBehaviour
     public void AddCash(float cash)
     {
         totalCurrency += cash;
+        Debug.Log(totalCurrency);
+        PlayerPrefs.SetFloat(CURRENCY_PLAYERPREFS_KEY, totalCurrency);
+        Debug.Log(PlayerPrefs.GetFloat(CURRENCY_PLAYERPREFS_KEY));
         SetCurrencyText();
     }
     public float GetTotalCurrency()
