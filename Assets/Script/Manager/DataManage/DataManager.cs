@@ -131,9 +131,23 @@ public class PlayerData
 {
 
     public Dictionary<string, string> otherPrefs;
+    public float playerPositionX;
+    public float playerPositionY;
+    public float playerPositionZ;
+    public float walkSpeed;
+    public float runSpeed;
+    public float currentStamina;
+    public float staminaRecoverSpeed;
+    
     public PlayerData()
     {
-     
+        playerPositionX = -74f;
+        playerPositionY = 0.5f;
+        playerPositionZ = 316f;
+        walkSpeed = 7f;
+        runSpeed = 20f;
+        currentStamina = 10f;
+        staminaRecoverSpeed = 0.1f;
         otherPrefs = new Dictionary<string, string>();
     }
 }

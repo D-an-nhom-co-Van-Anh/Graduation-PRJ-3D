@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerAnimationController))]
 public class PlayerMovementController : MonoBehaviour
 {
+    private PlayerData _playerData;
+    
     [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 6f;
@@ -50,7 +52,11 @@ public class PlayerMovementController : MonoBehaviour
     private bool isMovementLocked = false;
     private void Awake()
     {
+      
+        
         rb = GetComponent<Rigidbody>();
+        LoadPlayerData();
+
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.freezeRotation = true;
@@ -59,7 +65,7 @@ public class PlayerMovementController : MonoBehaviour
         animator = GetComponent<Animator>() ?? GetComponentInChildren<Animator>();
         animator.applyRootMotion = false; //  KHÔNG dùng root motion
 
-        currentStamina = maxStamina;
+        //currentStamina = maxStamina;
         input = new Action();
     }
 
@@ -129,6 +135,47 @@ public class PlayerMovementController : MonoBehaviour
         staminaBar.fillAmount =Mathf.Clamp((float) currentStamina / maxStamina,0,1);
     }
 
+    public void SavePlayerData()
+    {
+        if (DataManager.Instance == null) return;
+
+        PlayerData data = DataManager.Instance.data;
+        if (data == null)
+            data = new PlayerData();
+
+        Vector3 pos = transform.position;
+        data.playerPositionX = pos.x;
+        data.playerPositionY = pos.y;
+        data.playerPositionZ = pos.z;
+
+        data.walkSpeed = walkSpeed;
+        data.runSpeed = runSpeed;
+        data.currentStamina = currentStamina;
+        data.staminaRecoverSpeed = staminaRecover;
+
+        DataManager.Instance.data = data;
+
+        DataManager.Instance.SaveData();
+    }
+    private void LoadPlayerData()
+    {
+        DataManager.Instance.LoadData();
+        _playerData = DataManager.Instance.data;
+        Debug.Log($"Loaded Position: {_playerData.playerPositionX}, Speed: {_playerData.walkSpeed}");
+        Vector3 savedPos = new Vector3(
+            _playerData.playerPositionX,
+            _playerData.playerPositionY,
+            _playerData.playerPositionZ
+        );
+
+        rb.position = savedPos; 
+        transform.position = savedPos;
+        
+        walkSpeed = _playerData.walkSpeed;
+        runSpeed = _playerData.runSpeed;
+        currentStamina = _playerData.currentStamina;
+        staminaRecover = _playerData.staminaRecoverSpeed;
+    }
     private void FixedUpdate()
     {
         bool grounded = IsGrounded();
