@@ -10,7 +10,7 @@ public class TypingTimerAndReward : MonoBehaviour
 
     [Header("Settings")]
     public float maxTimePerWord = 15f;
-    public int rewardPerWord = 200;
+    public int rewardPerWord = 20;
 
     private float timer;
     private int totalMoney;
@@ -46,7 +46,7 @@ public class TypingTimerAndReward : MonoBehaviour
     void HandleWordCompleted()
     {
         totalMoney += rewardPerWord;
-        //GameManager_.Instance.GetCurrencyManager().AddCash(rewardPerWord);
+        GameManager_.Instance.GetCurrencyManager().AddCash(rewardPerWord);
         isTiming = false;
         UpdateUI();
     }
