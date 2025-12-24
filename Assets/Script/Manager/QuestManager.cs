@@ -49,22 +49,22 @@ public class QuestManager : Singleton<QuestManager>
         yield return new WaitForSeconds(2.01f);
         foreach (Quest quest in questMap.Values)
         {
-            // initialize any loaded quest steps
+            // khoi tao cac quest dang trong qua trinh
             if (quest.state == QuestState.IN_PROGRESS)
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
             }
             Debug.Log(quest.info.id + " " + quest.state);
-            // broadcast the initial state of all quests on startup
+            // phat event de cap nhat lai trang thai quest
             GameEventsManager.instance.questEvent.QuestStateChange(quest);
         }
     }
     private void Update()
     {
-        // loop through ALL quests
+        // loop quest de kiem tra
         foreach (Quest quest in questMap.Values)
         {
-            // if we're now meeting the requirements, switch over to the CAN_START state
+            // bat dau quest neu thoa man dieu kien
             if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
             {
                 ChangeQuestState(quest.info.id, QuestState.CAN_START);
@@ -83,9 +83,8 @@ public class QuestManager : Singleton<QuestManager>
     }
     private bool CheckRequirementsMet(Quest quest)
     {
-        // start true and prove to be false
         bool meetsRequirements = true;
-        // check quest prerequisites for completion
+        // kiem tra tien dieu kien
         if (quest.info.questPrerequisites.Count() == 0)
         {
             return meetsRequirements;
