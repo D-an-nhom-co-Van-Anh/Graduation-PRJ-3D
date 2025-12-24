@@ -977,7 +977,7 @@ MonoBehaviour:
   timeText: {fileID: 1176267324}
   moneyText: {fileID: 286403733}
   maxTimePerWord: 5
-  rewardPerWord: 200
+  rewardPerWord: 20
 --- !u!1 &321984343
 GameObject:
   m_ObjectHideFlags: 0
