@@ -20,8 +20,6 @@ public class FB_GoalKeeper : MonoBehaviour
         int randomValue = Random.Range(1, 4);
         // Chọn hướng bay (ngẫu nhiên hoặc dựa trên hướng bóng)
         bool diveRight = Random.value > 0.5f;
-
-        // Nếu muốn thông minh hơn: so sánh hướng bóng với khung thành
         if (ballDirection.x > 0.2f) diveRight = true;
         else if (ballDirection.x < -0.2f) diveRight = false;
         if (randomValue == centerNum)
