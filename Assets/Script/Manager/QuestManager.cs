@@ -9,6 +9,25 @@ public class QuestManager : Singleton<QuestManager>
     public QuestManager instance { get; private set; }
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
+        if (!PlayerPrefs.HasKey("FIRST_LAUNCH"))
+          {
+        Debug.Log("First launch after build → Clear PlayerPrefs");
+        ResetAllQuestData();
+        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("FIRST_LAUNCH", 1);
+        PlayerPrefs.Save();
+         }
+//         #if !UNITY_EDITOR
+//     if (!PlayerPrefs.HasKey("FIRST_LAUNCH"))
+//     {
+//         Debug.Log("First launch after build → Clear PlayerPrefs");
+//         ResetAllQuestData();
+//         //PlayerPrefs.DeleteAll();
+//         PlayerPrefs.SetInt("FIRST_LAUNCH", 1);
+//         PlayerPrefs.Save();
+//     }
+// #endif
         questMap=CreateQuestMap();
         questMap= LoadQuest(questMap);
         //Debug.Log(questMap.Count);
@@ -73,6 +92,10 @@ public class QuestManager : Singleton<QuestManager>
     }
     public Dictionary<string,Quest> GetQuestMap()
     {
+        if(this.questMap==null)
+        {
+            questMap= CreateQuestMap();
+        }
         return this.questMap;
     }
     private void ChangeQuestState(string id, QuestState state)
@@ -268,5 +291,21 @@ public class QuestManager : Singleton<QuestManager>
         }
         Debug.Log("questMap" + questMap);
         return questMap;
+    }
+    public void ResetAllQuestData()
+    {
+        PlayerPrefs.DeleteAll();
+        string path = Application.persistentDataPath + "/quests.json";
+
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Deleted quest data file.");
+        }
+        else
+        {
+            Debug.Log("No quest data file to delete.");
+        }
+
     }
 }
