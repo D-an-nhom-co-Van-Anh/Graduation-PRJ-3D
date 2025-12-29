@@ -15,6 +15,7 @@ public class MenuScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //PlayerPrefs.DeleteKey(PLAY_CUTSCENE);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         titleGame.rectTransform.DOLocalMove(new Vector3(0, 214, 0), 1f).SetEase(Ease.InBack);
