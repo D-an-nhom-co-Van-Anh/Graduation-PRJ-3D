@@ -9,6 +9,25 @@ public class QuestManager : Singleton<QuestManager>
     public QuestManager instance { get; private set; }
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
+        if (!PlayerPrefs.HasKey("FIRST_LAUNCH"))
+          {
+        Debug.Log("First launch after build → Clear PlayerPrefs");
+        ResetAllQuestData();
+        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("FIRST_LAUNCH", 1);
+        PlayerPrefs.Save();
+         }
+//         #if !UNITY_EDITOR
+//     if (!PlayerPrefs.HasKey("FIRST_LAUNCH"))
+//     {
+//         Debug.Log("First launch after build → Clear PlayerPrefs");
+//         ResetAllQuestData();
+//         //PlayerPrefs.DeleteAll();
+//         PlayerPrefs.SetInt("FIRST_LAUNCH", 1);
+//         PlayerPrefs.Save();
+//     }
+// #endif
         questMap=CreateQuestMap();
         questMap= LoadQuest(questMap);
         //Debug.Log(questMap.Count);
@@ -49,22 +68,22 @@ public class QuestManager : Singleton<QuestManager>
         yield return new WaitForSeconds(2.01f);
         foreach (Quest quest in questMap.Values)
         {
-            // initialize any loaded quest steps
+            // khoi tao cac quest dang trong qua trinh
             if (quest.state == QuestState.IN_PROGRESS)
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
             }
             Debug.Log(quest.info.id + " " + quest.state);
-            // broadcast the initial state of all quests on startup
+            // phat event de cap nhat lai trang thai quest
             GameEventsManager.instance.questEvent.QuestStateChange(quest);
         }
     }
     private void Update()
     {
-        // loop through ALL quests
+        // loop quest de kiem tra
         foreach (Quest quest in questMap.Values)
         {
-            // if we're now meeting the requirements, switch over to the CAN_START state
+            // bat dau quest neu thoa man dieu kien
             if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
             {
                 ChangeQuestState(quest.info.id, QuestState.CAN_START);
@@ -73,6 +92,10 @@ public class QuestManager : Singleton<QuestManager>
     }
     public Dictionary<string,Quest> GetQuestMap()
     {
+        if(this.questMap==null)
+        {
+            questMap= CreateQuestMap();
+        }
         return this.questMap;
     }
     private void ChangeQuestState(string id, QuestState state)
@@ -83,9 +106,8 @@ public class QuestManager : Singleton<QuestManager>
     }
     private bool CheckRequirementsMet(Quest quest)
     {
-        // start true and prove to be false
         bool meetsRequirements = true;
-        // check quest prerequisites for completion
+        // kiem tra tien dieu kien
         if (quest.info.questPrerequisites.Count() == 0)
         {
             return meetsRequirements;
@@ -269,5 +291,21 @@ public class QuestManager : Singleton<QuestManager>
         }
         Debug.Log("questMap" + questMap);
         return questMap;
+    }
+    public void ResetAllQuestData()
+    {
+        PlayerPrefs.DeleteAll();
+        string path = Application.persistentDataPath + "/quests.json";
+
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Deleted quest data file.");
+        }
+        else
+        {
+            Debug.Log("No quest data file to delete.");
+        }
+
     }
 }
