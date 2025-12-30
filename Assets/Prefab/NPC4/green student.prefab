@@ -112,10 +112,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b5a1c23a46c3e6a4dad767172a6de236, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8422685393662488305}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b5a1c23a46c3e6a4dad767172a6de236, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5401730364373256139}
   m_SourcePrefab: {fileID: 100100000, guid: b5a1c23a46c3e6a4dad767172a6de236, type: 3}
+--- !u!4 &4886985788605458460 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5a1c23a46c3e6a4dad767172a6de236, type: 3}
+  m_PrefabInstance: {fileID: 4924887213349048311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5231457642563875494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b5a1c23a46c3e6a4dad767172a6de236, type: 3}
@@ -167,12 +169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4ef61333cadcf429d9cc03025ad198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerZone: {fileID: 0}
+  triggerZone: {fileID: 4440568048110535563}
   uiTalkingPrompt: {fileID: 0}
-  npcController: {fileID: 0}
-  npcTransform: {fileID: 0}
+  npcController: {fileID: 3300956152562136935}
+  npcTransform: {fileID: 4886985788605458460}
+  NPCNameText: {fileID: 0}
+  fadeImage: {fileID: 0}
   rotationSpeed: 1
   rotationDelay: 1
+  NPCName: "B\u1EA1n Trang"
   dialogueController: {fileID: 0}
   playerController: {fileID: 0}
 --- !u!54 &7497281797707694203
@@ -217,7 +222,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -277,24 +282,4 @@ MonoBehaviour:
   questInfoForPoint: {fileID: 11400000, guid: ffeb0db61b4c26e4ca5efbae584705e6, type: 2}
   currentQuestState: 10
   isStartPoint: 1
-  isFinishPoint: 1
---- !u!114 &5401730364373256139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5231457642563875494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac4ef61333cadcf429d9cc03025ad198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerZone: {fileID: 0}
-  uiTalkingPrompt: {fileID: 0}
-  npcController: {fileID: 0}
-  npcTransform: {fileID: 0}
-  rotationSpeed: 1
-  rotationDelay: 1
-  dialogueController: {fileID: 0}
-  playerController: {fileID: 0}
+  isFinishPoint: 0
