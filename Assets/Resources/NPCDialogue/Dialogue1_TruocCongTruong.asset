@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe53d8cdadf5584d958d338add1e7ac, type: 3}
   m_Name: Dialogue1_TruocCongTruong
   m_EditorClassIdentifier: 
+  NPCId: 1
   dialogueLines:
   - "Xin ch\xE0o b\u1EA1n!"
   - "Ch\xE0o m\u1EEBng b\u1EA1n \u0111\u1EBFn v\u1EDBi H\u1ECDc vi\u1EC7n C\xF4ng

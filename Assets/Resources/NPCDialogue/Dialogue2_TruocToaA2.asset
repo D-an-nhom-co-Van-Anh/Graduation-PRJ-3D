@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe53d8cdadf5584d958d338add1e7ac, type: 3}
   m_Name: Dialogue2_TruocToaA2
   m_EditorClassIdentifier: 
+  NPCId: 2
   dialogueLines:
-  - "Ch\xE0o em! Tr\u01B0\u1EDBc khi b\u01B0\u1EDBc v\xE0o t\xF2a A2, \u0111\u1EC3
-    c\xF4 gi\u1EDBi thi\u1EC7u qua m\u1ED9t ch\xFAt v\u1EC1 PTIT nh\xE9."
+  - "Tr\u01B0\u1EDBc khi b\u01B0\u1EDBc v\xE0o t\xF2a A2, \u0111\u1EC3 c\xF4 gi\u1EDBi
+    thi\u1EC7u qua m\u1ED9t ch\xFAt v\u1EC1 PTIT nh\xE9."
   - "H\u1ECDc vi\u1EC7n C\xF4ng ngh\u1EC7 B\u01B0u ch\xEDnh Vi\u1EC5n th\xF4ng (PTIT)
     hi\u1EC7n c\xF3 hai c\u01A1 s\u1EDF \u0111\xE0o t\u1EA1o:m\u1ED9t \u1EDF H\xE0
     N\u1ED9i (ph\xEDa B\u1EAFc) v\xE0 m\u1ED9t \u1EDF TP. H\u1ED3 Ch\xED Minh (ph\xEDa
@@ -36,7 +37,7 @@ MonoBehaviour:
     nhi\u1EC1u l\u0129nh v\u1EF1c hot nh\u01B0 C\xF4ng ngh\u1EC7 th\xF4ng tin, An
     to\xE0n th\xF4ng tin, Marketing, C\xF4ng ngh\u1EC7 \u0111a ph\u01B0\u01A1ng ti\u1EC7n..."
   - "\u0110\u1EB7c bi\u1EC7t, t\u1EEB th\xE1ng 9/2024, PTIT \u0111\xE3 m\u1EDF th\xEAm
-    ng\xE0nh Thi\u1EBFt k\u1EBF v\xE0 Ph\xE1t tri\u1EC3n Game n\u1EEFa \u0111\u1EA5y!"
+    ng\xE0nh Thi\u1EBFt k\u1EBF v\xE0 Ph\xE1t tri\u1EC3n Game"
   - "C\xF2n \u0111\xE2y \u2013 t\xF2a nh\xE0 A2, l\xE0 t\xF2a nh\xE0 ch\xEDnh c\u1EE7a
     H\u1ECDc vi\u1EC7n, g\u1ED3m 10 t\u1EA7ng v\u1EDBi c\xE1c ph\xF2ng h\u1ECDc,
     ph\xF2ng gi\u1EA3ng vi\xEAn, v\u0103n ph\xF2ng khoa v\xE0 nhi\u1EC1u ph\xF2ng

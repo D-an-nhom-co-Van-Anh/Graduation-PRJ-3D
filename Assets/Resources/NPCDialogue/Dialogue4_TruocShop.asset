@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe53d8cdadf5584d958d338add1e7ac, type: 3}
   m_Name: Dialogue4_TruocShop
   m_EditorClassIdentifier: 
+  NPCId: 4
   dialogueLines:
   - " \u0110\xE2y l\xE0 canteen \u2013 n\u01A1i quen thu\u1ED9c c\u1EE7a sinh vi\xEAn
     PTIT sau m\u1ED7i gi\u1EDD h\u1ECDc c\u0103ng th\u1EB3ng "
