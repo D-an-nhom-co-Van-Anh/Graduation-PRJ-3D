@@ -21142,7 +21142,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1215289710}
   - component: {fileID: 1215289713}
-  - component: {fileID: 1215289712}
   - component: {fileID: 1215289711}
   - component: {fileID: 1215289715}
   - component: {fileID: 1215289717}
@@ -21150,6 +21149,7 @@ GameObject:
   - component: {fileID: 1215289719}
   - component: {fileID: 1215289720}
   - component: {fileID: 1215289721}
+  - component: {fileID: 1215289722}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -21186,18 +21186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencyTxt: {fileID: 205326167}
   isCoinBoosted: 0
---- !u!114 &1215289712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215289708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50bef3a2f7a1d1498718f24f6759252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1215289713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21210,7 +21198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be4cd6021c0e3645b7cee457620f6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1215289712}
+  questManager: {fileID: 1215289722}
   currencyManager: {fileID: 1215289711}
   sceneManager: {fileID: 1215289719}
   player: {fileID: 0}
@@ -21313,6 +21301,18 @@ MonoBehaviour:
     runSpeed: 20
     currentStamina: 10
     staminaRecoverSpeed: 0.1
+--- !u!114 &1215289722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215289708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50bef3a2f7a1d1498718f24f6759252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1217087015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4177609305666439848, guid: 7c160616bc65f354aa47ade6f1185cde, type: 3}
@@ -27397,7 +27397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 634118449672305668, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 634118449672305668, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_TagString
