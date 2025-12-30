@@ -22,31 +22,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.8
+      value: 197.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.04
+      value: -2.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -315.3
+      value: -226.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.72348464
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.6903406
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -87.314
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5295823253559719319, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       propertyPath: m_LocalScale.x
@@ -145,6 +145,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3551880481357962511}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2932535916403677163}
   m_SourcePrefab: {fileID: 100100000, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
 --- !u!1 &6210643922335721941 stripped
 GameObject:
@@ -218,12 +221,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4ef61333cadcf429d9cc03025ad198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerZone: {fileID: 8301926788877186236}
+  triggerZone: {fileID: 0}
   uiTalkingPrompt: {fileID: 0}
-  npcController: {fileID: 7852284732005230216}
-  npcTransform: {fileID: 6736104186325381999}
+  npcController: {fileID: 0}
+  npcTransform: {fileID: 0}
+  NPCNameText: {fileID: 0}
+  fadeImage: {fileID: 0}
   rotationSpeed: 1
   rotationDelay: 1
+  NPCName: "Th\u1EA7y S\u01A1n"
   dialogueController: {fileID: 0}
   playerController: {fileID: 0}
 --- !u!136 &7015093464042616211
@@ -290,10 +296,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 0}
   dialoguePanel: {fileID: 0}
-  dialogueData: {fileID: 11400000, guid: 0ab6c79686f10e04a85a15c927ba9a42, type: 2}
+  dialogueData: {fileID: 11400000, guid: 70b304fe5a063af4c828a0e9743c5efd, type: 2}
   typingSpeed: 0.03
---- !u!4 &6736104186325381999 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
-  m_PrefabInstance: {fileID: 6553241498363581572}
+--- !u!114 &2932535916403677163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210643922335721941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd765c05706da54e833956ab25bb22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questInfoForPoint: {fileID: 11400000, guid: eeb6c42b3ced1f54b81d501acb226aea, type: 2}
+  currentQuestState: 0
+  isStartPoint: 1
+  isFinishPoint: 0

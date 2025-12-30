@@ -57,6 +57,7 @@ public class InteractableObjReal : InteractableObj
                         break;
                     case ObjectType.DoorA2:
                         _teleportA2.Teleport();
+                        GameManager_.Instance.PlayTimeline();
                         break;
                   
                 }
@@ -80,6 +81,7 @@ public class InteractableObjReal : InteractableObj
 
         if (objectType != ObjectType.Teleport && objectType != ObjectType.Shop && uiTalkingPrompt != null)
         {
+            
             uiTalkingPrompt.SetActive(true);
             playerInZone = true;
         }

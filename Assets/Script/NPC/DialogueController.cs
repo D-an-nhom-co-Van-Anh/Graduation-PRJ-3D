@@ -11,11 +11,11 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private DialogueData dialogueData;
 
     [Header("Settings")]
-    [SerializeField] private float typingSpeed = 0.03f; // t?c ?? hi?n t?ng ch?
+    [SerializeField] private float typingSpeed = 0.03f; 
 
     private int currentIndex = 0;
-    private bool isTyping = false;          // ?ang hi?n t?ng ch?
-    private bool skipTyping = false;        // ng??i ch?i nh?n E ?? skip
+    private bool isTyping = false;          
+    private bool skipTyping = false;      
     public bool IsDialogueActive { get; private set; }
     private bool isFinishDialogue=false;
     private Coroutine typingCoroutine;
@@ -41,7 +41,11 @@ public class DialogueController : MonoBehaviour
         {
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
-
+            string voiceClipName = dialogueData.NPCId + currentIndex;
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(voiceClipName, 1f, false);
+            }
             typingCoroutine = StartCoroutine(TypeText(dialogueData.dialogueLines[currentIndex]));
         }
         else
@@ -60,7 +64,7 @@ public class DialogueController : MonoBehaviour
         {
             if (skipTyping)
             {
-                dialogueText.text = line; // hi?n th? h?t luôn
+                dialogueText.text = line; // hi?n th? h?t luï¿½n
                 break;
             }
 
@@ -73,14 +77,17 @@ public class DialogueController : MonoBehaviour
 
     public void NextDialogue()
     {
-        // N?u ?ang gõ ch? thì skip toàn b? câu
         if (isTyping)
         {
             skipTyping = true;
+            string voiceClipName = dialogueData.NPCId + currentIndex;
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.StopSFX(voiceClipName);
+            }
             return;
         }
 
-        // N?u ?ã hi?n xong câu ? chuy?n sang câu ti?p theo
         currentIndex++;
         ShowDialogue();
     }
@@ -89,7 +96,11 @@ public class DialogueController : MonoBehaviour
     {
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
-
+        string voiceClipName = dialogueData.NPCId + currentIndex;
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSFX(voiceClipName);
+        }
         dialoguePanel.SetActive(false);
         IsDialogueActive = false;
         currentIndex = 0;
