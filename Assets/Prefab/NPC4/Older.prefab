@@ -1236,6 +1236,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e544be3355d152c4d92d024a0ae8f55f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: cc6b558b5f0ee744b97efab8e5f5aa09, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000407479487422213, guid: cc6b558b5f0ee744b97efab8e5f5aa09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000000041909516

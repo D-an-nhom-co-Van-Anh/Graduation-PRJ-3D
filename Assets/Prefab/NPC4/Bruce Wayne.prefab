@@ -1510,6 +1510,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2880134350839728862}
   m_SourcePrefab: {fileID: 100100000, guid: 3614aa40dd2873347b4aabed5c89a0c8, type: 3}
+--- !u!4 &5823356968700057491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3614aa40dd2873347b4aabed5c89a0c8, type: 3}
+  m_PrefabInstance: {fileID: 6294344744555573368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6600985005778390313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3614aa40dd2873347b4aabed5c89a0c8, type: 3}
@@ -1573,8 +1578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerZone: {fileID: 0}
   uiTalkingPrompt: {fileID: 0}
-  npcController: {fileID: 0}
-  npcTransform: {fileID: 0}
+  npcController: {fileID: 7803643210324535138}
+  npcTransform: {fileID: 5823356968700057491}
   NPCNameText: {fileID: 0}
   fadeImage: {fileID: 0}
   rotationSpeed: 1

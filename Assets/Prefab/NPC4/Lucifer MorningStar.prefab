@@ -223,8 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerZone: {fileID: 0}
   uiTalkingPrompt: {fileID: 0}
-  npcController: {fileID: 0}
-  npcTransform: {fileID: 0}
+  npcController: {fileID: 7852284732005230216}
+  npcTransform: {fileID: 6736104186325381999}
   NPCNameText: {fileID: 0}
   fadeImage: {fileID: 0}
   rotationSpeed: 1
@@ -310,7 +310,12 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!4 &6736104186325381999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a1d448ceb1e02c44a4179a6382532e1, type: 3}
+  m_PrefabInstance: {fileID: 6553241498363581572}
+  m_PrefabAsset: {fileID: 0}
