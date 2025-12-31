@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.04
+      value: -32.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.33
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -261.35
+      value: -266.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1522,9 +1522,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8390954612025054042}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5225074283272683146}
   m_SourcePrefab: {fileID: 100100000, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
 --- !u!1 &7040601655212392142 stripped
 GameObject:
@@ -1563,7 +1560,7 @@ MonoBehaviour:
   fadeImage: {fileID: 0}
   rotationSpeed: 1
   rotationDelay: 1
-  NPCName: "Th\u1EA7y B\u1EA1ch"
+  NPCName: "Th\u1EA7y T\xF9ng"
   dialogueController: {fileID: 0}
   playerController: {fileID: 0}
 --- !u!54 &5523686155322782144
@@ -1653,22 +1650,6 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueData: {fileID: 11400000, guid: c8864fb616d5d3c4bbe36a17ef3ab051, type: 2}
   typingSpeed: 0.03
---- !u!114 &5225074283272683146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7040601655212392142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bd765c05706da54e833956ab25bb22d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questInfoForPoint: {fileID: 11400000, guid: 61878953129c3f344954651fd2efdfb6, type: 2}
-  currentQuestState: 0
-  isStartPoint: 1
-  isFinishPoint: 0
 --- !u!4 &7709860520853398644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d833ee7448d3c864f8ef7e7bcfc96064, type: 3}
