@@ -42,7 +42,6 @@ public class NpcTriggerZone : MonoBehaviour
     }
 
     private void Start()
-
     {
         
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
@@ -94,29 +93,24 @@ public class NpcTriggerZone : MonoBehaviour
     {
         if (!triggerZone.enabled) return;
 
-        // Ấn E để nói chuyện
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
             HandleTalkInput();
         }
 
-        // Xoay NPC nhìn Player
+        //  đồng bộ animator
+        npcController?.SetTalking(isTalking);
+
         if (isTalking && playerInZone)
         {
             playerController.LockMovement();
-
-            if (Time.time >= nextRotationTime)
-            {
-                RotateTowardPlayer();
-                nextRotationTime = Time.time + rotationDelay;
-            }
+            RotateTowardPlayer(); // bỏ delay càng tốt
         }
         else
         {
             playerController.UnlockMovement();
         }
     }
-
     private void HandleTalkInput()
     {
         isTalking = true;
@@ -126,7 +120,6 @@ public class NpcTriggerZone : MonoBehaviour
         {
             NPCNameText.text = NPCName;
             dialogueController.StartDialogue();
-            npcController?.SetTalking(true);
         }
         else
         {
