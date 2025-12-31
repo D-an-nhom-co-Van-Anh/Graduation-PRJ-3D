@@ -8182,10 +8182,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1875619246}
     m_Modifications:
-    - target: {fileID: 534943628441573285, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
     - target: {fileID: 1144437807277882955, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
       propertyPath: fadeImage
       value: 
@@ -8211,10 +8207,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1332488663}
     - target: {fileID: 3551880481357962511, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
-      propertyPath: dialogueData
-      value: 
-      objectReference: {fileID: 11400000, guid: 70b304fe5a063af4c828a0e9743c5efd, type: 2}
-    - target: {fileID: 3551880481357962511, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1805534464}
@@ -8232,7 +8224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6736104186325381999, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.28
+      value: -2.16
       objectReference: {fileID: 0}
     - target: {fileID: 6736104186325381999, guid: a8ffb01ddc447264cbbe891a753d9f0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14314,6 +14306,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2126311806638717269, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
   m_PrefabInstance: {fileID: 2034760281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &988524794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7597567720724727129, guid: 51ec0082b40c5964bb8a1152fcf3c48f, type: 3}
+  m_PrefabInstance: {fileID: 2034760281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988524781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37e378a71af0304e8e97ca73f023e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1000751227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15765,7 +15768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5823356968700057491, guid: 559245a1d4b272d4a9bb33d8a586a71c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3102949
+      value: -2.28
       objectReference: {fileID: 0}
     - target: {fileID: 5823356968700057491, guid: 559245a1d4b272d4a9bb33d8a586a71c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15823,13 +15826,13 @@ PrefabInstance:
       propertyPath: uiTalkingPrompt
       value: 
       objectReference: {fileID: 1332488663}
+    - target: {fileID: 6474256888497495452, guid: 559245a1d4b272d4a9bb33d8a586a71c, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 988524794}
     - target: {fileID: 6600985005778390313, guid: 559245a1d4b272d4a9bb33d8a586a71c, type: 3}
       propertyPath: m_Name
       value: NPC5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795197530785655690, guid: 559245a1d4b272d4a9bb33d8a586a71c, type: 3}
-      propertyPath: m_Constraints
-      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23462,6 +23465,10 @@ PrefabInstance:
       propertyPath: dialoguePanel
       value: 
       objectReference: {fileID: 902643328}
+    - target: {fileID: 3193520060666795907, guid: d5c402d0c94a9514cbeb43e7726bac7b, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8212971338821621571, guid: d5c402d0c94a9514cbeb43e7726bac7b, type: 3}
       propertyPath: m_Name
       value: NPC4
