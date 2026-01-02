@@ -3,34 +3,36 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
-  
-
-    public List<NpcTriggerZone> npcZones = new List<NpcTriggerZone>();
     public string npcRootName = "NPC";
 
-    private void Awake()
+    private void Start()
     {
-       
-        AutoLoadNPCZones();
-    }
-
-    private void AutoLoadNPCZones()
-    {
-        npcZones.Clear();
-
         GameObject root = GameObject.Find(npcRootName);
+
         if (root == null)
         {
-            Debug.LogError("? Kh�ng t�m th?y GameObject cha: " + npcRootName);
+            Debug.LogError($"Không tìm thấy root: {npcRootName}");
             return;
         }
 
-        NpcTriggerZone[] zones = root.GetComponentsInChildren<NpcTriggerZone>(true);
-        foreach (var zone in zones)
+        for (int i = 0; i < root.transform.childCount; i++)
         {
-            npcZones.Add(zone);
+            Transform npcTransform = root.transform.GetChild(i);
+            string npcName = npcTransform.name; 
+
+            string indexStr = npcName.Replace("NPC", "");
+
+            string questId = "Quest" + indexStr + "Info";
+
+            if (QuestManager.Instance.CheckQuest(questId, QuestState.FINISHED))
+            {
+                NpcTriggerZone zone = npcTransform.GetComponent<NpcTriggerZone>();
+                if (zone != null)
+                {
+                    zone.DisableZone();
+                    Debug.Log($"Đã tắt {npcName} vì {questId} đã FINISHED");
+                }
+            }
         }
     }
-
-   
 }
