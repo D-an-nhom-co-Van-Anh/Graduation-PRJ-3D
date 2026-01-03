@@ -25,8 +25,8 @@ public class LeaveButton : MonoBehaviour
 
     void Update()
     {
-        // Nhấn P để mở / đóng tutorial
-        if (Input.GetKeyDown(KeyCode.P))
+        // Nhấn Tab để mở / đóng tutorial
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isTutorialOpen)
                 CloseTutorial();
