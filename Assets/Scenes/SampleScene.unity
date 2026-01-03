@@ -18442,7 +18442,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307145040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1476955791}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1307145040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20590,6 +20602,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1209576527717890971, guid: 305a0a6067ebc974b96e0ae289f80d86, type: 3}
   m_PrefabInstance: {fileID: 458935038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1476955791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4682833070302556909, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+  m_PrefabInstance: {fileID: 1765566388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1477435349
 PrefabInstance:
@@ -23771,6 +23788,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -70
       objectReference: {fileID: 0}
+    - target: {fileID: 8915153641870211584, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: cutscene
+      value: 
+      objectReference: {fileID: 1358283912}
+    - target: {fileID: 8915153641870211584, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: titleGame
+      value: 
+      objectReference: {fileID: 1954665195}
     - target: {fileID: 9102324378382040893, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 340
@@ -25791,7 +25816,7 @@ GameObject:
   - component: {fileID: 1954665198}
   - component: {fileID: 1954665197}
   m_Layer: 5
-  m_Name: Image
+  m_Name: "TI\xEAu \u0111\u1EC1 game"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
