@@ -2,8 +2,9 @@
 
 public class leaveButton : MonoBehaviour
 {
-    public GameObject introductUI;
-    public GameObject gamePlayScene;
+    [Header("UI References")]
+    public GameObject introUI;
+    public GameObject gameplayUI;
 
     private bool isIntroPlaying;
 
@@ -15,35 +16,34 @@ public class leaveButton : MonoBehaviour
 
         if (!hasPlayedIntro)
         {
-            PlayIntro(autoPlay: true);
+            ShowIntro(true);
         }
         else
         {
-            StartGameplay();
+            ShowGameplay();
         }
     }
 
     void Update()
     {
-        // Nhấn P để mở lại Intro (KHÔNG ảnh hưởng PlayerPrefs)
+        // Nhấn P để mở lại tutorial
         if (!isIntroPlaying && Input.GetKeyDown(KeyCode.P))
         {
-            PlayIntro(autoPlay: false);
+            ShowIntro(false);
         }
     }
 
-    // ====== INTRO CONTROL ======
+    // INTRO
 
-    void PlayIntro(bool autoPlay)
+    public void ShowIntro(bool autoPlay)
     {
         isIntroPlaying = true;
 
-        introductUI.SetActive(true);
-        gamePlayScene.SetActive(false);
+        introUI.SetActive(true);
+        gameplayUI.SetActive(false);
 
-        Time.timeScale = 0f;
+        PauseGame();
 
-        // Nếu là intro chạy tự động lần đầu → lưu PlayerPrefs
         if (autoPlay)
         {
             PlayerPrefs.SetInt(INTRO_KEY, 1);
@@ -51,23 +51,36 @@ public class leaveButton : MonoBehaviour
         }
     }
 
-    // GỌI TỪ UI BUTTON "EXIT"
-    public void CloseIntroByUIButton()
+    public void CloseIntro()
     {
         isIntroPlaying = false;
 
-        introductUI.SetActive(false);
-        gamePlayScene.SetActive(true);
+        introUI.SetActive(false);
+        gameplayUI.SetActive(true);
 
-        Time.timeScale = 1f;
+        ResumeGame();
+    }
+    // GAMEPLAY SHOW
+    private void ShowGameplay()
+    {
+        introUI.SetActive(false);
+        gameplayUI.SetActive(true);
+
+        isIntroPlaying = false;
+        ResumeGame();
     }
 
-    void StartGameplay()
-    {
-        introductUI.SetActive(false);
-        gamePlayScene.SetActive(true);
+    // TIME CONTROL
+    // ko dùng coroutine để tránh rắc rối với unscaledDeltaTime
 
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    private void ResumeGame()
+    {
         Time.timeScale = 1f;
-        isIntroPlaying = false;
     }
 }
+
