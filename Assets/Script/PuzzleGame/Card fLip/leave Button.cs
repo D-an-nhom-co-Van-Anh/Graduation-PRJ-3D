@@ -26,10 +26,16 @@ public class leaveButton : MonoBehaviour
 
     void Update()
     {
-        // Nhấn P để mở lại tutorial
-        if (!isIntroPlaying && Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            ShowIntro(false);
+            if (isIntroPlaying)
+            {
+                CloseIntro();
+            }
+            else
+            {
+                ShowIntro(false);
+            }
         }
     }
 
