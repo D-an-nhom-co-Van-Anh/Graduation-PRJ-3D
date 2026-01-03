@@ -24127,7 +24127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2615449055704390782, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: -569
       objectReference: {fileID: 0}
     - target: {fileID: 3153058130893027596, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -24419,7 +24419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8638542603804211252, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70
+      value: -97
       objectReference: {fileID: 0}
     - target: {fileID: 8915153641870211584, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: cutscene
@@ -24429,6 +24429,14 @@ PrefabInstance:
       propertyPath: titleGame
       value: 
       objectReference: {fileID: 1954665195}
+    - target: {fileID: 9061532950217105842, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061532950217105842, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -129
+      objectReference: {fileID: 0}
     - target: {fileID: 9102324378382040893, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 340
