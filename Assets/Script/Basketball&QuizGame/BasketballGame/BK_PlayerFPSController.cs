@@ -12,11 +12,6 @@ public class PlayerFPSController : MonoBehaviour
     private float xRotation = 0f;
     private float yRotation = 0f;
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
 
     void Update()
     {

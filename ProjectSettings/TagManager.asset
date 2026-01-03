@@ -9,6 +9,7 @@ TagManager:
   - Teleporter
   - MainCamera
   - MainCanvas
+  - BasketballCameraPlayer
   layers:
   - Default
   - TransparentFX
