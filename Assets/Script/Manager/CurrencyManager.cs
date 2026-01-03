@@ -67,7 +67,7 @@ public class CurrencyManager : MonoBehaviour
     }
     public void SubtractCash(float cash)
     {
-        totalCurrency += cash;
+        totalCurrency -= cash;
         SetCurrencyText();
     }
     public void SetCurrencyText()

@@ -32,6 +32,11 @@ public class MenuScript : MonoBehaviour
             cutscene.SetActive(true);
             PlayerPrefs.SetInt(PLAY_CUTSCENE, 1);
         }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            this.gameObject.SetActive(false);
+        }
             player.UnlockMovement();
         yield return new WaitForSeconds(0.1f);
         this.gameObject.SetActive(false);

@@ -23615,6 +23615,10 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1232305514125481448, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1610811830131759327, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: currentMission
       value: 
