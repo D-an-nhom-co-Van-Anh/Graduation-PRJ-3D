@@ -45,7 +45,7 @@ public class PlayerMovementController : MonoBehaviour
     private Action input;
 
     private bool canStaminaRecover=false;
-    private float staminaRecoverEffectTime=10f;
+    private float staminaRecoverEffectTime=10000f;
     private float currentStaminaTimeCounter=0f;
     private float staminaRecover=0.1f;
     private bool isMovementLocked = false;
@@ -123,10 +123,12 @@ public class PlayerMovementController : MonoBehaviour
                 {
                     currentStamina = Mathf.Clamp(currentStamina +staminaRecover * Time.deltaTime, 0, maxStamina);
                     currentStaminaTimeCounter += Time.deltaTime;
+                    Debug.Log("recover");
                 }
                 else
                 {
                     canStaminaRecover = false;
+                    currentStaminaTimeCounter = 0;
                 }
             }
         }
@@ -280,8 +282,8 @@ public class PlayerMovementController : MonoBehaviour
     }
     public void AddSpeed(float value)
     {
-        runSpeed += value;
-        walkSpeed += value;
+        runSpeed =Mathf.Clamp( runSpeed+ value,6,10);
+        walkSpeed = Mathf.Clamp(walkSpeed + value, 2, 6);
     }
     public void AddStaminaPerSecond(float value)
     {

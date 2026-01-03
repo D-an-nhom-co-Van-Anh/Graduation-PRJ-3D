@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!manager.IsOver&&!isLockMovement&&manager.IsGameStart)
         {
-            
+            Debug.Log("Di chuyen");   
             moveDir = input.Player.Move.ReadValue<Vector2>().normalized;
             camForward = cameraTransform.forward;
             camForward.y = 0;
@@ -83,6 +83,10 @@ public class PlayerController : MonoBehaviour
     public void PlayMoveAnimation(Vector2 move)
     {
         animationController.UpdateMovement(move, true);
+    }
+    public void ResetAnimation()
+    {
+        animationController.UpdateMovement(Vector2.zero, false);
     }
     private void FixedUpdate()
     {
