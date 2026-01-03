@@ -18,7 +18,21 @@ public class MenuScript : MonoBehaviour
         //PlayerPrefs.DeleteKey(PLAY_CUTSCENE);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        titleGame.rectTransform.DOLocalMove(new Vector3(0, 214, 0), 1f).SetEase(Ease.InBack);
+        //titleGame.rectTransform.DOLocalMove(new Vector3(0, 214, 0), 1f).SetEase(Ease.InBack);
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(
+            titleGame.rectTransform
+                .DOLocalMove(new Vector3(0, 214, 0), 1.1f)
+                .SetEase(Ease.OutBack)
+        );
+
+        seq.Join(
+            titleGame.rectTransform
+                .DOScale(1f, 0.9f)
+                .From(0.7f)
+                .SetEase(Ease.OutBack)
+        );
         player = GameManager_.Instance.GetPlayer();
         player.LockMovement();
         playButton.onClick.AddListener(() => {
