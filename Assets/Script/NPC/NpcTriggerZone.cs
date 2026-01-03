@@ -19,11 +19,11 @@ public class NpcTriggerZone : MonoBehaviour
     public float rotationSpeed = 3f;          // Tốc độ xoay NPC
     public float rotationDelay = 5f;          // Thời gian chờ giữa các lần xoay (giây)
     public string NPCName;
-    
     private bool playerInZone = false;
     private bool isTalking = false;
     private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
-  
+
+    private bool canDisplayZone = false;
     public DialogueController dialogueController;
 
     public PlayerMovementController playerController;
@@ -33,6 +33,8 @@ public class NpcTriggerZone : MonoBehaviour
     private GameObject BasketballTarget;
 
     private GameObject mainCanvas;
+
+    private QuestPoint _questPoint;
     
     private void Reset()
     {
@@ -43,6 +45,7 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Start()
     {
+        _questPoint = GetComponent<QuestPoint>();
         
         mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas");
         BasketballTarget=  GameObject.Find("BasketballTarget");
@@ -66,10 +69,10 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        
+        if (other.CompareTag("Player") )
         {
             playerInZone = true;
-
             if (uiTalkingPrompt != null)
                 uiTalkingPrompt.SetActive(true);
         }
@@ -91,7 +94,14 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Update()
     {
+        if (_questPoint.currentQuestState == QuestState.CAN_START ||
+            _questPoint.currentQuestState == QuestState.IN_PROGRESS)
+        {
+            canDisplayZone=true;
+            EnableZone();
+        }
         if (!triggerZone.enabled) return;
+        
 
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
@@ -153,6 +163,7 @@ public class NpcTriggerZone : MonoBehaviour
             yield return null;
         }
     }
+
     public bool isPlayerInZone()
     {
         if (playerInZone)
@@ -164,8 +175,6 @@ public class NpcTriggerZone : MonoBehaviour
     public void EnableZone()
     {
         triggerZone.enabled = true;
-        if (uiTalkingPrompt != null)
-            uiTalkingPrompt.SetActive(false);
     }
 
     public void DisableZone()
@@ -182,7 +191,6 @@ public class NpcTriggerZone : MonoBehaviour
         isTalking = false;
 
         DisableZone();       
-        uiTalkingPrompt?.SetActive(false);
 
         playerController?.UnlockMovement();
         switch (gameObject.name)
@@ -203,6 +211,7 @@ public class NpcTriggerZone : MonoBehaviour
             case "NPC5":
                 if (!playerCameraSwitcher.IsFirstPersonView()) playerCameraSwitcher.SetFirstPerson(true);
                 mainCanvas.SetActive(false);
+                
                 break;
             case "NPC6":
 
