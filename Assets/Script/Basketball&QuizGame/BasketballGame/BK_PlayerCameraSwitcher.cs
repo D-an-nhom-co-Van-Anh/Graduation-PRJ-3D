@@ -16,6 +16,7 @@ public class PlayerCameraSwitcher : MonoBehaviour
     public void SetFirstPerson(bool value)
     {
         isFirstPerson = value;
+        if(isFirstPerson)  UIManager_.Instance.Open<TutorialBasketballUI>();
         SwitchCamera();
     }
 

@@ -1,6 +1,6 @@
-using System;
+
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 
 public class InteractableObjReal : InteractableObj
 {
@@ -57,6 +57,7 @@ public class InteractableObjReal : InteractableObj
                         break;
                     case ObjectType.DoorA2:
                         _teleportA2.Teleport();
+                        StartCoroutine(LockMovement());
                         GameManager_.Instance.PlayTimeline();
                         break;
                   
@@ -71,8 +72,13 @@ public class InteractableObjReal : InteractableObj
         
         
     }
-    
 
+    IEnumerator LockMovement()
+    {
+        playerController.LockMovement();
+        yield return new WaitForSeconds(2.0f);
+        playerController.UnlockMovement();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

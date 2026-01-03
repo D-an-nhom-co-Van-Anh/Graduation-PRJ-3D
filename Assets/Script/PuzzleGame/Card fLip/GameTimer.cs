@@ -23,12 +23,12 @@ public class GameTimer : MonoBehaviour
 
     // Thêm ScriptableObject quest của mini game vào đây
     [SerializeField] private QuestInfoSO questInfo;
-    
-    
+
+
 
     private float remainingTime;
-    private bool timerRunning = false;
-    private bool gameEnded = false;
+    private bool timerRunning;
+    private bool gameEnded;
 
     private void Awake()
     {
@@ -46,32 +46,32 @@ public class GameTimer : MonoBehaviour
         timerRunning = true;
         gameEnded = false;
 
-        // Ẩn UI kết quả khi bắt đầu
         if (successUI) successUI.SetActive(false);
         if (failureUI) failureUI.SetActive(false);
-
-        StartCoroutine(TimerCountdown());
     }
 
-    private IEnumerator TimerCountdown()
+    private void Update()
     {
-        while (timerRunning && remainingTime > 0)
+        if (!timerRunning || gameEnded)
+            return;
+
+        // 🔥 QUAN TRỌNG: dùng unscaledDeltaTime
+        remainingTime -= Time.unscaledDeltaTime;
+        UpdateTimerUI();
+
+        // Thắng
+        if (CardManager.Instance != null && AllCardsMatched())
         {
-            remainingTime -= Time.deltaTime;
-            UpdateTimerUI();
-            yield return null;
-            
-            // Nếu tất cả các thẻ đã lật hết -> thắng
-            if (CardManager.Instance != null && AllCardsMatched())
-            {
-                EndGame(true);
-                yield break;
-            }
+            EndGame(true);
+            return;
         }
 
-        // Hết giờ mà chưa thắng
-        if (!gameEnded)
+        // Thua
+        if (remainingTime <= 0)
+        {
+            remainingTime = 0;
             EndGame(false);
+        }
     }
 
     private void UpdateTimerUI()
@@ -85,49 +85,49 @@ public class GameTimer : MonoBehaviour
 
     private bool AllCardsMatched()
     {
-        var allCards = FindObjectsOfType<CardFlipEffect>();
+        var allCards = FindObjectsByType<CardFlipEffect>(FindObjectsSortMode.None);
+
         foreach (var card in allCards)
         {
-            var field = typeof(CardFlipEffect).GetField("matched", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            var field = typeof(CardFlipEffect)
+                .GetField("matched",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+
             bool isMatched = (bool)field.GetValue(card);
+
             if (!isMatched)
                 return false;
         }
+
         return true;
     }
 
     public void EndGame(bool allMatched)
     {
-        if (gameEnded) return; // tránh gọi nhiều lần
+        if (gameEnded) return;
 
         timerRunning = false;
         gameEnded = true;
 
         if (allMatched)
         {
-            if (successUI)
-            {
-                //successUI.SetActive(true);
-                //leaveButton.SetActive(true);
-            }
+            Debug.Log("🎉 Thắng! Nhận 200 xu");
+            GameManager_.Instance.GetCurrencyManager().AddCash(200);
 
-                Debug.Log("🎉 Thắng! Nhận 200 xu");
-                GameManager_.Instance.GetCurrencyManager().AddCash(200);
             SceneManager_.Instance.ExitAdditiveScene("CardFlip");
             AudioManager.Instance.PlayMusic("background1");
-           
-            // TODO: PlayerData.AddCoins(200);
         }
         else
         {
+            Debug.Log("⌛ Hết giờ! Nhận 50 xu");
+            GameManager_.Instance.GetCurrencyManager().AddCash(50);
+
             if (failureUI)
             {
                 failureUI.SetActive(true);
                 leaveButton.SetActive(true);
             }
-            Debug.Log("⌛ Hết giờ! Nhận 50 xu");
-            GameManager_.Instance.GetCurrencyManager().AddCash(50);
-            // TODO: PlayerData.AddCoins(50);
         }
     }
 

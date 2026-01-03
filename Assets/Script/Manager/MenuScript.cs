@@ -8,7 +8,7 @@ using TMPro;
 public class MenuScript : MonoBehaviour
 {
     [SerializeField] private Button playButton;
-    [SerializeField] private TextMeshProUGUI titleGame;
+    [SerializeField] private GameObject titleGame;
     [SerializeField] private GameObject cutscene;
     private PlayerMovementController player;
     private static string PLAY_CUTSCENE = "Play_Cutscene";
@@ -18,12 +18,34 @@ public class MenuScript : MonoBehaviour
         //PlayerPrefs.DeleteKey(PLAY_CUTSCENE);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        titleGame.rectTransform.DOLocalMove(new Vector3(0, 214, 0), 1f).SetEase(Ease.InBack);
+
+        //titleGame.rectTransform.DOLocalMove(new Vector3(0, 214, 0), 1f).SetEase(Ease.InBack);
+        //Sequence seq = DOTween.Sequence();
+
+        RectTransform titleRect = titleGame.GetComponent<RectTransform>();
+
+        titleRect.localScale = Vector3.one * 0.7f;
+
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(
+            titleRect
+                .DOLocalMoveY(300f, 1.1f)
+                .SetEase(Ease.OutBack)
+        );
+
+        seq.Join(
+            titleRect
+                .DOScale(1f, 0.9f)
+                .SetEase(Ease.OutBack)
+        );
+        //titleGame.rectTransform.DOLocalMove(new Vector3(0, 214, 0), 1f).SetEase(Ease.InBack);
         player = GameManager_.Instance.GetPlayer();
         player.LockMovement();
         playButton.onClick.AddListener(() => {
             StartCoroutine(PlayCutScene());
         });
+
     }
     IEnumerator PlayCutScene()
     {
