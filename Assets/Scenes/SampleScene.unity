@@ -23819,6 +23819,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1460
       objectReference: {fileID: 0}
+    - target: {fileID: 4682833070302556909, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893407009344495519, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
+      propertyPath: m_text
+      value: "Nhi\u1EC7m v\u1EE5"
+      objectReference: {fileID: 0}
     - target: {fileID: 5485291749802363624, guid: 44dda89d115d2e741b0075ac5b31a946, type: 3}
       propertyPath: m_text
       value: 'Press E to interact '
