@@ -28,6 +28,7 @@ public class FB_GameManager : MonoBehaviour
     [SerializeField] private GameObject instructionPanel;
     [SerializeField] private Image fadeImage;
     [SerializeField] private GameObject fb_canvas;
+    [SerializeField] private FB_PlayerController fb_playerController;
     public Transform penaltySpot; // vị trí sút penalty
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
@@ -92,13 +93,13 @@ public class FB_GameManager : MonoBehaviour
     public IEnumerator DelayInstruction()
     {
         fb_canvas.gameObject.SetActive(false);
-        yield return new WaitForSeconds(1.57f);
+        yield return new WaitForSeconds(2.5f);
         fb_canvas.gameObject.SetActive(true);
     }
     public IEnumerator FadeImage()
     {
         fadeImage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.57f);
+        yield return new WaitForSeconds(2f);
         fadeImage.gameObject.SetActive(false);
     }
     private void Update()
@@ -163,6 +164,14 @@ public class FB_GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager_.Instance.ReloadAdditiveScene("Football");
+      /*  failCanvas.SetActive(false);
+        Cursor.visible = false;
+        isOver = false;
+        isGameOver = false;
+        isGameStart = true;
+        currentTime =totalTime;
+        timerText.SetText($"{Mathf.Ceil(currentTime)}");
+        fb_playerController.PlayAgain();*/
     }
    
     private void ShowFailCanvasText()

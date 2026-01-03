@@ -301,15 +301,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
       propertyPath: m_LocalPosition.x
@@ -351,6 +351,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c1f0e14d50cf624f85acad88da288b2, type: 2}
+    - target: {fileID: -5754084199372789682, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1219083895875188763, guid: 0b879dfa650d34d43ba1c9bac475417b, type: 3}
     - target: {fileID: 919132149155446097, guid: a2ab47be145eed54d91cc7f044fdef41, type: 3}
       propertyPath: m_Name
       value: Ball
@@ -5575,8 +5587,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.017544871
-  m_Center: {x: 0, y: -0.00020902754, z: -0.00035082697}
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1183535491
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5744,7 +5756,7 @@ MonoBehaviour:
   timerText: {fileID: 1587720658}
   scoreText: {fileID: 209694300}
   messageText: {fileID: 1284905649}
-  totalTime: 100000
+  totalTime: 100
   timeOut: 0
   maxTimeOut: 15
   failCanvas: {fileID: 777716715}
@@ -5754,6 +5766,7 @@ MonoBehaviour:
   instructionPanel: {fileID: 1046965841}
   fadeImage: {fileID: 1878613994}
   fb_canvas: {fileID: 1244369476}
+  fb_playerController: {fileID: 1623352927}
   penaltySpot: {fileID: 507641356}
   firstPersonCamera: {fileID: 799376061}
   thirdPersonCamera: {fileID: 1759371641}

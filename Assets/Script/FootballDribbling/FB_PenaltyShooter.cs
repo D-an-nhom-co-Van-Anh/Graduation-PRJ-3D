@@ -46,7 +46,7 @@ public class FB_PenaltyShooter : MonoBehaviour
         // Khi click chuột trái -> Sút
         if (Input.GetMouseButton(0))
         {
-            curruntPower += Time.deltaTime;
+            curruntPower += Time.deltaTime*20f;
             if (curruntPower <= maxPower)
             {
                 slider.value = (float)(curruntPower-minPower) / (maxPower-minPower);
