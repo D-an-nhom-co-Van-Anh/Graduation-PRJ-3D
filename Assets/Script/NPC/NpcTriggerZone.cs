@@ -95,7 +95,8 @@ public class NpcTriggerZone : MonoBehaviour
     private void Update()
     {
         if (_questPoint.currentQuestState == QuestState.CAN_START ||
-            _questPoint.currentQuestState == QuestState.IN_PROGRESS)
+            _questPoint.currentQuestState == QuestState.IN_PROGRESS ||
+            _questPoint.currentQuestState == QuestState.CAN_FINISH)
         {
             canDisplayZone=true;
             EnableZone();
