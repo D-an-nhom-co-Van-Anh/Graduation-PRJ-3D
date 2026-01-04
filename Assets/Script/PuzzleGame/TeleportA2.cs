@@ -37,7 +37,7 @@ public class TeleportA2 : MonoBehaviour
         playerRb.angularVelocity = Vector3.zero;
 
         playerRb.MovePosition(teleportTarget.position);
-        playerRb.MoveRotation(teleportTarget.rotation);
+        //playerRb.MoveRotation(teleportTarget.rotation);
 
         // --- Quest logic ---
         if (QuestManager.Instance.GetCurrentQuestID() == "Quest2Info" && IsOutsidePoint())
