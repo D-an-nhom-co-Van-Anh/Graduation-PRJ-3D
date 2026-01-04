@@ -9,10 +9,11 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private DialogueData dialogueData;
-
+    [SerializeField] private float minWaitTime = 2.0f;
     [Header("Settings")]
     [SerializeField] private float typingSpeed = 0.03f; 
-
+    
+    private float timerSinceStartedLine = 0f;
     private int currentIndex = 0;
     private bool isTyping = false;          
     private bool skipTyping = false;      
@@ -26,19 +27,27 @@ public class DialogueController : MonoBehaviour
         dialoguePanel.SetActive(false);
         IsDialogueActive = false;
     }
-
+    private void Update()
+    {
+        if (IsDialogueActive)
+        {
+            timerSinceStartedLine += Time.deltaTime;
+        }
+    }
     public void StartDialogue()
     {
         currentIndex = 0;
         dialoguePanel.SetActive(true);
         IsDialogueActive = true;
         ShowDialogue();
+        isFinishDialogue = false;
     }
 
     private void ShowDialogue()
     {
         if (currentIndex < dialogueData.dialogueLines.Count)
         {
+            timerSinceStartedLine = 0f;
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
             string voiceClipName = dialogueData.NPCId + currentIndex;
@@ -77,6 +86,10 @@ public class DialogueController : MonoBehaviour
 
     public void NextDialogue()
     {
+        if (timerSinceStartedLine < minWaitTime)
+        {
+            return;
+        }
         if (isTyping)
         {
             skipTyping = true;
@@ -96,7 +109,7 @@ public class DialogueController : MonoBehaviour
     {
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
-        string voiceClipName = dialogueData.NPCId + currentIndex;
+        string voiceClipName = dialogueData.NPCId + (currentIndex - 1);;
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.StopSFX(voiceClipName);
