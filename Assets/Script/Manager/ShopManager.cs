@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private GameObject descriptionObject;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private List <Button> items;
@@ -24,7 +25,9 @@ public class ShopManager : MonoBehaviour
                 SelectItem(items[index].GetComponent<ShopItem>());
             });
         }
+        
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
@@ -44,6 +47,8 @@ public class ShopManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        CurrencyManager currencyManager = GameManager_.Instance.GetCurrencyManager();
+        moneyText.SetText(currencyManager.Format(currencyManager.GetTotalCurrency()));
     }
     public void SelectItem(ShopItem item)
     {
@@ -95,6 +100,7 @@ public class ShopManager : MonoBehaviour
                         GameManager_.Instance.GetPlayer().AddSpeed(currentSelectedItem.Value);
                         break;
                 }
+                moneyText.SetText(GameManager_.Instance.GetCurrencyManager().Format(GameManager_.Instance.GetCurrencyManager().GetTotalCurrency()));
             }
             else
             {
