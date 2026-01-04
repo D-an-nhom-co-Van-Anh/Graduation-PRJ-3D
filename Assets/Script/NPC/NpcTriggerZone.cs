@@ -22,7 +22,7 @@ public class NpcTriggerZone : MonoBehaviour
     private bool playerInZone = false;
     private bool isTalking = false;
     private float nextRotationTime = 0f;      // Thời điểm được xoay lần kế tiếp
-
+    private bool isFinishedDialogue=false;
     private bool canDisplayZone = false;
     public DialogueController dialogueController;
 
@@ -70,7 +70,7 @@ public class NpcTriggerZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.CompareTag("Player") )
+        if (other.CompareTag("Player") && !isFinishedDialogue )
         {
             playerInZone = true;
             if (uiTalkingPrompt != null)
@@ -94,9 +94,10 @@ public class NpcTriggerZone : MonoBehaviour
 
     private void Update()
     {
-        if (_questPoint.currentQuestState == QuestState.CAN_START ||
+        if ((_questPoint.currentQuestState == QuestState.CAN_START ||
             _questPoint.currentQuestState == QuestState.IN_PROGRESS ||
-            _questPoint.currentQuestState == QuestState.CAN_FINISH)
+            _questPoint.currentQuestState == QuestState.CAN_FINISH )
+            && !isFinishedDialogue)
         {
             canDisplayZone=true;
             EnableZone();
@@ -199,26 +200,30 @@ public class NpcTriggerZone : MonoBehaviour
             case "NPC1":
                 GameEventsManager.instance.questEvent.FinishQuest("Quest1Info");
                 GameEventsManager.instance.questEvent.StartQuest("Quest2Info");
+                isFinishedDialogue = true;
                 break;
             case "NPC2":
+                isFinishedDialogue = true;
                 break;  
             case "NPC3":
                 SceneManager_.Instance.LoadSceneByName("Quiz", lockCursor: false, showCursor: true);
-
+                isFinishedDialogue = true;
                 break;
             case "NPC4":
                 GameManager_.Instance.EnableUIShop();
+                isFinishedDialogue = true;
                 break;
             case "NPC5":
                 if (!playerCameraSwitcher.IsFirstPersonView()) playerCameraSwitcher.SetFirstPerson(true);
                 mainCanvas.SetActive(false);
-                
+                isFinishedDialogue = true;
                 break;
             case "NPC6":
 
                 SceneManager_.Instance.LoadSceneByName("Football", lockCursor: false, showCursor: true);
                 mainCanvas.SetActive(false);
                 GameManager_.Instance.GetPlayer().LockMovement();
+                isFinishedDialogue = true;
                 break;
         }
     }
