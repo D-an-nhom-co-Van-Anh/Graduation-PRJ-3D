@@ -24,4 +24,9 @@ public class TutorialUI : MonoBehaviour
         bool isActive = tutorial_Image.activeSelf;
         tutorial_Image.SetActive(!isActive);
     }
+
+    public void close_Tutorial()
+    {
+        tutorial_Image.SetActive(false);
+    }
 }
