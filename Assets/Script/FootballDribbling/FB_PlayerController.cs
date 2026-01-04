@@ -55,10 +55,11 @@ public class FB_PlayerController : MonoBehaviour
     public int Number { get => number; set => number = value; }
     public PlayerInput PlayerInput { get => playerInput; set => playerInput = value; }
     public float ShootingPower { get => shootingPower; set => shootingPower = value; }
-
+    private Vector3 originalPos;
     void Awake()
     {
         transformBall = GameObject.Find("Ball").transform;
+        originalPos = transform.position;
         scriptBall = transformBall.GetComponent<FB_Ball>();
         //soundDribble = GameObject.Find("Sound/dribble").GetComponent<AudioSource>();
         //soundShoot = GameObject.Find("Sound/shoot").GetComponent<AudioSource>();
@@ -241,10 +242,20 @@ public class FB_PlayerController : MonoBehaviour
     void ExitPenaltyMode()
     {
         inPenaltyMode = false;
-        penaltyTarget.SetActive(false);
+        penaltyTarget?.SetActive(false);
         manager.ExitPenaltyMode();
        // playerController.UnLockMovement();
         // Chuyển camera lại góc 3 người
         // (có thể gọi từ PenaltyTrigger)
+    }
+    public void PlayAgain()
+    {
+        transform.position = originalPos;
+        hasBall = false;
+        scriptBall.SetBallWithPlayer(false, this);
+        scriptBall.ResetPos();
+        playerController.ResetAnimation();
+        ExitPenaltyMode();
+        playerController.UnLockMovement();
     }
 }

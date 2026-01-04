@@ -19,10 +19,12 @@ public class FB_Ball : MonoBehaviour
 
     private FB_PlayerController player;
     private FB_PenaltyShooter penaltyShooter;
+    private Vector3 originalPos;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
         isWithPlayer = false;
+        originalPos = transform.position;
         penaltyShooter = GetComponent<FB_PenaltyShooter>();
     }
     public void StartPenalty()
@@ -112,5 +114,9 @@ public class FB_Ball : MonoBehaviour
             manager.OnReachGoal();
         }
     }
-   
+    public void ResetPos()
+    {
+        this.transform.position = originalPos;
+    }
+
 }

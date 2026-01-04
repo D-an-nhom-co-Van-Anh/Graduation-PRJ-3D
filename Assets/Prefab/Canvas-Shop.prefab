@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  value: 50
+  value: 0.5
   price: {fileID: 4426807438209185473}
   foodName: {fileID: 56131423283039228}
   type: 5
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  value: 50
+  value: 0.5
   price: {fileID: 6795046891321627772}
   foodName: {fileID: 2205142461589165421}
   type: 5
@@ -3032,8 +3032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ce497c577cb84f8d927ad47b04abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  value: 50
+  cost: 30
+  value: 6
   price: {fileID: 6518020816509254394}
   foodName: {fileID: 3537426855431468089}
   type: 0
@@ -4828,7 +4828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  value: 50
+  value: 0.2
   price: {fileID: 730194351075691028}
   foodName: {fileID: 3995607791904186027}
   type: 10
@@ -5431,8 +5431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ce497c577cb84f8d927ad47b04abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  value: 50
+  cost: 40
+  value: 0.4
   price: {fileID: 5309334367943867658}
   foodName: {fileID: 4357118146604142912}
   type: 10
@@ -6069,8 +6069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ce497c577cb84f8d927ad47b04abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  value: 50
+  cost: 50
+  value: 0.7
   price: {fileID: 8824599521534890144}
   foodName: {fileID: 3036036491197669729}
   type: 5
@@ -6593,8 +6593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ce497c577cb84f8d927ad47b04abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  value: 50
+  cost: 40
+  value: 7
   price: {fileID: 6980943598760971893}
   foodName: {fileID: 1927462516488940464}
   type: 0
@@ -7000,8 +7000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ce497c577cb84f8d927ad47b04abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  value: 50
+  cost: 50
+  value: 10
   price: {fileID: 3162762052452438807}
   foodName: {fileID: 8359678009322817884}
   type: 0
@@ -7717,8 +7717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ce497c577cb84f8d927ad47b04abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  value: 50
+  cost: 60
+  value: 1
   price: {fileID: 7598801049635902189}
   foodName: {fileID: 2350138514921874557}
   type: 5
@@ -8201,7 +8201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  value: 50
+  value: 5
   price: {fileID: 7636845847838895818}
   foodName: {fileID: 9178427715980996573}
   type: 0

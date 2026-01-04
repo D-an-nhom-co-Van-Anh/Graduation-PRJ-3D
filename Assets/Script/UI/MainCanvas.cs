@@ -13,6 +13,7 @@ public class MainCanvas : UICanvas
     [SerializeField] private Button missionButton;
     [SerializeField] private GameObject missionBoard;
     [SerializeField] private TextMeshProUGUI currentMission;
+    [SerializeField] private TextMeshProUGUI currentMissionDescription;
     [SerializeField] private List<QuestUI> questUI;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     private CinemachineOrbitalFollow orbitalFollow;
@@ -61,9 +62,10 @@ public class MainCanvas : UICanvas
         questMap = GameManager_.Instance.GetQuestManager().GetQuestMap();
         foreach (Quest quest in questMap.Values)
         {
-            if (quest.state == QuestState.IN_PROGRESS)
+            if (quest.state == QuestState.IN_PROGRESS|| quest.state == QuestState.CAN_START)
             {
                 currentMission.SetText("Nhiệm vụ " + (index + 1).ToString());
+                currentMissionDescription.SetText(quest.info.displayName);
                 break;
             }
             index++;
