@@ -282,8 +282,10 @@ public class PlayerMovementController : MonoBehaviour
     }
     public void AddSpeed(float value)
     {
-        runSpeed =Mathf.Clamp( runSpeed+ value,6,10);
-        walkSpeed = Mathf.Clamp(walkSpeed + value, 2, 6);
+         runSpeed =Mathf.Clamp( runSpeed + value,6f,15f);
+         walkSpeed = Mathf.Clamp(walkSpeed + value, 2f, 8f);
+        //runSpeed += value;
+       // walkSpeed += value;
     }
     public void AddStaminaPerSecond(float value)
     {
