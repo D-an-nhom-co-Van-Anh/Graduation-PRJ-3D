@@ -44,7 +44,7 @@ public class TriggerBall : MonoBehaviour
                 level = BK_HooperMoving.Instance.GetLevel();
                 level += 1;
                 BK_HooperMoving.Instance.SetLevel(level);
-                UIManager_.Instance.Open<PopupMessage>().Show("Level " + level.ToString(), 0.5f);
+                UIManager_.Instance.Open<PopupMessage>().Show("Success", 0.5f);
                 AudioManager.Instance.PlaySFX("successBasketball");
             }
 
