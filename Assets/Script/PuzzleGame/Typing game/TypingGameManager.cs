@@ -32,7 +32,7 @@ public class TypingGameManager : MonoBehaviour
     private string currentWord;
     private int currentIndex = 0;
 
-    // 🔔 Sự kiện cho các script khác (như TypingTimerAndReward)
+    // Sự kiện cho các script khác (như TypingTimerAndReward)
     public System.Action OnWordCompleted;
     public System.Action OnNewWord;
     public System.Action OnWordFailed; // Khi hết thời gian mà chưa hoàn thành

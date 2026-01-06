@@ -24,7 +24,7 @@ public class TypingTimerAndReward : MonoBehaviour
         typingGameManager.OnWordCompleted += HandleWordCompleted;
         typingGameManager.OnNewWord += HandleNewWord;
 
-        // ✅ Nếu game đã khởi tạo từ rồi, tự bật timer cho từ đầu tiên
+        // Nếu game đã khởi tạo từ rồi, tự bật timer cho từ đầu tiên
         HandleNewWord();
     }
 

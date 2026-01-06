@@ -24,11 +24,11 @@ public class TypingEffects : MonoBehaviour
 
         Vector3 localStartPos = flyingLetterParent.InverseTransformPoint(startWorldPos);
 
-        // ✅ Dịch lùi lại 100 đơn vị theo trục X, y local của parent
+        // Dịch lùi lại 100 đơn vị theo trục X, y local của parent
         //localStartPos.x += 200f;
         localStartPos.y += 100f;
 
-        // ✅ Thêm offset nhẹ để nhìn tự nhiên hơn (nếu muốn)
+        // Thêm offset nhẹ để nhìn tự nhiên hơn (nếu muốn)
         Vector3 startOffset = new Vector3(
             Random.Range(-50f, 50f),
             Random.Range(-50f, 50f),
