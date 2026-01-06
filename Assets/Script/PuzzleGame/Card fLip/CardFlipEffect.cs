@@ -14,9 +14,7 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image frontImage;
     [SerializeField] private Image backImage;
 
-    /// <summary>
     /// Xử lý khi người chơi click vào lá bài.
-    /// </summary>
     public void OnPointerClick(PointerEventData eventData)
     {
         // Nếu đã khớp hoặc đang lật thì bỏ qua
@@ -30,10 +28,7 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
         Flip();
         CardManager.Instance.RegisterFlip(this);
     }
-
-    /// <summary>
     /// Lật bài lên.
-    /// </summary>
     public void Flip()
     {
         flipped = true;
@@ -54,9 +49,7 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
         });
     }
 
-    /// <summary>
     /// Ẩn bài khi trùng khớp.
-    /// </summary>
     public void HideCard()
     {
         matched = true;

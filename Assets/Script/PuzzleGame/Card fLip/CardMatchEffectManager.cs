@@ -61,7 +61,7 @@ public class CardMatchEffectManager : MonoBehaviour
         MatchEffectData data = matchEffects.Find(e => e.cardID == cardID);
         if (data == null)
         {
-            Debug.LogWarning($"⚠️ Không tìm thấy hiệu ứng cho Card ID: {cardID}");
+            Debug.LogWarning($" Không tìm thấy hiệu ứng cho Card ID: {cardID}");
             return;
         }
 
@@ -72,7 +72,7 @@ public class CardMatchEffectManager : MonoBehaviour
     {
         isPlaying = true;
 
-        // Dừng nhạc nền nếu đang phát 🔇
+        // Dừng nhạc nền nếu đang phát 
         if (bgmSource != null && bgmSource.isPlaying)
             bgmSource.Pause();
 
@@ -83,14 +83,14 @@ public class CardMatchEffectManager : MonoBehaviour
 
         float effectDuration = 0f;
 
-        // 🔊 Phát âm thanh hiệu ứng nếu có
+        //  Phát âm thanh hiệu ứng nếu có
         if (audioSource != null && data.matchSound != null)
         {
             audioSource.PlayOneShot(data.matchSound);
             effectDuration = data.matchSound.length; // lưu lại độ dài clip
         }
 
-        // 🎬 Animation
+        // Animation
         Sequence seq = DOTween.Sequence();
         seq.Append(effectImage.DOFade(1f, appearDuration).SetEase(Ease.OutQuad));
         seq.Join(effectImage.transform.DOScale(zoomScale, appearDuration).SetEase(Ease.OutBack));
@@ -104,7 +104,7 @@ public class CardMatchEffectManager : MonoBehaviour
             effectImage.transform.localScale = Vector3.one;
             isPlaying = false;
 
-            // 🔊 Tiếp tục phát nhạc nền sau khi hiệu ứng xong
+            // Tiếp tục phát nhạc nền sau khi hiệu ứng xong
             if (bgmSource != null)
                 bgmSource.UnPause();
         });

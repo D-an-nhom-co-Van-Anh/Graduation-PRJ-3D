@@ -24,17 +24,13 @@ public class CardManager : MonoBehaviour
         Instance = this;
     }
 
-    /// <summary>
     /// Kiểm tra xem có thể lật thêm lá bài mới hay không.
-    /// </summary>
     public bool CanFlipCard()
     {
         return !checkingMatch && flippedCards.Count < 2;
     }
 
-    /// <summary>
-    /// Ghi nhận một lá bài vừa được lật.
-    /// </summary>
+    // Ghi nhận một lá bài vừa được lật.
     public void RegisterFlip(CardFlipEffect card)
     {
         // Nếu đang kiểm tra hoặc đã đủ 2 lá, bỏ qua
@@ -49,10 +45,8 @@ public class CardManager : MonoBehaviour
             StartCoroutine(CheckMatch());
         }
     }
-
-    /// <summary>
     /// Kiểm tra 2 lá có trùng nhau không.
-    /// </summary>
+
     private IEnumerator CheckMatch()
     {
         checkingMatch = true;

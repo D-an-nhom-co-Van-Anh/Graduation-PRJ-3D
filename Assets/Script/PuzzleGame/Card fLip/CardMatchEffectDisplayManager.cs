@@ -59,9 +59,7 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
         }
     }
 
-    /// <summary>
     /// Gọi khi match đúng 2 thẻ, sẽ hiển thị effect + phát âm thanh tương ứng.
-    /// </summary>
     public void ShowEffect(int cardID)
     {
         MatchDisplay display = matchDisplays.Find(d => d.cardID == cardID);

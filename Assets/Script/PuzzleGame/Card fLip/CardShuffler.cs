@@ -55,6 +55,6 @@ public class CardShuffler : MonoBehaviour
             cardList[i].localPosition = originalPositions[i];
         }
 
-        Debug.Log("🔀 Đã trộn vị trí ngẫu nhiên các lá bài!");
+        Debug.Log(" Đã trộn vị trí ngẫu nhiên các lá bài!");
     }
 }

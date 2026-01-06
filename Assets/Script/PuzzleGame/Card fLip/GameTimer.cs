@@ -55,7 +55,7 @@ public class GameTimer : MonoBehaviour
         if (!timerRunning || gameEnded)
             return;
 
-        // 🔥 QUAN TRỌNG: dùng unscaledDeltaTime
+        //dùng unscaledDeltaTime
         remainingTime -= Time.unscaledDeltaTime;
         UpdateTimerUI();
 
@@ -112,7 +112,7 @@ public class GameTimer : MonoBehaviour
 
         if (allMatched)
         {
-            Debug.Log("🎉 Thắng! Nhận 200 xu");
+            Debug.Log("Thắng! Nhận 200 xu");
             GameManager_.Instance.GetCurrencyManager().AddCash(200);
 
             SceneManager_.Instance.ExitAdditiveScene("CardFlip");
@@ -120,7 +120,7 @@ public class GameTimer : MonoBehaviour
         }
         else
         {
-            Debug.Log("⌛ Hết giờ! Nhận 50 xu");
+            Debug.Log("Hết giờ! Nhận 50 xu");
             GameManager_.Instance.GetCurrencyManager().AddCash(50);
 
             if (failureUI)
