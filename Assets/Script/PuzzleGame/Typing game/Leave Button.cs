@@ -9,7 +9,7 @@ public class LeaveButton : MonoBehaviour
 
     void Start()
     {
-        // Lần đầu chơi game → auto show tutorial
+        // Lần đầu chơi game auto show tutorial
         if (!PlayerPrefs.HasKey(TUTORIAL_KEY))
         {
             OpenTutorial(true);
