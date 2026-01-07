@@ -109,6 +109,10 @@ public class NpcTriggerZone : MonoBehaviour
         {
             HandleTalkInput();
         }
+        if(playerInZone && Input.GetKeyDown(KeyCode.Q))
+        {
+            dialogueController.EndDialogue();
+        }
 
         //  đồng bộ animator
         npcController?.SetTalking(isTalking);
