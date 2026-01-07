@@ -67,6 +67,11 @@ public class InteractableObjReal : InteractableObj
             {
                 HandleTalkInput();
             }
+            if (playerInZone && Input.GetKeyDown(KeyCode.Q))
+            {
+                dialogueController.EndDialogue();
+                playerController.UnlockMovement();
+            }
         }
         
         
