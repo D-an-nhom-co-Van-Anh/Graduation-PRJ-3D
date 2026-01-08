@@ -80,14 +80,14 @@ public class TypingGameManager : MonoBehaviour
 
         inputChar = char.ToUpper(inputChar);
 
-        // ✅ Nếu gõ đúng ký tự
+        // Nếu gõ đúng ký tự
         if (inputChar == currentWord[currentIndex])
         {
             Vector3 charWorldPos = GetCharacterWorldPosition(currentIndex);
             typingEffect.SpawnFlyingLetter(inputChar, charWorldPos);
             currentIndex++;
 
-            // ✅ Nếu hoàn thành từ
+            // Nếu hoàn thành từ
             if (currentIndex >= currentWord.Length)
             {
                 typingEffect.PlayWordCompleteEffect();
@@ -171,7 +171,7 @@ public class TypingGameManager : MonoBehaviour
     void EndRound()
     {
         roundEnded = true;
-        wordDisplay.text = "<color=#FFD700>🎉 Finish Round! 🎉</color>";
+        wordDisplay.text = "<color=#FFD700> Finish Round! </color>";
 
         if (progressText != null)
             progressText.text = $"Result: <color=#00FF7F>{wordsCompleted}</color> / {maxWordsPerRound} Correct" +
@@ -179,7 +179,7 @@ public class TypingGameManager : MonoBehaviour
 
         // khi nao ghép vào game hoàn chỉnh thì bỏ commment-> dùng để end quest với cập nhật trạng thái quest
         StartCoroutine(ExitTypingAfterDelay(3f));
-        Debug.Log($"🏁 Round completed! {wordsCompleted}/{maxWordsPerRound} correct, {failedWords} incorrect.");
+        Debug.Log($" Round completed! {wordsCompleted}/{maxWordsPerRound} correct, {failedWords} incorrect.");
     }
     #endregion
 
@@ -213,7 +213,7 @@ public class TypingGameManager : MonoBehaviour
         SceneManager_.Instance.ExitAdditiveScene("Typing");
         AudioManager.Instance.PlayMusic("background1");
 
-        Debug.Log("🚪 Exited Typing scene after delay");
+        Debug.Log(" Exited Typing scene after delay");
     }
 
     #region === Utility Functions ===

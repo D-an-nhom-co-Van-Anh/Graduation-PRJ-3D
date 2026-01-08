@@ -103,7 +103,7 @@ public class TypingGameFull : MonoBehaviour
         wordToTypeText.text = currentWord;
         currentInputText.text = "";
 
-        // ✅ Gọi hiệu ứng fade-in từ dưới lên mỗi lần sinh từ
+        // Gọi hiệu ứng fade-in từ dưới lên mỗi lần sinh từ
         StartCoroutine(FadeInWord(wordToTypeText, 0.5f, 50f));
     }
 
@@ -141,7 +141,7 @@ public class TypingGameFull : MonoBehaviour
         wordToTypeText.text = "";
         currentInputText.text = "";
         scoreText.text = $"Final Score: {score}/{maxScore}";
-        endGameText.text = "🎉 Bạn đã hoàn thành! 🎮";
+        endGameText.text = " Bạn đã hoàn thành! ";
 
         Debug.Log("Game Over — Đạt đủ điểm hoặc hết từ!");
     }

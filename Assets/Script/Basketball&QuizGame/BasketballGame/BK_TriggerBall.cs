@@ -63,7 +63,6 @@ public class TriggerBall : MonoBehaviour
             ballCollider.enabled=true;
     }
 
-    // ?? H�m t?t trigger (chuy?n Collider v? va ch?m v?t l� b�nh th??ng)
     public void DisableTrigger()
     {
       

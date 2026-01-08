@@ -23,7 +23,7 @@ public class CardShuffler : MonoBehaviour
     {
         if (cardParent == null)
         {
-            Debug.LogWarning("⚠️ Chưa gán Card Parent cho CardShuffler!");
+            Debug.LogWarning("Chưa gán Card Parent cho CardShuffler!");
             return;
         }
 

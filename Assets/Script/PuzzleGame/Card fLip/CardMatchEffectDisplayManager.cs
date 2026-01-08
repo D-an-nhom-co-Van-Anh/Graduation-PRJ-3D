@@ -65,14 +65,14 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
         MatchDisplay display = matchDisplays.Find(d => d.cardID == cardID);
         if (display == null)
         {
-            Debug.LogWarning($"⚠️ Không tìm thấy effect cho card ID {cardID}");
+            Debug.LogWarning($"Không tìm thấy effect cho card ID {cardID}");
             return;
         }
 
         var obj = display.effectObject;
         if (obj == null)
         {
-            Debug.LogWarning($"⚠️ Effect object cho card ID {cardID} bị null!");
+            Debug.LogWarning($" Effect object cho card ID {cardID} bị null!");
             return;
         }
 
@@ -83,11 +83,11 @@ public class CardMatchEffectDisplayManager : MonoBehaviour
         obj.transform.localScale = Vector3.one * 0.8f;
         cg.alpha = 0f;
 
-        // 🔊 Phát âm thanh nếu có
+        // Phát âm thanh nếu có
         if (display.matchSound != null && globalAudioSource != null)
             globalAudioSource.PlayOneShot(display.matchSound);
 
-        // 🎬 Animation DOTween: fade in → giữ → fade out
+        // Animation DOTween: fade in → giữ → fade out
         Sequence seq = DOTween.Sequence();
 
         seq.Append(cg.DOFade(1f, appearDuration).SetEase(Ease.OutQuad));

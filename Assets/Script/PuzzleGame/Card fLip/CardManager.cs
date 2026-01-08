@@ -59,12 +59,12 @@ public class CardManager : MonoBehaviour
 
         if (first.cardID == second.cardID)
         {
-            // ✅ Giống nhau
+            // Giống nhau
             first.HideCard();
             second.HideCard();
 
 
-            // ✅ Gọi hiển thị effect tương ứng trên màn chơi
+            // Gọi hiển thị effect tương ứng trên màn chơi
             if (CardMatchEffectDisplayManager.Instance != null)
                 CardMatchEffectDisplayManager.Instance.ShowEffect(first.cardID);
 
@@ -77,7 +77,7 @@ public class CardManager : MonoBehaviour
         }
         else
         {
-            // ❌ Không trùng → lật ngược lại
+            // Không trùng → lật ngược lại
             first.FlipBack();
             second.FlipBack();
 

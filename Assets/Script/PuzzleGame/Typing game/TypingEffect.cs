@@ -41,7 +41,7 @@ public class TypingEffects : MonoBehaviour
             0
         );
 
-        // ✅ Tạo chữ theo local position (dưới parent)
+        // Tạo chữ theo local position (dưới parent)
         TMP_Text letter = Instantiate(
             flyingLetterPrefab,
             flyingLetterParent
@@ -50,7 +50,7 @@ public class TypingEffects : MonoBehaviour
         letter.text = c.ToString();
         letter.rectTransform.anchoredPosition = localStartPos + startOffset;
 
-        // ✅ Di chuyển tương đối trong cùng local space
+        //Di chuyển tương đối trong cùng local space
         letter.rectTransform
             .DOLocalMove(localStartPos + endOffset, flyDuration)
             .SetEase(Ease.OutExpo);
@@ -83,6 +83,6 @@ public class TypingEffects : MonoBehaviour
     public void PlayWordCompleteEffect()
     {
         // Có thể thêm particle hoặc âm thanh ở đây
-        Debug.Log("✅ Word completed!");
+        Debug.Log("Word completed!");
     }
 }

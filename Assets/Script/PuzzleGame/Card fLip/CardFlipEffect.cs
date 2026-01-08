@@ -20,7 +20,7 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
         // Nếu đã khớp hoặc đang lật thì bỏ qua
         if (matched || flipped) return;
 
-        // 🔒 Hỏi CardManager xem có cho phép lật không
+        // Check CardManager xem có cho phép lật không
         if (!CardManager.Instance.CanFlipCard())
             return;
 
@@ -28,7 +28,7 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
         Flip();
         CardManager.Instance.RegisterFlip(this);
     }
-    /// Lật bài lên.
+    // Lật bài lên.
     public void Flip()
     {
         flipped = true;
@@ -49,7 +49,7 @@ public class CardFlipEffect : MonoBehaviour, IPointerClickHandler
         });
     }
 
-    /// Ẩn bài khi trùng khớp.
+    // Ẩn bài khi trùng khớp.
     public void HideCard()
     {
         matched = true;

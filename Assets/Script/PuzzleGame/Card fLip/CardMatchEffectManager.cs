@@ -28,7 +28,7 @@ public class CardMatchEffectManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     [Header("Nguồn phát nhạc nền (Background Music)")]
-    [SerializeField] private AudioSource bgmSource; // 🔥 thêm dòng này
+    [SerializeField] private AudioSource bgmSource;
 
     [Header("Danh sách hiệu ứng theo từng Card ID")]
     [SerializeField] private List<MatchEffectData> matchEffects = new List<MatchEffectData>();
