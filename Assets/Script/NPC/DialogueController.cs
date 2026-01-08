@@ -105,7 +105,7 @@ public class DialogueController : MonoBehaviour
         ShowDialogue();
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
