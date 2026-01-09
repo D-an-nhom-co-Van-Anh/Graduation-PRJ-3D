@@ -230,7 +230,7 @@ public class QuestManager : Singleton<QuestManager>
             return false;
         }
 
-        if (!questMap.TryGetValue(questId, out Quest quest))
+            if (!questMap.TryGetValue(questId, out Quest quest))
         {
             Debug.LogWarning($"CheckQuest: Quest id not found  {questId}");
             return false;
