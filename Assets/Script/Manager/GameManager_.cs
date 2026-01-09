@@ -49,6 +49,15 @@ public class GameManager_ : Singleton<GameManager_>
             PlayerPrefs.Save();
         }
     }
+
+    public void SkipTimeLine()
+    {
+        if(!cutSceneinA2.isActiveAndEnabled) return;
+        cutSceneinA2.Stop();
+        cutSceneinA2.enabled = false;
+        PlayerPrefs.SetInt(saveKey, 1);
+        PlayerPrefs.Save();
+    }
     public CurrencyManager GetCurrencyManager()
     {
         return this.currencyManager;
