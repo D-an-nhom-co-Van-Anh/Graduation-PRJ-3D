@@ -71,6 +71,7 @@ public class InteractableObjReal : InteractableObj
             {
                 dialogueController.EndDialogue();
                 playerController.UnlockMovement();
+                GameManager_.Instance.SkipTimeLine();
             }
         }
         
