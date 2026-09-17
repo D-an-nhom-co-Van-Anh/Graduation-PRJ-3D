@@ -20,6 +20,6 @@ Các thành viên dùng toàn bộ bằng phiên bản Unity 6000.0.51f1
 
 Đề tài: Game thăm quan học viện Bưu Chính và giới thiệu ngành học trọng điểm
 
-Bản quyền UI này được draw bởi Nguyễn Giang Linh (artist AkiSora) - xin hãy đọc trước yêu cầu về bản quyền
+Bản quyền UI này được draw bởi Nguyễn Giang Linh  - xin hãy đọc trước yêu cầu về bản quyền
 
 Ui game PTIT đang trong quá trình phát triển, Đây sẽ là 1 game chơi trên PC
